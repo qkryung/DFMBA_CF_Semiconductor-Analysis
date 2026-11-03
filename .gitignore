@@ -1,0 +1,8 @@
+__pycache__/
+node_modules/
+qa/
+*.pdf
+*.xls
+*.png
+.DS_Store
+make_content.py
