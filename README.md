@@ -2,6 +2,10 @@
 
 KAIST DFMBA 기업재무 · 12조 발표 자료. 조사 기준일 2026-11-03.
 
+**[발표 자료 열기](https://qkryung.github.io/DFMBA_CF_Semiconductor-Analysis/)** · **[개인 공부용 해설 열기](https://qkryung.github.io/DFMBA_CF_Semiconductor-Analysis/study.html)**
+
+전체 32장, 약 20분 핵심 경로 22장. 업종 비중 비교, 기업 매출 순위 재생, 가치평가 민감도 체험, 별도 발표자 화면을 제공합니다. 공부용 자료는 32장과 같은 순서로 상세 해설·발표 대본·연결 문장·예상 질문과 답변·출처를 수록했습니다.
+
 - `index.html`: 발표용 인터랙티브 슬라이드
 - `study.html`: 같은 장표 순서의 개인 공부용 해설
 
