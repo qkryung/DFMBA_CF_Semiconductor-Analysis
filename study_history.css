@@ -1,0 +1,27 @@
+.history-guide{margin-top:42px;padding-top:32px;border-top:2px solid var(--cyan);scroll-margin-top:90px}
+.study-section .history-guide>h3{font-size:29px;line-height:1.5;margin:15px 0 18px;color:var(--ink)}
+.study-section .history-lead{font-size:20px;font-weight:700;color:var(--ink);line-height:1.8}
+.history-guide h4{font-size:22px;line-height:1.6;color:var(--cyan);margin:32px 0 14px}
+.history-guide h5{font-size:17px;line-height:1.7;color:var(--ink);margin:24px 0 10px}
+.history-jumps{display:flex;flex-wrap:wrap;gap:10px 24px;margin:24px 0 30px;padding:18px 0;border-block:1px solid var(--line)}
+.history-jumps a{font-size:14px;line-height:1.7}
+.history-table{max-width:100%;overflow-x:auto}
+.history-table table{min-width:520px}
+.study-section .history-note{font-size:14px;color:var(--muted);line-height:1.8}
+.history-era{scroll-margin-top:90px;border-top:1px solid var(--line);margin-top:40px;padding-top:28px}
+.study-section .history-period{font-size:15px;color:var(--cyan);font-weight:700;margin:0 0 7px}
+.history-era h4{margin:0 0 16px;font-size:25px;color:var(--ink)}
+.study-section .history-leader{font-size:15px;color:var(--muted);margin-bottom:22px}
+.history-leader strong{color:var(--cyan);margin-right:10px}
+.history-companies{margin:8px 0 22px}
+.history-companies>div{display:grid;grid-template-columns:155px minmax(0,1fr);gap:16px;padding:15px 0;border-bottom:1px solid var(--line)}
+.history-companies dt{font-weight:700;color:var(--green);font-size:16px;line-height:1.8}
+.history-companies dd{font-size:16px;line-height:1.9;margin:0;color:var(--ink)}
+.study-section .history-point{border-left:3px solid var(--cyan);padding:12px 20px;background:var(--panel);font-size:16px;line-height:1.9}
+.study-section .history-sources{font-size:13px;line-height:1.9;color:var(--muted);overflow-wrap:anywhere}
+.history-back{margin:28px 0}
+.light .history-companies dt{color:#07694f}
+.light .history-point{background:#e8f1f7}
+.light .history-guide .history-lead,.light .history-guide h4,.light .history-guide h5{color:#15364d}
+@media(max-width:850px){.history-guide,.history-era{scroll-margin-top:111px}.history-companies>div{grid-template-columns:1fr;gap:5px}.study-section .history-guide>h3{font-size:25px}.history-era h4{font-size:23px}.history-jumps{gap:9px 18px}}
+@media print{.history-guide,.history-era{scroll-margin-top:0}.history-guide h4,.history-guide h5,.history-companies dd{color:#111!important}.history-companies dt{color:#075a78}.history-point{background:#f1f5f7!important;color:#111!important}.history-table{overflow:visible}.history-table table{min-width:0;display:table}.history-jumps,.history-back{display:none}.history-era{break-inside:auto}.history-era h4,.history-guide h5{break-after:avoid}}

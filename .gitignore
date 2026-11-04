@@ -6,3 +6,4 @@ qa/
 *.png
 .DS_Store
 make_content.py
+~$*

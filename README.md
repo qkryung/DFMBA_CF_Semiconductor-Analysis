@@ -2,12 +2,15 @@
 
 KAIST DFMBA 기업재무 · 12조 발표 자료. 조사 기준일 2026-11-03.
 
-**[발표 자료 열기](https://qkryung.github.io/DFMBA_CF_Semiconductor-Analysis/)** · **[개인 공부용 해설 열기](https://qkryung.github.io/DFMBA_CF_Semiconductor-Analysis/study.html)**
+**[발표 자료 열기](https://qkryung.github.io/DFMBA_CF_Semiconductor-Analysis/)** · **[개인 공부용 해설 열기](https://qkryung.github.io/DFMBA_CF_Semiconductor-Analysis/study.html)** · **[인쇄용 Word 파일](output/반도체_산업과_기업재무_공부용.docx)**
 
 전체 32장, 약 20분 핵심 경로 22장. 업종 비중 비교, 기업 매출 순위 재생, 가치평가 민감도 체험, 별도 발표자 화면을 제공합니다. 공부용 자료는 32장과 같은 순서로 상세 해설·발표 대본·연결 문장·예상 질문과 답변·출처를 수록했습니다.
 
 - `index.html`: 발표용 인터랙티브 슬라이드
 - `study.html`: 같은 장표 순서의 개인 공부용 해설
+- `output/반도체_산업과_기업재무_공부용.docx`: 개인 학습용 A4 세로 인쇄본. 32개 장과 시대별 심화 해설, 표 18개, 예상 질문, 용어, 출처를 포함합니다. Word 기준 55쪽이며 목차와 페이지 번호를 넣었습니다.
+
+공부용 해설의 11번 순위 장에는 **시대 변화와 1위 교체** 심화 읽기가 추가되어 있습니다(2026-11-04). 1980년대 후반부터 2025년 AI 인프라 투자까지 9개 시기의 배경, 반도체 수요·가격, 기업별 영향, 확인 질문과 출처를 담았습니다. 이 추가 해설은 발표용 장표에 반영하지 않았습니다.
 
 두 파일 모두 외부 라이브러리와 인터넷 연결 없이 브라우저에서 열 수 있습니다. 출처 원문 링크는 인터넷 연결이 필요합니다.
 
@@ -20,3 +23,7 @@ HBS 케이스 원문과 제공된 디자인 참고 이미지, 기존 학습 HTML
 ## 재생성
 
 `python build.py`는 `content.json`, `data.json`, `theme.css`, `app.js`를 묶어 독립 실행형 HTML 두 개를 생성합니다. 원본 수정 후 이 명령을 실행하면 됩니다.
+
+공부용 시대별 심화 해설은 `study_history.json`에, 그 렌더링과 스타일은 `study_history.py`, `study_history.css`에 있습니다. 이 세 파일의 내용은 `study.html`에만 포함됩니다. **`python build.py --study-only`**를 실행하면 발표용 `index.html`을 쓰지 않고 공부용 해설만 다시 생성합니다.
+
+Word 파일은 2026-11-04 공부용 HTML을 옮긴 인쇄본입니다. 위 HTML 빌드 명령으로 Word 파일이 자동 갱신되지는 않습니다.
