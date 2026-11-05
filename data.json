@@ -1,1526 +1,2519 @@
 {
+ "asOf": "2026-11-05",
+ "sources": {
+  "ranking_history": {
+   "title": "Kamakura (2022), From globalising to regionalising to reshoring value chains? The case of Japan’s semiconductor industry, Table 1",
+   "publisher": "Cambridge Journal of Regions, Economy and Society / Oxford Academic",
+   "published": "2022-05-13",
+   "url": "https://academic.oup.com/cjres/article/15/2/261/6585222",
+   "table_url": "https://academic.oup.com/view-large/362108178",
+   "source_attribution": "Gartner, Inc.",
+   "note": "표가 파운드리 제외를 명시. 1990/2000/2010/2020 대표 연도. 원 Gartner 연도별 발행 버전은 표에 미기재.",
+   "short": "Gartner/OUP"
+  },
+  "ranking_2017": {
+   "title": "Gartner Says Worldwide Semiconductor Revenue Grew 21.6 Percent in 2017 as Samsung Takes Over No. 1 Position",
+   "publisher": "Gartner press release republished by Design & Reuse",
+   "published": "2018-04-23",
+   "url": "https://www.design-reuse.com/news/4806-gartner-says-worldwide-semiconductor-revenue-grew-21-6-percent-in-2017-as-samsung-takes-over-no-1-position/",
+   "status": "final",
+   "short": "Gartner 2017"
+  },
+  "ranking_2020": {
+   "title": "Gartner Says Worldwide Semiconductor Revenue Grew 10.4% in 2020",
+   "publisher": "Gartner press release republished by Design & Reuse",
+   "published": "2021-04-12",
+   "url": "https://www.design-reuse-embedded.com/news/202104063",
+   "status": "final",
+   "short": "Gartner 2020"
+  },
+  "ranking_2024": {
+   "title": "Gartner Says Worldwide Semiconductor Revenue Grew 21% in 2024",
+   "publisher": "Gartner",
+   "published": "2025-04-10",
+   "url": "https://www.gartner.com/en/newsroom/press-releases/2025-04-10-gartner-says-worldwide-semiconductor-revenue-grew-21-percent-in-2024",
+   "status": "final",
+   "short": "Gartner 2024"
+  },
+  "ranking_2025": {
+   "title": "Gartner Says Worldwide Semiconductor Revenue Grew 21% in 2025",
+   "publisher": "Gartner",
+   "published": "2026-01-12",
+   "url": "https://www.gartner.com/en/newsroom/press-releases/2026-01-12-gartner-says-worldwide-semiconductor-revenue-grew-21-percent-in-2025",
+   "status": "preliminary",
+   "short": "Gartner 2025 잠정"
+  },
+  "linear_deal": {
+   "title": "Analog Devices and Linear Technology to Combine Creating the Premier Analog Technology Company",
+   "publisher": "Analog Devices",
+   "published": "2016-07-26",
+   "url": "https://investor.analog.com/news-releases/news-release-details/analog-devices-and-linear-technology-combine-creating-premier",
+   "short": "Analog Devices"
+  },
+  "linear_close": {
+   "title": "Analog Devices Completes Acquisition of Linear Technology",
+   "publisher": "Analog Devices",
+   "published": "2017-03-10",
+   "url": "https://investor.analog.com/news-releases/news-release-details/analog-devices-completes-acquisition-linear-technology",
+   "short": "Analog Devices"
+  },
+  "linear_finance": {
+   "title": "ADI acquisition conference call transcript",
+   "publisher": "Analog Devices",
+   "published": "2016-07-26",
+   "url": "https://www.analog.com/media/en/corporate/Analog-Devices-and-Linear-Technology-Call-Transcript.pdf",
+   "short": "Analog Devices"
+  },
+  "linear_close_value": {
+   "title": "Linear Technology Form 8-K, merger closing",
+   "publisher": "SEC",
+   "published": "2017-03-10",
+   "url": "https://www.sec.gov/Archives/edgar/data/791907/000119312517078946/d340243d8k.htm",
+   "short": "SEC"
+  },
+  "adi_current": {
+   "title": "Analog Devices Reports Record Fiscal Third Quarter 2026 Financial Results",
+   "publisher": "Analog Devices",
+   "published": "2026-08-19",
+   "url": "https://investor.analog.com/news-releases/news-release-details/analog-devices-reports-record-fiscal-third-quarter-2026",
+   "short": "Analog Devices"
+  },
+  "elpida_failure": {
+   "title": "Notice on Petition for Commencement of Corporate Reorganization Proceedings",
+   "publisher": "Elpida release archived by Micron",
+   "published": "2012-02-27",
+   "url": "https://investors.micron.com/static-files/93dad3a1-e4b0-4cd3-aa29-5724f2f7029e",
+   "short": "Elpida release archived by Micron"
+  },
+  "elpida_causes": {
+   "title": "Notice on Petition ... and Uncollectibility of Debts of Our Subsidiary",
+   "publisher": "Elpida release archived by Micron",
+   "published": "2012-02-27",
+   "url": "https://investors.micron.com/static-files/d7476592-babc-4d0a-97f1-1238a2c9662e",
+   "short": "Elpida release archived by Micron"
+  },
+  "elpida_bonds": {
+   "title": "Notice on Acceleration of Straight Bonds and Convertible Bonds",
+   "publisher": "Elpida release archived by Micron",
+   "published": "2012-02-27",
+   "url": "https://investors.micron.com/static-files/662e1589-c956-404d-8c1e-b077a8c4e52c",
+   "short": "Elpida release archived by Micron"
+  },
+  "elpida_acquisition": {
+   "title": "Micron Form 8-K: Completion of Elpida Acquisition",
+   "publisher": "Micron",
+   "published": "2013-07-31",
+   "url": "https://investors.micron.com/static-files/3b9c8417-7cff-4d7d-8fe4-c03a68b946b5",
+   "short": "Micron"
+  },
+  "qimonda": {
+   "title": "Infineon Annual Report 2009",
+   "publisher": "Infineon",
+   "published": "2009",
+   "url": "https://www.infineon.com/dgdl/Infineon%2B20-F_2009.pdf?fileId=db3a304325305e6d01256eda6e5329c3",
+   "short": "Infineon"
+  },
+  "tsmc_foundry": {
+   "title": "Everything to Know about Dedicated Foundries",
+   "publisher": "TSMC",
+   "url": "https://www.tsmc.com/english/aboutTSMC/dc_infographics_foundry",
+   "short": "TSMC"
+  },
+  "tsmc_annual": {
+   "title": "TSMC 2017 Annual Report",
+   "publisher": "TSMC",
+   "published": "2018",
+   "url": "https://investor.tsmc.com/static/annualReports/2017/english/index.html",
+   "short": "TSMC"
+  },
+  "intel_dram": {
+   "title": "Farewell to DRAM",
+   "publisher": "Intel History",
+   "event_date": "1985-10-10",
+   "url": "https://timeline.intel.com/1985/farewell-to-dram",
+   "short": "Intel History"
+  },
+  "intel_4004": {
+   "title": "Intel Microprocessor Quick Reference Guide",
+   "publisher": "Intel",
+   "event_date": "1971-11-15",
+   "url": "https://www.intel.com/pressroom/kits/quickrefyr.htm",
+   "short": "Intel"
+  },
+  "kilby": {
+   "title": "From idea to invention: The origin story of the tiny chip that changed the world",
+   "publisher": "Texas Instruments",
+   "published": "2022-09-12",
+   "url": "https://www.ti.com/about-ti/behind-chip/articles/from-idea-to-invention-the-origin-story-of-the-tiny-chip-that-changed-the-world.html",
+   "short": "Texas Instruments"
+  },
+  "noyce": {
+   "title": "1959: Practical Monolithic Integrated Circuit Concept Patented",
+   "publisher": "Computer History Museum",
+   "url": "https://www.computerhistory.org/siliconengine/practical-monolithic-integrated-circuit-concept-patented/",
+   "short": "Computer History Museum"
+  },
+  "cuda": {
+   "title": "CUDA C Programming Guide 10.2, section 1.2",
+   "publisher": "NVIDIA",
+   "published": "2019",
+   "url": "https://docs.nvidia.com/cuda/archive/10.2/cuda-c-programming-guide/",
+   "short": "NVIDIA"
+  },
+  "hbm_history": {
+   "title": "SK hynix Begins Volume Production of the World’s First 12-Layer HBM3E",
+   "publisher": "SK hynix",
+   "published": "2024-09-26",
+   "url": "https://news.skhynix.com/en/sk-hynix-begins-volume-production-of-the-world-first-12-layer-hbm3e/",
+   "short": "SK hynix"
+  },
+  "hbm_definition": {
+   "title": "SK hynix Develops World’s Fastest High Bandwidth Memory, HBM2E",
+   "publisher": "SK hynix",
+   "published": "2019-08-12",
+   "url": "https://news.skhynix.com/en/sk-hynix-develops-worlds-fastest-high-bandwidth-memory-hbm2e/",
+   "short": "SK hynix"
+  },
+  "renesas": {
+   "title": "Renesas Annual Report 2011",
+   "publisher": "Renesas",
+   "published": "2011",
+   "url": "https://www.renesas.com/document/rep/annual-report-2011?language=en",
+   "short": "Renesas"
+  },
+  "nxp_freescale": {
+   "title": "NXP and Freescale Announce Completion of Merger",
+   "publisher": "NXP",
+   "published": "2015-12-07",
+   "url": "https://www.nxp.com/company/about-nxp/newsroom/NW-NXP-FREESCALE-MERGE",
+   "short": "NXP"
+  },
+  "broadcom": {
+   "title": "Broadcom Limited Announces First Quarter Fiscal Year 2016 Financial Results",
+   "publisher": "Broadcom",
+   "published": "2016-03-03",
+   "url": "https://investors.broadcom.com/news-releases/news-release-details/broadcom-limited-announces-first-quarter-fiscal-year-2016",
+   "short": "Broadcom"
+  },
+  "kioxia": {
+   "title": "Toshiba Memory to Rebrand as Kioxia in October",
+   "publisher": "Kioxia",
+   "published": "2019-07-18",
+   "url": "https://www.kioxia.com/en-jp/about/news/2019/20190718-2.html",
+   "short": "Kioxia"
+  },
+  "C01": {
+   "title": "삼성전자 Q3 공식 발표 (2026-10-29)",
+   "url": "https://news.samsung.com/kr/삼성전자-2026년-3분기-실적-발표",
+   "publisher": "기업 IR / 공식기관",
+   "published": "2026-11-03 확인",
+   "short": "C01 삼성전자",
+   "note": "상세 해설의 기준 기간·회계범위·실제/전망 구분을 함께 확인. "
+  },
+  "C02": {
+   "title": "SK하이닉스 Q3 공식 발표 (2026-10-28)",
+   "url": "https://news.skhynix.com/en/q3-2026-business-results/",
+   "publisher": "기업 IR / 공식기관",
+   "published": "2026-11-03 확인",
+   "short": "C02 SK하이닉스",
+   "note": "상세 해설의 기준 기간·회계범위·실제/전망 구분을 함께 확인. "
+  },
+  "C03": {
+   "title": "Micron FY2026 실적 (2026-09-30, FY 종료 2026-09-03)",
+   "url": "https://investors.micron.com/news/press-release/2026/Micron-Technology-Inc--Reports-Record-Fiscal-Fourth-Quarter-and-Full-Year-2026-Results/",
+   "publisher": "기업 IR / 공식기관",
+   "published": "2026-11-03 확인",
+   "short": "C03 Micron",
+   "note": "상세 해설의 기준 기간·회계범위·실제/전망 구분을 함께 확인. "
+  },
+  "C04": {
+   "title": "2029 발언 확인 경로: 기업 발언의 2차 전재이며, 본 조사에서 공식 음원 직접 청취까지는 하지 못함. 기술 주장에는 사용하지 않고 계약 표현의 출처로만 사용.",
+   "url": "https://en.edaily.co.kr/news/eda202610285220/",
+   "publisher": "이데일리 · 콜 발언 전재",
+   "published": "2026-11-03 확인",
+   "short": "C04 2029",
+   "note": "상세 해설의 기준 기간·회계범위·실제/전망 구분을 함께 확인. 공식 음원 직접 청취 아님. 2029는 계약과 협의 수요를 합친 표현."
+  },
+  "C05": {
+   "title": "Micron 공식 준비 발언 (2026-09-30)",
+   "url": "https://s25.q4cdn.com/621799436/files/doc_financials/2026/q4/Q4-FY26-Prepared-Remarks.pdf",
+   "publisher": "기업 IR / 공식기관",
+   "published": "2026-11-03 확인",
+   "short": "C05 Micron",
+   "note": "상세 해설의 기준 기간·회계범위·실제/전망 구분을 함께 확인. "
+  },
+  "C06": {
+   "title": "Micron HBM2E 기술백서 (2021)",
+   "url": "https://assets.micron.com/adobe/assets/urn%3Aaaid%3Aaem%3A275edf31-79e3-4b6c-8bbd-a233babe9281/original/as/micron-hbm2e-memory-wp.pdf",
+   "publisher": "기업 IR / 공식기관",
+   "published": "2026-11-03 확인",
+   "short": "C06 Micron",
+   "note": "상세 해설의 기준 기간·회계범위·실제/전망 구분을 함께 확인. "
+  },
+  "C07": {
+   "title": "Micron 교육용 패키징 설명",
+   "url": "https://www.micron.com/content/dam/micron/educatorhub/intro-to-memory-packaging/micron-intro-to-memory-packaging-presentation.pdf",
+   "publisher": "기업 IR / 공식기관",
+   "published": "2026-11-03 확인",
+   "short": "C07 Micron",
+   "note": "상세 해설의 기준 기간·회계범위·실제/전망 구분을 함께 확인. "
+  },
+  "C08": {
+   "title": "Micron Fiscal Q2 2025 Earnings Call Prepared Remarks, p.6",
+   "url": "https://micron.gcs-web.com/static-files/52ce0c07-49dc-4eab-b1d2-a67bde373bca",
+   "publisher": "기업 IR / 공식기관",
+   "published": "2025-03-20",
+   "short": "C08 Micron",
+   "note": "동일 bit 용량에서 HBM3E가 DDR5 대비 약 3배의 silicon을 사용한다는 회사 설명. 세대·조건을 한정해야 한다."
+  },
+  "C09": {
+   "title": "NVIDIA Blackwell Ultra 기술 블로그 (2025)",
+   "url": "https://developer.nvidia.com/blog/inside-nvidia-blackwell-ultra-the-chip-powering-the-ai-factory-era/",
+   "publisher": "기업 IR / 공식기관",
+   "published": "2026-11-03 확인",
+   "short": "C09 NVIDIA",
+   "note": "상세 해설의 기준 기간·회계범위·실제/전망 구분을 함께 확인. "
+  },
+  "C10": {
+   "title": "NVIDIA FY2026 공식 발표 (2026-02-25)",
+   "url": "https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Announces-Financial-Results-for-Fourth-Quarter-and-Fiscal-2026/",
+   "publisher": "기업 IR / 공식기관",
+   "published": "2026-11-03 확인",
+   "short": "C10 NVIDIA",
+   "note": "상세 해설의 기준 기간·회계범위·실제/전망 구분을 함께 확인. "
+  },
+  "C11": {
+   "title": "TSMC 2025 실적 발표 자료 (2026-01-15)",
+   "url": "https://www.sec.gov/Archives/edgar/data/1046179/000104617926000008/a4q25presentatione.htm",
+   "publisher": "기업 IR / 공식기관",
+   "published": "2026-11-03 확인",
+   "short": "C11 TSMC",
+   "note": "상세 해설의 기준 기간·회계범위·실제/전망 구분을 함께 확인. "
+  },
+  "C12": {
+   "title": "TI 2025 공식 실적 발표 (2026-01-27)",
+   "url": "https://www.ti.com/about-ti/newsroom/news-releases/2026/2026-01-27-ti-reports-q4-2025-and-2025-financial-results-and-shareholder-returns.html",
+   "publisher": "기업 IR / 공식기관",
+   "published": "2026-11-03 확인",
+   "short": "C12 TI",
+   "note": "상세 해설의 기준 기간·회계범위·실제/전망 구분을 함께 확인. "
+  },
+  "C13": {
+   "title": "Micron FY2025 실적 (2025-09-23)",
+   "url": "https://investors.micron.com/news/press-release/2025/Micron-Technology-Inc--Reports-Results-for-the-Fourth-Quarter-and-Full-Year-of-Fiscal-2025-09-23-2025/default.aspx",
+   "publisher": "기업 IR / 공식기관",
+   "published": "2026-11-03 확인",
+   "short": "C13 Micron",
+   "note": "상세 해설의 기준 기간·회계범위·실제/전망 구분을 함께 확인. "
+  },
+  "C14": {
+   "title": "Damodaran 1차 강의 자료",
+   "url": "https://pages.stern.nyu.edu/~adamodar/New_Home_Page/invfables/pbvdeterminants.htm",
+   "publisher": "기업 IR / 공식기관",
+   "published": "2026-11-03 확인",
+   "short": "C14 Damodaran",
+   "note": "상세 해설의 기준 기간·회계범위·실제/전망 구분을 함께 확인. "
+  },
+  "C15": {
+   "title": "현업 경영자의 시각 — TI 자본관리 공식 페이지",
+   "url": "https://investor.ti.com/resources/capital-management",
+   "publisher": "기업 IR / 공식기관",
+   "published": "2026-11-03 확인",
+   "short": "C15 현업",
+   "note": "상세 해설의 기준 기간·회계범위·실제/전망 구분을 함께 확인. "
+  },
+  "C16": {
+   "title": "Amazon Q3 2026 공식 실적 (2026-10-29)",
+   "url": "https://ir.aboutamazon.com/news-release/news-release-details/2026/Amazon-com-Announces-Third-Quarter-Results/default.aspx",
+   "publisher": "기업 IR / 공식기관",
+   "published": "2026-11-03 확인",
+   "short": "C16 Amazon",
+   "note": "상세 해설의 기준 기간·회계범위·실제/전망 구분을 함께 확인. "
+  },
+  "C17": {
+   "title": "Alphabet Q3 2026 공식 콜 (2026-10-28)",
+   "url": "https://abc.xyz/investor/events/event-details/2026/2026-Q3-Earnings-Call-2026-Ujou16CTw9/default.aspx",
+   "publisher": "기업 IR / 공식기관",
+   "published": "2026-11-03 확인",
+   "short": "C17 Alphabet",
+   "note": "상세 해설의 기준 기간·회계범위·실제/전망 구분을 함께 확인. "
+  },
+  "C18": {
+   "title": "Microsoft FY2027 Q1 공식 실적 (2026-10-28, 분기 종료 2026-09-30)",
+   "url": "https://www.microsoft.com/en-us/investor/earnings/fy-2027-q1/press-release-webcast",
+   "publisher": "기업 IR / 공식기관",
+   "published": "2026-11-03 확인",
+   "short": "C18 Microsoft",
+   "note": "상세 해설의 기준 기간·회계범위·실제/전망 구분을 함께 확인. "
+  },
+  "C19": {
+   "title": "IMF AI·금리 위험 해설 (표시 발행일 2026-10-13; URL 날짜는 10-12)",
+   "url": "https://www.imf.org/en/blogs/articles/2026/10/12/global-financial-markets-face-rising-risks-from-ai-bond-yields-and-cyberattacks",
+   "publisher": "기업 IR / 공식기관",
+   "published": "2026-11-03 확인",
+   "short": "C19 IMF",
+   "note": "상세 해설의 기준 기간·회계범위·실제/전망 구분을 함께 확인. "
+  },
+  "C20": {
+   "title": "Fed 2026-09-15~16 회의 의사록",
+   "url": "https://www.federalreserve.gov/monetarypolicy/fomcminutes20260916.htm",
+   "publisher": "기업 IR / 공식기관",
+   "published": "2026-11-03 확인",
+   "short": "C20 Fed",
+   "note": "상세 해설의 기준 기간·회계범위·실제/전망 구분을 함께 확인. "
+  },
+  "C21": {
+   "title": "Fed 2026-10-28 성명",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20261028a.htm",
+   "publisher": "기업 IR / 공식기관",
+   "published": "2026-11-03 확인",
+   "short": "C21 Fed",
+   "note": "상세 해설의 기준 기간·회계범위·실제/전망 구분을 함께 확인. "
+  },
+  "CASE": {
+   "title": "Baker & Wagonfeld, Dividend Policy at Linear Technology, HBS 9-204-066, pp.1–3",
+   "url": "",
+   "short": "HBS Case pp.1–3",
+   "published": "2004-02-11 개정",
+   "note": "사용자 제공 케이스. 논의 시점은 2003년 4월. 공장 비용·수명·현금 수치는 당시 사례이며 현재 업계 일반값이 아니다. 원문 미배포.",
+   "publisher": "Harvard Business School"
+  },
+  "MKT_HIST": {
+   "title": "Bespoke — Historical S&P 500 Sector Weights, p.4",
+   "url": "https://media.bespokepremium.com/uploads/2023/07/070323-Sector-Weights-5037189urijef.pdf",
+   "short": "Bespoke",
+   "published": "2023-07-03",
+   "note": "연말 지수 섹터 비중. GICS 소급 분류와 구성 변화 포함. 과거 가중치의 2차 집계.",
+   "publisher": "Bespoke Investment Group"
+  },
+  "SPY": {
+   "title": "SPY Factsheet — sector allocation",
+   "url": "https://www.ssga.com/library-content/products/factsheets/etfs/us/factsheet-us-en-spy.pdf",
+   "short": "SSGA SPY",
+   "published": "2026-09-30",
+   "note": "S&P 500 추종 ETF 보유비중을 현재 지수 비중의 대용치로 사용. 라이브 URL은 후속 월 자료로 바뀔 수 있음.",
+   "publisher": "State Street"
+  },
+  "ACWI": {
+   "title": "MSCI ACWI Index Factsheet",
+   "url": "https://www.msci.com/documents/10199/255599/msci-acwi.pdf",
+   "short": "MSCI ACWI",
+   "published": "2026-09-30",
+   "note": "글로벌 대형·중형주 유동시총 지수. IT 33.21%. PDF URL은 업데이트 가능.",
+   "publisher": "MSCI"
+  },
+  "XLK20": {
+   "title": "Technology Select Sector SPDR Fund annual report, Schedule of Investments",
+   "url": "https://www.sec.gov/Archives/edgar/data/1064641/000119312520311479/d13580dncsr.htm",
+   "short": "XLK SEC 2020",
+   "published": "2020-09-30",
+   "note": "반도체·장비 18.0%. 반올림 순자산 대비 비중. 기타에 현금성 0.1% 포함.",
+   "publisher": "SEC / SSGA"
+  },
+  "XLK26": {
+   "title": "XLK Factsheet — industry allocation",
+   "url": "https://www.ssga.com/library-content/products/factsheets/etfs/us/factsheet-us-en-xlk.pdf",
+   "short": "SSGA XLK",
+   "published": "2026-09-30",
+   "note": "반도체·장비 45.95%. 종목 비중 제한을 가진 ETF. 구성·분류·가격 변화를 모두 포함. 기타는 100에서 주요 업종 차감.",
+   "publisher": "State Street"
+  },
+  "GICS": {
+   "title": "S&P 500 Sector Indices and 25 Years of GICS",
+   "url": "https://www.spglobal.com/spdji/en/documents/education/talking-points-an-overview-of-sp-500-sector-indices-and-25-years-of-gics.pdf",
+   "short": "S&P GICS",
+   "published": "2024",
+   "note": "2016·2018·2023 분류개편으로 시계열 구성 변화. IT는 일상의 모든 빅테크를 포괄하지 않음.",
+   "publisher": "S&P Dow Jones Indices"
+  },
+  "WSTS": {
+   "title": "WSTS Historical Billings Report — August 2026",
+   "url": "https://www.wsts.org/esraCMS/extension/media/f/WST/7803/WSTS-Historical-Billings-Report-Aug_2026.xlsx",
+   "short": "WSTS 실제",
+   "published": "2026-08 자료",
+   "note": "Monthly Data, Worldwide 연간 Total Year. 원단위 1,000 USD를 십억 USD로 변환. 2026 부분연도 제외. 2024·2025는 수정치.",
+   "publisher": "WSTS"
+  },
+  "WSTS_FORECAST": {
+   "title": "WSTS Spring 2026 Forecast",
+   "url": "https://www.wsts.org/esraCMS/extension/media/f/WST/7618/WSTS_FC-Release-2026-May.pdf",
+   "short": "WSTS 전망",
+   "published": "2026-06-02",
+   "note": "2026·2027은 전망. 실제 연간 시계열에 합치지 않음.",
+   "publisher": "WSTS"
+  },
+  "ANALOG": {
+   "title": "Analog — definition",
+   "url": "https://www.analog.com/en/resources/glossary/analog.html",
+   "short": "ADI 용어",
+   "published": "2026-11-03 확인",
+   "note": "",
+   "publisher": "Analog Devices"
+  },
+  "MIXED": {
+   "title": "Mixed-signal — definition",
+   "url": "https://www.analog.com/en/resources/glossary/mixed-signal.html",
+   "short": "ADI mixed-signal",
+   "published": "2026-11-03 확인",
+   "note": "",
+   "publisher": "Analog Devices"
+  },
+  "CHM": {
+   "title": "The Silicon Engine — timeline",
+   "url": "https://www.computerhistory.org/siliconengine/timeline/",
+   "short": "Computer History Museum",
+   "published": "2026-11-03 확인",
+   "note": "1947 트랜지스터, 1958 IC, 1959 모놀리식 구조, 1970 DRAM, 1971 마이크로프로세서.",
+   "publisher": "Computer History Museum"
+  },
+  "TSMC25": {
+   "title": "TSMC 2025 Annual Report",
+   "url": "https://investor.tsmc.com/static/annualReports/2025/english/index.html",
+   "short": "TSMC 연차보고서",
+   "published": "2026",
+   "note": "1987년 설립·전업 파운드리 사업모델.",
+   "publisher": "TSMC"
+  },
+  "NVIDIA_HISTORY": {
+   "title": "NVIDIA Corporate Timeline",
+   "url": "https://www.nvidia.com/en-us/about-nvidia/corporate-timeline/",
+   "short": "NVIDIA 연혁",
+   "published": "2026-11-03 확인",
+   "note": "2006 CUDA, 2012 AlexNet 등 기술 사건.",
+   "publisher": "NVIDIA"
+  },
+  "ASML": {
+   "title": "Lithography principles",
+   "url": "https://www.asml.com/en/technology/lithography-principles",
+   "short": "ASML 기술",
+   "published": "2026-11-03 확인",
+   "note": "반도체 제조에서 노광의 역할과 작동 원리.",
+   "publisher": "ASML"
+  },
+  "NORMALIZE": {
+   "title": "Damodaran — More on normalizing earnings",
+   "url": "https://pages.stern.nyu.edu/~adamodar/New_Home_Page/valquestions/normearn.htm",
+   "short": "Damodaran",
+   "published": "2026-11-03 확인",
+   "note": "경기순환 이익 정상화. 규모 변화와 정상화 시점을 반영해야 함.",
+   "publisher": "NYU Stern"
+  },
+  "VALUATION": {
+   "title": "Damodaran — Valuation Lecture Notes",
+   "url": "https://people.stern.nyu.edu/adamodar/pdfiles/eqnotes/packet2a.pdf",
+   "short": "NYU 가치평가",
+   "published": "2026-11-03 확인",
+   "note": "배수는 성장·위험·마진·자본구조와 함께 해석.",
+   "publisher": "NYU Stern"
+  },
+  "GROWTH": {
+   "title": "Damodaran — Growth and value",
+   "url": "https://pages.stern.nyu.edu/~adamodar/New_Home_Page/valquestions/growth.htm",
+   "short": "NYU 성장의 가치",
+   "published": "2026-11-03 확인",
+   "note": "재투자와 투자수익률이 성장의 가치를 결정.",
+   "publisher": "NYU Stern"
+  },
+  "HBM3E": {
+   "title": "Micron HBM3E — product and bandwidth explanation",
+   "url": "https://www.micron.com/products/memory/hbm/hbm3e",
+   "short": "Micron HBM",
+   "published": "2026-11-03 확인",
+   "note": "HBM3E의 용량과 대역폭. 공급사 제품 수치는 전체 표준 수치와 구분.",
+   "publisher": "Micron"
+  },
+  "MODEL": {
+   "title": "교육용 현재가치 민감도 모형",
+   "url": "",
+   "short": "교육용 모형",
+   "published": "2026-11-03",
+   "note": "PV = CF5/(1+r)^5. 기준 CF5=100, r=8%, 5년. 중간 현금·영구가치·부채·희석 미포함. 실제 목표주가가 아님.",
+   "publisher": "12조 학습용 계산"
+  },
+  "VIDEO": {
+   "title": "술술 데이터 — 역대 글로벌 반도체 기업 매출 순위 Top12 (1987–2026)",
+   "url": "https://youtu.be/YCyY6KAhCr0",
+   "short": "교수님 참고 영상",
+   "published": "2026-07-25",
+   "note": "설명·타임라인·메타데이터 확인. 음악 자막만 있어 수치 전체를 전사하지 않음. 2026은 추정치이며 파운드리·장비 제외.",
+   "publisher": "YouTube / 술술 데이터"
+  },
+  "MAXIM": {
+   "title": "Analog Devices Completes Acquisition of Maxim Integrated",
+   "url": "https://investor.analog.com/news-releases/news-release-details/analog-devices-completes-acquisition-maxim-integrated",
+   "short": "ADI / Maxim",
+   "published": "2021-08-26",
+   "note": "",
+   "publisher": "Analog Devices"
+  },
+  "NATIONAL": {
+   "title": "Texas Instruments completes acquisition of National Semiconductor",
+   "url": "https://www.ti.com/about-ti/newsroom/news-releases/2011/2011-09-23-texas-instruments-completes-acquisition-of-national-semiconductor.html",
+   "short": "TI / National",
+   "published": "2011-09-23",
+   "note": "",
+   "publisher": "Texas Instruments"
+  },
+  "NXP": {
+   "title": "NXP — About NXP",
+   "url": "https://www.nxp.com/company/about-nxp:ABOUT-NXP",
+   "short": "NXP",
+   "published": "2026-11-03 확인",
+   "note": "",
+   "publisher": "NXP"
+  },
+  "BROADCOM_LATEST": {
+   "title": "Broadcom — Semiconductor Solutions",
+   "url": "https://www.broadcom.com/products",
+   "short": "Broadcom 제품",
+   "published": "2026-11-03 확인",
+   "note": "",
+   "publisher": "Broadcom"
+  },
+  "GICS2023": {
+   "title": "2023 GICS Classification Change",
+   "url": "https://lipperalpha.refinitiv.com/2023/03/2023-gics-classification-change/",
+   "short": "LSEG GICS 2023",
+   "published": "2023-03",
+   "note": "Visa·Mastercard 등의 IT→금융 이동. 업종비중 변화의 분류 효과 확인.",
+   "publisher": "LSEG / Refinitiv"
+  },
+  "SIA_INITIAL25": {
+   "title": "Global Annual Semiconductor Sales Increase 25.6% to $791.7 Billion in 2025",
+   "url": "https://www.semiconductors.org/global-annual-semiconductor-sales-increase-25-6-to-791-7-billion-in-2025/",
+   "short": "SIA 최초 발표",
+   "published": "2026-02-06",
+   "note": "이후 WSTS 수정치 $795.6bn과 구분. 차트는 수정치 사용.",
+   "publisher": "SIA"
+  },
+  "hynix_lineage": {
+   "title": "SK hynix Declared its Taking off for World’s Best Semiconductor Company",
+   "publisher": "SK hynix",
+   "published": "2012-03-26",
+   "url": "https://news.skhynix.com/en/sk-hynix-declared-its-taking-off-for-worlds-best-semiconductor-company/",
+   "note": "1983 Hyundai founding, 1999 LG Semiconductor merger, 2001 Hynix renaming, 2012 SK group joining/renaming.",
+   "short": "SK hynix"
+  },
+  "transistor": {
+   "title": "Nokia Bell Labs History",
+   "publisher": "Nokia Bell Labs",
+   "url": "https://www.nokia.com/bell-labs/about/history/",
+   "note": "1947 transistor invention.",
+   "short": "Nokia Bell Labs"
+  },
+  "sia_chain": {
+   "title": "How are Semiconductors Made?",
+   "publisher": "Semiconductor Industry Association",
+   "url": "https://www.semiconductors.org/semiconductors-101/how-are-semiconductors-made/",
+   "short": "Semiconductor Industry Association"
+  },
+  "sia_ecosystem": {
+   "title": "U.S. Semiconductor Ecosystem Map: Glossary of key terms",
+   "publisher": "Semiconductor Industry Association",
+   "url": "https://www.semiconductors.org/ecosystem/",
+   "note": "Defines EDA, IP/fabless/foundry/IDM/OSAT/equipment/materials; confirms OSAT overlap with foundry/IDM operations.",
+   "short": "Semiconductor Industry Association"
+  },
+  "sia_design": {
+   "title": "Chip Design and R&D",
+   "publisher": "Semiconductor Industry Association",
+   "url": "https://www.semiconductors.org/policies/chip-design/",
+   "note": "Design stages, verification, packaging design, R&D intensity.",
+   "short": "Semiconductor Industry Association"
+  },
+  "micron_memory": {
+   "title": "Introduction to memory: DRAM vs NAND",
+   "publisher": "Micron",
+   "url": "https://www.micron.com/content/dam/micron/educatorhub/intro-to-memory/micron-intro-to-memory-presentation.pdf",
+   "short": "Micron"
+  },
+  "micron_hbm": {
+   "title": "High-bandwidth memory: HBM FAQs",
+   "publisher": "Micron",
+   "url": "https://www.micron.com/products/memory/hbm",
+   "note": "3D-stacked SDRAM, TSV, wide interface, comparison with DDR5 and package integration; no generation-specific bus-width claim reproduced in study prose.",
+   "short": "Micron"
+  },
+  "cowos": {
+   "title": "CoWoS technology",
+   "publisher": "TSMC",
+   "url": "https://3dfabric.tsmc.com/english/dedicatedFoundry/technology/cowos.htm",
+   "note": "Heterogeneous integration of logic/chiplets/HBM; not all advanced packaging is performed by OSAT.",
+   "short": "TSMC"
+  },
+  "analog_technology": {
+   "title": "Analog semiconductors",
+   "publisher": "Texas Instruments",
+   "url": "https://www.ti.com/about-ti/analog-semiconductors.html?familyId=2&templateId=1",
+   "short": "Texas Instruments"
+  },
+  "analog_signal": {
+   "title": "The symphony of precision: Harmonizing power and signal integrity with low-noise technology",
+   "publisher": "Texas Instruments",
+   "url": "https://www.ti.com/about-ti/behind-chip/articles/the-symphony-of-precision-harmonizing-power-and-signal-integrity-with-low-noise-technology.html",
+   "note": "Signal chain, power management, ADC and DAC roles.",
+   "short": "Texas Instruments"
+  },
+  "st_auto": {
+   "title": "Automotive ICs and Products: Analog, Digital and Power",
+   "publisher": "STMicroelectronics",
+   "url": "https://www.st.com/en/automotive-analog-and-power.html",
+   "short": "STMicroelectronics"
+  },
+  "st_mcu": {
+   "title": "Microcontrollers and Microprocessors",
+   "publisher": "STMicroelectronics",
+   "url": "https://www.st.com/en/microcontrollers-microprocessors.html",
+   "note": "MCU processor, memory and I/O in one IC.",
+   "short": "STMicroelectronics"
+  },
+  "infineon_auto": {
+   "title": "Automotive Power Distribution Unit",
+   "publisher": "Infineon",
+   "url": "https://www.infineon.com/application/automotive-power-distribution",
+   "note": "Power switches, MCU and sensors in automotive; no market share or future product launch claim used.",
+   "short": "Infineon"
+  },
+  "asic": {
+   "title": "Application-specific Integrated Circuits",
+   "publisher": "Broadcom",
+   "url": "https://www.broadcom.com/products/custom-silicon/asics",
+   "short": "Broadcom"
+  },
+  "nec": {
+   "short": "NEC",
+   "title": "NEC · 120년 기업사",
+   "publisher": "NEC",
+   "published": "원문 참조",
+   "url": "https://www.nec.com/en/global/about/history/pdf/history-120.pdf",
+   "note": "NEC의 반도체 사업과 1985~1991년 세계 1위 기록. 기업 자체의 역사 서술."
+  },
+  "japan": {
+   "short": "Kamakura",
+   "title": "Kamakura · 일본 반도체 산업 연구",
+   "publisher": "Kamakura",
+   "published": "원문 참조",
+   "url": "https://academic.oup.com/cjres/article/15/2/261/6585222",
+   "note": "2022.05.13. 산업 재편과 가치사슬 분석; Table 1은 Gartner의 대표 연도 공급업체 순위를 인용한다."
+  },
+  "hist_intel_dram": {
+   "short": "Intel",
+   "title": "Intel · DRAM 철수의 역사",
+   "publisher": "Intel",
+   "published": "원문 참조",
+   "url": "https://timeline.intel.com/1985/farewell-to-dram",
+   "note": "1985.10.10 DRAM 철수 발표에 대한 Intel의 역사 자료."
+  },
+  "intel1992": {
+   "short": "Intel",
+   "title": "Intel · 1992 연차보고서",
+   "publisher": "Intel",
+   "published": "원문 참조",
+   "url": "https://www.intel.com/content/dam/www/central-libraries/us/en/documents/2025-05/history-1992-annual-report.pdf",
+   "note": "Dataquest 집계를 인용해 1992년 세계 최대 반도체 제조업체가 됐다고 기재. 2017년 Gartner의 25년 선두 설명과 교차 확인."
+  },
+  "intel_pc": {
+   "short": "Intel",
+   "title": "Intel · PC 산업 20년 회고",
+   "publisher": "Intel",
+   "published": "원문 참조",
+   "url": "https://www.intel.com/pressroom/archive/releases/2001/20010801corp.htm",
+   "note": "2001.08.01. PC 산업과 1990년대 중반 웹브라우저 확산에 대한 당시 설명."
+  },
+  "wsts": {
+   "short": "WSTS",
+   "title": "WSTS · Historical Billings",
+   "publisher": "WSTS",
+   "published": "원문 참조",
+   "url": "https://www.wsts.org/67/Historical-Billings-Report",
+   "note": "기존 자료는 2026년 8월 보고서의 연간 실제치를 사용. 2000년 204.393623, 2001년 138.962610 십억 달러; 감소율 약 32.0%."
+  },
+  "intel2001": {
+   "short": "Intel",
+   "title": "Intel · 2001년 실적",
+   "publisher": "Intel",
+   "published": "원문 참조",
+   "url": "https://www.intc.com/news-events/press-releases/detail/1387/intel-reports-fourth-quarter-and-annual-results",
+   "note": "2002.01.15 발표. 2001년 회사 전체 매출 265억 달러, 전년 대비 21% 감소. 공정·300㎜ 투자 설명."
+  },
+  "intel2001_report": {
+   "short": "Intel",
+   "title": "Intel · 2001 연차보고서",
+   "publisher": "Intel",
+   "published": "원문 참조",
+   "url": "https://www.intc.com/filings-reports/annual-reports/content/0000912057-02-009698/0000912057-02-009698.pdf",
+   "note": "프로세서 판매량·평균판매가격 감소, 전 세계 경기둔화에 대한 경영진 설명. Gartner 반도체 매출과 회사 전체 매출의 범위는 다르다."
+  },
+  "sia2007": {
+   "short": "SIA",
+   "title": "SIA · 2007년 산업 실적",
+   "publisher": "SIA",
+   "published": "원문 참조",
+   "url": "https://www.semiconductors.org/global-chip-sales-hit-255-6-billion-in-2007/",
+   "note": "2008.02.01 발표. 2007년 세계 매출 2,556억 달러, 6년 연속 증가. 기기 수요와 DRAM·NAND의 물량·가격 차이를 설명한다."
+  },
+  "samsung2006": {
+   "short": "Samsung",
+   "title": "Samsung · 당시 NAND 사업 설명",
+   "publisher": "Samsung",
+   "published": "원문 참조",
+   "url": "https://www.samsung.com/global/ir/reports-disclosures/public-disclosure-view.69960/",
+   "note": "당시 사업 설명에서 MP3 플레이어·디지털카메라를 2006년 NAND 성장 동력으로 제시. 해당 문구는 당시 전망이며 실현 매출 수치가 아니다."
+  },
+  "fed_crisis": {
+   "short": "연준",
+   "title": "연준 · 금융위기와 이후",
+   "publisher": "연준",
+   "published": "원문 참조",
+   "url": "https://www.federalreservehistory.org/essays/great-recession-and-its-aftermath",
+   "note": "2007~2009년 금융위기·경기침체와 2008년 말 제로금리, 이후 완화정책의 역사."
+  },
+  "sia2010": {
+   "short": "SIA",
+   "title": "SIA · 2010년 산업 실적",
+   "publisher": "SIA",
+   "published": "원문 참조",
+   "url": "https://www.semiconductors.org/global-semiconductor-sales-hit-record-298-3-billion-in-2010/",
+   "note": "2011.01.31 발표. 2010년 2,983억 달러, 2009년 대비 31.8% 증가. 주요 제품군 모두 두 자릿수 성장."
+  },
+  "fed_history": {
+   "short": "연준",
+   "title": "연준 · 통화정책 역사",
+   "publisher": "연준",
+   "published": "원문 참조",
+   "url": "https://www.federalreservehistory.org/essays/federal-reserve-history",
+   "note": "2008년 말부터 2015년 12월까지 사실상 제로금리를 유지한 경위. 할인율의 가치평가 효과는 교육적 해석으로 구분한다."
+  },
+  "qualcomm2013": {
+   "short": "Qualcomm",
+   "title": "Qualcomm · FY2013 10-K",
+   "publisher": "Qualcomm",
+   "published": "원문 참조",
+   "url": "https://www.sec.gov/Archives/edgar/data/804328/000123445213000483/qcom10-k2013.htm",
+   "note": "FY2013 MSM 계열 칩 출하 약 7억1,600만 개, 전년 대비 21% 증가. 회사 회계연도이며 반도체 매출·라이선스 매출을 구분한다."
+  },
+  "tsmc2013": {
+   "short": "TSMC",
+   "title": "TSMC · 2013 연차보고서",
+   "publisher": "TSMC",
+   "published": "원문 참조",
+   "url": "https://investor.tsmc.com/sites/ir/annual-report/2013/c_11_1_0.pdf",
+   "note": "2013년 모바일 관련 제품의 매출 비중 36% 이상, 모바일 IC가 최근 성장의 주요 동력이라고 설명. 파운드리 매출은 공급업체 순위와 별도."
+  },
+  "gartner2017": {
+   "short": "Gartner",
+   "title": "Gartner · 2017 최종 / 재게시",
+   "publisher": "Gartner",
+   "published": "원문 참조",
+   "url": "https://www.design-reuse.com/news/4806-gartner-says-worldwide-semiconductor-revenue-grew-21-6-percent-in-2017-as-samsung-takes-over-no-1-position/",
+   "note": "2018.04.23 최종 발표. Intel의 25년 선두 종료, 메모리 시장 61.8% 성장, 공급 부족과 가격 상승. Design & Reuse의 Gartner 보도자료 재게시."
+  },
+  "gartner2019": {
+   "short": "Gartner",
+   "title": "Gartner · 2019 잠정 / 재게시",
+   "publisher": "Gartner",
+   "published": "원문 참조",
+   "url": "https://www.design-reuse.com/news/7766-gartner-says-worldwide-semiconductor-revenue-declined-11-9-in-2019/",
+   "note": "2020.01.14 잠정 발표. 메모리 매출 31.5% 감소, Intel 매출 0.7% 감소에도 1위 복귀. 하이퍼스케일 수요·재고·가격에 대한 당시 분석."
+  },
+  "intel2020": {
+   "short": "Intel",
+   "title": "Intel · 2020 10-K",
+   "publisher": "Intel",
+   "published": "원문 참조",
+   "url": "https://www.sec.gov/Archives/edgar/data/50863/000005086321000010/intc-20201226.htm",
+   "note": "재택근무·원격수업에 따른 PC 수요와 PC·데이터센터 사업 설명. 회사 전체 매출 수치를 Gartner 반도체 매출로 대체하지 않는다."
+  },
+  "gartner2021": {
+   "short": "Gartner",
+   "title": "Gartner · 2021 최종 / 재게시",
+   "publisher": "Gartner",
+   "published": "원문 참조",
+   "url": "https://us.design-reuse.com/news/51771/top-10-semiconductor-vendors-by-revenue-worldwide-2021.html",
+   "note": "2022.04.14 최종 발표. 삼성 1위 복귀, AMD·MediaTek 성장, 5G·수요·공급 부족과 판매가격 변화."
+  },
+  "gartner2022": {
+   "short": "Gartner",
+   "title": "Gartner · 2022 잠정 / 재게시",
+   "publisher": "Gartner",
+   "published": "원문 참조",
+   "url": "https://www.design-reuse-embedded.com/news/202301079",
+   "note": "2023.01.17 잠정 발표. 삼성 1위 유지, 하반기 인플레이션·금리·PC·스마트폰 수요 약화와 재고 조정."
+  },
+  "gartner2023": {
+   "short": "Gartner",
+   "title": "Gartner · 2023 잠정",
+   "publisher": "Gartner",
+   "published": "원문 참조",
+   "url": "https://www.gartner.com/en/newsroom/press-releases/2024-01-16-gartner-says-worldwide-semiconductor-revenue-declined-11-percent-in-2023",
+   "note": "2024.01.16 잠정 발표. 메모리 부진으로 Intel 1위 복귀, AI 수요 성장. NVIDIA 순위·매출은 후속 집계에서 수정됐으므로 이 잠정 순위와 2024 최종 표를 섞지 않는다."
+  },
+  "gartner2024": {
+   "short": "Gartner",
+   "title": "Gartner · 2024 최종",
+   "publisher": "Gartner",
+   "published": "원문 참조",
+   "url": "https://www.gartner.com/en/newsroom/press-releases/2025-04-10-gartner-says-worldwide-semiconductor-revenue-grew-21-percent-in-2024",
+   "note": "2025.04.10 최종 발표. NVIDIA가 766.92억 달러로 첫 1위. 2025.02.03 발표한 2024년 잠정 순위와 다르다."
+  },
+  "gartner2025": {
+   "short": "Gartner",
+   "title": "Gartner · 2025 잠정",
+   "publisher": "Gartner",
+   "published": "원문 참조",
+   "url": "https://www.gartner.com/en/newsroom/press-releases/2026-01-12-gartner-says-worldwide-semiconductor-revenue-grew-21-percent-in-2025",
+   "note": "2026.01.12 잠정 발표. NVIDIA 1위, 삼성 2위, SK하이닉스 3위. AI 프로세서·HBM·네트워크 수요에 대한 분석."
+  },
+  "nvidia2024": {
+   "short": "NVIDIA",
+   "title": "NVIDIA · FY2024 실적",
+   "publisher": "NVIDIA",
+   "published": "원문 참조",
+   "url": "https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-fourth-quarter-and-fiscal-2024/",
+   "note": "2024.02.21 발표. FY2024는 2024.01.28 종료. 데이터센터 매출 475억 달러, 전년 대비 217% 증가. Gartner 달력연도 반도체 매출과 범위·기간이 다르다."
+  },
+  "fed2023": {
+   "short": "연준",
+   "title": "연준 · 2023.07 FOMC",
+   "publisher": "연준",
+   "published": "원문 참조",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20230726a.htm",
+   "note": "2023.07.26 기준금리 목표범위를 5.25~5.50%로 인상. AI 투자 확대가 고금리 환경과도 겹쳤음을 보여주는 시점 근거."
+  },
+  "hynix2024": {
+   "short": "SK하이닉스",
+   "title": "SK하이닉스 · 2024년 실적",
+   "publisher": "SK하이닉스",
+   "published": "원문 참조",
+   "url": "https://news.skhynix.co.kr/business-results-2024/",
+   "note": "2025.01.23 발표. HBM·기업용 SSD 등 AI 메모리 판매 확대를 연간·분기 실적 성장 동력으로 설명."
+  },
+  "tsmc2024": {
+   "short": "TSMC",
+   "title": "TSMC · 2024 연차보고서",
+   "publisher": "TSMC",
+   "published": "원문 참조",
+   "url": "https://investor.tsmc.com/static/annualReports/2024/english/index.html",
+   "note": "AI 고객 수요, 첨단 공정과 첨단 패키징의 성장 기여, CoWoS 등 기술 설명. 파운드리 사업은 Gartner 공급업체 순위와 별도로 다룬다."
+  },
+  "broadcom2024": {
+   "short": "Broadcom",
+   "title": "Broadcom · FY2024 실적",
+   "publisher": "Broadcom",
+   "published": "원문 참조",
+   "url": "https://investors.broadcom.com/news-releases/news-release-details/broadcom-inc-announces-fourth-quarter-and-fiscal-year-2024",
+   "note": "2024.12.12 발표, 회계연도 2024.11.03 종료. AI 매출 122억 달러·220% 성장, AI 가속기·Ethernet 제품 설명. 회사 전체 매출에는 소프트웨어 포함."
+  },
+  "linear_10k_2007": {
+   "title": "Linear Technology Form 10-K FY2007 (2007-07-01 결산)",
+   "publisher": "SEC EDGAR",
+   "published": "2007-08",
+   "note": "2007.04 $3.0bn ASR: 현금 $1.3bn + 전환사채 $1.7bn($1.0bn 3.00% + $0.7bn 3.125%, 만기 2027). 매출 $1,083.1M, 영업이익률 48.4%, 자기자본 −$708M.",
+   "short": "Linear 10-K FY07",
+   "url": "https://www.sec.gov/Archives/edgar/data/791907/000079190707000053/form10k2007.htm"
+  },
+  "linear_10k_2016": {
+   "title": "Linear Technology Form 10-K FY2016 (2016-07-03 결산)",
+   "publisher": "SEC EDGAR",
+   "published": "2016-08",
+   "note": "매출 $1,423.9M, 영업이익률 44.5%, 순이익 $494.3M, 연간 DPS $1.24, 현금·투자 $1,448.3M, 무차입. FY2014.05 전환사채 전액 상환.",
+   "short": "Linear 10-K FY16",
+   "url": "https://www.sec.gov/Archives/edgar/data/0000791907/000079190716000207/lltc-20160703x10k.htm"
+  },
+  "linear_defm14a": {
+   "title": "Linear Technology Definitive Merger Proxy (DEFM14A) — Background of the Merger",
+   "publisher": "SEC EDGAR",
+   "published": "2016-09",
+   "note": "2015-08-14 ADI 제안 ~$51.50(주식 75%) → 2015-09 거절 → 2016-04-05 $58 → 2016-05-18 Company A $54 현금 → 2016-06-22 ADI best and final $60 → 7/26 서명. 7/25 종가 $48.47.",
+   "short": "Linear DEFM14A",
+   "url": "https://www.sec.gov/Archives/edgar/data/0000791907/000119312516712349/d260049ddefm14a.htm"
+  },
+  "linear_q3fy03": {
+   "title": "Linear Technology Q3 FY2003 실적 보도자료 (2003-04-15)",
+   "publisher": "SEC EDGAR 8-K Ex.99.1",
+   "published": "2003-04-15",
+   "note": "분기 배당 $0.05 → $0.06 인상(2003-05-14 지급). 분기 매출 $153.75M(+18%), 현금·단기투자 $1,565.2M(2003-03-30).",
+   "short": "Linear 8-K 2003.04",
+   "url": "https://www.sec.gov/Archives/edgar/data/0000791907/000095000503000458/ex991.txt"
+  },
+  "linear_10q_fy17q2": {
+   "title": "Linear Technology Form 10-Q Q2 FY2017 (2017-01-01 분기)",
+   "publisher": "SEC EDGAR",
+   "published": "2017-02",
+   "note": "마지막 분기 배당 $0.33(2017-03-07 지급, 인수 완료 3일 전). 현금·투자 $1,609.8M, 무차입, 자기자본 $1,877.8M.",
+   "short": "Linear 10-Q FY17Q2",
+   "url": "https://www.sec.gov/Archives/edgar/data/0000791907/000079190717000019/lltc-20170101x10q.htm"
+  },
+  "adi_10k_2017": {
+   "title": "Analog Devices Form 10-K FY2017 (2017-10-28 결산)",
+   "publisher": "SEC EDGAR",
+   "published": "2017-11",
+   "note": "린니어 인수 대가 $15.8bn = 현금 $11.1bn + 주식 $4.6bn + 대체 보상 $0.1bn. 연말 차입금 $7.85bn, 현금 ~$1.0bn. 2016-12 $2.1bn 선순위채(2.5~4.5%), 2017-03 $4.1bn 브리지 + $5.0bn 텀론.",
+   "short": "ADI 10-K FY17",
+   "url": "https://www.sec.gov/Archives/edgar/data/0000006281/000000628117000144/adi-10282017x10k.htm"
+  },
+  "adi_q3fy26": {
+   "title": "Analog Devices Q3 FY2026 실적 보도자료",
+   "publisher": "SEC EDGAR 8-K Ex.99.1",
+   "published": "2026-08",
+   "note": "분기 매출 $4,021.9M(+40% YoY), GAAP 영업이익률 40.1%(조정 50.0%), TTM FCF $4,937.5M. Q4 가이던스 $4.3bn. FY2026 Q4 실적은 2026-11-24 예정.",
+   "short": "ADI 8-K FY26Q3",
+   "url": "https://www.sec.gov/Archives/edgar/data/0000006281/000000628126000072/adi3q26exhibit991earnings.htm"
+  },
+  "adi_dividend_2026": {
+   "title": "Analog Devices 분기 배당 11% 인상 발표 ($1.10)",
+   "publisher": "SEC EDGAR 8-K Ex.99.2",
+   "published": "2026-02-17",
+   "note": "22년 연속 배당 인상, 29년 연속 FCF 흑자.",
+   "short": "ADI 배당 2026",
+   "url": "https://www.sec.gov/Archives/edgar/data/6281/000000628126000015/adi1q26ex992dividendpressr.htm"
+  },
+  "adi_stock_2026": {
+   "title": "Analog Devices 주가·시가총액 (2026-11-04 종가 $406.24)",
+   "publisher": "stockanalysis.com (2차)",
+   "published": "2026-11-05",
+   "note": "시가총액 $196.9bn, 52주 $223.47~445.91. 2016-07-25 종가 $60.53(DEFM14A) 대비 약 6.7배. 2차 데이터 — 발표 전 재확인.",
+   "short": "ADI 주가(2차)",
+   "url": "https://stockanalysis.com/stocks/adi/"
+  },
+  "ihs_linear_margin": {
+   "title": "IHS Markit 리서치 노트: Linear의 이익률과 ADI 인수 (2016-07-29)",
+   "publisher": "Evertiq 전재",
+   "published": "2016-07-29",
+   "note": "2010~2015 Linear 매출총이익률 75%+, 영업이익률 약 45%; 반도체 산업 평균 매출총이익률 ~37%, 영업이익률 ~7%.",
+   "short": "IHS Markit(전재)",
+   "url": "https://evertiq.com/news/39829"
+  },
+  "icinsights_analog2015": {
+   "title": "IC Insights: 2015년 아날로그 IC 공급업체 순위",
+   "publisher": "Design & Reuse 전재",
+   "published": "2016-06",
+   "note": "TI 1위 $8.3bn(18%), ADI 4위, Linear 8위(3%). 아날로그 시장 $47.0bn.",
+   "short": "IC Insights 아날로그",
+   "url": "https://www.design-reuse.com/news/39939/2015-leading-analog-ic-suppliers.html"
+  },
+  "icinsights_mna": {
+   "title": "IC Insights: 반도체 M&A 연간 발표 총액",
+   "publisher": "iConnect007 전재",
+   "published": "2018-01-24",
+   "note": "2015 $107.3bn(사상 최대), 2016 $99.8bn, 2017 $27.7bn, 2018 $25.9bn, 2019 $31.7bn, 2020 $118bn(기록 경신), 2021 $22.7bn. 2010~14 연평균 약 $12.6bn.",
+   "short": "IC Insights M&A",
+   "url": "https://iconnect007.com/article/108628/value-of-semiconductor-industry-ma-deals-slows-dramatically-in-2017/108631/ein"
+  },
+  "mckinsey_mna": {
+   "title": "McKinsey, Winning through M&A? Deal making in the semiconductor sector",
+   "publisher": "McKinsey & Company",
+   "published": "2016-02",
+   "note": "“revenues are slowing… customers increasingly prefer purchasing integrated solutions from one company… Each deal prompts other companies to consider M&A.” 평균 프리미엄 40%(2006~1H2015).",
+   "short": "McKinsey 2016",
+   "url": "https://karriere.mckinsey.de/~/media/mckinsey/industries/semiconductors/our%20insights/winning%20through%20m%20and%20a%20deal%20making%20in%20the%20semiconductor%20sector/winning%20through%20m%20and%20a%20final.pdf"
+  },
+  "fred_dgs10": {
+   "title": "미국 10년물 국채 수익률 (DGS10)",
+   "publisher": "FRED, 세인트루이스 연은",
+   "published": "2026-11-05 확인",
+   "note": "2016-07-05·08 1.37%(사상 최저 종가), 2016-07-26 1.57%. Moody’s Baa 2016.07 평균 4.22%. 2026-11 4.8~4.9%대(보도).",
+   "short": "FRED DGS10",
+   "url": "https://fred.stlouisfed.org/series/DGS10"
+  },
+  "linear_tsr_calc": {
+   "title": "린니어 주주 수익 계산 (2003-03-31 → 2017-03-10)",
+   "publisher": "조사 계산 (10-K·DEFM14A·Yahoo Finance)",
+   "published": "2026-11-05",
+   "note": "가격 $30.87 → $65.08(완료일 ADI $82.20 적용) +110.8%; 배당 합계 $11.75 포함 +148.9%(연 6.8%, 재투자 미가정). 같은 기간 S&P500 가격 +179.7%(연 7.7%), SOX +234.8%. 2차 출처 없음.",
+   "short": "TSR 계산"
+  },
+  "moore1965": {
+   "title": "Gordon Moore, “Cramming more components onto integrated circuits”, Electronics (1965-04-19)",
+   "publisher": "Electronics / 요약: Wikipedia",
+   "published": "1965-04-19",
+   "note": "1975년 2년마다 2배로 수정. Dennard 스케일링(1974)은 2005~06년경 한계.",
+   "short": "Moore 1965",
+   "url": "https://en.wikipedia.org/wiki/Moore%27s_law"
+  },
+  "volcker": {
+   "title": "미국 연방기금금리 (FEDFUNDS) 월별 실효금리",
+   "publisher": "FRED, 세인트루이스 연은",
+   "published": "2026-11-05 확인",
+   "note": "1981-06 19.10% 정점. 2003-06-25 1.00%, 2008-12-16 0~0.25%, 2015-12-16 첫 인상, 2023-07 5.25~5.50%.",
+   "short": "FRED FEDFUNDS",
+   "url": "https://fred.stlouisfed.org/series/FEDFUNDS"
+  },
+  "plaza": {
+   "title": "Frankel, “The Plaza Accord, 30 Years Later”, NBER w21813",
+   "publisher": "NBER",
+   "published": "2015-12",
+   "note": "플라자합의 1985-09-22. USD/JPY 연평균 1985 238 → 1987 145(FRED AEXJPUS). 미일 반도체협정 1986-09-02, 1987-04-17 100% 보복관세($300M).",
+   "short": "NBER Plaza",
+   "url": "https://www.nber.org/papers/w21813"
+  },
+  "samsung_history": {
+   "title": "삼성 반도체 40년: 1983 도쿄 선언·64K DRAM, 1992 64M DRAM 세계 최초",
+   "publisher": "아시아경제(영문) 특집",
+   "published": "2023-02",
+   "note": "도쿄 선언 1983-02-08, 64K DRAM 1983-12-01(세계 3번째), 기흥 1라인 1984-05. 64Mb DRAM 1992-08, 1992 DRAM 출하 1위, 1993 메모리 1위.",
+   "short": "삼성 반도체사",
+   "url": "https://www.asiae.co.kr/en/article/2023020710093517522"
+  },
+  "bigfund3": {
+   "title": "중국 국가집적회로산업투자기금 3기 출범 (3,440억 위안)",
+   "publisher": "Reuters (2차)",
+   "published": "2024-05-27",
+   "note": "1기 2014년 1,387억 위안, 2기 2019년 2,042억 위안. 2015 칭화유니의 Micron 인수 시도($23bn) 무산.",
+   "short": "빅펀드 3기(2차)",
+   "url": "https://www.reuters.com/technology/china-sets-up-third-fund-475-bln-boost-semiconductor-sector-2024-05-27/"
+  },
+  "chips_nist": {
+   "title": "CHIPS for America (CHIPS and Science Act, 2022-08-09)",
+   "publisher": "미 상무부 NIST",
+   "published": "2026-11-05 확인",
+   "note": "$52.7bn = 제조 인센티브 $39bn + R&D·인력 $13.2bn, 25% 투자세액공제.",
+   "short": "CHIPS Act",
+   "url": "https://www.nist.gov/chips"
+  },
+  "bis_2022": {
+   "title": "미 상무부 BIS 2022-10-07 대중 첨단 컴퓨팅·반도체 장비 수출통제 (법률사무소 요약)",
+   "publisher": "Cleary Gottlieb",
+   "published": "2022-10",
+   "note": "첨단 AI 칩·슈퍼컴퓨터·장비, 해외직접생산규칙(FDPR), 거부 추정. 2023 일본·네덜란드 동참.",
+   "short": "BIS 2022",
+   "url": "https://www.clearygottlieb.com/news-and-insights/publication-listing/the-united-states-tightens-china-related-export-controls-on-advanced-computing-and-semiconductor-manufacturing-items"
+  },
+  "samsung_ir": {
+   "title": "삼성전자 IR — 분기·연간 실적 발표",
+   "publisher": "삼성전자",
+   "published": "2026-11-05 확인",
+   "note": "2018 연결 영업이익 58.9조원(반도체 44.6조원). 2026 Q3는 C01 참조.",
+   "short": "삼성전자 IR",
+   "url": "https://www.samsung.com/global/ir/"
+  },
+  "hynix_ir": {
+   "title": "SK하이닉스 IR — 분기·연간 실적 발표",
+   "publisher": "SK하이닉스",
+   "published": "2026-11-05 확인",
+   "note": "2018 영업이익 20.8조원, 2023 영업손실 7.7조원, 2025 영업이익 47.2조원. 2026 Q3는 C02 참조.",
+   "short": "SK하이닉스 IR",
+   "url": "https://www.skhynix.com/ir/"
+  },
+  "cxmt_ipo": {
+   "title": "CXMT 상하이 STAR 상장·DRAM 점유율 (TrendForce 2Q26 집계 전재)",
+   "publisher": "헤럴드경제 (2차)",
+   "published": "2026-08",
+   "note": "2Q26 DRAM 매출 점유율: 삼성 39.4%, SK하이닉스 24.9%, Micron 23.3%, CXMT 9.5%(4위). CXMT 2026-07-27 상장 첫날 +466%(보도), DRAM 320k → 420k wpm(2027).",
+   "short": "CXMT(2차)",
+   "url": "https://biz.heraldcorp.com/article/10866656"
+  },
+  "cnbc_midterm": {
+   "title": "2026 미국 중간선거 결과: 민주당 상·하원 장악 (“blue wave”)",
+   "publisher": "NBC·CNN·Fox·CNBC 보도 종합 (2차)",
+   "published": "2026-11-04",
+   "note": "상원 54석+(KS·TX·IA·SC·OH·ME·NC 탈환), 하원 258석+(33년 만의 최대 격차). 주지사: TX(Hinojosa, 데이터센터 전면 모라토리엄 공약), OH(Acton, 조건부), GA·IA·NV 교체. 원문 URL은 발표 전 확인.",
+   "short": "중간선거(2차)"
+  },
+  "cnbc_ballot": {
+   "title": "CNBC: 2026 중간선거 데이터센터 주민투표 결과",
+   "publisher": "CNBC",
+   "published": "2026-11-04",
+   "note": "10개 주 41건 중 40건에서 데이터센터 반대(오하이오 21건). CNBC 출구 여론: 56%가 데이터센터를 투표의 주요 요인으로 답변.",
+   "short": "CNBC 주민투표",
+   "url": "https://www.cnbc.com/2026/11/04/data-center-ballot-measures-2026-midterm.html"
+  },
+  "dcmap": {
+   "title": "dcmap.us — 미국 데이터센터 규제 추적",
+   "publisher": "dcmap.us (민간 트래커, 2차)",
+   "published": "2026-11-05 확인",
+   "note": "주법 14건, 행정명령 7건, 지역 모라토리엄 33건 집계. NY EO 62(2026-07-14, ≥50MW 임시 모라토리엄), TX 474GW 큐 감사·TCEQ 허가 중단(9/21), VA 데이터센터세 $0.011/kWh.",
+   "short": "dcmap(2차)",
+   "url": "https://dcmap.us"
+  },
+  "dc_policy_2026": {
+   "title": "2026 미국 연방·주 데이터센터 정책 동향 종합",
+   "publisher": "의회·주정부 발표 및 보도 종합 (2차)",
+   "published": "2026-11-05",
+   "note": "Ratepayer Protection Act 하원 417–3 통과, 상원 cloture 57–43 부결; Sanders/AOC 전국 모라토리엄 법안; Heinrich GRID Act. 골드만삭스: 규제 영향 주 = 계획 용량의 약 45%, 중단은 “일시적”; UBS: 2028 증설의 약 30% 위험; BNEF 텍사스 약 50GW 위험.",
+   "short": "DC 정책(2차)"
+  },
+  "fed_2026": {
+   "title": "FOMC 성명 2026-09-16(+25bp, 3.75~4.00%)·2026-10-28(동결)",
+   "publisher": "미 연방준비제도 보도자료 목록",
+   "published": "2026-10-28",
+   "note": "9/16 12–0 인상(2023년 이후 첫 인상), 10/28 동결 10–2(Cook·Hammack 인상 주장). 의장 Warsh. 다음 회의 12/8~9, 선물시장 12월 인상 확률 약 79%(보도). 9월 CPI 3.7%(근원 2.6%), PCE 3.6%. 한국은행 3.00%(2026-08-27).",
+   "short": "FOMC 2026",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases.htm"
+  },
+  "oil_iran_2026": {
+   "title": "2026 이란 전쟁과 유가 (브렌트)",
+   "publisher": "보도 종합 (2차)",
+   "published": "2026-11-04",
+   "note": "2/28 개전, 브렌트 $72 → 약 $120(3/9), 호르무즈 봉쇄, 4/7 휴전, 9/28 약 $107, 11/4 약 $95. FY2026 미 재정적자 $2.0조(GDP 6.1~6.2%).",
+   "short": "유가 2026(2차)"
+  },
+  "msft_fy27q1": {
+   "title": "Microsoft FY2027 Q1 실적 (2026-10)",
+   "publisher": "Microsoft IR",
+   "published": "2026-10",
+   "note": "매출 $92.3B, Azure +48%, 설비투자(리스 포함) $45.2B, FCF $18.6B, RPO $677B. 역년 2026 설비투자 약 $170B(네오클라우드 지연으로 $175B에서 하향).",
+   "short": "MSFT FY27Q1",
+   "url": "https://www.microsoft.com/en-us/investor"
+  },
+  "googl_q3_2026": {
+   "title": "Alphabet 2026 Q3 실적",
+   "publisher": "Alphabet IR",
+   "published": "2026-10",
+   "note": "매출 $127.6B, 클라우드 +103%, 설비투자 $51.4B, FCF −$9.1B, 2026 가이던스 $195~205B, 2027 “대폭 증가”. 장기부채 $125.1B(연초 $46.5B), 올해 부채 $85.2B·지분 $62B 조달.",
+   "short": "Alphabet Q3",
+   "url": "https://abc.xyz/investor/"
+  },
+  "amzn_q3_2026": {
+   "title": "Amazon 2026 Q3 실적",
+   "publisher": "Amazon IR",
+   "published": "2026-10",
+   "note": "매출 $201.9B, AWS +39%, 분기 설비투자 $77.3B(TTM $215.2B), TTM FCF −$42.4B, 2026 현금 설비투자 약 $220B, 2027 “의미 있게 더”. 백로그 $578B, 장기부채 $173.1B(연초 $65.6B), $80B 담보 신용공여.",
+   "short": "Amazon Q3",
+   "url": "https://ir.aboutamazon.com/"
+  },
+  "meta_q3_2026": {
+   "title": "Meta 2026 Q3 실적",
+   "publisher": "Meta IR",
+   "published": "2026-10",
+   "note": "설비투자 $34.9B, FCF −$2.1B, 2026 가이던스 $135~145B. S&P 등급 전망 ‘부정적’, $95B 지분 조달 계획.",
+   "short": "Meta Q3",
+   "url": "https://investor.atmeta.com/"
+  },
+  "orcl_fy27": {
+   "title": "Oracle FY2027 가이던스·신용 (2026-11)",
+   "publisher": "Oracle IR 및 보도 (2차)",
+   "published": "2026-11-02",
+   "note": "RPO $664B, FCF −$5B, FY27 설비투자 $90~95B, 부채 $125.3B, 등급 BBB−, CDS 292bp, 11/2 $20B 주식+채권 발행 신고, 주가 YTD −33%.",
+   "short": "Oracle FY27",
+   "url": "https://investor.oracle.com/"
+  },
+  "crwv_q2_2026": {
+   "title": "CoreWeave 2026 Q2 실적",
+   "publisher": "CoreWeave IR",
+   "published": "2026-08",
+   "note": "매출 $2.58B, 순손실 $626M, 백로그 $104B, 부채 $35B, 주가 $87 → $48. Q3 실적 11/10 예정. Nebius 1H26 설비투자 $8.13B.",
+   "short": "CoreWeave Q2",
+   "url": "https://investors.coreweave.com/"
+  },
+  "nvda_fy27q2": {
+   "title": "NVIDIA FY2027 Q2 실적 (2026-08-26)",
+   "publisher": "NVIDIA IR",
+   "published": "2026-08-26",
+   "note": "매출 $96.2B(+106%), 데이터센터 $89.0B(+117%), 매출총이익률 75.0%, Q3 가이던스 $108B(중국 데이터센터 매출 0 가정). Q3 FY27 발표 2026-11-17.",
+   "short": "NVIDIA FY27Q2",
+   "url": "https://investor.nvidia.com/financial-info/quarterly-results/default.aspx"
+  },
+  "nvidia_china": {
+   "title": "NVIDIA 중국 매출과 수출통제 (2025~2026)",
+   "publisher": "NVIDIA 10-Q·BIS 규정·보도 종합 (2차)",
+   "published": "2026-11-05",
+   "note": "2025-04 H20 라이선스 요구($4.5B 손실), 2025-08-11 15% 상납 합의, 2025-12-08 H200 허용(25%), 2026-01-13 건별 심사(50% 상한), 2026-05-31 역외 구멍 차단. Q1 FY27 중국+홍콩 매출 $4.55B(전년 $9.66B). 밀수 기소: SMCI 2026-03-19 ~$510M.",
+   "short": "NVIDIA 중국(2차)"
+  },
+  "imf_gfsr_2026": {
+   "title": "IMF Global Financial Stability Report, 2026-10 (AI 투자 금융 위험)",
+   "publisher": "IMF",
+   "published": "2026-10-13",
+   "note": "순환거래 14건 ≈ $300B 지분 + $650B 부채 vs $1.4조 매출 약정. BoE 9/30 경고. 2026.9까지 AI 채권 발행 약 $450B, JPMorgan: 2026~30 차입 AI 투자 약 $4.1조.",
+   "short": "IMF GFSR 2026",
+   "url": "https://www.imf.org/en/Publications/GFSR"
+  },
+  "kcfed_ai": {
+   "title": "캔자스시티 연은: AI 인프라 투자의 부채 조달",
+   "publisher": "Federal Reserve Bank of Kansas City (2차 전재)",
+   "published": "2026",
+   "note": "AI 기업 투자등급 채권 발행 비중 2023년 2% → 2026년 10%. SPV는 약 90% 차입 조달, 네오클라우드 부채/자산 약 85%.",
+   "short": "KC Fed(2차)"
+  },
+  "ai_pacing_2026": {
+   "title": "AI 데이터센터 투자 속도 조절·취소 증거 종합",
+   "publisher": "Heatmap·Data Center Watch·보도 (2차)",
+   "published": "2026-11-05",
+   "note": "MSFT 역년 설비투자 −$5B·Nscale 영국 철수, Stargate Abilene 축소, PJM 용량 경매 상한(데이터센터가 비용의 38%), GE Vernova 가스터빈 백로그 122GW(2031년까지 예약), Siemens 69GW. Heatmap 1Q26 20건·$41.7B 취소, Data Center Watch 2Q26 45건·$68B 지연. 반대 증거: 가이던스 상향, RPO, Anthropic–Google 멀티GW TPU.",
+   "short": "속도조절(2차)"
+  },
+  "markets_1104": {
+   "title": "2026-11-04 미국·11-05 한국 주식시장",
+   "publisher": "거래소 시세·보도 종합",
+   "published": "2026-11-05",
+   "note": "11/4 NVDA −3.17%($200.13), MU −7.0%, VRT −13.8%, CEG −6.7%, CRWV −9.9%, GEV −9.3%; MSFT +6.7%, AMZN +6.1%. 11/5 코스피 5,383.80(−5.28%), 삼성전자 201,500원(−7.57%), SK하이닉스 1,264,000원(−9.46%), 외국인 5일 연속 순매도(3.42조). 골드만 AI 바스켓 고점 대비 −24%.",
+   "short": "시장 11/4~5"
+  },
+  "kospi_1105": {
+   "title": "서울경제: 코스피 급락과 메모리 비중 (2026-11-05)",
+   "publisher": "서울경제",
+   "published": "2026-11-05",
+   "note": "코스피 사상 최고 9,114.55(2026-06-22) 대비 −41%. 삼성+SK하이닉스 = 코스피 시총 51.7%(11/2). 삼성 6/19 고점 374,500원 대비 −46%, SK하이닉스 52주 고점 2,987,000원 대비 −58%.",
+   "short": "서울경제 11/5",
+   "url": "https://www.sedaily.com/article/20110823"
+  },
+  "trendforce_dram": {
+   "title": "TrendForce: 4Q26 DRAM 계약가격 전망 (2026-09-30)",
+   "publisher": "TrendForce",
+   "published": "2026-09-30",
+   "note": "범용 DRAM QoQ: 4Q25 +45~50%, 1Q26 +90~95%, 2Q26 +58~63%(전재), 3Q26 +13~18%, 4Q26 +10~15%(HBM 포함 +15~20%). 4Q 제안가 +15~20%는 고객 저항. DDR4 8Gb 10월 계약가 $27.5(2016.6 대비 9.5배), DDR5 16Gb 고정가 6월 $40 → 10월 $50.",
+   "short": "TrendForce DRAM",
+   "url": "https://www.trendforce.com/presscenter/news/20260930-13258.html"
+  },
+  "trendforce_server_2027": {
+   "title": "TrendForce: 2027년 서버 DRAM 공급 부족 전망 (2026-07-09)",
+   "publisher": "TrendForce",
+   "published": "2026-07-09",
+   "note": "2027 RDIMM 비트 공급 +15~20%에 그쳐 서버 DRAM 부족 지속, 계약가 2H27까지 분기마다 상승(상승폭 둔화). HBM이 DRAM 웨이퍼의 약 20% → 2027 약 30% 흡수(삼성).",
+   "short": "TrendForce 서버",
+   "url": "https://www.trendforce.com/presscenter/news/20260709-13140.html"
+  },
+  "trendforce_hbm": {
+   "title": "TrendForce·Counterpoint·UBS: HBM 점유율과 가격",
+   "publisher": "TrendForce 등 (2차)",
+   "published": "2026-03",
+   "note": "HBM 비트 점유율 2025: SK하이닉스 59%, 삼성 20%, Micron 약 21%; 2026F 50/28/22. Gartner: 2025 HBM >$30bn, DRAM의 23%. HBM4 계약가 mid-$500s vs HBM3E 12단 mid-$300s. 2027 HBM ASP 전망 +50%(애널리스트)~+79%(UBS). BofA: HBM 2026 $54.6bn.",
+   "short": "HBM 점유율(2차)"
+  },
+  "micron_fy26": {
+   "title": "Micron FY2026 4분기·연간 실적 (2026-09-30)",
+   "publisher": "SEC EDGAR 8-K Ex.99.1",
+   "published": "2026-09-30",
+   "note": "FY26 매출 $133.19bn(FY25 $37.38bn), GAAP 매출총이익률 80.7%, 영업이익 $99.34bn(74.6%), 순이익 $84.97bn, 영업현금 $89.68bn, 순설비투자 $27.37bn, 조정 FCF $62.31bn, 재고일수 129일(+9). FQ1’27 가이던스 $61.5bn, FY27 생산의 75%+ 계약 완료, CY2027 HBM 대부분 계약.",
+   "short": "Micron FY26",
+   "url": "https://www.sec.gov/Archives/edgar/data/0000723125/000072312526000018/a2026q4ex991-pressrelease.htm"
+  },
+  "wsts_q2_2026": {
+   "title": "WSTS: 2026년 2분기 세계 반도체 시장 중간 집계 (2026-08-06)",
+   "publisher": "WSTS",
+   "published": "2026-08-06",
+   "note": "1H26 $702bn(+102%), 메모리 +305%. 2026 전망 $1,655bn(+108%), 2027 약 $2.1조. 가을 전망은 11/16~19 고베 회의 후 12월 초 발표 예정.",
+   "short": "WSTS 2Q26",
+   "url": "https://www.wsts.org/76/Global-Semiconductor-Market-records-exceptional-growth-in-Q2-2026"
+  },
+  "sia_sep2026": {
+   "title": "SIA: 2026년 9월 세계 반도체 매출 (2026-11-03)",
+   "publisher": "Semiconductor Industry Association",
+   "published": "2026-11-03",
+   "note": "9월 $172.6bn(+146.8% YoY, +7.9% MoM), 3분기 $517.7bn(+24.1% QoQ, 3분기 연속 20%+). 1~9월 누적 $1조 초과, 2026 연간 $1.6조+.",
+   "short": "SIA 2026.09",
+   "url": "https://www.semiconductors.org/"
+  },
+  "korea_exports_oct2026": {
+   "title": "산업통상부: 2026년 10월 수출입 동향 (2026-11-01)",
+   "publisher": "산업통상부",
+   "published": "2026-11-01",
+   "note": "10월 수출 $1,152.8억(+93.7%), 반도체 $564.4억(+259.4%, 수출의 49.0%; 1년 전 26.4%), 메모리 $501.4억(+360.5%). 1~10월 수출 $9,300억(+60.6%), 10월 흑자 $425억.",
+   "short": "산업통상부 10월",
+   "url": "https://www.motir.go.kr/kor/article/ATCL3f49a5a8c/172360/view"
+  },
+  "semicon_act_kr": {
+   "title": "반도체특별법 시행 (2026-08-11)",
+   "publisher": "헤럴드경제 (2차)",
+   "published": "2026-08",
+   "note": "2026-01-29 국회 통과(199/206), 시행령 8/4 국무회의. 대통령 직속 반도체산업경쟁력강화특별위원회, 클러스터 기반시설 국비·지방비 50~100%, 특별회계(2036년까지), 예타 면제. 용인 클러스터 2041년까지 14GW 이상 전력, 1GW LNG 3기(2032).",
+   "short": "반도체특별법(2차)",
+   "url": "https://biz.heraldcorp.com/article/10830197"
+  },
+  "ms_memory_2026": {
+   "title": "모건스탠리 메모리 섹터 전망 (2026-07~10)",
+   "publisher": "techflowpost·biggo 전재 (2차)",
+   "published": "2026-10-14",
+   "note": "7/7 “변화율의 정점”, EPS 상향 폭 89%; 10/11~13 “슈퍼사이클은 실재하나 사이클성은 사라지지 않았다”, 2027년 이전 과잉 없음, 메모리 비중축소; 10/14 낮은 PER는 “밸류에이션 함정”, 메모리 주가는 이익보다 4~8개월 앞서 고점, 2H27 신규 공급.",
+   "short": "MS 메모리(2차)"
+  },
+  "bull_memory_2026": {
+   "title": "골드만삭스·UBS·BofA·씨티 메모리 강세 전망 (2026)",
+   "publisher": "보도 전재 (2차)",
+   "published": "2026-09",
+   "note": "골드만(6/1): 2028년까지 부족, 2027 DRAM 수급 −5.9%, 2027 미 빅테크 설비투자 $1.2조; UBS(4/8): “30년 만의 사이클”, 4Q27까지 부족; BofA(6/26): “구조적 이익 성장”, LTA가 가격 고정, 2027~2030; 씨티(8월): 하이닉스 310만원·삼성 46만원. JPMorgan·CLSA 최저 목표(하이닉스 125~160만원).",
+   "short": "강세 전망(2차)"
+  },
+  "apple_inventory": {
+   "title": "Apple 재고 급증 (2026-11-03 실적) 등 재고·이중주문 신호",
+   "publisher": "보도 종합 (2차)",
+   "published": "2026-11-03",
+   "note": "Apple 재고 $14.54bn(+154% YoY, +31% QoQ, “메모리 비축”). Micron 재고일수 129일. TrendForce: 미 CSP 2Q26 DRAM 재고 축적, PC OEM 재고 소진 중, 한국 AI DRAM 수출 물량 5→7월 −13.2%(금액 +18.5%). Kioxia LTA 급증은 “후기 사이클 지표”.",
+   "short": "재고 신호(2차)"
+  },
+  "tsmc_3q26": {
+   "title": "TSMC 2026 Q3 실적 (2026-10-15)",
+   "publisher": "TSMC IR",
+   "published": "2026-10-15",
+   "note": "매출 $46.72bn(+41.2%), 매출총이익률 66.4%, 영업이익률 58.7%, Q4 가이던스 $52.3~54.3bn, 2026 달러 성장 약 44%, 2026 설비투자 $60~64bn, 2026~28 “훨씬 더 높게”. HPC 68%, N2 2027 용량 2배.",
+   "short": "TSMC 3Q26",
+   "url": "https://investor.tsmc.com/english/quarterly-results"
+  },
+  "amd_q3_2026": {
+   "title": "AMD 2026 Q3 실적 (2026-11-03)",
+   "publisher": "AMD IR",
+   "published": "2026-11-03",
+   "note": "매출 $13.38bn(+45%), 데이터센터 $8.55bn(+97%, MI450), Q4 가이던스 약 $17bn.",
+   "short": "AMD Q3",
+   "url": "https://ir.amd.com/news-events/press-releases/detail/1303"
+  },
+  "equipment_2026": {
+   "title": "ASML·Lam·AMAT 2026 Q3 실적 (장비)",
+   "publisher": "각사 IR·보도 (2차)",
+   "published": "2026-10",
+   "note": "ASML Q3 매출 €11.66bn, 2026 €44~45bn, 2027·28 생산능력 +30%도 “주문을 따라가기에 부족”, 2028~30 주문, 2027 가격 인상. Lam 9월 분기 $8.22bn, AMAT FQ3 $9.12bn, 클린룸 가용성이 제약.",
+   "short": "장비 2026(2차)"
+  },
+  "epoch_huawei": {
+   "title": "Epoch AI: Huawei Ascend 생산 능력 추정",
+   "publisher": "Epoch AI (2차)",
+   "published": "2026",
+   "note": "2026 Huawei 약 150만 개 vs NVIDIA 약 590만 개(H100 환산 4% 미만), HBM 공급 격차 약 73배, 2030년까지 추격 어려움. Huawei 로드맵: Ascend 950PR 1Q26 / 950DT 4Q26(자체 HBM) / 960 2027 / 970 2028. SMIC N+3 DUV 113 MTr/mm² vs TSMC N3P 224.",
+   "short": "Epoch(2차)",
+   "url": "https://epoch.ai/"
+  },
+  "nist_caisi": {
+   "title": "NIST CAISI: DeepSeek V4 Pro 평가 (2026-05-01)",
+   "publisher": "미 NIST Center for AI Standards and Innovation",
+   "published": "2026-05-01",
+   "note": "미국 최전선 모델 대비 약 8개월 격차. Interconnects: 중국 오픈모델 2~5개월 격차. OpenRouter 중국 모델 사용 비중 61% → 80%+. Anthropic 2026-02-23 증류(distillation) 보고.",
+   "short": "NIST CAISI",
+   "url": "https://www.nist.gov/caisi"
+  },
+  "china_power_ai": {
+   "title": "중국 전력·데이터센터 확장 (2025~2030)",
+   "publisher": "IEA·보도 종합 (2차)",
+   "published": "2026",
+   "note": "2025 태양광 +315GW, 풍력 +119GW. 데이터센터 32GW → 60GW(2030). 베이징: 국가 자금 데이터센터는 국산 칩 의무. 희토류 휴전 2027-01-10까지 연장. YMTC NAND 3위(16.5%), 캄브리콘 1H26 매출 +108%.",
+   "short": "중국 전력(2차)"
+  },
+  "ai_pharma_2026": {
+   "title": "AI 신약: Insilico 렌토서팁 3상·Lilly–Insilico·Isomorphic",
+   "publisher": "보도 종합 (2차)",
+   "published": "2026-09-09",
+   "note": "Insilico rentosertib 3상 개시 2026-09-09; Lilly–Insilico $2.75B; Isomorphic Labs $2.1B 조달(기업가치 $50B 협의); AstraZeneca–Insitro $1.86B.",
+   "short": "AI 제약(2차)"
+  },
+  "ai_auto_robot_2026": {
+   "title": "자율주행·휴머노이드 2026 현황",
+   "publisher": "보도 종합 (2차)",
+   "published": "2026-10",
+   "note": "Waymo 주 50만 회+ 유료 탑승, 4,000대+, 목표 주 100만 회; Tesla Cybercab 오스틴 2026-09-03~, 약 200만 마일 무인; Baidu Apollo Go 누적 2,300만 회. Tesla Optimus 프리몬트 양산 개시, Figure 기업가치 $39B, Unitree IPO 약 $9B(2025년 5,500대 출하), 1X NEO $20,000.",
+   "short": "자동차·로봇(2차)"
+  },
+  "ai_space_quantum_2026": {
+   "title": "우주·양자 2026 현황",
+   "publisher": "보도 종합 (2차)",
+   "published": "2026-10",
+   "note": "Starship 14차 비행 첫 궤도 진입 2026-09-28, Starlink 가입자 1,360만, SpaceX IPO 2026-06-11(약 $1.77조, 확인 필요), Google Suncatcher 시험위성 10/1. Google Quantum Echoes(2025-10), Quantinuum IPO 2026-06-04 약 $17.6B; 상업적 양자 우위는 미입증.",
+   "short": "우주·양자(2차)"
+  },
+  "anthropic_espionage": {
+   "title": "Anthropic: AI가 주도한 첫 사이버 스파이 작전 차단 보고",
+   "publisher": "Anthropic",
+   "published": "2025-11-13",
+   "note": "작전의 80~90%를 AI가 자율 수행. AI 보안 수요의 근거. Anthropic 연 매출 run-rate $65B(2026-07), S-1 제출 2026-10-26(1H26 매출 $16.3B); OpenAI $122B 조달(기업가치 $852B, 2026-03-31), 2030년까지 컴퓨트 약 $600B 약정; Google 신규 코드 30%+ AI 생성.",
+   "short": "Anthropic 2025.11",
+   "url": "https://www.anthropic.com/news/disrupting-AI-espionage"
+  },
+  "iea_energy_ai": {
+   "title": "IEA, Energy and AI (2025)",
+   "publisher": "국제에너지기구",
+   "published": "2025-04",
+   "note": "데이터센터 전력 415TWh(2024) → 945TWh(2030). 미국 Crane(TMI) 원전 재가동 2027, TerraPower 허가 2026-03-04.",
+   "short": "IEA Energy and AI",
+   "url": "https://www.iea.org/reports/energy-and-ai"
+  }
+ },
+ "ranking": {
   "asOf": "2026-11-03",
+  "unit": "USD billions",
+  "years": [
+   1990,
+   2000,
+   2010,
+   2017,
+   2020,
+   2024,
+   2025
+  ],
+  "definition": "Gartner의 세계 반도체 공급업체 매출 순위. 기업 전체 연결매출·시가총액·생산량 순위가 아니다. 파운드리(TSMC)와 장비회사를 합산하지 않는다. 원자료 단위는 백만 US달러이며 표시용 십억 달러는 1,000으로 나눈 값이다.",
+  "notes": [
+   "1990·2000·2010·2017·2020·2024·2025의 관측 스냅샷만 제공한다. 연도 사이를 사실 데이터인 것처럼 보간하지 말 것.",
+   "순위 전환 애니메이션은 가능하나 '대표 연도 스냅샷 / 중간 연도 미표시'를 명시한다.",
+   "Top10에 없는 기업은 매출 0이 아니라 관측 순위 밖이다. 존재하지 않는 0 값을 역사 데이터로 저장하지 말 것.",
+   "2010까지는 학술논문의 Gartner 인용표, 2017·2020은 Gartner 보도자료 재게시본, 2024·2025는 Gartner 직접 보도자료를 사용한다.",
+   "2024는 2025-04-10 최종치다. 2025-02-03 잠정치와 순위가 다르므로 혼용 금지. 최종치는 NVIDIA가 1위다.",
+   "2025는 2026-01-12 발표 잠정치다. '2025 잠정 / 2026.01 발표' 표시가 필요하다. 2026 연간 실적은 아직 완결되지 않았다.",
+   "기업명은 당시 명칭을 보존한다. Hyundai→Hynix→SK hynix는 계보를 별도로 설명하고, NEC/Hitachi/Mitsubishi나 Toshiba를 현대 기업에 단순 소급 합산하지 않는다.",
+   "최근 Gartner 표에는 Apple도 포함된다. 회사 전체 매출 또는 외부 판매 반도체 매출만의 순위라고 설명하면 안 된다. 조사기관의 반도체 매출 추정 범위다."
+  ],
   "sources": {
-    "ranking_history": {
-      "title": "Kamakura (2022), From globalising to regionalising to reshoring value chains? The case of Japan’s semiconductor industry, Table 1",
-      "publisher": "Cambridge Journal of Regions, Economy and Society / Oxford Academic",
-      "published": "2022-05-13",
-      "url": "https://academic.oup.com/cjres/article/15/2/261/6585222",
-      "table_url": "https://academic.oup.com/view-large/362108178",
-      "source_attribution": "Gartner, Inc.",
-      "note": "표가 파운드리 제외를 명시. 1990/2000/2010/2020 대표 연도. 원 Gartner 연도별 발행 버전은 표에 미기재.",
-      "short": "Gartner/OUP"
-    },
-    "ranking_2017": {
-      "title": "Gartner Says Worldwide Semiconductor Revenue Grew 21.6 Percent in 2017 as Samsung Takes Over No. 1 Position",
-      "publisher": "Gartner press release republished by Design & Reuse",
-      "published": "2018-04-23",
-      "url": "https://www.design-reuse.com/news/4806-gartner-says-worldwide-semiconductor-revenue-grew-21-6-percent-in-2017-as-samsung-takes-over-no-1-position/",
-      "status": "final",
-      "short": "Gartner 2017"
-    },
-    "ranking_2020": {
-      "title": "Gartner Says Worldwide Semiconductor Revenue Grew 10.4% in 2020",
-      "publisher": "Gartner press release republished by Design & Reuse",
-      "published": "2021-04-12",
-      "url": "https://www.design-reuse-embedded.com/news/202104063",
-      "status": "final",
-      "short": "Gartner 2020"
-    },
-    "ranking_2024": {
-      "title": "Gartner Says Worldwide Semiconductor Revenue Grew 21% in 2024",
-      "publisher": "Gartner",
-      "published": "2025-04-10",
-      "url": "https://www.gartner.com/en/newsroom/press-releases/2025-04-10-gartner-says-worldwide-semiconductor-revenue-grew-21-percent-in-2024",
-      "status": "final",
-      "short": "Gartner 2024"
-    },
-    "ranking_2025": {
-      "title": "Gartner Says Worldwide Semiconductor Revenue Grew 21% in 2025",
-      "publisher": "Gartner",
-      "published": "2026-01-12",
-      "url": "https://www.gartner.com/en/newsroom/press-releases/2026-01-12-gartner-says-worldwide-semiconductor-revenue-grew-21-percent-in-2025",
-      "status": "preliminary",
-      "short": "Gartner 2025 잠정"
-    },
-    "linear_deal": {
-      "title": "Analog Devices and Linear Technology to Combine Creating the Premier Analog Technology Company",
-      "publisher": "Analog Devices",
-      "published": "2016-07-26",
-      "url": "https://investor.analog.com/news-releases/news-release-details/analog-devices-and-linear-technology-combine-creating-premier",
-      "short": "Analog Devices"
-    },
-    "linear_close": {
-      "title": "Analog Devices Completes Acquisition of Linear Technology",
-      "publisher": "Analog Devices",
-      "published": "2017-03-10",
-      "url": "https://investor.analog.com/news-releases/news-release-details/analog-devices-completes-acquisition-linear-technology",
-      "short": "Analog Devices"
-    },
-    "linear_finance": {
-      "title": "ADI acquisition conference call transcript",
-      "publisher": "Analog Devices",
-      "published": "2016-07-26",
-      "url": "https://www.analog.com/media/en/corporate/Analog-Devices-and-Linear-Technology-Call-Transcript.pdf",
-      "short": "Analog Devices"
-    },
-    "linear_close_value": {
-      "title": "Linear Technology Form 8-K, merger closing",
-      "publisher": "SEC",
-      "published": "2017-03-10",
-      "url": "https://www.sec.gov/Archives/edgar/data/791907/000119312517078946/d340243d8k.htm",
-      "short": "SEC"
-    },
-    "adi_current": {
-      "title": "Analog Devices Reports Record Fiscal Third Quarter 2026 Financial Results",
-      "publisher": "Analog Devices",
-      "published": "2026-08-19",
-      "url": "https://investor.analog.com/news-releases/news-release-details/analog-devices-reports-record-fiscal-third-quarter-2026",
-      "short": "Analog Devices"
-    },
-    "elpida_failure": {
-      "title": "Notice on Petition for Commencement of Corporate Reorganization Proceedings",
-      "publisher": "Elpida release archived by Micron",
-      "published": "2012-02-27",
-      "url": "https://investors.micron.com/static-files/93dad3a1-e4b0-4cd3-aa29-5724f2f7029e",
-      "short": "Elpida release archived by Micron"
-    },
-    "elpida_causes": {
-      "title": "Notice on Petition ... and Uncollectibility of Debts of Our Subsidiary",
-      "publisher": "Elpida release archived by Micron",
-      "published": "2012-02-27",
-      "url": "https://investors.micron.com/static-files/d7476592-babc-4d0a-97f1-1238a2c9662e",
-      "short": "Elpida release archived by Micron"
-    },
-    "elpida_bonds": {
-      "title": "Notice on Acceleration of Straight Bonds and Convertible Bonds",
-      "publisher": "Elpida release archived by Micron",
-      "published": "2012-02-27",
-      "url": "https://investors.micron.com/static-files/662e1589-c956-404d-8c1e-b077a8c4e52c",
-      "short": "Elpida release archived by Micron"
-    },
-    "elpida_acquisition": {
-      "title": "Micron Form 8-K: Completion of Elpida Acquisition",
-      "publisher": "Micron",
-      "published": "2013-07-31",
-      "url": "https://investors.micron.com/static-files/3b9c8417-7cff-4d7d-8fe4-c03a68b946b5",
-      "short": "Micron"
-    },
-    "qimonda": {
-      "title": "Infineon Annual Report 2009",
-      "publisher": "Infineon",
-      "published": "2009",
-      "url": "https://www.infineon.com/dgdl/Infineon%2B20-F_2009.pdf?fileId=db3a304325305e6d01256eda6e5329c3",
-      "short": "Infineon"
-    },
-    "tsmc_foundry": {
-      "title": "Everything to Know about Dedicated Foundries",
-      "publisher": "TSMC",
-      "url": "https://www.tsmc.com/english/aboutTSMC/dc_infographics_foundry",
-      "short": "TSMC"
-    },
-    "tsmc_annual": {
-      "title": "TSMC 2017 Annual Report",
-      "publisher": "TSMC",
-      "published": "2018",
-      "url": "https://investor.tsmc.com/static/annualReports/2017/english/index.html",
-      "short": "TSMC"
-    },
-    "intel_dram": {
-      "title": "Farewell to DRAM",
-      "publisher": "Intel History",
-      "event_date": "1985-10-10",
-      "url": "https://timeline.intel.com/1985/farewell-to-dram",
-      "short": "Intel History"
-    },
-    "intel_4004": {
-      "title": "Intel Microprocessor Quick Reference Guide",
-      "publisher": "Intel",
-      "event_date": "1971-11-15",
-      "url": "https://www.intel.com/pressroom/kits/quickrefyr.htm",
-      "short": "Intel"
-    },
-    "kilby": {
-      "title": "From idea to invention: The origin story of the tiny chip that changed the world",
-      "publisher": "Texas Instruments",
-      "published": "2022-09-12",
-      "url": "https://www.ti.com/about-ti/behind-chip/articles/from-idea-to-invention-the-origin-story-of-the-tiny-chip-that-changed-the-world.html",
-      "short": "Texas Instruments"
-    },
-    "noyce": {
-      "title": "1959: Practical Monolithic Integrated Circuit Concept Patented",
-      "publisher": "Computer History Museum",
-      "url": "https://www.computerhistory.org/siliconengine/practical-monolithic-integrated-circuit-concept-patented/",
-      "short": "Computer History Museum"
-    },
-    "cuda": {
-      "title": "CUDA C Programming Guide 10.2, section 1.2",
-      "publisher": "NVIDIA",
-      "published": "2019",
-      "url": "https://docs.nvidia.com/cuda/archive/10.2/cuda-c-programming-guide/",
-      "short": "NVIDIA"
-    },
-    "hbm_history": {
-      "title": "SK hynix Begins Volume Production of the World’s First 12-Layer HBM3E",
-      "publisher": "SK hynix",
-      "published": "2024-09-26",
-      "url": "https://news.skhynix.com/en/sk-hynix-begins-volume-production-of-the-world-first-12-layer-hbm3e/",
-      "short": "SK hynix"
-    },
-    "hbm_definition": {
-      "title": "SK hynix Develops World’s Fastest High Bandwidth Memory, HBM2E",
-      "publisher": "SK hynix",
-      "published": "2019-08-12",
-      "url": "https://news.skhynix.com/en/sk-hynix-develops-worlds-fastest-high-bandwidth-memory-hbm2e/",
-      "short": "SK hynix"
-    },
-    "renesas": {
-      "title": "Renesas Annual Report 2011",
-      "publisher": "Renesas",
-      "published": "2011",
-      "url": "https://www.renesas.com/document/rep/annual-report-2011?language=en",
-      "short": "Renesas"
-    },
-    "nxp_freescale": {
-      "title": "NXP and Freescale Announce Completion of Merger",
-      "publisher": "NXP",
-      "published": "2015-12-07",
-      "url": "https://www.nxp.com/company/about-nxp/newsroom/NW-NXP-FREESCALE-MERGE",
-      "short": "NXP"
-    },
-    "broadcom": {
-      "title": "Broadcom Limited Announces First Quarter Fiscal Year 2016 Financial Results",
-      "publisher": "Broadcom",
-      "published": "2016-03-03",
-      "url": "https://investors.broadcom.com/news-releases/news-release-details/broadcom-limited-announces-first-quarter-fiscal-year-2016",
-      "short": "Broadcom"
-    },
-    "kioxia": {
-      "title": "Toshiba Memory to Rebrand as Kioxia in October",
-      "publisher": "Kioxia",
-      "published": "2019-07-18",
-      "url": "https://www.kioxia.com/en-jp/about/news/2019/20190718-2.html",
-      "short": "Kioxia"
-    },
-    "C01": {
-      "title": "삼성전자 Q3 공식 발표 (2026-10-29)",
-      "url": "https://news.samsung.com/kr/삼성전자-2026년-3분기-실적-발표",
-      "publisher": "기업 IR / 공식기관",
-      "published": "2026-11-03 확인",
-      "short": "C01 삼성전자",
-      "note": "상세 해설의 기준 기간·회계범위·실제/전망 구분을 함께 확인. "
-    },
-    "C02": {
-      "title": "SK하이닉스 Q3 공식 발표 (2026-10-28)",
-      "url": "https://news.skhynix.com/en/q3-2026-business-results/",
-      "publisher": "기업 IR / 공식기관",
-      "published": "2026-11-03 확인",
-      "short": "C02 SK하이닉스",
-      "note": "상세 해설의 기준 기간·회계범위·실제/전망 구분을 함께 확인. "
-    },
-    "C03": {
-      "title": "Micron FY2026 실적 (2026-09-30, FY 종료 2026-09-03)",
-      "url": "https://investors.micron.com/news/press-release/2026/Micron-Technology-Inc--Reports-Record-Fiscal-Fourth-Quarter-and-Full-Year-2026-Results/",
-      "publisher": "기업 IR / 공식기관",
-      "published": "2026-11-03 확인",
-      "short": "C03 Micron",
-      "note": "상세 해설의 기준 기간·회계범위·실제/전망 구분을 함께 확인. "
-    },
-    "C04": {
-      "title": "2029 발언 확인 경로: 기업 발언의 2차 전재이며, 본 조사에서 공식 음원 직접 청취까지는 하지 못함. 기술 주장에는 사용하지 않고 계약 표현의 출처로만 사용.",
-      "url": "https://en.edaily.co.kr/news/eda202610285220/",
-      "publisher": "이데일리 · 콜 발언 전재",
-      "published": "2026-11-03 확인",
-      "short": "C04 2029",
-      "note": "상세 해설의 기준 기간·회계범위·실제/전망 구분을 함께 확인. 공식 음원 직접 청취 아님. 2029는 계약과 협의 수요를 합친 표현."
-    },
-    "C05": {
-      "title": "Micron 공식 준비 발언 (2026-09-30)",
-      "url": "https://s25.q4cdn.com/621799436/files/doc_financials/2026/q4/Q4-FY26-Prepared-Remarks.pdf",
-      "publisher": "기업 IR / 공식기관",
-      "published": "2026-11-03 확인",
-      "short": "C05 Micron",
-      "note": "상세 해설의 기준 기간·회계범위·실제/전망 구분을 함께 확인. "
-    },
-    "C06": {
-      "title": "Micron HBM2E 기술백서 (2021)",
-      "url": "https://assets.micron.com/adobe/assets/urn%3Aaaid%3Aaem%3A275edf31-79e3-4b6c-8bbd-a233babe9281/original/as/micron-hbm2e-memory-wp.pdf",
-      "publisher": "기업 IR / 공식기관",
-      "published": "2026-11-03 확인",
-      "short": "C06 Micron",
-      "note": "상세 해설의 기준 기간·회계범위·실제/전망 구분을 함께 확인. "
-    },
-    "C07": {
-      "title": "Micron 교육용 패키징 설명",
-      "url": "https://www.micron.com/content/dam/micron/educatorhub/intro-to-memory-packaging/micron-intro-to-memory-packaging-presentation.pdf",
-      "publisher": "기업 IR / 공식기관",
-      "published": "2026-11-03 확인",
-      "short": "C07 Micron",
-      "note": "상세 해설의 기준 기간·회계범위·실제/전망 구분을 함께 확인. "
-    },
-    "C08": {
-      "title": "Micron Fiscal Q2 2025 Earnings Call Prepared Remarks, p.6",
-      "url": "https://micron.gcs-web.com/static-files/52ce0c07-49dc-4eab-b1d2-a67bde373bca",
-      "publisher": "기업 IR / 공식기관",
-      "published": "2025-03-20",
-      "short": "C08 Micron",
-      "note": "동일 bit 용량에서 HBM3E가 DDR5 대비 약 3배의 silicon을 사용한다는 회사 설명. 세대·조건을 한정해야 한다."
-    },
-    "C09": {
-      "title": "NVIDIA Blackwell Ultra 기술 블로그 (2025)",
-      "url": "https://developer.nvidia.com/blog/inside-nvidia-blackwell-ultra-the-chip-powering-the-ai-factory-era/",
-      "publisher": "기업 IR / 공식기관",
-      "published": "2026-11-03 확인",
-      "short": "C09 NVIDIA",
-      "note": "상세 해설의 기준 기간·회계범위·실제/전망 구분을 함께 확인. "
-    },
-    "C10": {
-      "title": "NVIDIA FY2026 공식 발표 (2026-02-25)",
-      "url": "https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Announces-Financial-Results-for-Fourth-Quarter-and-Fiscal-2026/",
-      "publisher": "기업 IR / 공식기관",
-      "published": "2026-11-03 확인",
-      "short": "C10 NVIDIA",
-      "note": "상세 해설의 기준 기간·회계범위·실제/전망 구분을 함께 확인. "
-    },
-    "C11": {
-      "title": "TSMC 2025 실적 발표 자료 (2026-01-15)",
-      "url": "https://www.sec.gov/Archives/edgar/data/1046179/000104617926000008/a4q25presentatione.htm",
-      "publisher": "기업 IR / 공식기관",
-      "published": "2026-11-03 확인",
-      "short": "C11 TSMC",
-      "note": "상세 해설의 기준 기간·회계범위·실제/전망 구분을 함께 확인. "
-    },
-    "C12": {
-      "title": "TI 2025 공식 실적 발표 (2026-01-27)",
-      "url": "https://www.ti.com/about-ti/newsroom/news-releases/2026/2026-01-27-ti-reports-q4-2025-and-2025-financial-results-and-shareholder-returns.html",
-      "publisher": "기업 IR / 공식기관",
-      "published": "2026-11-03 확인",
-      "short": "C12 TI",
-      "note": "상세 해설의 기준 기간·회계범위·실제/전망 구분을 함께 확인. "
-    },
-    "C13": {
-      "title": "Micron FY2025 실적 (2025-09-23)",
-      "url": "https://investors.micron.com/news/press-release/2025/Micron-Technology-Inc--Reports-Results-for-the-Fourth-Quarter-and-Full-Year-of-Fiscal-2025-09-23-2025/default.aspx",
-      "publisher": "기업 IR / 공식기관",
-      "published": "2026-11-03 확인",
-      "short": "C13 Micron",
-      "note": "상세 해설의 기준 기간·회계범위·실제/전망 구분을 함께 확인. "
-    },
-    "C14": {
-      "title": "Damodaran 1차 강의 자료",
-      "url": "https://pages.stern.nyu.edu/~adamodar/New_Home_Page/invfables/pbvdeterminants.htm",
-      "publisher": "기업 IR / 공식기관",
-      "published": "2026-11-03 확인",
-      "short": "C14 Damodaran",
-      "note": "상세 해설의 기준 기간·회계범위·실제/전망 구분을 함께 확인. "
-    },
-    "C15": {
-      "title": "현업 경영자의 시각 — TI 자본관리 공식 페이지",
-      "url": "https://investor.ti.com/resources/capital-management",
-      "publisher": "기업 IR / 공식기관",
-      "published": "2026-11-03 확인",
-      "short": "C15 현업",
-      "note": "상세 해설의 기준 기간·회계범위·실제/전망 구분을 함께 확인. "
-    },
-    "C16": {
-      "title": "Amazon Q3 2026 공식 실적 (2026-10-29)",
-      "url": "https://ir.aboutamazon.com/news-release/news-release-details/2026/Amazon-com-Announces-Third-Quarter-Results/default.aspx",
-      "publisher": "기업 IR / 공식기관",
-      "published": "2026-11-03 확인",
-      "short": "C16 Amazon",
-      "note": "상세 해설의 기준 기간·회계범위·실제/전망 구분을 함께 확인. "
-    },
-    "C17": {
-      "title": "Alphabet Q3 2026 공식 콜 (2026-10-28)",
-      "url": "https://abc.xyz/investor/events/event-details/2026/2026-Q3-Earnings-Call-2026-Ujou16CTw9/default.aspx",
-      "publisher": "기업 IR / 공식기관",
-      "published": "2026-11-03 확인",
-      "short": "C17 Alphabet",
-      "note": "상세 해설의 기준 기간·회계범위·실제/전망 구분을 함께 확인. "
-    },
-    "C18": {
-      "title": "Microsoft FY2027 Q1 공식 실적 (2026-10-28, 분기 종료 2026-09-30)",
-      "url": "https://www.microsoft.com/en-us/investor/earnings/fy-2027-q1/press-release-webcast",
-      "publisher": "기업 IR / 공식기관",
-      "published": "2026-11-03 확인",
-      "short": "C18 Microsoft",
-      "note": "상세 해설의 기준 기간·회계범위·실제/전망 구분을 함께 확인. "
-    },
-    "C19": {
-      "title": "IMF AI·금리 위험 해설 (표시 발행일 2026-10-13; URL 날짜는 10-12)",
-      "url": "https://www.imf.org/en/blogs/articles/2026/10/12/global-financial-markets-face-rising-risks-from-ai-bond-yields-and-cyberattacks",
-      "publisher": "기업 IR / 공식기관",
-      "published": "2026-11-03 확인",
-      "short": "C19 IMF",
-      "note": "상세 해설의 기준 기간·회계범위·실제/전망 구분을 함께 확인. "
-    },
-    "C20": {
-      "title": "Fed 2026-09-15~16 회의 의사록",
-      "url": "https://www.federalreserve.gov/monetarypolicy/fomcminutes20260916.htm",
-      "publisher": "기업 IR / 공식기관",
-      "published": "2026-11-03 확인",
-      "short": "C20 Fed",
-      "note": "상세 해설의 기준 기간·회계범위·실제/전망 구분을 함께 확인. "
-    },
-    "C21": {
-      "title": "Fed 2026-10-28 성명",
-      "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20261028a.htm",
-      "publisher": "기업 IR / 공식기관",
-      "published": "2026-11-03 확인",
-      "short": "C21 Fed",
-      "note": "상세 해설의 기준 기간·회계범위·실제/전망 구분을 함께 확인. "
-    },
-    "CASE": {
-      "title": "Baker & Wagonfeld, Dividend Policy at Linear Technology, HBS 9-204-066, pp.1–3",
-      "url": "",
-      "short": "HBS Case pp.1–3",
-      "published": "2004-02-11 개정",
-      "note": "사용자 제공 케이스. 논의 시점은 2003년 4월. 공장 비용·수명·현금 수치는 당시 사례이며 현재 업계 일반값이 아니다. 원문 미배포.",
-      "publisher": "Harvard Business School"
-    },
-    "MKT_HIST": {
-      "title": "Bespoke — Historical S&P 500 Sector Weights, p.4",
-      "url": "https://media.bespokepremium.com/uploads/2023/07/070323-Sector-Weights-5037189urijef.pdf",
-      "short": "Bespoke",
-      "published": "2023-07-03",
-      "note": "연말 지수 섹터 비중. GICS 소급 분류와 구성 변화 포함. 과거 가중치의 2차 집계.",
-      "publisher": "Bespoke Investment Group"
-    },
-    "SPY": {
-      "title": "SPY Factsheet — sector allocation",
-      "url": "https://www.ssga.com/library-content/products/factsheets/etfs/us/factsheet-us-en-spy.pdf",
-      "short": "SSGA SPY",
-      "published": "2026-09-30",
-      "note": "S&P 500 추종 ETF 보유비중을 현재 지수 비중의 대용치로 사용. 라이브 URL은 후속 월 자료로 바뀔 수 있음.",
-      "publisher": "State Street"
-    },
-    "ACWI": {
-      "title": "MSCI ACWI Index Factsheet",
-      "url": "https://www.msci.com/documents/10199/255599/msci-acwi.pdf",
-      "short": "MSCI ACWI",
-      "published": "2026-09-30",
-      "note": "글로벌 대형·중형주 유동시총 지수. IT 33.21%. PDF URL은 업데이트 가능.",
-      "publisher": "MSCI"
-    },
-    "XLK20": {
-      "title": "Technology Select Sector SPDR Fund annual report, Schedule of Investments",
-      "url": "https://www.sec.gov/Archives/edgar/data/1064641/000119312520311479/d13580dncsr.htm",
-      "short": "XLK SEC 2020",
-      "published": "2020-09-30",
-      "note": "반도체·장비 18.0%. 반올림 순자산 대비 비중. 기타에 현금성 0.1% 포함.",
-      "publisher": "SEC / SSGA"
-    },
-    "XLK26": {
-      "title": "XLK Factsheet — industry allocation",
-      "url": "https://www.ssga.com/library-content/products/factsheets/etfs/us/factsheet-us-en-xlk.pdf",
-      "short": "SSGA XLK",
-      "published": "2026-09-30",
-      "note": "반도체·장비 45.95%. 종목 비중 제한을 가진 ETF. 구성·분류·가격 변화를 모두 포함. 기타는 100에서 주요 업종 차감.",
-      "publisher": "State Street"
-    },
-    "GICS": {
-      "title": "S&P 500 Sector Indices and 25 Years of GICS",
-      "url": "https://www.spglobal.com/spdji/en/documents/education/talking-points-an-overview-of-sp-500-sector-indices-and-25-years-of-gics.pdf",
-      "short": "S&P GICS",
-      "published": "2024",
-      "note": "2016·2018·2023 분류개편으로 시계열 구성 변화. IT는 일상의 모든 빅테크를 포괄하지 않음.",
-      "publisher": "S&P Dow Jones Indices"
-    },
-    "WSTS": {
-      "title": "WSTS Historical Billings Report — August 2026",
-      "url": "https://www.wsts.org/esraCMS/extension/media/f/WST/7803/WSTS-Historical-Billings-Report-Aug_2026.xlsx",
-      "short": "WSTS 실제",
-      "published": "2026-08 자료",
-      "note": "Monthly Data, Worldwide 연간 Total Year. 원단위 1,000 USD를 십억 USD로 변환. 2026 부분연도 제외. 2024·2025는 수정치.",
-      "publisher": "WSTS"
-    },
-    "WSTS_FORECAST": {
-      "title": "WSTS Spring 2026 Forecast",
-      "url": "https://www.wsts.org/esraCMS/extension/media/f/WST/7618/WSTS_FC-Release-2026-May.pdf",
-      "short": "WSTS 전망",
-      "published": "2026-06-02",
-      "note": "2026·2027은 전망. 실제 연간 시계열에 합치지 않음.",
-      "publisher": "WSTS"
-    },
-    "ANALOG": {
-      "title": "Analog — definition",
-      "url": "https://www.analog.com/en/resources/glossary/analog.html",
-      "short": "ADI 용어",
-      "published": "2026-11-03 확인",
-      "note": "",
-      "publisher": "Analog Devices"
-    },
-    "MIXED": {
-      "title": "Mixed-signal — definition",
-      "url": "https://www.analog.com/en/resources/glossary/mixed-signal.html",
-      "short": "ADI mixed-signal",
-      "published": "2026-11-03 확인",
-      "note": "",
-      "publisher": "Analog Devices"
-    },
-    "CHM": {
-      "title": "The Silicon Engine — timeline",
-      "url": "https://www.computerhistory.org/siliconengine/timeline/",
-      "short": "Computer History Museum",
-      "published": "2026-11-03 확인",
-      "note": "1947 트랜지스터, 1958 IC, 1959 모놀리식 구조, 1970 DRAM, 1971 마이크로프로세서.",
-      "publisher": "Computer History Museum"
-    },
-    "TSMC25": {
-      "title": "TSMC 2025 Annual Report",
-      "url": "https://investor.tsmc.com/static/annualReports/2025/english/index.html",
-      "short": "TSMC 연차보고서",
-      "published": "2026",
-      "note": "1987년 설립·전업 파운드리 사업모델.",
-      "publisher": "TSMC"
-    },
-    "NVIDIA_HISTORY": {
-      "title": "NVIDIA Corporate Timeline",
-      "url": "https://www.nvidia.com/en-us/about-nvidia/corporate-timeline/",
-      "short": "NVIDIA 연혁",
-      "published": "2026-11-03 확인",
-      "note": "2006 CUDA, 2012 AlexNet 등 기술 사건.",
-      "publisher": "NVIDIA"
-    },
-    "ASML": {
-      "title": "Lithography principles",
-      "url": "https://www.asml.com/en/technology/lithography-principles",
-      "short": "ASML 기술",
-      "published": "2026-11-03 확인",
-      "note": "반도체 제조에서 노광의 역할과 작동 원리.",
-      "publisher": "ASML"
-    },
-    "NORMALIZE": {
-      "title": "Damodaran — More on normalizing earnings",
-      "url": "https://pages.stern.nyu.edu/~adamodar/New_Home_Page/valquestions/normearn.htm",
-      "short": "Damodaran",
-      "published": "2026-11-03 확인",
-      "note": "경기순환 이익 정상화. 규모 변화와 정상화 시점을 반영해야 함.",
-      "publisher": "NYU Stern"
-    },
-    "VALUATION": {
-      "title": "Damodaran — Valuation Lecture Notes",
-      "url": "https://people.stern.nyu.edu/adamodar/pdfiles/eqnotes/packet2a.pdf",
-      "short": "NYU 가치평가",
-      "published": "2026-11-03 확인",
-      "note": "배수는 성장·위험·마진·자본구조와 함께 해석.",
-      "publisher": "NYU Stern"
-    },
-    "GROWTH": {
-      "title": "Damodaran — Growth and value",
-      "url": "https://pages.stern.nyu.edu/~adamodar/New_Home_Page/valquestions/growth.htm",
-      "short": "NYU 성장의 가치",
-      "published": "2026-11-03 확인",
-      "note": "재투자와 투자수익률이 성장의 가치를 결정.",
-      "publisher": "NYU Stern"
-    },
-    "HBM3E": {
-      "title": "Micron HBM3E — product and bandwidth explanation",
-      "url": "https://www.micron.com/products/memory/hbm/hbm3e",
-      "short": "Micron HBM",
-      "published": "2026-11-03 확인",
-      "note": "HBM3E의 용량과 대역폭. 공급사 제품 수치는 전체 표준 수치와 구분.",
-      "publisher": "Micron"
-    },
-    "MODEL": {
-      "title": "교육용 현재가치 민감도 모형",
-      "url": "",
-      "short": "교육용 모형",
-      "published": "2026-11-03",
-      "note": "PV = CF5/(1+r)^5. 기준 CF5=100, r=8%, 5년. 중간 현금·영구가치·부채·희석 미포함. 실제 목표주가가 아님.",
-      "publisher": "12조 학습용 계산"
-    },
-    "VIDEO": {
-      "title": "술술 데이터 — 역대 글로벌 반도체 기업 매출 순위 Top12 (1987–2026)",
-      "url": "https://youtu.be/YCyY6KAhCr0",
-      "short": "교수님 참고 영상",
-      "published": "2026-07-25",
-      "note": "설명·타임라인·메타데이터 확인. 음악 자막만 있어 수치 전체를 전사하지 않음. 2026은 추정치이며 파운드리·장비 제외.",
-      "publisher": "YouTube / 술술 데이터"
-    },
-    "MAXIM": {
-      "title": "Analog Devices Completes Acquisition of Maxim Integrated",
-      "url": "https://investor.analog.com/news-releases/news-release-details/analog-devices-completes-acquisition-maxim-integrated",
-      "short": "ADI / Maxim",
-      "published": "2021-08-26",
-      "note": "",
-      "publisher": "Analog Devices"
-    },
-    "NATIONAL": {
-      "title": "Texas Instruments completes acquisition of National Semiconductor",
-      "url": "https://www.ti.com/about-ti/newsroom/news-releases/2011/2011-09-23-texas-instruments-completes-acquisition-of-national-semiconductor.html",
-      "short": "TI / National",
-      "published": "2011-09-23",
-      "note": "",
-      "publisher": "Texas Instruments"
-    },
-    "NXP": {
-      "title": "NXP — About NXP",
-      "url": "https://www.nxp.com/company/about-nxp:ABOUT-NXP",
-      "short": "NXP",
-      "published": "2026-11-03 확인",
-      "note": "",
-      "publisher": "NXP"
-    },
-    "BROADCOM_LATEST": {
-      "title": "Broadcom — Semiconductor Solutions",
-      "url": "https://www.broadcom.com/products",
-      "short": "Broadcom 제품",
-      "published": "2026-11-03 확인",
-      "note": "",
-      "publisher": "Broadcom"
-    },
-    "GICS2023": {
-      "title": "2023 GICS Classification Change",
-      "url": "https://lipperalpha.refinitiv.com/2023/03/2023-gics-classification-change/",
-      "short": "LSEG GICS 2023",
-      "published": "2023-03",
-      "note": "Visa·Mastercard 등의 IT→금융 이동. 업종비중 변화의 분류 효과 확인.",
-      "publisher": "LSEG / Refinitiv"
-    },
-    "SIA_INITIAL25": {
-      "title": "Global Annual Semiconductor Sales Increase 25.6% to $791.7 Billion in 2025",
-      "url": "https://www.semiconductors.org/global-annual-semiconductor-sales-increase-25-6-to-791-7-billion-in-2025/",
-      "short": "SIA 최초 발표",
-      "published": "2026-02-06",
-      "note": "이후 WSTS 수정치 $795.6bn과 구분. 차트는 수정치 사용.",
-      "publisher": "SIA"
-    },
-    "hynix_lineage": {
-      "title": "SK hynix Declared its Taking off for World’s Best Semiconductor Company",
-      "publisher": "SK hynix",
-      "published": "2012-03-26",
-      "url": "https://news.skhynix.com/en/sk-hynix-declared-its-taking-off-for-worlds-best-semiconductor-company/",
-      "note": "1983 Hyundai founding, 1999 LG Semiconductor merger, 2001 Hynix renaming, 2012 SK group joining/renaming.",
-      "short": "SK hynix"
-    },
-    "transistor": {
-      "title": "Nokia Bell Labs History",
-      "publisher": "Nokia Bell Labs",
-      "url": "https://www.nokia.com/bell-labs/about/history/",
-      "note": "1947 transistor invention.",
-      "short": "Nokia Bell Labs"
-    },
-    "sia_chain": {
-      "title": "How are Semiconductors Made?",
-      "publisher": "Semiconductor Industry Association",
-      "url": "https://www.semiconductors.org/semiconductors-101/how-are-semiconductors-made/",
-      "short": "Semiconductor Industry Association"
-    },
-    "sia_ecosystem": {
-      "title": "U.S. Semiconductor Ecosystem Map: Glossary of key terms",
-      "publisher": "Semiconductor Industry Association",
-      "url": "https://www.semiconductors.org/ecosystem/",
-      "note": "Defines EDA, IP/fabless/foundry/IDM/OSAT/equipment/materials; confirms OSAT overlap with foundry/IDM operations.",
-      "short": "Semiconductor Industry Association"
-    },
-    "sia_design": {
-      "title": "Chip Design and R&D",
-      "publisher": "Semiconductor Industry Association",
-      "url": "https://www.semiconductors.org/policies/chip-design/",
-      "note": "Design stages, verification, packaging design, R&D intensity.",
-      "short": "Semiconductor Industry Association"
-    },
-    "micron_memory": {
-      "title": "Introduction to memory: DRAM vs NAND",
-      "publisher": "Micron",
-      "url": "https://www.micron.com/content/dam/micron/educatorhub/intro-to-memory/micron-intro-to-memory-presentation.pdf",
-      "short": "Micron"
-    },
-    "micron_hbm": {
-      "title": "High-bandwidth memory: HBM FAQs",
-      "publisher": "Micron",
-      "url": "https://www.micron.com/products/memory/hbm",
-      "note": "3D-stacked SDRAM, TSV, wide interface, comparison with DDR5 and package integration; no generation-specific bus-width claim reproduced in study prose.",
-      "short": "Micron"
-    },
-    "cowos": {
-      "title": "CoWoS technology",
-      "publisher": "TSMC",
-      "url": "https://3dfabric.tsmc.com/english/dedicatedFoundry/technology/cowos.htm",
-      "note": "Heterogeneous integration of logic/chiplets/HBM; not all advanced packaging is performed by OSAT.",
-      "short": "TSMC"
-    },
-    "analog_technology": {
-      "title": "Analog semiconductors",
-      "publisher": "Texas Instruments",
-      "url": "https://www.ti.com/about-ti/analog-semiconductors.html?familyId=2&templateId=1",
-      "short": "Texas Instruments"
-    },
-    "analog_signal": {
-      "title": "The symphony of precision: Harmonizing power and signal integrity with low-noise technology",
-      "publisher": "Texas Instruments",
-      "url": "https://www.ti.com/about-ti/behind-chip/articles/the-symphony-of-precision-harmonizing-power-and-signal-integrity-with-low-noise-technology.html",
-      "note": "Signal chain, power management, ADC and DAC roles.",
-      "short": "Texas Instruments"
-    },
-    "st_auto": {
-      "title": "Automotive ICs and Products: Analog, Digital and Power",
-      "publisher": "STMicroelectronics",
-      "url": "https://www.st.com/en/automotive-analog-and-power.html",
-      "short": "STMicroelectronics"
-    },
-    "st_mcu": {
-      "title": "Microcontrollers and Microprocessors",
-      "publisher": "STMicroelectronics",
-      "url": "https://www.st.com/en/microcontrollers-microprocessors.html",
-      "note": "MCU processor, memory and I/O in one IC.",
-      "short": "STMicroelectronics"
-    },
-    "infineon_auto": {
-      "title": "Automotive Power Distribution Unit",
-      "publisher": "Infineon",
-      "url": "https://www.infineon.com/application/automotive-power-distribution",
-      "note": "Power switches, MCU and sensors in automotive; no market share or future product launch claim used.",
-      "short": "Infineon"
-    },
-    "asic": {
-      "title": "Application-specific Integrated Circuits",
-      "publisher": "Broadcom",
-      "url": "https://www.broadcom.com/products/custom-silicon/asics",
-      "short": "Broadcom"
-    }
+   "ranking_history": {
+    "title": "Kamakura (2022), From globalising to regionalising to reshoring value chains? The case of Japan’s semiconductor industry, Table 1",
+    "publisher": "Cambridge Journal of Regions, Economy and Society / Oxford Academic",
+    "published": "2022-05-13",
+    "url": "https://academic.oup.com/cjres/article/15/2/261/6585222",
+    "table_url": "https://academic.oup.com/view-large/362108178",
+    "source_attribution": "Gartner, Inc.",
+    "note": "표가 파운드리 제외를 명시. 1990/2000/2010/2020 대표 연도. 원 Gartner 연도별 발행 버전은 표에 미기재."
+   },
+   "ranking_2017": {
+    "title": "Gartner Says Worldwide Semiconductor Revenue Grew 21.6 Percent in 2017 as Samsung Takes Over No. 1 Position",
+    "publisher": "Gartner press release republished by Design & Reuse",
+    "published": "2018-04-23",
+    "url": "https://www.design-reuse.com/news/4806-gartner-says-worldwide-semiconductor-revenue-grew-21-6-percent-in-2017-as-samsung-takes-over-no-1-position/",
+    "status": "final"
+   },
+   "ranking_2020": {
+    "title": "Gartner Says Worldwide Semiconductor Revenue Grew 10.4% in 2020",
+    "publisher": "Gartner press release republished by Design & Reuse",
+    "published": "2021-04-12",
+    "url": "https://www.design-reuse-embedded.com/news/202104063",
+    "status": "final"
+   },
+   "ranking_2024": {
+    "title": "Gartner Says Worldwide Semiconductor Revenue Grew 21% in 2024",
+    "publisher": "Gartner",
+    "published": "2025-04-10",
+    "url": "https://www.gartner.com/en/newsroom/press-releases/2025-04-10-gartner-says-worldwide-semiconductor-revenue-grew-21-percent-in-2024",
+    "status": "final"
+   },
+   "ranking_2025": {
+    "title": "Gartner Says Worldwide Semiconductor Revenue Grew 21% in 2025",
+    "publisher": "Gartner",
+    "published": "2026-01-12",
+    "url": "https://www.gartner.com/en/newsroom/press-releases/2026-01-12-gartner-says-worldwide-semiconductor-revenue-grew-21-percent-in-2025",
+    "status": "preliminary"
+   }
   },
-  "ranking": {
-    "asOf": "2026-11-03",
-    "unit": "USD billions",
-    "years": [
-      1990,
-      2000,
-      2010,
-      2017,
-      2020,
-      2024,
-      2025
-    ],
-    "definition": "Gartner의 세계 반도체 공급업체 매출 순위. 기업 전체 연결매출·시가총액·생산량 순위가 아니다. 파운드리(TSMC)와 장비회사를 합산하지 않는다. 원자료 단위는 백만 US달러이며 표시용 십억 달러는 1,000으로 나눈 값이다.",
-    "notes": [
-      "1990·2000·2010·2017·2020·2024·2025의 관측 스냅샷만 제공한다. 연도 사이를 사실 데이터인 것처럼 보간하지 말 것.",
-      "순위 전환 애니메이션은 가능하나 '대표 연도 스냅샷 / 중간 연도 미표시'를 명시한다.",
-      "Top10에 없는 기업은 매출 0이 아니라 관측 순위 밖이다. 존재하지 않는 0 값을 역사 데이터로 저장하지 말 것.",
-      "2010까지는 학술논문의 Gartner 인용표, 2017·2020은 Gartner 보도자료 재게시본, 2024·2025는 Gartner 직접 보도자료를 사용한다.",
-      "2024는 2025-04-10 최종치다. 2025-02-03 잠정치와 순위가 다르므로 혼용 금지. 최종치는 NVIDIA가 1위다.",
-      "2025는 2026-01-12 발표 잠정치다. '2025 잠정 / 2026.01 발표' 표시가 필요하다. 2026 연간 실적은 아직 완결되지 않았다.",
-      "기업명은 당시 명칭을 보존한다. Hyundai→Hynix→SK hynix는 계보를 별도로 설명하고, NEC/Hitachi/Mitsubishi나 Toshiba를 현대 기업에 단순 소급 합산하지 않는다.",
-      "최근 Gartner 표에는 Apple도 포함된다. 회사 전체 매출 또는 외부 판매 반도체 매출만의 순위라고 설명하면 안 된다. 조사기관의 반도체 매출 추정 범위다."
-    ],
-    "sources": {
-      "ranking_history": {
-        "title": "Kamakura (2022), From globalising to regionalising to reshoring value chains? The case of Japan’s semiconductor industry, Table 1",
-        "publisher": "Cambridge Journal of Regions, Economy and Society / Oxford Academic",
-        "published": "2022-05-13",
-        "url": "https://academic.oup.com/cjres/article/15/2/261/6585222",
-        "table_url": "https://academic.oup.com/view-large/362108178",
-        "source_attribution": "Gartner, Inc.",
-        "note": "표가 파운드리 제외를 명시. 1990/2000/2010/2020 대표 연도. 원 Gartner 연도별 발행 버전은 표에 미기재."
-      },
-      "ranking_2017": {
-        "title": "Gartner Says Worldwide Semiconductor Revenue Grew 21.6 Percent in 2017 as Samsung Takes Over No. 1 Position",
-        "publisher": "Gartner press release republished by Design & Reuse",
-        "published": "2018-04-23",
-        "url": "https://www.design-reuse.com/news/4806-gartner-says-worldwide-semiconductor-revenue-grew-21-6-percent-in-2017-as-samsung-takes-over-no-1-position/",
-        "status": "final"
-      },
-      "ranking_2020": {
-        "title": "Gartner Says Worldwide Semiconductor Revenue Grew 10.4% in 2020",
-        "publisher": "Gartner press release republished by Design & Reuse",
-        "published": "2021-04-12",
-        "url": "https://www.design-reuse-embedded.com/news/202104063",
-        "status": "final"
-      },
-      "ranking_2024": {
-        "title": "Gartner Says Worldwide Semiconductor Revenue Grew 21% in 2024",
-        "publisher": "Gartner",
-        "published": "2025-04-10",
-        "url": "https://www.gartner.com/en/newsroom/press-releases/2025-04-10-gartner-says-worldwide-semiconductor-revenue-grew-21-percent-in-2024",
-        "status": "final"
-      },
-      "ranking_2025": {
-        "title": "Gartner Says Worldwide Semiconductor Revenue Grew 21% in 2025",
-        "publisher": "Gartner",
-        "published": "2026-01-12",
-        "url": "https://www.gartner.com/en/newsroom/press-releases/2026-01-12-gartner-says-worldwide-semiconductor-revenue-grew-21-percent-in-2025",
-        "status": "preliminary"
-      }
-    },
-    "snapshots": [
-      {
-        "year": 1990,
-        "status": "historical_snapshot",
-        "sourceId": "ranking_history",
-        "sourceUrl": "https://academic.oup.com/cjres/article/15/2/261/6585222",
-        "rows": [
-          {
-            "rank": 1,
-            "name": "NEC",
-            "revenue": 4.322
-          },
-          {
-            "rank": 2,
-            "name": "Toshiba",
-            "revenue": 4.202
-          },
-          {
-            "rank": 3,
-            "name": "Motorola",
-            "revenue": 3.539
-          },
-          {
-            "rank": 4,
-            "name": "Hitachi",
-            "revenue": 3.516
-          },
-          {
-            "rank": 5,
-            "name": "Intel",
-            "revenue": 3.171
-          },
-          {
-            "rank": 6,
-            "name": "Fujitsu",
-            "revenue": 2.599
-          },
-          {
-            "rank": 7,
-            "name": "Texas Instruments",
-            "revenue": 2.574
-          },
-          {
-            "rank": 8,
-            "name": "Mitsubishi",
-            "revenue": 2.108
-          },
-          {
-            "rank": 9,
-            "name": "Philips",
-            "revenue": 1.955
-          },
-          {
-            "rank": 10,
-            "name": "Matsushita",
-            "revenue": 1.826
-          }
-        ]
-      },
-      {
-        "year": 2000,
-        "status": "historical_snapshot",
-        "sourceId": "ranking_history",
-        "sourceUrl": "https://academic.oup.com/cjres/article/15/2/261/6585222",
-        "rows": [
-          {
-            "rank": 1,
-            "name": "Intel",
-            "revenue": 29.57
-          },
-          {
-            "rank": 2,
-            "name": "Toshiba",
-            "revenue": 11.214
-          },
-          {
-            "rank": 3,
-            "name": "NEC",
-            "revenue": 11.081
-          },
-          {
-            "rank": 4,
-            "name": "Samsung Electronics",
-            "revenue": 10.8
-          },
-          {
-            "rank": 5,
-            "name": "Texas Instruments",
-            "revenue": 9.1
-          },
-          {
-            "rank": 6,
-            "name": "Motorola",
-            "revenue": 8.0
-          },
-          {
-            "rank": 7,
-            "name": "STMicroelectronics",
-            "revenue": 7.948
-          },
-          {
-            "rank": 8,
-            "name": "Hitachi",
-            "revenue": 7.282
-          },
-          {
-            "rank": 9,
-            "name": "Hyundai",
-            "revenue": 6.887
-          },
-          {
-            "rank": 10,
-            "name": "Infineon",
-            "revenue": 6.715
-          }
-        ]
-      },
-      {
-        "year": 2010,
-        "status": "historical_snapshot",
-        "sourceId": "ranking_history",
-        "sourceUrl": "https://academic.oup.com/cjres/article/15/2/261/6585222",
-        "rows": [
-          {
-            "rank": 1,
-            "name": "Intel",
-            "revenue": 41.43
-          },
-          {
-            "rank": 2,
-            "name": "Samsung Electronics",
-            "revenue": 28.256
-          },
-          {
-            "rank": 3,
-            "name": "Toshiba",
-            "revenue": 12.376
-          },
-          {
-            "rank": 4,
-            "name": "Texas Instruments",
-            "revenue": 12.356
-          },
-          {
-            "rank": 5,
-            "name": "Renesas Electronics",
-            "revenue": 10.368
-          },
-          {
-            "rank": 6,
-            "name": "Hynix Semiconductor",
-            "revenue": 10.35
-          },
-          {
-            "rank": 7,
-            "name": "STMicroelectronics",
-            "revenue": 10.29
-          },
-          {
-            "rank": 8,
-            "name": "Micron Technology",
-            "revenue": 8.884
-          },
-          {
-            "rank": 9,
-            "name": "Qualcomm",
-            "revenue": 7.167
-          },
-          {
-            "rank": 10,
-            "name": "Infineon",
-            "revenue": 6.68
-          }
-        ]
-      },
-      {
-        "year": 2017,
-        "status": "final",
-        "sourceId": "ranking_2017",
-        "sourceUrl": "https://www.design-reuse.com/news/4806-gartner-says-worldwide-semiconductor-revenue-grew-21-6-percent-in-2017-as-samsung-takes-over-no-1-position/",
-        "rows": [
-          {
-            "rank": 1,
-            "name": "Samsung Electronics",
-            "revenue": 59.875
-          },
-          {
-            "rank": 2,
-            "name": "Intel",
-            "revenue": 58.725
-          },
-          {
-            "rank": 3,
-            "name": "SK hynix",
-            "revenue": 26.37
-          },
-          {
-            "rank": 4,
-            "name": "Micron Technology",
-            "revenue": 22.895
-          },
-          {
-            "rank": 5,
-            "name": "Qualcomm",
-            "revenue": 16.099
-          },
-          {
-            "rank": 6,
-            "name": "Broadcom",
-            "revenue": 15.405
-          },
-          {
-            "rank": 7,
-            "name": "Texas Instruments",
-            "revenue": 13.506
-          },
-          {
-            "rank": 8,
-            "name": "Toshiba",
-            "revenue": 12.408
-          },
-          {
-            "rank": 9,
-            "name": "Western Digital",
-            "revenue": 9.159
-          },
-          {
-            "rank": 10,
-            "name": "NXP",
-            "revenue": 8.75
-          }
-        ]
-      },
-      {
-        "year": 2020,
-        "status": "final",
-        "sourceId": "ranking_2020",
-        "sourceUrl": "https://www.design-reuse-embedded.com/news/202104063",
-        "rows": [
-          {
-            "rank": 1,
-            "name": "Intel",
-            "revenue": 72.759
-          },
-          {
-            "rank": 2,
-            "name": "Samsung Electronics",
-            "revenue": 57.729
-          },
-          {
-            "rank": 3,
-            "name": "SK hynix",
-            "revenue": 25.854
-          },
-          {
-            "rank": 4,
-            "name": "Micron Technology",
-            "revenue": 22.037
-          },
-          {
-            "rank": 5,
-            "name": "Qualcomm",
-            "revenue": 17.632
-          },
-          {
-            "rank": 6,
-            "name": "Broadcom",
-            "revenue": 15.754
-          },
-          {
-            "rank": 7,
-            "name": "Texas Instruments",
-            "revenue": 13.619
-          },
-          {
-            "rank": 8,
-            "name": "MediaTek",
-            "revenue": 10.988
-          },
-          {
-            "rank": 9,
-            "name": "NVIDIA",
-            "revenue": 10.643
-          },
-          {
-            "rank": 10,
-            "name": "KIOXIA",
-            "revenue": 10.374
-          }
-        ]
-      },
-      {
-        "year": 2024,
-        "status": "final",
-        "sourceId": "ranking_2024",
-        "sourceUrl": "https://www.gartner.com/en/newsroom/press-releases/2025-04-10-gartner-says-worldwide-semiconductor-revenue-grew-21-percent-in-2024",
-        "rows": [
-          {
-            "rank": 1,
-            "name": "NVIDIA",
-            "revenue": 76.692
-          },
-          {
-            "rank": 2,
-            "name": "Samsung Electronics",
-            "revenue": 65.697
-          },
-          {
-            "rank": 3,
-            "name": "Intel",
-            "revenue": 49.804
-          },
-          {
-            "rank": 4,
-            "name": "SK hynix",
-            "revenue": 44.186
-          },
-          {
-            "rank": 5,
-            "name": "Qualcomm",
-            "revenue": 32.976
-          },
-          {
-            "rank": 6,
-            "name": "Broadcom",
-            "revenue": 27.801
-          },
-          {
-            "rank": 7,
-            "name": "Micron Technology",
-            "revenue": 27.619
-          },
-          {
-            "rank": 8,
-            "name": "AMD",
-            "revenue": 24.127
-          },
-          {
-            "rank": 9,
-            "name": "Apple",
-            "revenue": 20.51
-          },
-          {
-            "rank": 10,
-            "name": "MediaTek",
-            "revenue": 15.934
-          }
-        ]
-      },
-      {
-        "year": 2025,
-        "status": "preliminary_as_published_2026_01_12",
-        "sourceId": "ranking_2025",
-        "sourceUrl": "https://www.gartner.com/en/newsroom/press-releases/2026-01-12-gartner-says-worldwide-semiconductor-revenue-grew-21-percent-in-2025",
-        "rows": [
-          {
-            "rank": 1,
-            "name": "NVIDIA",
-            "revenue": 125.703
-          },
-          {
-            "rank": 2,
-            "name": "Samsung Electronics",
-            "revenue": 72.544
-          },
-          {
-            "rank": 3,
-            "name": "SK hynix",
-            "revenue": 60.64
-          },
-          {
-            "rank": 4,
-            "name": "Intel",
-            "revenue": 47.883
-          },
-          {
-            "rank": 5,
-            "name": "Micron Technology",
-            "revenue": 41.487
-          },
-          {
-            "rank": 6,
-            "name": "Qualcomm",
-            "revenue": 37.046
-          },
-          {
-            "rank": 7,
-            "name": "Broadcom",
-            "revenue": 34.279
-          },
-          {
-            "rank": 8,
-            "name": "AMD",
-            "revenue": 32.484
-          },
-          {
-            "rank": 9,
-            "name": "Apple",
-            "revenue": 24.596
-          },
-          {
-            "rank": 10,
-            "name": "MediaTek",
-            "revenue": 18.472
-          }
-        ]
-      }
+  "snapshots": [
+   {
+    "year": 1990,
+    "status": "historical_snapshot",
+    "sourceId": "ranking_history",
+    "sourceUrl": "https://academic.oup.com/cjres/article/15/2/261/6585222",
+    "rows": [
+     {
+      "rank": 1,
+      "name": "NEC",
+      "revenue": 4.322
+     },
+     {
+      "rank": 2,
+      "name": "Toshiba",
+      "revenue": 4.202
+     },
+     {
+      "rank": 3,
+      "name": "Motorola",
+      "revenue": 3.539
+     },
+     {
+      "rank": 4,
+      "name": "Hitachi",
+      "revenue": 3.516
+     },
+     {
+      "rank": 5,
+      "name": "Intel",
+      "revenue": 3.171
+     },
+     {
+      "rank": 6,
+      "name": "Fujitsu",
+      "revenue": 2.599
+     },
+     {
+      "rank": 7,
+      "name": "Texas Instruments",
+      "revenue": 2.574
+     },
+     {
+      "rank": 8,
+      "name": "Mitsubishi",
+      "revenue": 2.108
+     },
+     {
+      "rank": 9,
+      "name": "Philips",
+      "revenue": 1.955
+     },
+     {
+      "rank": 10,
+      "name": "Matsushita",
+      "revenue": 1.826
+     }
     ]
+   },
+   {
+    "year": 2000,
+    "status": "historical_snapshot",
+    "sourceId": "ranking_history",
+    "sourceUrl": "https://academic.oup.com/cjres/article/15/2/261/6585222",
+    "rows": [
+     {
+      "rank": 1,
+      "name": "Intel",
+      "revenue": 29.57
+     },
+     {
+      "rank": 2,
+      "name": "Toshiba",
+      "revenue": 11.214
+     },
+     {
+      "rank": 3,
+      "name": "NEC",
+      "revenue": 11.081
+     },
+     {
+      "rank": 4,
+      "name": "Samsung Electronics",
+      "revenue": 10.8
+     },
+     {
+      "rank": 5,
+      "name": "Texas Instruments",
+      "revenue": 9.1
+     },
+     {
+      "rank": 6,
+      "name": "Motorola",
+      "revenue": 8.0
+     },
+     {
+      "rank": 7,
+      "name": "STMicroelectronics",
+      "revenue": 7.948
+     },
+     {
+      "rank": 8,
+      "name": "Hitachi",
+      "revenue": 7.282
+     },
+     {
+      "rank": 9,
+      "name": "Hyundai",
+      "revenue": 6.887
+     },
+     {
+      "rank": 10,
+      "name": "Infineon",
+      "revenue": 6.715
+     }
+    ]
+   },
+   {
+    "year": 2010,
+    "status": "historical_snapshot",
+    "sourceId": "ranking_history",
+    "sourceUrl": "https://academic.oup.com/cjres/article/15/2/261/6585222",
+    "rows": [
+     {
+      "rank": 1,
+      "name": "Intel",
+      "revenue": 41.43
+     },
+     {
+      "rank": 2,
+      "name": "Samsung Electronics",
+      "revenue": 28.256
+     },
+     {
+      "rank": 3,
+      "name": "Toshiba",
+      "revenue": 12.376
+     },
+     {
+      "rank": 4,
+      "name": "Texas Instruments",
+      "revenue": 12.356
+     },
+     {
+      "rank": 5,
+      "name": "Renesas Electronics",
+      "revenue": 10.368
+     },
+     {
+      "rank": 6,
+      "name": "Hynix Semiconductor",
+      "revenue": 10.35
+     },
+     {
+      "rank": 7,
+      "name": "STMicroelectronics",
+      "revenue": 10.29
+     },
+     {
+      "rank": 8,
+      "name": "Micron Technology",
+      "revenue": 8.884
+     },
+     {
+      "rank": 9,
+      "name": "Qualcomm",
+      "revenue": 7.167
+     },
+     {
+      "rank": 10,
+      "name": "Infineon",
+      "revenue": 6.68
+     }
+    ]
+   },
+   {
+    "year": 2017,
+    "status": "final",
+    "sourceId": "ranking_2017",
+    "sourceUrl": "https://www.design-reuse.com/news/4806-gartner-says-worldwide-semiconductor-revenue-grew-21-6-percent-in-2017-as-samsung-takes-over-no-1-position/",
+    "rows": [
+     {
+      "rank": 1,
+      "name": "Samsung Electronics",
+      "revenue": 59.875
+     },
+     {
+      "rank": 2,
+      "name": "Intel",
+      "revenue": 58.725
+     },
+     {
+      "rank": 3,
+      "name": "SK hynix",
+      "revenue": 26.37
+     },
+     {
+      "rank": 4,
+      "name": "Micron Technology",
+      "revenue": 22.895
+     },
+     {
+      "rank": 5,
+      "name": "Qualcomm",
+      "revenue": 16.099
+     },
+     {
+      "rank": 6,
+      "name": "Broadcom",
+      "revenue": 15.405
+     },
+     {
+      "rank": 7,
+      "name": "Texas Instruments",
+      "revenue": 13.506
+     },
+     {
+      "rank": 8,
+      "name": "Toshiba",
+      "revenue": 12.408
+     },
+     {
+      "rank": 9,
+      "name": "Western Digital",
+      "revenue": 9.159
+     },
+     {
+      "rank": 10,
+      "name": "NXP",
+      "revenue": 8.75
+     }
+    ]
+   },
+   {
+    "year": 2020,
+    "status": "final",
+    "sourceId": "ranking_2020",
+    "sourceUrl": "https://www.design-reuse-embedded.com/news/202104063",
+    "rows": [
+     {
+      "rank": 1,
+      "name": "Intel",
+      "revenue": 72.759
+     },
+     {
+      "rank": 2,
+      "name": "Samsung Electronics",
+      "revenue": 57.729
+     },
+     {
+      "rank": 3,
+      "name": "SK hynix",
+      "revenue": 25.854
+     },
+     {
+      "rank": 4,
+      "name": "Micron Technology",
+      "revenue": 22.037
+     },
+     {
+      "rank": 5,
+      "name": "Qualcomm",
+      "revenue": 17.632
+     },
+     {
+      "rank": 6,
+      "name": "Broadcom",
+      "revenue": 15.754
+     },
+     {
+      "rank": 7,
+      "name": "Texas Instruments",
+      "revenue": 13.619
+     },
+     {
+      "rank": 8,
+      "name": "MediaTek",
+      "revenue": 10.988
+     },
+     {
+      "rank": 9,
+      "name": "NVIDIA",
+      "revenue": 10.643
+     },
+     {
+      "rank": 10,
+      "name": "KIOXIA",
+      "revenue": 10.374
+     }
+    ]
+   },
+   {
+    "year": 2024,
+    "status": "final",
+    "sourceId": "ranking_2024",
+    "sourceUrl": "https://www.gartner.com/en/newsroom/press-releases/2025-04-10-gartner-says-worldwide-semiconductor-revenue-grew-21-percent-in-2024",
+    "rows": [
+     {
+      "rank": 1,
+      "name": "NVIDIA",
+      "revenue": 76.692
+     },
+     {
+      "rank": 2,
+      "name": "Samsung Electronics",
+      "revenue": 65.697
+     },
+     {
+      "rank": 3,
+      "name": "Intel",
+      "revenue": 49.804
+     },
+     {
+      "rank": 4,
+      "name": "SK hynix",
+      "revenue": 44.186
+     },
+     {
+      "rank": 5,
+      "name": "Qualcomm",
+      "revenue": 32.976
+     },
+     {
+      "rank": 6,
+      "name": "Broadcom",
+      "revenue": 27.801
+     },
+     {
+      "rank": 7,
+      "name": "Micron Technology",
+      "revenue": 27.619
+     },
+     {
+      "rank": 8,
+      "name": "AMD",
+      "revenue": 24.127
+     },
+     {
+      "rank": 9,
+      "name": "Apple",
+      "revenue": 20.51
+     },
+     {
+      "rank": 10,
+      "name": "MediaTek",
+      "revenue": 15.934
+     }
+    ]
+   },
+   {
+    "year": 2025,
+    "status": "preliminary_as_published_2026_01_12",
+    "sourceId": "ranking_2025",
+    "sourceUrl": "https://www.gartner.com/en/newsroom/press-releases/2026-01-12-gartner-says-worldwide-semiconductor-revenue-grew-21-percent-in-2025",
+    "rows": [
+     {
+      "rank": 1,
+      "name": "NVIDIA",
+      "revenue": 125.703
+     },
+     {
+      "rank": 2,
+      "name": "Samsung Electronics",
+      "revenue": 72.544
+     },
+     {
+      "rank": 3,
+      "name": "SK hynix",
+      "revenue": 60.64
+     },
+     {
+      "rank": 4,
+      "name": "Intel",
+      "revenue": 47.883
+     },
+     {
+      "rank": 5,
+      "name": "Micron Technology",
+      "revenue": 41.487
+     },
+     {
+      "rank": 6,
+      "name": "Qualcomm",
+      "revenue": 37.046
+     },
+     {
+      "rank": 7,
+      "name": "Broadcom",
+      "revenue": 34.279
+     },
+     {
+      "rank": 8,
+      "name": "AMD",
+      "revenue": 32.484
+     },
+     {
+      "rank": 9,
+      "name": "Apple",
+      "revenue": 24.596
+     },
+     {
+      "rank": 10,
+      "name": "MediaTek",
+      "revenue": 18.472
+     }
+    ]
+   }
+  ],
+  "captions": {
+   "1990": [
+    "일본 종합전자 6곳이 Top10에 · NEC 1위",
+    "DRAM 대량생산과 종합전자 제품군이 매출을 만들던 시기. Intel은 5위, DRAM 철수 5년 뒤였다."
+   ],
+   "2000": [
+    "Intel 295.7억 달러로 압도적 1위",
+    "PC·인터넷 붐의 정점. 삼성전자 4위, 현대전자 9위로 한국 메모리가 상위권에 자리 잡았다. 이듬해 산업 매출은 32% 급감한다."
+   ],
+   "2010": [
+    "Intel·삼성 2강, Renesas·Hynix·Qualcomm 등장",
+    "금융위기 반등의 해. 일본은 Renesas로 통합, 모바일 팹리스 Qualcomm이 9위로 진입했다."
+   ],
+   "2017": [
+    "삼성이 25년 만에 Intel을 추월",
+    "메모리 공급 부족으로 메모리 시장 매출 61.8% 성장. SK하이닉스 3위, Micron 4위."
+   ],
+   "2020": [
+    "팬데믹 PC 수요로 Intel 1위 복귀",
+    "재택근무가 PC·서버 수요를 키웠다. NVIDIA는 9위로 처음 Top10에 진입했다."
+   ],
+   "2024": [
+    "NVIDIA가 처음 1위 · 766.9억 달러",
+    "AI 데이터센터 투자로 GPU 매출이 급증. 2024년 초 잠정치는 삼성 1위였으나 최종 집계에서 역전됐다."
+   ],
+   "2025": [
+    "NVIDIA 1,257억 달러 · SK하이닉스 3위",
+    "2026.01.12 잠정 발표. NVIDIA 매출은 2위 삼성의 1.7배. HBM 수요로 SK하이닉스가 Intel을 제쳤다."
+   ]
+  }
+ },
+ "wsts": [
+  {
+   "year": 1986,
+   "usd_billion": 26.355359,
+   "cell": "N10",
+   "monthly_sum_usd_thousands": 26355359.0,
+   "cached_year_total_usd_thousands": 26355359.0,
+   "months": 12,
+   "full_year": true
   },
-  "wsts": [
-    {
-      "year": 1986,
-      "usd_billion": 26.355359,
-      "cell": "N10",
-      "monthly_sum_usd_thousands": 26355359.0,
-      "cached_year_total_usd_thousands": 26355359.0,
-      "months": 12,
-      "full_year": true
-    },
-    {
-      "year": 1987,
-      "usd_billion": 32.530452,
-      "cell": "N16",
-      "monthly_sum_usd_thousands": 32530452.0,
-      "cached_year_total_usd_thousands": 32530452.0,
-      "months": 12,
-      "full_year": true
-    },
-    {
-      "year": 1988,
-      "usd_billion": 45.004809,
-      "cell": "N22",
-      "monthly_sum_usd_thousands": 45004809.0,
-      "cached_year_total_usd_thousands": 45004809.0,
-      "months": 12,
-      "full_year": true
-    },
-    {
-      "year": 1989,
-      "usd_billion": 48.762926,
-      "cell": "N28",
-      "monthly_sum_usd_thousands": 48762926.0,
-      "cached_year_total_usd_thousands": 48762926.0,
-      "months": 12,
-      "full_year": true
-    },
-    {
-      "year": 1990,
-      "usd_billion": 50.518932,
-      "cell": "N34",
-      "monthly_sum_usd_thousands": 50518932.0,
-      "cached_year_total_usd_thousands": 50518932.0,
-      "months": 12,
-      "full_year": true
-    },
-    {
-      "year": 1991,
-      "usd_billion": 54.607454,
-      "cell": "N40",
-      "monthly_sum_usd_thousands": 54607454.0,
-      "cached_year_total_usd_thousands": 54607454.0,
-      "months": 12,
-      "full_year": true
-    },
-    {
-      "year": 1992,
-      "usd_billion": 59.864958,
-      "cell": "N46",
-      "monthly_sum_usd_thousands": 59864958.0,
-      "cached_year_total_usd_thousands": 59864958.0,
-      "months": 12,
-      "full_year": true
-    },
-    {
-      "year": 1993,
-      "usd_billion": 77.309681,
-      "cell": "N52",
-      "monthly_sum_usd_thousands": 77309681.0,
-      "cached_year_total_usd_thousands": 77309681.0,
-      "months": 12,
-      "full_year": true
-    },
-    {
-      "year": 1994,
-      "usd_billion": 101.878593,
-      "cell": "N58",
-      "monthly_sum_usd_thousands": 101878593.0,
-      "cached_year_total_usd_thousands": 101878593.0,
-      "months": 12,
-      "full_year": true
-    },
-    {
-      "year": 1995,
-      "usd_billion": 144.403681,
-      "cell": "N64",
-      "monthly_sum_usd_thousands": 144403681.0,
-      "cached_year_total_usd_thousands": 144403681.0,
-      "months": 12,
-      "full_year": true
-    },
-    {
-      "year": 1996,
-      "usd_billion": 131.966432,
-      "cell": "N70",
-      "monthly_sum_usd_thousands": 131966432.0,
-      "cached_year_total_usd_thousands": 131966432.0,
-      "months": 12,
-      "full_year": true
-    },
-    {
-      "year": 1997,
-      "usd_billion": 137.20312,
-      "cell": "N76",
-      "monthly_sum_usd_thousands": 137203120.0,
-      "cached_year_total_usd_thousands": 137203120.0,
-      "months": 12,
-      "full_year": true
-    },
-    {
-      "year": 1998,
-      "usd_billion": 125.611999,
-      "cell": "N82",
-      "monthly_sum_usd_thousands": 125611999.0,
-      "cached_year_total_usd_thousands": 125611999.0,
-      "months": 12,
-      "full_year": true
-    },
-    {
-      "year": 1999,
-      "usd_billion": 149.378551,
-      "cell": "N88",
-      "monthly_sum_usd_thousands": 149378551.0,
-      "cached_year_total_usd_thousands": 149378551.0,
-      "months": 12,
-      "full_year": true
-    },
-    {
-      "year": 2000,
-      "usd_billion": 204.393623,
-      "cell": "N94",
-      "monthly_sum_usd_thousands": 204393623.0,
-      "cached_year_total_usd_thousands": 204393623.0,
-      "months": 12,
-      "full_year": true
-    },
-    {
-      "year": 2001,
-      "usd_billion": 138.96261,
-      "cell": "N100",
-      "monthly_sum_usd_thousands": 138962610.0,
-      "cached_year_total_usd_thousands": 138962610.0,
-      "months": 12,
-      "full_year": true
-    },
-    {
-      "year": 2002,
-      "usd_billion": 140.71332,
-      "cell": "N106",
-      "monthly_sum_usd_thousands": 140713320.0,
-      "cached_year_total_usd_thousands": 140713320.0,
-      "months": 12,
-      "full_year": true
-    },
-    {
-      "year": 2003,
-      "usd_billion": 166.425522,
-      "cell": "N112",
-      "monthly_sum_usd_thousands": 166425522.0,
-      "cached_year_total_usd_thousands": 166425522.0,
-      "months": 12,
-      "full_year": true
-    },
-    {
-      "year": 2004,
-      "usd_billion": 213.026836,
-      "cell": "N118",
-      "monthly_sum_usd_thousands": 213026836.0,
-      "cached_year_total_usd_thousands": 213026836.0,
-      "months": 12,
-      "full_year": true
-    },
-    {
-      "year": 2005,
-      "usd_billion": 227.484137,
-      "cell": "N124",
-      "monthly_sum_usd_thousands": 227484137.0,
-      "cached_year_total_usd_thousands": 227484137.0,
-      "months": 12,
-      "full_year": true
-    },
-    {
-      "year": 2006,
-      "usd_billion": 247.716193,
-      "cell": "N130",
-      "monthly_sum_usd_thousands": 247716193.0,
-      "cached_year_total_usd_thousands": 247716193.0,
-      "months": 12,
-      "full_year": true
-    },
-    {
-      "year": 2007,
-      "usd_billion": 255.645338,
-      "cell": "N136",
-      "monthly_sum_usd_thousands": 255645338.0,
-      "cached_year_total_usd_thousands": 255645338.0,
-      "months": 12,
-      "full_year": true
-    },
-    {
-      "year": 2008,
-      "usd_billion": 248.602812,
-      "cell": "N142",
-      "monthly_sum_usd_thousands": 248602812.0,
-      "cached_year_total_usd_thousands": 248602812.0,
-      "months": 12,
-      "full_year": true
-    },
-    {
-      "year": 2009,
-      "usd_billion": 226.313366,
-      "cell": "N148",
-      "monthly_sum_usd_thousands": 226313366.0,
-      "cached_year_total_usd_thousands": 226313366.0,
-      "months": 12,
-      "full_year": true
-    },
-    {
-      "year": 2010,
-      "usd_billion": 298.315115,
-      "cell": "N154",
-      "monthly_sum_usd_thousands": 298315115.0,
-      "cached_year_total_usd_thousands": 298315115.0,
-      "months": 12,
-      "full_year": true
-    },
-    {
-      "year": 2011,
-      "usd_billion": 299.521338,
-      "cell": "N160",
-      "monthly_sum_usd_thousands": 299521338.0,
-      "cached_year_total_usd_thousands": 299521338.0,
-      "months": 12,
-      "full_year": true
-    },
-    {
-      "year": 2012,
-      "usd_billion": 291.562116,
-      "cell": "N166",
-      "monthly_sum_usd_thousands": 291562116.0,
-      "cached_year_total_usd_thousands": 291562116.0,
-      "months": 12,
-      "full_year": true
-    },
-    {
-      "year": 2013,
-      "usd_billion": 305.583864,
-      "cell": "N172",
-      "monthly_sum_usd_thousands": 305583864.0,
-      "cached_year_total_usd_thousands": 305583864.0,
-      "months": 12,
-      "full_year": true
-    },
-    {
-      "year": 2014,
-      "usd_billion": 335.842917,
-      "cell": "N178",
-      "monthly_sum_usd_thousands": 335842917.0,
-      "cached_year_total_usd_thousands": 335842917.0,
-      "months": 12,
-      "full_year": true
-    },
-    {
-      "year": 2015,
-      "usd_billion": 335.167861,
-      "cell": "N184",
-      "monthly_sum_usd_thousands": 335167861.0,
-      "cached_year_total_usd_thousands": 335167861.0,
-      "months": 12,
-      "full_year": true
-    },
-    {
-      "year": 2016,
-      "usd_billion": 338.930855,
-      "cell": "N190",
-      "monthly_sum_usd_thousands": 338930855.0,
-      "cached_year_total_usd_thousands": 338930855.0,
-      "months": 12,
-      "full_year": true
-    },
-    {
-      "year": 2017,
-      "usd_billion": 412.220944,
-      "cell": "N196",
-      "monthly_sum_usd_thousands": 412220944.0,
-      "cached_year_total_usd_thousands": 412220944.0,
-      "months": 12,
-      "full_year": true
-    },
-    {
-      "year": 2018,
-      "usd_billion": 468.778285,
-      "cell": "N202",
-      "monthly_sum_usd_thousands": 468778285.0,
-      "cached_year_total_usd_thousands": 468778285.0,
-      "months": 12,
-      "full_year": true
-    },
-    {
-      "year": 2019,
-      "usd_billion": 412.306976,
-      "cell": "N208",
-      "monthly_sum_usd_thousands": 412306976.0,
-      "cached_year_total_usd_thousands": 412306976.0,
-      "months": 12,
-      "full_year": true
-    },
-    {
-      "year": 2020,
-      "usd_billion": 440.389358,
-      "cell": "N214",
-      "monthly_sum_usd_thousands": 440389358.0,
-      "cached_year_total_usd_thousands": 440389358.0,
-      "months": 12,
-      "full_year": true
-    },
-    {
-      "year": 2021,
-      "usd_billion": 555.892514,
-      "cell": "N220",
-      "monthly_sum_usd_thousands": 555892514.0,
-      "cached_year_total_usd_thousands": 555892514.0,
-      "months": 12,
-      "full_year": true
-    },
-    {
-      "year": 2022,
-      "usd_billion": 574.084194,
-      "cell": "N226",
-      "monthly_sum_usd_thousands": 574084194.0,
-      "cached_year_total_usd_thousands": 574084194.0,
-      "months": 12,
-      "full_year": true
-    },
-    {
-      "year": 2023,
-      "usd_billion": 526.885425,
-      "cell": "N232",
-      "monthly_sum_usd_thousands": 526885425.0,
-      "cached_year_total_usd_thousands": 526885425.0,
-      "months": 12,
-      "full_year": true
-    },
-    {
-      "year": 2024,
-      "usd_billion": 630.548606,
-      "cell": "N238",
-      "monthly_sum_usd_thousands": 630548606.0,
-      "cached_year_total_usd_thousands": 630548606.0,
-      "months": 12,
-      "full_year": true
-    },
-    {
-      "year": 2025,
-      "usd_billion": 795.640305,
-      "cell": "N244",
-      "monthly_sum_usd_thousands": 795640305.0,
-      "cached_year_total_usd_thousands": 795640305.0,
-      "months": 12,
-      "full_year": true
-    },
-    {
-      "year": 2026,
-      "usd_billion": 1043.024817,
-      "cell": "N250",
-      "monthly_sum_usd_thousands": 1043024817.0,
-      "cached_year_total_usd_thousands": 1043024817.0,
-      "months": 8,
-      "full_year": false
-    }
-  ]
+  {
+   "year": 1987,
+   "usd_billion": 32.530452,
+   "cell": "N16",
+   "monthly_sum_usd_thousands": 32530452.0,
+   "cached_year_total_usd_thousands": 32530452.0,
+   "months": 12,
+   "full_year": true
+  },
+  {
+   "year": 1988,
+   "usd_billion": 45.004809,
+   "cell": "N22",
+   "monthly_sum_usd_thousands": 45004809.0,
+   "cached_year_total_usd_thousands": 45004809.0,
+   "months": 12,
+   "full_year": true
+  },
+  {
+   "year": 1989,
+   "usd_billion": 48.762926,
+   "cell": "N28",
+   "monthly_sum_usd_thousands": 48762926.0,
+   "cached_year_total_usd_thousands": 48762926.0,
+   "months": 12,
+   "full_year": true
+  },
+  {
+   "year": 1990,
+   "usd_billion": 50.518932,
+   "cell": "N34",
+   "monthly_sum_usd_thousands": 50518932.0,
+   "cached_year_total_usd_thousands": 50518932.0,
+   "months": 12,
+   "full_year": true
+  },
+  {
+   "year": 1991,
+   "usd_billion": 54.607454,
+   "cell": "N40",
+   "monthly_sum_usd_thousands": 54607454.0,
+   "cached_year_total_usd_thousands": 54607454.0,
+   "months": 12,
+   "full_year": true
+  },
+  {
+   "year": 1992,
+   "usd_billion": 59.864958,
+   "cell": "N46",
+   "monthly_sum_usd_thousands": 59864958.0,
+   "cached_year_total_usd_thousands": 59864958.0,
+   "months": 12,
+   "full_year": true
+  },
+  {
+   "year": 1993,
+   "usd_billion": 77.309681,
+   "cell": "N52",
+   "monthly_sum_usd_thousands": 77309681.0,
+   "cached_year_total_usd_thousands": 77309681.0,
+   "months": 12,
+   "full_year": true
+  },
+  {
+   "year": 1994,
+   "usd_billion": 101.878593,
+   "cell": "N58",
+   "monthly_sum_usd_thousands": 101878593.0,
+   "cached_year_total_usd_thousands": 101878593.0,
+   "months": 12,
+   "full_year": true
+  },
+  {
+   "year": 1995,
+   "usd_billion": 144.403681,
+   "cell": "N64",
+   "monthly_sum_usd_thousands": 144403681.0,
+   "cached_year_total_usd_thousands": 144403681.0,
+   "months": 12,
+   "full_year": true
+  },
+  {
+   "year": 1996,
+   "usd_billion": 131.966432,
+   "cell": "N70",
+   "monthly_sum_usd_thousands": 131966432.0,
+   "cached_year_total_usd_thousands": 131966432.0,
+   "months": 12,
+   "full_year": true
+  },
+  {
+   "year": 1997,
+   "usd_billion": 137.20312,
+   "cell": "N76",
+   "monthly_sum_usd_thousands": 137203120.0,
+   "cached_year_total_usd_thousands": 137203120.0,
+   "months": 12,
+   "full_year": true
+  },
+  {
+   "year": 1998,
+   "usd_billion": 125.611999,
+   "cell": "N82",
+   "monthly_sum_usd_thousands": 125611999.0,
+   "cached_year_total_usd_thousands": 125611999.0,
+   "months": 12,
+   "full_year": true
+  },
+  {
+   "year": 1999,
+   "usd_billion": 149.378551,
+   "cell": "N88",
+   "monthly_sum_usd_thousands": 149378551.0,
+   "cached_year_total_usd_thousands": 149378551.0,
+   "months": 12,
+   "full_year": true
+  },
+  {
+   "year": 2000,
+   "usd_billion": 204.393623,
+   "cell": "N94",
+   "monthly_sum_usd_thousands": 204393623.0,
+   "cached_year_total_usd_thousands": 204393623.0,
+   "months": 12,
+   "full_year": true
+  },
+  {
+   "year": 2001,
+   "usd_billion": 138.96261,
+   "cell": "N100",
+   "monthly_sum_usd_thousands": 138962610.0,
+   "cached_year_total_usd_thousands": 138962610.0,
+   "months": 12,
+   "full_year": true
+  },
+  {
+   "year": 2002,
+   "usd_billion": 140.71332,
+   "cell": "N106",
+   "monthly_sum_usd_thousands": 140713320.0,
+   "cached_year_total_usd_thousands": 140713320.0,
+   "months": 12,
+   "full_year": true
+  },
+  {
+   "year": 2003,
+   "usd_billion": 166.425522,
+   "cell": "N112",
+   "monthly_sum_usd_thousands": 166425522.0,
+   "cached_year_total_usd_thousands": 166425522.0,
+   "months": 12,
+   "full_year": true
+  },
+  {
+   "year": 2004,
+   "usd_billion": 213.026836,
+   "cell": "N118",
+   "monthly_sum_usd_thousands": 213026836.0,
+   "cached_year_total_usd_thousands": 213026836.0,
+   "months": 12,
+   "full_year": true
+  },
+  {
+   "year": 2005,
+   "usd_billion": 227.484137,
+   "cell": "N124",
+   "monthly_sum_usd_thousands": 227484137.0,
+   "cached_year_total_usd_thousands": 227484137.0,
+   "months": 12,
+   "full_year": true
+  },
+  {
+   "year": 2006,
+   "usd_billion": 247.716193,
+   "cell": "N130",
+   "monthly_sum_usd_thousands": 247716193.0,
+   "cached_year_total_usd_thousands": 247716193.0,
+   "months": 12,
+   "full_year": true
+  },
+  {
+   "year": 2007,
+   "usd_billion": 255.645338,
+   "cell": "N136",
+   "monthly_sum_usd_thousands": 255645338.0,
+   "cached_year_total_usd_thousands": 255645338.0,
+   "months": 12,
+   "full_year": true
+  },
+  {
+   "year": 2008,
+   "usd_billion": 248.602812,
+   "cell": "N142",
+   "monthly_sum_usd_thousands": 248602812.0,
+   "cached_year_total_usd_thousands": 248602812.0,
+   "months": 12,
+   "full_year": true
+  },
+  {
+   "year": 2009,
+   "usd_billion": 226.313366,
+   "cell": "N148",
+   "monthly_sum_usd_thousands": 226313366.0,
+   "cached_year_total_usd_thousands": 226313366.0,
+   "months": 12,
+   "full_year": true
+  },
+  {
+   "year": 2010,
+   "usd_billion": 298.315115,
+   "cell": "N154",
+   "monthly_sum_usd_thousands": 298315115.0,
+   "cached_year_total_usd_thousands": 298315115.0,
+   "months": 12,
+   "full_year": true
+  },
+  {
+   "year": 2011,
+   "usd_billion": 299.521338,
+   "cell": "N160",
+   "monthly_sum_usd_thousands": 299521338.0,
+   "cached_year_total_usd_thousands": 299521338.0,
+   "months": 12,
+   "full_year": true
+  },
+  {
+   "year": 2012,
+   "usd_billion": 291.562116,
+   "cell": "N166",
+   "monthly_sum_usd_thousands": 291562116.0,
+   "cached_year_total_usd_thousands": 291562116.0,
+   "months": 12,
+   "full_year": true
+  },
+  {
+   "year": 2013,
+   "usd_billion": 305.583864,
+   "cell": "N172",
+   "monthly_sum_usd_thousands": 305583864.0,
+   "cached_year_total_usd_thousands": 305583864.0,
+   "months": 12,
+   "full_year": true
+  },
+  {
+   "year": 2014,
+   "usd_billion": 335.842917,
+   "cell": "N178",
+   "monthly_sum_usd_thousands": 335842917.0,
+   "cached_year_total_usd_thousands": 335842917.0,
+   "months": 12,
+   "full_year": true
+  },
+  {
+   "year": 2015,
+   "usd_billion": 335.167861,
+   "cell": "N184",
+   "monthly_sum_usd_thousands": 335167861.0,
+   "cached_year_total_usd_thousands": 335167861.0,
+   "months": 12,
+   "full_year": true
+  },
+  {
+   "year": 2016,
+   "usd_billion": 338.930855,
+   "cell": "N190",
+   "monthly_sum_usd_thousands": 338930855.0,
+   "cached_year_total_usd_thousands": 338930855.0,
+   "months": 12,
+   "full_year": true
+  },
+  {
+   "year": 2017,
+   "usd_billion": 412.220944,
+   "cell": "N196",
+   "monthly_sum_usd_thousands": 412220944.0,
+   "cached_year_total_usd_thousands": 412220944.0,
+   "months": 12,
+   "full_year": true
+  },
+  {
+   "year": 2018,
+   "usd_billion": 468.778285,
+   "cell": "N202",
+   "monthly_sum_usd_thousands": 468778285.0,
+   "cached_year_total_usd_thousands": 468778285.0,
+   "months": 12,
+   "full_year": true
+  },
+  {
+   "year": 2019,
+   "usd_billion": 412.306976,
+   "cell": "N208",
+   "monthly_sum_usd_thousands": 412306976.0,
+   "cached_year_total_usd_thousands": 412306976.0,
+   "months": 12,
+   "full_year": true
+  },
+  {
+   "year": 2020,
+   "usd_billion": 440.389358,
+   "cell": "N214",
+   "monthly_sum_usd_thousands": 440389358.0,
+   "cached_year_total_usd_thousands": 440389358.0,
+   "months": 12,
+   "full_year": true
+  },
+  {
+   "year": 2021,
+   "usd_billion": 555.892514,
+   "cell": "N220",
+   "monthly_sum_usd_thousands": 555892514.0,
+   "cached_year_total_usd_thousands": 555892514.0,
+   "months": 12,
+   "full_year": true
+  },
+  {
+   "year": 2022,
+   "usd_billion": 574.084194,
+   "cell": "N226",
+   "monthly_sum_usd_thousands": 574084194.0,
+   "cached_year_total_usd_thousands": 574084194.0,
+   "months": 12,
+   "full_year": true
+  },
+  {
+   "year": 2023,
+   "usd_billion": 526.885425,
+   "cell": "N232",
+   "monthly_sum_usd_thousands": 526885425.0,
+   "cached_year_total_usd_thousands": 526885425.0,
+   "months": 12,
+   "full_year": true
+  },
+  {
+   "year": 2024,
+   "usd_billion": 630.548606,
+   "cell": "N238",
+   "monthly_sum_usd_thousands": 630548606.0,
+   "cached_year_total_usd_thousands": 630548606.0,
+   "months": 12,
+   "full_year": true
+  },
+  {
+   "year": 2025,
+   "usd_billion": 795.640305,
+   "cell": "N244",
+   "monthly_sum_usd_thousands": 795640305.0,
+   "cached_year_total_usd_thousands": 795640305.0,
+   "months": 12,
+   "full_year": true
+  },
+  {
+   "year": 2026,
+   "usd_billion": 1043.024817,
+   "cell": "N250",
+   "monthly_sum_usd_thousands": 1043024817.0,
+   "cached_year_total_usd_thousands": 1043024817.0,
+   "months": 8,
+   "full_year": false
+  }
+ ],
+ "eras": [
+  {
+   "num": "01",
+   "period": "1980–1985",
+   "name": "미국의 시대와 일본의 추격",
+   "leader": "TI·Motorola → NEC",
+   "start": 1980,
+   "end": 1985,
+   "slide": "era1"
+  },
+  {
+   "num": "02",
+   "period": "1986–1991",
+   "name": "일본의 시대",
+   "leader": "NEC 1위",
+   "start": 1986,
+   "end": 1991,
+   "slide": "era2"
+  },
+  {
+   "num": "03",
+   "period": "1992–1999",
+   "name": "PC·인터넷과 한국 메모리",
+   "leader": "Intel 1위",
+   "start": 1992,
+   "end": 1999,
+   "slide": "era3"
+  },
+  {
+   "num": "04",
+   "period": "2000–2007",
+   "name": "닷컴 붕괴와 디지털 기기",
+   "leader": "Intel 1위",
+   "start": 2000,
+   "end": 2007,
+   "slide": "era4"
+  },
+  {
+   "num": "05",
+   "period": "2008–2012",
+   "name": "금융위기와 치킨게임",
+   "leader": "Intel 1위",
+   "start": 2008,
+   "end": 2012,
+   "slide": "era5"
+  },
+  {
+   "num": "06",
+   "period": "2013–2016",
+   "name": "모바일·클라우드·저금리 M&A",
+   "leader": "Intel 1위",
+   "start": 2013,
+   "end": 2016,
+   "slide": "era6"
+  },
+  {
+   "num": "07",
+   "period": "2017–2019",
+   "name": "메모리 슈퍼사이클과 미중 갈등",
+   "leader": "Samsung → Intel",
+   "start": 2017,
+   "end": 2019,
+   "slide": "era7"
+  },
+  {
+   "num": "08",
+   "period": "2020–2023",
+   "name": "팬데믹·공급난·재고 조정",
+   "leader": "Intel → Samsung → Intel",
+   "start": 2020,
+   "end": 2023,
+   "slide": "era8"
+  },
+  {
+   "num": "09",
+   "period": "2024–2026",
+   "name": "AI 인프라와 HBM",
+   "leader": "NVIDIA 1위",
+   "start": 2024,
+   "end": 2026,
+   "slide": "era9"
+  }
+ ],
+ "linear": {
+  "series": [
+   {
+    "fy": 2003,
+    "revenue": 606.6,
+    "dps": 0.21,
+    "opm": 48.5,
+    "ni": 236.6,
+    "cash": 1593.6,
+    "debt": 0,
+    "note": "케이스"
+   },
+   {
+    "fy": 2004,
+    "revenue": 807.3,
+    "dps": 0.28,
+    "opm": 54.1,
+    "ni": 328.2,
+    "cash": 1656.5,
+    "debt": 0
+   },
+   {
+    "fy": 2005,
+    "revenue": 1049.7,
+    "dps": 0.36,
+    "opm": 56.2,
+    "ni": 434.0,
+    "cash": 1790.9,
+    "debt": 0
+   },
+   {
+    "fy": 2006,
+    "revenue": 1093.0,
+    "dps": 0.5,
+    "opm": 51.6,
+    "ni": 428.7,
+    "cash": 1819.6,
+    "debt": 0
+   },
+   {
+    "fy": 2007,
+    "revenue": 1083.1,
+    "dps": 0.66,
+    "opm": 48.4,
+    "ni": 411.7,
+    "cash": 633.3,
+    "debt": 1700.0,
+    "flag": true,
+    "note": "$3bn ASR"
+   },
+   {
+    "fy": 2008,
+    "revenue": 1175.2,
+    "dps": 0.78,
+    "opm": 48.4,
+    "ni": 387.6,
+    "cash": 966.7,
+    "debt": 1700.0
+   },
+   {
+    "fy": 2009,
+    "revenue": 968.5,
+    "dps": 0.86,
+    "opm": 42.5,
+    "ni": 289.2,
+    "cash": 868.7,
+    "debt": 1405.6
+   },
+   {
+    "fy": 2010,
+    "revenue": 1170.0,
+    "dps": 0.9,
+    "opm": 48.2,
+    "ni": 361.3,
+    "cash": 958.1,
+    "debt": 1240.9
+   },
+   {
+    "fy": 2011,
+    "revenue": 1484.0,
+    "dps": 0.94,
+    "opm": 51.7,
+    "ni": 580.8,
+    "cash": 922.5,
+    "debt": 845.1,
+    "note": "매출 정점"
+   },
+   {
+    "fy": 2012,
+    "revenue": 1266.6,
+    "dps": 0.98,
+    "opm": 45.9,
+    "ni": 398.1,
+    "cash": 1203.1,
+    "debt": 845.1
+   },
+   {
+    "fy": 2013,
+    "revenue": 1282.2,
+    "dps": 1.02,
+    "opm": 44.7,
+    "ni": 406.9,
+    "cash": 1524.7,
+    "debt": 845.1
+   },
+   {
+    "fy": 2014,
+    "revenue": 1388.4,
+    "dps": 1.06,
+    "opm": 46.1,
+    "ni": 460.0,
+    "cash": 1012.8,
+    "debt": 0,
+    "note": "전환사채 상환"
+   },
+   {
+    "fy": 2015,
+    "revenue": 1475.1,
+    "dps": 1.14,
+    "opm": 46.3,
+    "ni": 521.0,
+    "cash": 1202.7,
+    "debt": 0
+   },
+   {
+    "fy": 2016,
+    "revenue": 1423.9,
+    "dps": 1.24,
+    "opm": 44.5,
+    "ni": 494.3,
+    "cash": 1448.3,
+    "debt": 0,
+    "flag": true,
+    "note": "ADI 인수 발표"
+   }
+  ],
+  "note": "Linear Technology 10-K(FY2003~2016)·SEC XBRL. 매출·순이익·현금(현금+투자)·부채(액면) $M, 영업이익률 %, DPS는 회계연도 합계 $. FY2006~09 분기 배당 내역은 연간 합계에서 추정. FY2008 순이익은 최초 보고치(이후 전환사채 회계 변경으로 $367.1M 재표시).",
+  "capital_return": {
+   "dividends_fy03_16": 2711,
+   "buybacks_fy03_16": 5046,
+   "total": 7757,
+   "net_income_fy03_16": 5738,
+   "note": "현금흐름표 합산(조사 계산). 누적 환원 $7.76bn = 누적 순이익의 약 135%; 초과분은 2007년 전환사채 $1.7bn과 기존 현금. 희석주식수 321.4M → 245.0M(−24%)."
+  }
+ }
 }
