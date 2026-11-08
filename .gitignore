@@ -7,3 +7,24 @@ qa/
 .DS_Store
 make_content.py
 ~$*
+
+# Temporary migration helpers and raw research downloads
+/patch_v3.py
+/patch_finalize_v3.py
+/patch_study_final.py
+/asset_manifest.py
+/asset_manifest_ic.py
+/research/*
+!/research/global1995_next.json
+!/research/global2000_next.json
+!/research/global2010_next.json
+!/research/global2020_next.json
+!/research/global2026_next.json
+!/research/fortune2000_next.json
+!/research/fortune2010_next.json
+!/research/fortune2020_next.json
+!/research/fortune2026_next.json
+!/research/sector_crosswalk.json
+
+# Referenced historical image asset
+!/assets/v3/ic-replica.png

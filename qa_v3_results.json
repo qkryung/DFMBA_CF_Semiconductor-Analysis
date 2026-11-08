@@ -1,0 +1,16 @@
+{
+  "slides": 35,
+  "checks": 105,
+  "sectorCombinations": 66,
+  "companies": 4,
+  "consoleErrors": [],
+  "visualLayout": "not verified: Windows browser URL safety check stopped Computer Use",
+  "study": {
+    "sections": 39,
+    "terms": 67,
+    "search": true,
+    "fontSize": true,
+    "mobileMenu": true,
+    "anchors": true
+  }
+}

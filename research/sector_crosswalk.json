@@ -1,0 +1,16 @@
+{
+  "note": "Function classify in build_sector_history.py defines analytic sector mapping.",
+  "sectors": {
+    "staples": "필수소비재",
+    "discretionary": "경기소비재",
+    "energy": "에너지",
+    "utilities": "유틸리티",
+    "it": "IT",
+    "healthcare": "헬스케어",
+    "financials": "금융",
+    "industrials": "산업재",
+    "materials": "소재",
+    "communication": "커뮤니케이션",
+    "realestate": "부동산"
+  }
+}
