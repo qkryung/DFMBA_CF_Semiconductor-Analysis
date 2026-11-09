@@ -65,9 +65,7 @@ body.drawing .stage{box-shadow:0 0 0 2px rgba(255,216,77,.55)}
 .take::before{content:"";width:5px;border-radius:3px;background:var(--acc);flex:none}
 .take p{font-size:22px;font-weight:700;line-height:1.35;color:#eaf8ff}
 .take p small{font-size:16px;font-weight:500;color:var(--ink2)}
-.foot{display:flex;justify-content:space-between;align-items:center;height:20px;margin-top:6px;font-size:11px;color:var(--ink3)}
-.foot button{font-size:11px;background:transparent;padding:2px 0;border:0;color:var(--ink3)}
-.foot button:hover{color:var(--cyan);background:transparent}
+.foot{display:flex;justify-content:flex-end;align-items:center;height:20px;margin-top:6px;font-size:11px;color:var(--ink3)}
 
 /* ── 표지 · 간지 ── */
 .cover .body{margin:0;display:grid;grid-template-columns:1.22fr 1fr;grid-template-rows:1fr auto;column-gap:30px}
@@ -238,19 +236,34 @@ svg .halo{paint-order:stroke;stroke:#07121f;stroke-width:4px;stroke-linejoin:rou
 .ctx .viz{margin:2px 0 10px}
 .ctx .viz svg{display:block}
 /* sector-ranking */
-.sector{display:grid;grid-template-columns:160px 1fr;gap:26px;height:100%}
-.sector-nav{display:flex;flex-direction:column;gap:5px}
-#sectorPills{display:flex;flex-direction:column;gap:5px}
-#sectorPills button{font-size:15px;padding:6px 14px;text-align:left;border-radius:8px;background:transparent;border-color:transparent;color:var(--ink2)}
+.sector{display:grid;grid-template-columns:150px 1fr;gap:22px;height:100%}
+.sector-nav{display:flex;flex-direction:column;gap:4px}
+.sector-h{display:flex;justify-content:space-between;font-size:11.5px;letter-spacing:1px;color:var(--ink3);font-weight:700;padding:0 10px 5px;border-bottom:1px solid var(--line)}
+#sectorPills{display:flex;flex-direction:column;gap:3px}
+#sectorPills button{display:flex;justify-content:space-between;align-items:baseline;font-size:15px;padding:5px 10px;text-align:left;border-radius:8px;background:transparent;border-color:transparent;color:var(--ink2)}
+#sectorPills button em{font-style:normal;font-size:15px;font-weight:800;color:var(--ink)}
+#sectorPills button em small{font-size:11px;font-weight:400;color:var(--ink3);margin-left:1px}
 #sectorPills button:hover{background:#10263a}
 #sectorPills button.active{background:#10283f;border-color:var(--cyan);color:var(--ink);font-weight:700}
-#sectorPlay{margin-top:6px;font-size:13px}
-#sectorStat{display:flex;gap:26px;align-items:center;margin-top:10px;padding-top:12px;border-top:1px solid var(--line)}
+#sectorPlay{margin-top:8px;font-size:13px}
+.sector-hint{font-size:11.5px;line-height:1.5;color:var(--ink3);margin-top:8px;padding:0 2px}
+#bump svg{display:block}
+#bump .lk,#bump .cell{transition:opacity .15s}
+#bump svg.trace .cell,#bump svg.trace .lk{opacity:.22}
+#bump svg.trace .cell.on{opacity:1}
+#bump svg.trace .lk.on{opacity:1;stroke-width:3px}
+#bump svg.trace .lk.on:not(.tone){stroke:var(--ink2)}
+#bump svg.trace .cell.on:not(.tone) rect{stroke:var(--ink2)}
+#bump [data-tip]{cursor:default}
+#sectorStat{display:flex;gap:24px;align-items:center;margin-top:8px;padding-top:9px;border-top:1px solid var(--line)}
+.sstat{min-width:0}
+.sstat.wide{flex:1}
 .sstat .k{display:block;font-size:12.5px;color:var(--ink3);letter-spacing:.5px}
-.sstat b{font-size:21px;letter-spacing:-.3px}
+.sstat b{display:block;font-size:20px;letter-spacing:-.3px;white-space:nowrap;overflow:hidden}
 .sstat b i{font-style:normal;color:var(--ink3);font-weight:400;margin:0 2px}
 .sstat b small{font-size:14px;color:var(--ink2);font-weight:500}
-.bump-legend{margin:0 0 0 auto;height:auto}
+.bump-legend{flex-direction:column;align-items:flex-start;gap:2px;height:auto;margin:0;font-size:12px;flex-wrap:nowrap}
+#sectorScope{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:6px}
 /* life-cycle */
 #renewal{transition:opacity .3s}#renewal.off{opacity:.07}
 .toolbar{display:flex;gap:14px;align-items:center}
@@ -261,7 +274,8 @@ svg .halo{paint-order:stroke;stroke:#07121f;stroke-width:4px;stroke-linejoin:rou
 #timeline .lane{transition:opacity .25s}
 #timeline .lane.off{opacity:.07}
 #timeline .era{cursor:pointer}
-#timeline .era:hover rect,#timeline .era:focus-visible rect{fill:#1b5175;stroke:var(--green)}
+#timeline .era path{transition:fill .15s}
+#timeline .era:hover path,#timeline .era:focus-visible path{fill:#2a86b3}
 #timeline [data-tip]{cursor:default}
 .era-k{font-size:19px;color:var(--ink)}
 /* photos */
@@ -283,11 +297,6 @@ svg .halo{paint-order:stroke;stroke:#07121f;stroke-width:4px;stroke-linejoin:rou
 .rankbar{height:16px;background:#0f2233;border-radius:0 4px 4px 0;overflow:hidden}
 .rankbar i{display:block;height:100%;border-radius:0 4px 4px 0}
 .rankrow strong{text-align:right;font-size:16px;color:var(--ink);font-variant-numeric:tabular-nums}
-.vtl{position:relative;margin-top:6px;padding-left:22px;display:grid;gap:9px}
-.vtl::before{content:"";position:absolute;left:5px;top:6px;bottom:6px;width:2px;background:var(--line2)}
-.vtl div{position:relative;font-size:16.5px;color:var(--ink2);line-height:1.4}
-.vtl div::before{content:"";position:absolute;left:-22px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--surf);border:2px solid var(--acc)}
-.vtl b{color:var(--ink);font-variant-numeric:tabular-nums;margin-right:8px}
 /* dashboard */
 .dash-top{display:flex;gap:14px;align-items:center;margin-bottom:10px}
 .dash-top label{font-size:15px;color:var(--ink2)}
@@ -403,21 +412,9 @@ svg .halo{paint-order:stroke;stroke:#07121f;stroke-width:4px;stroke-linejoin:rou
 .step span b{display:inline;font-size:inherit;color:var(--ink)}
 /* 사진 띠: 사이 화살표 */
 .strip .frame:not(:last-child)::after{content:"›";position:absolute;right:-9px;top:calc(var(--ph,150px)/2 - 13px);font-size:20px;line-height:1;color:var(--ink3)}
-.inv-bottom{display:grid;grid-template-columns:300px 1fr;gap:26px;margin-top:14px;align-items:stretch}
-.frame.wide h3{font-size:15px;margin:6px 0 0}
-/* 점검표: 세 가지 힘 × 일곱 지표 */
-.cklist{display:grid;grid-template-rows:repeat(3,1fr);gap:14px;height:100%}
-.ckrow{display:grid;grid-template-columns:292px 1fr;gap:16px;min-height:0}
-.ckhead{display:flex;flex-direction:column;justify-content:center;padding:0 22px;border-left:5px solid var(--acc);border-radius:0 12px 12px 0;background:linear-gradient(90deg,color-mix(in srgb,var(--acc) 13%,transparent),transparent)}
-.ckhead b{font-size:27px;letter-spacing:-.5px}
-.ckhead span{font-size:16.5px;color:var(--ink2);margin-top:6px;line-height:1.45}
-.ckitems{display:grid;grid-auto-flow:column;grid-auto-columns:1fr;gap:14px;min-height:0}
-.ck{display:grid;grid-template-columns:46px 1fr;column-gap:8px;align-items:center;border:1px solid var(--line);border-radius:12px;padding:12px 20px;background:linear-gradient(140deg,#0f2337,#0a1725);min-width:0}
-.ck .n{font-size:38px;font-weight:900;color:var(--acc);line-height:1}
-.ck strong{display:block;font-size:23px;letter-spacing:-.3px}
-.ck div>span{display:block;font-size:16.5px;color:var(--ink2);line-height:1.45;margin-top:3px}
-.ck em{display:block;font-style:normal;font-size:16.5px;font-weight:700;color:var(--ink);margin-top:5px}
-.ck em::before{content:"→ ";color:var(--acc)}
+.strip.sm .frame h3{font-size:15.5px;margin:6px 0 1px}
+.strip.sm .frame p{font-size:12px;line-height:1.4}
+.text .tags{margin:10px 0 6px}
 .panel .pfoot{margin-top:auto;padding-top:12px;border-top:1px solid var(--line);font-size:15.5px;line-height:1.5;color:var(--ink);font-weight:700}
 .panel .pfoot.lg{font-size:18px}
 .panel .lead{font-size:15px;color:var(--ink3);margin:-4px 0 6px}
@@ -446,19 +443,35 @@ svg .halo{paint-order:stroke;stroke:#07121f;stroke-width:4px;stroke-linejoin:rou
 .insight{border-left:3px solid var(--acc);padding:6px 0 6px 14px;font-size:16px;line-height:1.5;color:var(--ink2)}
 .insight b{color:var(--ink)}
 .insight small{display:block;font-size:12.5px;color:var(--ink3);margin-top:3px}
-/* 삼성 연표 옆 사진 · 일본 순위 막대 */
-.sidepic{display:grid;grid-template-columns:1fr 190px;gap:20px;align-items:start}
-.frame h3:empty{display:none}
-.hb.tall{gap:14px}
-.hb.tall .hb-row .hb-track{height:20px}
-.vtl.lg{margin-top:20px;gap:17px}
-.vtl.lg div{font-size:20px}
-.vtl.lg div::before{top:8px}
-.vtl div.hi{color:var(--ink);font-weight:700}
-.vtl div.hi::before{background:var(--acc)}
-.pquote{margin-top:auto;padding-top:14px;border-top:1px solid var(--line)}
-.pquote span{display:block;font-size:16.5px;color:var(--ink2);line-height:1.5}
-.pquote b{display:block;font-size:28px;letter-spacing:-.6px;line-height:1.4}
+/* 거시환경의 차이(원인) → 1990 순위(결과) */
+.split.linked.to{gap:52px}
+.linked.to::after{content:"→"}
+.col.macro{gap:13px}
+.col.macro .note{margin-top:0}
+.mside{border:1px solid var(--line);border-left:5px solid;border-radius:10px;padding:13px 22px 14px;background:#0b1a2b}
+.mside-h{display:flex;align-items:baseline;gap:12px}
+.mside-h em{font-style:normal;font-size:14px;color:var(--ink3);letter-spacing:1.5px;font-weight:700}
+.mside-h b{font-size:25px;letter-spacing:-.4px}
+.mside-n{display:flex;gap:38px;margin:7px 0 8px}
+.mside-n b{display:block;font-size:52px;font-weight:900;letter-spacing:-2px;line-height:1.08}
+.mside-n span{display:block;font-size:13.5px;color:var(--ink3)}
+.mside p{font-size:18px;line-height:1.5;color:var(--ink2)}
+.mside p b{color:var(--ink)}
+.mside p small{display:block;font-size:13px;color:var(--ink3)}
+.mgap{display:flex;align-items:center;gap:12px;font-size:14px;color:var(--ink2)}
+.mgap::before,.mgap::after{content:"";flex:1;height:1px;background:var(--line2)}
+.mgap b{font-size:22px;color:var(--amber);letter-spacing:-.3px}
+.segbar{display:flex;gap:2px;height:28px;margin:0 0 6px}
+.segbar i{display:flex;align-items:center;justify-content:center;gap:8px;border-radius:4px;font-style:normal;font-size:14px;color:#06101b;font-weight:700;white-space:nowrap;min-width:0}
+.segbar i b{font-weight:800}
+.segcap{display:flex;align-items:center;gap:16px;font-size:12.5px;color:var(--ink3);margin-bottom:12px}
+.hb.c10{gap:11px}
+.hb.c10 .hb-row{font-size:17px}
+.hb.c10 .hb-row .hb-track{height:18px}
+.band.aside{padding:9px 18px;gap:16px}
+.band.aside em{min-width:0}
+.band.aside span{font-size:15px}
+.band.aside span b{font-size:inherit;color:var(--ink)}
 /* 빅테크 현금 */
 .g3b{display:grid;grid-template-columns:1.25fr .95fr 1fr;gap:18px;height:100%}
 .capex-hero{font-size:48px;font-weight:900;letter-spacing:-1.5px;line-height:1.1;margin:10px 0 2px;font-variant-numeric:tabular-nums;white-space:nowrap}
@@ -472,24 +485,37 @@ svg .halo{paint-order:stroke;stroke:#07121f;stroke-width:4px;stroke-linejoin:rou
 .gr .hb-track.rng{display:flex}
 .gr .hb-track.rng i{border-radius:0}
 .gr .hb-track.rng i+i{opacity:.45;border-radius:0 4px 4px 0}
-/* 미·일 ↔ 미·중 */
-.analogy{display:grid;grid-template-columns:1fr auto 1fr;gap:14px;align-items:stretch}
-.analogy>i{align-self:center;font-style:normal;font-size:30px;color:var(--ink3)}
-.pair{border:1px solid var(--line);border-radius:14px;padding:14px 20px 16px;background:#0b1a2b}
+/* 금리 재상승 + 미·일 ↔ 미·중 */
+.split.s42{grid-template-columns:.74fr 1fr}
+.rate-sub{font-size:17px;color:var(--ink2);margin:2px 0 8px}
+.rate-sub b{color:var(--ink)}
+.rate-sub small{font-size:13px;color:var(--ink3)}
+.chase{gap:10px}
+.chase h2{font-size:27px;margin:4px 0 0;letter-spacing:-.5px}
+.analogy{display:grid;grid-template-columns:1fr;gap:4px}
+.analogy>i{justify-self:center;font-style:normal;font-size:18px;line-height:1;color:var(--ink3)}
+.pair{display:grid;grid-template-columns:190px 1fr;gap:14px;align-items:center;border:1px solid var(--line);border-radius:12px;padding:9px 14px;background:#0b1a2b}
 .pair.now{border-color:color-mix(in srgb,var(--acc) 60%,transparent)}
-.pair-h{display:flex;align-items:baseline;gap:14px;margin-bottom:10px}
-.pair-h .yr{font-size:32px;font-weight:900;color:var(--acc);letter-spacing:-1px;line-height:1.2}
-.pair-h b{font-size:24px}
-.pair-b{display:grid;grid-template-columns:1fr auto 1fr;gap:12px;align-items:stretch}
-.side{border:1px solid var(--line);border-left:5px solid;border-radius:8px;padding:9px 16px;background:#0c2033}
-.side em{display:block;font-style:normal;font-size:13.5px;color:var(--ink3);letter-spacing:1px}
-.side b{display:block;font-size:21px}
-.vsx{align-self:center;font-size:14px;color:var(--ink3)}
+.pair-h{display:flex;align-items:baseline;gap:10px}
+.pair-h .yr{font-size:25px;font-weight:900;color:var(--acc);letter-spacing:-1px;line-height:1.2}
+.pair-h b{font-size:17.5px;white-space:nowrap}
+.pair-b{display:grid;grid-template-columns:1fr auto 1fr;gap:10px;align-items:stretch}
+.side{display:flex;align-items:baseline;gap:10px;border:1px solid var(--line);border-left:5px solid;border-radius:8px;padding:8px 13px;background:#0c2033;min-width:0}
+.side em{font-style:normal;font-size:13px;color:var(--ink3);letter-spacing:1px;white-space:nowrap}
+.side b{font-size:18px;white-space:nowrap}
+.vsx{align-self:center;font-size:13px;color:var(--ink3)}
 .plist{display:grid;gap:8px;margin-top:2px}
 .plist>div{border:1px solid var(--line);border-radius:9px;padding:10px 16px;background:#0c2033;font-size:18.5px;line-height:1.45;color:var(--ink)}
-.plist>i{font-style:normal;text-align:center;color:var(--acc);font-size:20px;line-height:.8;font-weight:700}
-.plist>div.res{border-color:color-mix(in srgb,var(--acc) 70%,transparent);background:color-mix(in srgb,var(--acc) 14%,#0c2033);font-size:21px;font-weight:700;text-align:center}
-.plist .res b{color:var(--acc)}
+.chase .panel.sm{padding:12px 16px 11px}
+.chase .panel.sm h3{font-size:19.5px;margin:5px 0 8px}
+.chase .plist{gap:6px}
+.chase .plist>div{font-size:15.5px;padding:5px 12px}
+.chase .panel .pfoot{font-size:15.5px;padding-top:8px}
+.verdict{display:flex;align-items:center;gap:16px;border:1px solid color-mix(in srgb,var(--acc) 70%,transparent);background:color-mix(in srgb,var(--acc) 12%,#0c2033);border-radius:12px;padding:11px 18px}
+.verdict em{font-style:normal;font-size:13px;color:var(--acc);letter-spacing:2px;font-weight:700;white-space:nowrap}
+.verdict b{font-size:22px;letter-spacing:-.4px;white-space:nowrap}
+.verdict span{font-size:15.5px;color:var(--ink2);line-height:1.45}
+.verdict span b{font-size:inherit;color:var(--ink);white-space:normal}
 /* 나비 비교표 */
 .bfly{display:grid;grid-template-columns:1fr 172px 1fr;column-gap:0;align-content:start}
 .bfly .bh{padding:0 6px 12px;border-bottom:3px solid var(--line2)}

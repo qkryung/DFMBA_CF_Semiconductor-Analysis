@@ -1,0 +1,47 @@
+{
+  "note": "fortune.com의 Fortune 500 아카이브 페이지에서 빠져 있는 순위(행)를 보완하고, 다른 연도 값이 잘못 붙은 행을 제외하기 위한 목록. 순위·매출은 공개 데이터셋 cmusam/fortune500(연도별 CSV)에서 가져왔다. 1996·2001·2006·2011·2016년판은 500개 순위 전체를 순위+매출로 대조했고, 아래 rows(누락)와 drop(불일치) 말고는 전부 일치했다. 사명(name)은 당시 사명이며, 섹터(sector)와 key는 분석자가 지정했다. 2021·2026년판은 500행이 모두 있어 보완하지 않았다(같은 매출의 공동 순위는 누락이 아님).",
+  "source": {
+    "name": "cmusam/fortune500 (GitHub)",
+    "url": "https://github.com/cmusam/fortune500",
+    "files": "csv/fortune500-<year>.csv",
+    "checked": "2026-11-09"
+  },
+  "unit": "revenueUsdM = USD million",
+  "rows": [
+    {"listYear": 1996, "rank": 37, "name": "BankAmerica", "revenueUsdM": 20386.0, "sector": "financials", "key": "bankamerica"},
+    {"listYear": 1996, "rank": 96, "name": "Albertson's", "revenueUsdM": 12585.0, "sector": "staples", "key": "albertsons-inc"},
+    {"listYear": 1996, "rank": 132, "name": "McDonald's", "revenueUsdM": 9794.5, "sector": "discretionary", "key": "mcdonalds"},
+    {"listYear": 1996, "rank": 137, "name": "Toys \"R\" Us", "revenueUsdM": 9426.9, "sector": "discretionary", "key": "toys-r-us"},
+    {"listYear": 1996, "rank": 184, "name": "Lowe's", "revenueUsdM": 7075.4, "sector": "discretionary", "key": "lowes"},
+    {"listYear": 1996, "rank": 399, "name": "Smith's Food & Drug Centers", "revenueUsdM": 3083.7, "sector": "staples", "key": "smiths-food-drug-centers"},
+    {"listYear": 1996, "rank": 403, "name": "Reader's Digest Association", "revenueUsdM": 3068.5, "sector": "communication", "key": "readers-digest-association"},
+    {"listYear": 1996, "rank": 415, "name": "Boatmen's Bancshares", "revenueUsdM": 2996.1, "sector": "financials", "key": "boatmens-bancshares"},
+    {"listYear": 1996, "rank": 431, "name": "Peter Kiewit Sons'", "revenueUsdM": 2902.0, "sector": "industrials", "key": "peter-kiewit-sons"},
+    {"listYear": 1996, "rank": 433, "name": "U.S. Bancorp (Portland)", "revenueUsdM": 2897.3, "sector": "financials", "key": "us-bancorp-portland"},
+    {"listYear": 1996, "rank": 490, "name": "Roundy's", "revenueUsdM": 2488.2, "sector": "staples", "key": "roundys"},
+    {"listYear": 2001, "rank": 38, "name": "Albertson's", "revenueUsdM": 36762.0, "sector": "staples", "key": "albertsons-inc"},
+    {"listYear": 2001, "rank": 63, "name": "Aetna", "revenueUsdM": 26818.9, "sector": "healthcare", "key": "aetna"},
+    {"listYear": 2001, "rank": 108, "name": "Lowe's", "revenueUsdM": 18778.6, "sector": "discretionary", "key": "lowes"},
+    {"listYear": 2001, "rank": 138, "name": "McDonald's", "revenueUsdM": 14243.0, "sector": "discretionary", "key": "mcdonalds"},
+    {"listYear": 2001, "rank": 172, "name": "Toys \"R\" Us", "revenueUsdM": 11332.0, "sector": "discretionary", "key": "toys-r-us"},
+    {"listYear": 2001, "rank": 190, "name": "U.S. Bancorp", "revenueUsdM": 9965.5, "sector": "financials", "key": "us-bancorp"},
+    {"listYear": 2001, "rank": 293, "name": "Kohl's", "revenueUsdM": 6152.0, "sector": "discretionary", "key": "kohls"},
+    {"listYear": 2001, "rank": 352, "name": "LTV", "revenueUsdM": 4934.0, "sector": "materials", "key": "the-ltv-corporation"},
+    {"listYear": 2001, "rank": 353, "name": "BJ's Wholesale Club", "revenueUsdM": 4932.1, "sector": "staples", "key": "bjs-wholesale-club"},
+    {"listYear": 2001, "rank": 358, "name": "Peter Kiewit Sons'", "revenueUsdM": 4823.0, "sector": "industrials", "key": "peter-kiewit-sons"},
+    {"listYear": 2001, "rank": 380, "name": "Brunswick", "revenueUsdM": 4507.2, "sector": "discretionary", "key": "brunswick"},
+    {"listYear": 2001, "rank": 399, "name": "Bethlehem Steel", "revenueUsdM": 4196.6, "sector": "materials", "key": "bethlehem-steel-corporation"},
+    {"listYear": 2001, "rank": 403, "name": "TruServ", "revenueUsdM": 4159.0, "sector": "discretionary", "key": "truserv-corporation"},
+    {"listYear": 2001, "rank": 470, "name": "Harrah's Entertainment", "revenueUsdM": 3471.2, "sector": "discretionary", "key": "harrahs-entertainment"},
+    {"listYear": 2006, "rank": 340, "name": "Estée Lauder", "revenueUsdM": 6336.3, "sector": "staples", "key": "estee-lauder"},
+    {"listYear": 2011, "rank": 307, "name": "Estée Lauder", "revenueUsdM": 7795.8, "sector": "staples", "key": "estee-lauder"},
+    {"listYear": 2016, "rank": 45, "name": "United Technologies", "revenueUsdM": 61047.0, "sector": "industrials", "key": "united-technologies-corporation"},
+    {"listYear": 2016, "rank": 46, "name": "Aetna", "revenueUsdM": 60337.0, "sector": "healthcare", "key": "aetna"}
+  ],
+  "drop": [
+    {"listYear": 2001, "rank": 357, "slug": "truserv-corporation", "revenueUsdM": 4502.3, "why": "기준 데이터의 357위는 ITT Industries(4,829.4). TruServ는 403위(4,159.0) → rows로 보완"},
+    {"listYear": 2001, "rank": 416, "slug": "the-ltv-corporation", "revenueUsdM": 3956.0, "why": "기준 데이터의 416위는 Nash Finch(4,015.5). LTV는 352위(4,934.0) → rows로 보완"},
+    {"listYear": 2001, "rank": 442, "slug": "brunswick", "revenueUsdM": 3684.1, "why": "기준 데이터의 442위는 Pathmark Stores(3,741.9). Brunswick은 380위(4,507.2) → rows로 보완"},
+    {"listYear": 2001, "rank": 468, "slug": "bethlehem-steel-corporation", "revenueUsdM": 3334.3, "why": "기준 데이터의 468위는 New York Times(3,489.5). Bethlehem Steel은 399위(4,196.6) → rows로 보완"}
+  ]
+}

@@ -25,6 +25,13 @@ make_content.py
 !/research/fortune2020_next.json
 !/research/fortune2026_next.json
 !/research/sector_crosswalk.json
+!/research/fortune1996_next.json
+!/research/fortune2001_next.json
+!/research/fortune2006_next.json
+!/research/fortune2011_next.json
+!/research/fortune2016_next.json
+!/research/fortune2021_next.json
+!/research/fortune500_gap_rows.json
 
 # Referenced historical image asset
 !/assets/v3/ic-replica.png

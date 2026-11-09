@@ -1,0 +1,4848 @@
+{
+ "title": "미국 Fortune 500 · 섹터별 매출 Top 10",
+ "unit": "USD bn (Fortune 500 발표 매출)",
+ "years": [
+  1995,
+  2000,
+  2005,
+  2010,
+  2015,
+  2020,
+  2025
+ ],
+ "listYears": [
+  1996,
+  2001,
+  2006,
+  2011,
+  2016,
+  2021,
+  2026
+ ],
+ "top": 10,
+ "note": "Fortune 500 N년판 = 직전 회계연도(N−1) 매출 순위. 화면의 연도는 매출 연도.",
+ "classification": [
+  "당시 Fortune 업종을 경제 섹터로 묶은 분석용 분류(공식 GICS 과거 시계열 아님).",
+  "Fortune 업종만으로 섹터가 갈리지 않는 기업은 현재 섹터 기준으로 직접 지정(예: Walmart·Target·Costco = 필수소비재, McKesson·CVS = 헬스케어, Alphabet·Meta = 커뮤니케이션, Amazon = 경기소비재).",
+  "당시 주력 사업이 달랐던 기업은 당시 Fortune 업종을 따름(예: 1995년 Cigna = 금융, Ashland = 에너지)."
+ ],
+ "continuity": [
+  "합병은 존속 법인(인수 주체), 분할은 본업과 사명을 이어 간 쪽을 같은 기업으로 연결.",
+  "표시 이름은 당시 사명(예: Dayton Hudson → Target, Philip Morris → Altria, SBC → AT&T)."
+ ],
+ "caveats": [
+  "Fortune 500은 미국 법인만 포함하며, 다른 상장사에 연결되는 자회사·비공개 기업은 빠진다(예: T-Mobile US, 2015년 Dell, 2025년 Walgreens).",
+  "2006년판에는 결산을 제때 내지 못한 Fannie Mae·Freddie Mac이 없다.",
+  "2000년 유틸리티 매출은 에너지 트레이딩 총액 계상으로 부풀려져 있다(Duke Energy · Reliant · UtiliCorp)."
+ ],
+ "excluded": {
+  "realestate": {
+   "reason": "Fortune 500 편입 기업이 적어 Top 10을 만들 수 없음",
+   "counts": {
+    "1995": 0,
+    "2000": 0,
+    "2005": 0,
+    "2010": 1,
+    "2015": 5,
+    "2020": 6,
+    "2025": 6
+   }
+  }
+ },
+ "gapRows": {
+  "source": {
+   "name": "cmusam/fortune500 (GitHub)",
+   "url": "https://github.com/cmusam/fortune500",
+   "files": "csv/fortune500-<year>.csv",
+   "checked": "2026-11-09"
+  },
+  "added": 29,
+  "dropped": 4,
+  "inTop": [
+   "1995 BankAmerica",
+   "2000 Aetna",
+   "2000 Albertson's",
+   "2000 Lowe's",
+   "2015 Aetna",
+   "2015 United Technologies"
+  ]
+ },
+ "sectors": [
+  {
+   "id": "it",
+   "name": "IT",
+   "metrics": {
+    "leaderChanges": 2,
+    "leaderCount": 3,
+    "stay30": 3,
+    "top3Stay30": 0,
+    "everTop10": 24,
+    "newPerStep": 2.67,
+    "movePerStep": 1.18
+   },
+   "snapshots": {
+    "1995": {
+     "listYear": 1996,
+     "count": 31,
+     "rows": [
+      {
+       "key": "ibm",
+       "name": "IBM",
+       "revenue": 71.9,
+       "rankOverall": 6
+      },
+      {
+       "key": "hp",
+       "name": "Hewlett-Packard",
+       "revenue": 31.5,
+       "rankOverall": 20
+      },
+      {
+       "key": "motorola-solutions",
+       "name": "Motorola",
+       "revenue": 27.0,
+       "rankOverall": 24
+      },
+      {
+       "key": "xerox",
+       "name": "Xerox",
+       "revenue": 19.0,
+       "rankOverall": 41
+      },
+      {
+       "key": "intel",
+       "name": "Intel",
+       "revenue": 16.2,
+       "rankOverall": 60
+      },
+      {
+       "key": "compaq-computer-corporation",
+       "name": "Compaq",
+       "revenue": 14.8,
+       "rankOverall": 72
+      },
+      {
+       "key": "digital-equipment-corporation",
+       "name": "Digital Equipment",
+       "revenue": 13.8,
+       "rankOverall": 77
+      },
+      {
+       "key": "texas-instruments",
+       "name": "Texas Instruments",
+       "revenue": 13.1,
+       "rankOverall": 89
+      },
+      {
+       "key": "apple",
+       "name": "Apple Computer",
+       "revenue": 11.1,
+       "rankOverall": 114
+      },
+      {
+       "key": "unisys",
+       "name": "Unisys",
+       "revenue": 6.5,
+       "rankOverall": 203
+      }
+     ]
+    },
+    "2000": {
+     "listYear": 2001,
+     "count": 52,
+     "rows": [
+      {
+       "key": "ibm",
+       "name": "IBM",
+       "revenue": 88.4,
+       "rankOverall": 8
+      },
+      {
+       "key": "hp",
+       "name": "Hewlett-Packard",
+       "revenue": 48.8,
+       "rankOverall": 19
+      },
+      {
+       "key": "compaq-computer-corporation",
+       "name": "Compaq",
+       "revenue": 42.4,
+       "rankOverall": 27
+      },
+      {
+       "key": "lucent-technologies-inc",
+       "name": "Lucent",
+       "revenue": 41.4,
+       "rankOverall": 28
+      },
+      {
+       "key": "motorola-solutions",
+       "name": "Motorola",
+       "revenue": 37.6,
+       "rankOverall": 34
+      },
+      {
+       "key": "intel",
+       "name": "Intel",
+       "revenue": 33.7,
+       "rankOverall": 41
+      },
+      {
+       "key": "dell-technologies",
+       "name": "Dell Computer",
+       "revenue": 31.9,
+       "rankOverall": 48
+      },
+      {
+       "key": "ingram-micro",
+       "name": "Ingram Micro",
+       "revenue": 30.7,
+       "rankOverall": 49
+      },
+      {
+       "key": "microsoft",
+       "name": "Microsoft",
+       "revenue": 23.0,
+       "rankOverall": 79
+      },
+      {
+       "key": "tech-data",
+       "name": "Tech Data",
+       "revenue": 20.4,
+       "rankOverall": 95
+      }
+     ]
+    },
+    "2005": {
+     "listYear": 2006,
+     "count": 39,
+     "rows": [
+      {
+       "key": "ibm",
+       "name": "IBM",
+       "revenue": 91.1,
+       "rankOverall": 10
+      },
+      {
+       "key": "hp",
+       "name": "Hewlett-Packard",
+       "revenue": 86.7,
+       "rankOverall": 11
+      },
+      {
+       "key": "dell-technologies",
+       "name": "Dell",
+       "revenue": 55.9,
+       "rankOverall": 25
+      },
+      {
+       "key": "microsoft",
+       "name": "Microsoft",
+       "revenue": 39.8,
+       "rankOverall": 48
+      },
+      {
+       "key": "intel",
+       "name": "Intel",
+       "revenue": 38.8,
+       "rankOverall": 49
+      },
+      {
+       "key": "motorola-solutions",
+       "name": "Motorola",
+       "revenue": 36.8,
+       "rankOverall": 54
+      },
+      {
+       "key": "ingram-micro",
+       "name": "Ingram Micro",
+       "revenue": 28.8,
+       "rankOverall": 72
+      },
+      {
+       "key": "cisco-systems-inc",
+       "name": "Cisco",
+       "revenue": 24.8,
+       "rankOverall": 83
+      },
+      {
+       "key": "tech-data",
+       "name": "Tech Data",
+       "revenue": 20.5,
+       "rankOverall": 107
+      },
+      {
+       "key": "electronic-data-systems-corporation",
+       "name": "EDS",
+       "revenue": 20.5,
+       "rankOverall": 108
+      }
+     ]
+    },
+    "2010": {
+     "listYear": 2011,
+     "count": 39,
+     "rows": [
+      {
+       "key": "hp",
+       "name": "Hewlett-Packard",
+       "revenue": 126.0,
+       "rankOverall": 11
+      },
+      {
+       "key": "ibm",
+       "name": "IBM",
+       "revenue": 99.9,
+       "rankOverall": 18
+      },
+      {
+       "key": "apple",
+       "name": "Apple",
+       "revenue": 65.2,
+       "rankOverall": 35
+      },
+      {
+       "key": "microsoft",
+       "name": "Microsoft",
+       "revenue": 62.5,
+       "rankOverall": 38
+      },
+      {
+       "key": "dell-technologies",
+       "name": "Dell",
+       "revenue": 61.5,
+       "rankOverall": 41
+      },
+      {
+       "key": "intel",
+       "name": "Intel",
+       "revenue": 43.6,
+       "rankOverall": 56
+      },
+      {
+       "key": "cisco-systems-inc",
+       "name": "Cisco",
+       "revenue": 40.0,
+       "rankOverall": 62
+      },
+      {
+       "key": "ingram-micro",
+       "name": "Ingram Micro",
+       "revenue": 34.6,
+       "rankOverall": 75
+      },
+      {
+       "key": "oracle",
+       "name": "Oracle",
+       "revenue": 26.8,
+       "rankOverall": 96
+      },
+      {
+       "key": "tech-data",
+       "name": "Tech Data",
+       "revenue": 24.4,
+       "rankOverall": 109
+      }
+     ]
+    },
+    "2015": {
+     "listYear": 2016,
+     "count": 38,
+     "rows": [
+      {
+       "key": "apple",
+       "name": "Apple",
+       "revenue": 233.7,
+       "rankOverall": 3
+      },
+      {
+       "key": "hp",
+       "name": "HP",
+       "revenue": 103.4,
+       "rankOverall": 20
+      },
+      {
+       "key": "microsoft",
+       "name": "Microsoft",
+       "revenue": 93.6,
+       "rankOverall": 25
+      },
+      {
+       "key": "ibm",
+       "name": "IBM",
+       "revenue": 82.5,
+       "rankOverall": 31
+      },
+      {
+       "key": "intel",
+       "name": "Intel",
+       "revenue": 55.4,
+       "rankOverall": 51
+      },
+      {
+       "key": "cisco-systems-inc",
+       "name": "Cisco",
+       "revenue": 49.2,
+       "rankOverall": 54
+      },
+      {
+       "key": "ingram-micro",
+       "name": "Ingram Micro",
+       "revenue": 43.0,
+       "rankOverall": 64
+      },
+      {
+       "key": "oracle",
+       "name": "Oracle",
+       "revenue": 38.2,
+       "rankOverall": 77
+      },
+      {
+       "key": "avnet",
+       "name": "Avnet",
+       "revenue": 27.9,
+       "rankOverall": 102
+      },
+      {
+       "key": "tech-data",
+       "name": "Tech Data",
+       "revenue": 26.4,
+       "rankOverall": 108
+      }
+     ]
+    },
+    "2020": {
+     "listYear": 2021,
+     "count": 43,
+     "rows": [
+      {
+       "key": "apple",
+       "name": "Apple",
+       "revenue": 274.5,
+       "rankOverall": 3
+      },
+      {
+       "key": "microsoft",
+       "name": "Microsoft",
+       "revenue": 143.0,
+       "rankOverall": 15
+      },
+      {
+       "key": "dell-technologies",
+       "name": "Dell Technologies",
+       "revenue": 94.2,
+       "rankOverall": 28
+      },
+      {
+       "key": "intel",
+       "name": "Intel",
+       "revenue": 77.9,
+       "rankOverall": 40
+      },
+      {
+       "key": "ibm",
+       "name": "IBM",
+       "revenue": 73.6,
+       "rankOverall": 42
+      },
+      {
+       "key": "hp",
+       "name": "HP",
+       "revenue": 56.6,
+       "rankOverall": 56
+      },
+      {
+       "key": "cisco-systems-inc",
+       "name": "Cisco",
+       "revenue": 49.3,
+       "rankOverall": 63
+      },
+      {
+       "key": "oracle",
+       "name": "Oracle",
+       "revenue": 39.1,
+       "rankOverall": 80
+      },
+      {
+       "key": "arrow-electronics",
+       "name": "Arrow Electronics",
+       "revenue": 28.7,
+       "rankOverall": 102
+      },
+      {
+       "key": "jabil-circuit",
+       "name": "Jabil",
+       "revenue": 27.3,
+       "rankOverall": 104
+      }
+     ]
+    },
+    "2025": {
+     "listYear": 2026,
+     "count": 50,
+     "rows": [
+      {
+       "key": "apple",
+       "name": "Apple",
+       "revenue": 416.2,
+       "rankOverall": 4
+      },
+      {
+       "key": "microsoft",
+       "name": "Microsoft",
+       "revenue": 281.7,
+       "rankOverall": 11
+      },
+      {
+       "key": "nvidia",
+       "name": "Nvidia",
+       "revenue": 215.9,
+       "rankOverall": 16
+      },
+      {
+       "key": "dell-technologies",
+       "name": "Dell Technologies",
+       "revenue": 113.5,
+       "rankOverall": 41
+      },
+      {
+       "key": "ibm",
+       "name": "IBM",
+       "revenue": 67.5,
+       "rankOverall": 66
+      },
+      {
+       "key": "broadcom",
+       "name": "Broadcom",
+       "revenue": 63.9,
+       "rankOverall": 70
+      },
+      {
+       "key": "synnex",
+       "name": "TD Synnex",
+       "revenue": 62.5,
+       "rankOverall": 74
+      },
+      {
+       "key": "oracle",
+       "name": "Oracle",
+       "revenue": 57.4,
+       "rankOverall": 82
+      },
+      {
+       "key": "cisco-systems-inc",
+       "name": "Cisco",
+       "revenue": 56.7,
+       "rankOverall": 83
+      },
+      {
+       "key": "hp",
+       "name": "HP",
+       "revenue": 55.3,
+       "rankOverall": 84
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "communication",
+   "name": "커뮤니케이션",
+   "metrics": {
+    "leaderChanges": 3,
+    "leaderCount": 4,
+    "stay30": 3,
+    "top3Stay30": 0,
+    "everTop10": 24,
+    "newPerStep": 2.5,
+    "movePerStep": 1.67
+   },
+   "snapshots": {
+    "1995": {
+     "listYear": 1996,
+     "count": 25,
+     "rows": [
+      {
+       "key": "att-corp",
+       "name": "AT&T",
+       "revenue": 79.6,
+       "rankOverall": 5
+      },
+      {
+       "key": "gte-corporation",
+       "name": "GTE",
+       "revenue": 20.0,
+       "rankOverall": 38
+      },
+      {
+       "key": "bellsouth-corporation",
+       "name": "BellSouth",
+       "revenue": 17.9,
+       "rankOverall": 49
+      },
+      {
+       "key": "mci-communications-corporation",
+       "name": "MCI",
+       "revenue": 15.3,
+       "rankOverall": 68
+      },
+      {
+       "key": "sprint-nextel-corporation",
+       "name": "Sprint",
+       "revenue": 13.6,
+       "rankOverall": 80
+      },
+      {
+       "key": "verizon",
+       "name": "Bell Atlantic",
+       "revenue": 13.4,
+       "rankOverall": 83
+      },
+      {
+       "key": "ameritech-corporation",
+       "name": "Ameritech",
+       "revenue": 13.4,
+       "rankOverall": 84
+      },
+      {
+       "key": "nynex-corporation",
+       "name": "NYNEX",
+       "revenue": 13.4,
+       "rankOverall": 85
+      },
+      {
+       "key": "att",
+       "name": "SBC",
+       "revenue": 12.7,
+       "rankOverall": 93
+      },
+      {
+       "key": "disney",
+       "name": "Walt Disney",
+       "revenue": 12.1,
+       "rankOverall": 102
+      }
+     ]
+    },
+    "2000": {
+     "listYear": 2001,
+     "count": 25,
+     "rows": [
+      {
+       "key": "att-corp",
+       "name": "AT&T",
+       "revenue": 66.0,
+       "rankOverall": 9
+      },
+      {
+       "key": "verizon",
+       "name": "Verizon",
+       "revenue": 64.7,
+       "rankOverall": 10
+      },
+      {
+       "key": "att",
+       "name": "SBC",
+       "revenue": 51.5,
+       "rankOverall": 14
+      },
+      {
+       "key": "worldcom-inc",
+       "name": "WorldCom",
+       "revenue": 39.1,
+       "rankOverall": 32
+      },
+      {
+       "key": "bellsouth-corporation",
+       "name": "BellSouth",
+       "revenue": 26.2,
+       "rankOverall": 66
+      },
+      {
+       "key": "disney",
+       "name": "Walt Disney",
+       "revenue": 25.4,
+       "rankOverall": 67
+      },
+      {
+       "key": "sprint-nextel-corporation",
+       "name": "Sprint",
+       "revenue": 23.6,
+       "rankOverall": 75
+      },
+      {
+       "key": "cbs",
+       "name": "Viacom",
+       "revenue": 20.0,
+       "rankOverall": 101
+      },
+      {
+       "key": "qwest-communications-international-inc",
+       "name": "Qwest",
+       "revenue": 16.6,
+       "rankOverall": 120
+      },
+      {
+       "key": "comcast",
+       "name": "Comcast",
+       "revenue": 8.2,
+       "rankOverall": 233
+      }
+     ]
+    },
+    "2005": {
+     "listYear": 2006,
+     "count": 26,
+     "rows": [
+      {
+       "key": "verizon",
+       "name": "Verizon",
+       "revenue": 75.1,
+       "rankOverall": 18
+      },
+      {
+       "key": "att",
+       "name": "AT&T",
+       "revenue": 43.9,
+       "rankOverall": 39
+      },
+      {
+       "key": "time-warner",
+       "name": "Time Warner",
+       "revenue": 43.7,
+       "rankOverall": 40
+      },
+      {
+       "key": "sprint-nextel-corporation",
+       "name": "Sprint Nextel",
+       "revenue": 34.7,
+       "rankOverall": 59
+      },
+      {
+       "key": "disney",
+       "name": "Walt Disney",
+       "revenue": 31.9,
+       "rankOverall": 63
+      },
+      {
+       "key": "twenty-first-century-fox",
+       "name": "News Corp.",
+       "revenue": 23.9,
+       "rankOverall": 86
+      },
+      {
+       "key": "comcast",
+       "name": "Comcast",
+       "revenue": 22.3,
+       "rankOverall": 94
+      },
+      {
+       "key": "bellsouth-corporation",
+       "name": "BellSouth",
+       "revenue": 20.6,
+       "rankOverall": 106
+      },
+      {
+       "key": "cbs",
+       "name": "CBS",
+       "revenue": 14.5,
+       "rankOverall": 149
+      },
+      {
+       "key": "qwest-communications-international-inc",
+       "name": "Qwest",
+       "revenue": 13.9,
+       "rankOverall": 160
+      }
+     ]
+    },
+    "2010": {
+     "listYear": 2011,
+     "count": 28,
+     "rows": [
+      {
+       "key": "att",
+       "name": "AT&T",
+       "revenue": 124.6,
+       "rankOverall": 12
+      },
+      {
+       "key": "verizon",
+       "name": "Verizon",
+       "revenue": 106.6,
+       "rankOverall": 16
+      },
+      {
+       "key": "disney",
+       "name": "Walt Disney",
+       "revenue": 38.1,
+       "rankOverall": 65
+      },
+      {
+       "key": "comcast",
+       "name": "Comcast",
+       "revenue": 37.9,
+       "rankOverall": 66
+      },
+      {
+       "key": "twenty-first-century-fox",
+       "name": "News Corp.",
+       "revenue": 32.8,
+       "rankOverall": 83
+      },
+      {
+       "key": "sprint-nextel-corporation",
+       "name": "Sprint Nextel",
+       "revenue": 32.6,
+       "rankOverall": 85
+      },
+      {
+       "key": "alphabet",
+       "name": "Google",
+       "revenue": 29.3,
+       "rankOverall": 92
+      },
+      {
+       "key": "time-warner",
+       "name": "Time Warner",
+       "revenue": 26.9,
+       "rankOverall": 95
+      },
+      {
+       "key": "directv",
+       "name": "DirecTV",
+       "revenue": 24.1,
+       "rankOverall": 110
+      },
+      {
+       "key": "time-warner-cable",
+       "name": "Time Warner Cable",
+       "revenue": 18.9,
+       "rankOverall": 137
+      }
+     ]
+    },
+    "2015": {
+     "listYear": 2016,
+     "count": 26,
+     "rows": [
+      {
+       "key": "att",
+       "name": "AT&T",
+       "revenue": 146.8,
+       "rankOverall": 10
+      },
+      {
+       "key": "verizon",
+       "name": "Verizon",
+       "revenue": 131.6,
+       "rankOverall": 13
+      },
+      {
+       "key": "alphabet",
+       "name": "Alphabet",
+       "revenue": 75.0,
+       "rankOverall": 36
+      },
+      {
+       "key": "comcast",
+       "name": "Comcast",
+       "revenue": 74.5,
+       "rankOverall": 37
+      },
+      {
+       "key": "disney",
+       "name": "Walt Disney",
+       "revenue": 52.5,
+       "rankOverall": 53
+      },
+      {
+       "key": "twenty-first-century-fox",
+       "name": "21st Century Fox",
+       "revenue": 29.0,
+       "rankOverall": 96
+      },
+      {
+       "key": "time-warner",
+       "name": "Time Warner",
+       "revenue": 28.1,
+       "rankOverall": 99
+      },
+      {
+       "key": "time-warner-cable",
+       "name": "Time Warner Cable",
+       "revenue": 23.7,
+       "rankOverall": 116
+      },
+      {
+       "key": "facebook",
+       "name": "Facebook",
+       "revenue": 17.9,
+       "rankOverall": 157
+      },
+      {
+       "key": "centurylink",
+       "name": "CenturyLink",
+       "revenue": 17.9,
+       "rankOverall": 159
+      }
+     ]
+    },
+    "2020": {
+     "listYear": 2021,
+     "count": 22,
+     "rows": [
+      {
+       "key": "alphabet",
+       "name": "Alphabet",
+       "revenue": 182.5,
+       "rankOverall": 9
+      },
+      {
+       "key": "att",
+       "name": "AT&T",
+       "revenue": 171.8,
+       "rankOverall": 11
+      },
+      {
+       "key": "verizon",
+       "name": "Verizon",
+       "revenue": 128.3,
+       "rankOverall": 20
+      },
+      {
+       "key": "comcast",
+       "name": "Comcast",
+       "revenue": 103.6,
+       "rankOverall": 26
+      },
+      {
+       "key": "facebook",
+       "name": "Facebook",
+       "revenue": 86.0,
+       "rankOverall": 34
+      },
+      {
+       "key": "disney",
+       "name": "Walt Disney",
+       "revenue": 65.4,
+       "rankOverall": 50
+      },
+      {
+       "key": "charter-communications",
+       "name": "Charter",
+       "revenue": 48.1,
+       "rankOverall": 64
+      },
+      {
+       "key": "cbs",
+       "name": "ViacomCBS",
+       "revenue": 26.2,
+       "rankOverall": 109
+      },
+      {
+       "key": "netflix",
+       "name": "Netflix",
+       "revenue": 25.0,
+       "rankOverall": 115
+      },
+      {
+       "key": "centurylink",
+       "name": "Lumen",
+       "revenue": 20.7,
+       "rankOverall": 139
+      }
+     ]
+    },
+    "2025": {
+     "listYear": 2026,
+     "count": 18,
+     "rows": [
+      {
+       "key": "alphabet",
+       "name": "Alphabet",
+       "revenue": 402.8,
+       "rankOverall": 5
+      },
+      {
+       "key": "facebook",
+       "name": "Meta",
+       "revenue": 201.0,
+       "rankOverall": 17
+      },
+      {
+       "key": "verizon",
+       "name": "Verizon",
+       "revenue": 138.2,
+       "rankOverall": 28
+      },
+      {
+       "key": "att",
+       "name": "AT&T",
+       "revenue": 125.6,
+       "rankOverall": 35
+      },
+      {
+       "key": "comcast",
+       "name": "Comcast",
+       "revenue": 123.7,
+       "rankOverall": 37
+      },
+      {
+       "key": "disney",
+       "name": "Walt Disney",
+       "revenue": 94.4,
+       "rankOverall": 44
+      },
+      {
+       "key": "charter-communications",
+       "name": "Charter",
+       "revenue": 54.8,
+       "rankOverall": 85
+      },
+      {
+       "key": "netflix",
+       "name": "Netflix",
+       "revenue": 45.2,
+       "rankOverall": 105
+      },
+      {
+       "key": "discovery",
+       "name": "Warner Bros. Disc.",
+       "revenue": 37.3,
+       "rankOverall": 126
+      },
+      {
+       "key": "cbs",
+       "name": "Paramount Skydance",
+       "revenue": 28.9,
+       "rankOverall": 155
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "discretionary",
+   "name": "경기소비재",
+   "metrics": {
+    "leaderChanges": 1,
+    "leaderCount": 2,
+    "stay30": 3,
+    "top3Stay30": 2,
+    "everTop10": 23,
+    "newPerStep": 2.17,
+    "movePerStep": 1.21
+   },
+   "snapshots": {
+    "1995": {
+     "listYear": 1996,
+     "count": 61,
+     "rows": [
+      {
+       "key": "general-motors",
+       "name": "General Motors",
+       "revenue": 168.8,
+       "rankOverall": 1
+      },
+      {
+       "key": "ford-motor",
+       "name": "Ford",
+       "revenue": 137.1,
+       "rankOverall": 2
+      },
+      {
+       "key": "chrysler-corporation",
+       "name": "Chrysler",
+       "revenue": 53.2,
+       "rankOverall": 9
+      },
+      {
+       "key": "sears-roebuck-and-company",
+       "name": "Sears",
+       "revenue": 35.2,
+       "rankOverall": 15
+      },
+      {
+       "key": "sears-holdings",
+       "name": "Kmart",
+       "revenue": 34.7,
+       "rankOverall": 16
+      },
+      {
+       "key": "j-c-penney",
+       "name": "J.C. Penney",
+       "revenue": 21.4,
+       "rankOverall": 34
+      },
+      {
+       "key": "home-depot",
+       "name": "Home Depot",
+       "revenue": 15.5,
+       "rankOverall": 66
+      },
+      {
+       "key": "eastman-kodak",
+       "name": "Eastman Kodak",
+       "revenue": 15.3,
+       "rankOverall": 67
+      },
+      {
+       "key": "macys",
+       "name": "Federated",
+       "revenue": 15.0,
+       "rankOverall": 69
+      },
+      {
+       "key": "goodyear-tire-rubber",
+       "name": "Goodyear",
+       "revenue": 13.2,
+       "rankOverall": 88
+      }
+     ]
+    },
+    "2000": {
+     "listYear": 2001,
+     "count": 78,
+     "rows": [
+      {
+       "key": "general-motors",
+       "name": "General Motors",
+       "revenue": 184.6,
+       "rankOverall": 3
+      },
+      {
+       "key": "ford-motor",
+       "name": "Ford",
+       "revenue": 180.6,
+       "rankOverall": 4
+      },
+      {
+       "key": "home-depot",
+       "name": "Home Depot",
+       "revenue": 45.7,
+       "rankOverall": 23
+      },
+      {
+       "key": "sears-roebuck-and-company",
+       "name": "Sears",
+       "revenue": 40.9,
+       "rankOverall": 29
+      },
+      {
+       "key": "sears-holdings",
+       "name": "Kmart",
+       "revenue": 37.0,
+       "rankOverall": 36
+      },
+      {
+       "key": "j-c-penney",
+       "name": "J.C. Penney",
+       "revenue": 33.0,
+       "rankOverall": 43
+      },
+      {
+       "key": "delphi-corporation",
+       "name": "Delphi",
+       "revenue": 29.1,
+       "rankOverall": 57
+      },
+      {
+       "key": "auto-nation",
+       "name": "AutoNation",
+       "revenue": 22.3,
+       "rankOverall": 83
+      },
+      {
+       "key": "lowes",
+       "name": "Lowe's",
+       "revenue": 18.8,
+       "rankOverall": 108,
+       "gap": true
+      },
+      {
+       "key": "macys",
+       "name": "Federated",
+       "revenue": 18.4,
+       "rankOverall": 110
+      }
+     ]
+    },
+    "2005": {
+     "listYear": 2006,
+     "count": 89,
+     "rows": [
+      {
+       "key": "general-motors",
+       "name": "General Motors",
+       "revenue": 192.6,
+       "rankOverall": 3
+      },
+      {
+       "key": "ford-motor",
+       "name": "Ford",
+       "revenue": 177.2,
+       "rankOverall": 5
+      },
+      {
+       "key": "home-depot",
+       "name": "Home Depot",
+       "revenue": 81.5,
+       "rankOverall": 14
+      },
+      {
+       "key": "sears-holdings",
+       "name": "Sears Holdings",
+       "revenue": 49.1,
+       "rankOverall": 33
+      },
+      {
+       "key": "lowes",
+       "name": "Lowe's",
+       "revenue": 43.2,
+       "rankOverall": 42
+      },
+      {
+       "key": "johnson-controls",
+       "name": "Johnson Controls",
+       "revenue": 28.0,
+       "rankOverall": 75
+      },
+      {
+       "key": "best-buy",
+       "name": "Best Buy",
+       "revenue": 27.4,
+       "rankOverall": 76
+      },
+      {
+       "key": "delphi-corporation",
+       "name": "Delphi",
+       "revenue": 27.2,
+       "rankOverall": 77
+      },
+      {
+       "key": "macys",
+       "name": "Federated",
+       "revenue": 23.3,
+       "rankOverall": 87
+      },
+      {
+       "key": "mcdonalds",
+       "name": "McDonald's",
+       "revenue": 20.5,
+       "rankOverall": 109
+      }
+     ]
+    },
+    "2010": {
+     "listYear": 2011,
+     "count": 84,
+     "rows": [
+      {
+       "key": "general-motors",
+       "name": "General Motors",
+       "revenue": 135.6,
+       "rankOverall": 8
+      },
+      {
+       "key": "ford-motor",
+       "name": "Ford",
+       "revenue": 129.0,
+       "rankOverall": 10
+      },
+      {
+       "key": "home-depot",
+       "name": "Home Depot",
+       "revenue": 68.0,
+       "rankOverall": 30
+      },
+      {
+       "key": "best-buy",
+       "name": "Best Buy",
+       "revenue": 49.7,
+       "rankOverall": 47
+      },
+      {
+       "key": "lowes",
+       "name": "Lowe's",
+       "revenue": 48.8,
+       "rankOverall": 50
+      },
+      {
+       "key": "sears-holdings",
+       "name": "Sears Holdings",
+       "revenue": 43.3,
+       "rankOverall": 57
+      },
+      {
+       "key": "chrysler-group-llc",
+       "name": "Chrysler Group",
+       "revenue": 41.9,
+       "rankOverall": 59
+      },
+      {
+       "key": "johnson-controls",
+       "name": "Johnson Controls",
+       "revenue": 34.3,
+       "rankOverall": 76
+      },
+      {
+       "key": "amazon-com",
+       "name": "Amazon",
+       "revenue": 34.2,
+       "rankOverall": 78
+      },
+      {
+       "key": "macys",
+       "name": "Macy's",
+       "revenue": 25.0,
+       "rankOverall": 107
+      }
+     ]
+    },
+    "2015": {
+     "listYear": 2016,
+     "count": 84,
+     "rows": [
+      {
+       "key": "general-motors",
+       "name": "General Motors",
+       "revenue": 152.4,
+       "rankOverall": 8
+      },
+      {
+       "key": "ford-motor",
+       "name": "Ford",
+       "revenue": 149.6,
+       "rankOverall": 9
+      },
+      {
+       "key": "amazon-com",
+       "name": "Amazon",
+       "revenue": 107.0,
+       "rankOverall": 18
+      },
+      {
+       "key": "home-depot",
+       "name": "Home Depot",
+       "revenue": 88.5,
+       "rankOverall": 28
+      },
+      {
+       "key": "lowes",
+       "name": "Lowe's",
+       "revenue": 59.1,
+       "rankOverall": 47
+      },
+      {
+       "key": "johnson-controls",
+       "name": "Johnson Controls",
+       "revenue": 40.2,
+       "rankOverall": 70
+      },
+      {
+       "key": "best-buy",
+       "name": "Best Buy",
+       "revenue": 39.7,
+       "rankOverall": 71
+      },
+      {
+       "key": "tjx",
+       "name": "TJX",
+       "revenue": 30.9,
+       "rankOverall": 89
+      },
+      {
+       "key": "nike",
+       "name": "Nike",
+       "revenue": 30.6,
+       "rankOverall": 91
+      },
+      {
+       "key": "macys",
+       "name": "Macy's",
+       "revenue": 27.1,
+       "rankOverall": 103
+      }
+     ]
+    },
+    "2020": {
+     "listYear": 2021,
+     "count": 77,
+     "rows": [
+      {
+       "key": "amazon-com",
+       "name": "Amazon",
+       "revenue": 386.1,
+       "rankOverall": 2
+      },
+      {
+       "key": "home-depot",
+       "name": "Home Depot",
+       "revenue": 132.1,
+       "rankOverall": 18
+      },
+      {
+       "key": "ford-motor",
+       "name": "Ford",
+       "revenue": 127.1,
+       "rankOverall": 21
+      },
+      {
+       "key": "general-motors",
+       "name": "General Motors",
+       "revenue": 122.5,
+       "rankOverall": 22
+      },
+      {
+       "key": "lowes",
+       "name": "Lowe's",
+       "revenue": 89.6,
+       "rankOverall": 31
+      },
+      {
+       "key": "best-buy",
+       "name": "Best Buy",
+       "revenue": 47.3,
+       "rankOverall": 66
+      },
+      {
+       "key": "nike",
+       "name": "Nike",
+       "revenue": 37.4,
+       "rankOverall": 85
+      },
+      {
+       "key": "tjx",
+       "name": "TJX",
+       "revenue": 32.1,
+       "rankOverall": 97
+      },
+      {
+       "key": "tesla",
+       "name": "Tesla",
+       "revenue": 31.5,
+       "rankOverall": 100
+      },
+      {
+       "key": "starbucks",
+       "name": "Starbucks",
+       "revenue": 23.5,
+       "rankOverall": 125
+      }
+     ]
+    },
+    "2025": {
+     "listYear": 2026,
+     "count": 74,
+     "rows": [
+      {
+       "key": "amazon-com",
+       "name": "Amazon",
+       "revenue": 716.9,
+       "rankOverall": 1
+      },
+      {
+       "key": "ford-motor",
+       "name": "Ford",
+       "revenue": 187.3,
+       "rankOverall": 22
+      },
+      {
+       "key": "general-motors",
+       "name": "General Motors",
+       "revenue": 185.0,
+       "rankOverall": 23
+      },
+      {
+       "key": "home-depot",
+       "name": "Home Depot",
+       "revenue": 164.7,
+       "rankOverall": 25
+      },
+      {
+       "key": "tesla",
+       "name": "Tesla",
+       "revenue": 94.8,
+       "rankOverall": 43
+      },
+      {
+       "key": "lowes",
+       "name": "Lowe's",
+       "revenue": 86.3,
+       "rankOverall": 52
+      },
+      {
+       "key": "tjx",
+       "name": "TJX",
+       "revenue": 60.4,
+       "rankOverall": 79
+      },
+      {
+       "key": "nike",
+       "name": "Nike",
+       "revenue": 46.3,
+       "rankOverall": 99
+      },
+      {
+       "key": "best-buy",
+       "name": "Best Buy",
+       "revenue": 41.7,
+       "rankOverall": 113
+      },
+      {
+       "key": "lithia-motors",
+       "name": "Lithia Motors",
+       "revenue": 38.1,
+       "rankOverall": 123
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "staples",
+   "name": "필수소비재",
+   "metrics": {
+    "leaderChanges": 0,
+    "leaderCount": 1,
+    "stay30": 6,
+    "top3Stay30": 1,
+    "everTop10": 17,
+    "newPerStep": 1.67,
+    "movePerStep": 1.04
+   },
+   "snapshots": {
+    "1995": {
+     "listYear": 1996,
+     "count": 64,
+     "rows": [
+      {
+       "key": "walmart",
+       "name": "Walmart",
+       "revenue": 93.6,
+       "rankOverall": 4
+      },
+      {
+       "key": "altria-group",
+       "name": "Philip Morris",
+       "revenue": 53.1,
+       "rankOverall": 10
+      },
+      {
+       "key": "procter-gamble",
+       "name": "P&G",
+       "revenue": 33.4,
+       "rankOverall": 17
+      },
+      {
+       "key": "pepsico",
+       "name": "PepsiCo",
+       "revenue": 30.4,
+       "rankOverall": 21
+      },
+      {
+       "key": "conagra-brands",
+       "name": "ConAgra",
+       "revenue": 24.1,
+       "rankOverall": 26
+      },
+      {
+       "key": "kroger",
+       "name": "Kroger",
+       "revenue": 23.9,
+       "rankOverall": 27
+      },
+      {
+       "key": "target",
+       "name": "Dayton Hudson",
+       "revenue": 23.5,
+       "rankOverall": 28
+      },
+      {
+       "key": "american-stores-company",
+       "name": "American Stores",
+       "revenue": 18.3,
+       "rankOverall": 45
+      },
+      {
+       "key": "costco",
+       "name": "Price/Costco",
+       "revenue": 18.2,
+       "rankOverall": 46
+      },
+      {
+       "key": "coca-cola",
+       "name": "Coca-Cola",
+       "revenue": 18.0,
+       "rankOverall": 48
+      }
+     ]
+    },
+    "2000": {
+     "listYear": 2001,
+     "count": 53,
+     "rows": [
+      {
+       "key": "walmart",
+       "name": "Walmart",
+       "revenue": 193.3,
+       "rankOverall": 2
+      },
+      {
+       "key": "altria-group",
+       "name": "Philip Morris",
+       "revenue": 63.3,
+       "rankOverall": 11
+      },
+      {
+       "key": "kroger",
+       "name": "Kroger",
+       "revenue": 49.0,
+       "rankOverall": 18
+      },
+      {
+       "key": "procter-gamble",
+       "name": "P&G",
+       "revenue": 40.0,
+       "rankOverall": 31
+      },
+      {
+       "key": "target",
+       "name": "Target",
+       "revenue": 36.9,
+       "rankOverall": 37
+      },
+      {
+       "key": "albertsons-cos",
+       "name": "Albertson's",
+       "revenue": 36.8,
+       "rankOverall": 38,
+       "gap": true
+      },
+      {
+       "key": "costco",
+       "name": "Costco",
+       "revenue": 32.2,
+       "rankOverall": 45
+      },
+      {
+       "key": "safeway",
+       "name": "Safeway",
+       "revenue": 32.0,
+       "rankOverall": 46
+      },
+      {
+       "key": "conagra-brands",
+       "name": "ConAgra",
+       "revenue": 25.4,
+       "rankOverall": 68
+      },
+      {
+       "key": "walgreens-boots-alliance",
+       "name": "Walgreen",
+       "revenue": 21.2,
+       "rankOverall": 90
+      }
+     ]
+    },
+    "2005": {
+     "listYear": 2006,
+     "count": 51,
+     "rows": [
+      {
+       "key": "walmart",
+       "name": "Walmart",
+       "revenue": 315.7,
+       "rankOverall": 2
+      },
+      {
+       "key": "altria-group",
+       "name": "Altria",
+       "revenue": 69.1,
+       "rankOverall": 20
+      },
+      {
+       "key": "kroger",
+       "name": "Kroger",
+       "revenue": 60.6,
+       "rankOverall": 21
+      },
+      {
+       "key": "procter-gamble",
+       "name": "P&G",
+       "revenue": 56.7,
+       "rankOverall": 24
+      },
+      {
+       "key": "costco",
+       "name": "Costco",
+       "revenue": 52.9,
+       "rankOverall": 28
+      },
+      {
+       "key": "target",
+       "name": "Target",
+       "revenue": 52.6,
+       "rankOverall": 29
+      },
+      {
+       "key": "walgreens-boots-alliance",
+       "name": "Walgreen",
+       "revenue": 42.2,
+       "rankOverall": 45
+      },
+      {
+       "key": "albertsons-cos",
+       "name": "Albertson's",
+       "revenue": 40.4,
+       "rankOverall": 47
+      },
+      {
+       "key": "safeway",
+       "name": "Safeway",
+       "revenue": 38.4,
+       "rankOverall": 50
+      },
+      {
+       "key": "archer-daniels-midland",
+       "name": "ADM",
+       "revenue": 35.9,
+       "rankOverall": 56
+      }
+     ]
+    },
+    "2010": {
+     "listYear": 2011,
+     "count": 50,
+     "rows": [
+      {
+       "key": "walmart",
+       "name": "Walmart",
+       "revenue": 421.8,
+       "rankOverall": 1
+      },
+      {
+       "key": "kroger",
+       "name": "Kroger",
+       "revenue": 82.2,
+       "rankOverall": 25
+      },
+      {
+       "key": "procter-gamble",
+       "name": "P&G",
+       "revenue": 79.7,
+       "rankOverall": 26
+      },
+      {
+       "key": "costco",
+       "name": "Costco",
+       "revenue": 77.9,
+       "rankOverall": 28
+      },
+      {
+       "key": "walgreens-boots-alliance",
+       "name": "Walgreen",
+       "revenue": 67.4,
+       "rankOverall": 32
+      },
+      {
+       "key": "target",
+       "name": "Target",
+       "revenue": 67.4,
+       "rankOverall": 33
+      },
+      {
+       "key": "archer-daniels-midland",
+       "name": "ADM",
+       "revenue": 61.7,
+       "rankOverall": 39
+      },
+      {
+       "key": "pepsico",
+       "name": "PepsiCo",
+       "revenue": 57.8,
+       "rankOverall": 43
+      },
+      {
+       "key": "mondelez-international",
+       "name": "Kraft Foods",
+       "revenue": 49.5,
+       "rankOverall": 49
+      },
+      {
+       "key": "safeway",
+       "name": "Safeway",
+       "revenue": 41.0,
+       "rankOverall": 60
+      }
+     ]
+    },
+    "2015": {
+     "listYear": 2016,
+     "count": 49,
+     "rows": [
+      {
+       "key": "walmart",
+       "name": "Walmart",
+       "revenue": 482.1,
+       "rankOverall": 1
+      },
+      {
+       "key": "costco",
+       "name": "Costco",
+       "revenue": 116.2,
+       "rankOverall": 15
+      },
+      {
+       "key": "kroger",
+       "name": "Kroger",
+       "revenue": 109.8,
+       "rankOverall": 17
+      },
+      {
+       "key": "walgreens-boots-alliance",
+       "name": "Walgreens Boots",
+       "revenue": 103.4,
+       "rankOverall": 19
+      },
+      {
+       "key": "procter-gamble",
+       "name": "P&G",
+       "revenue": 78.8,
+       "rankOverall": 34
+      },
+      {
+       "key": "target",
+       "name": "Target",
+       "revenue": 73.8,
+       "rankOverall": 38
+      },
+      {
+       "key": "archer-daniels-midland",
+       "name": "ADM",
+       "revenue": 67.7,
+       "rankOverall": 41
+      },
+      {
+       "key": "pepsico",
+       "name": "PepsiCo",
+       "revenue": 63.1,
+       "rankOverall": 44
+      },
+      {
+       "key": "sysco",
+       "name": "Sysco",
+       "revenue": 48.7,
+       "rankOverall": 57
+      },
+      {
+       "key": "coca-cola",
+       "name": "Coca-Cola",
+       "revenue": 44.3,
+       "rankOverall": 62
+      }
+     ]
+    },
+    "2020": {
+     "listYear": 2021,
+     "count": 49,
+     "rows": [
+      {
+       "key": "walmart",
+       "name": "Walmart",
+       "revenue": 559.2,
+       "rankOverall": 1
+      },
+      {
+       "key": "costco",
+       "name": "Costco",
+       "revenue": 166.8,
+       "rankOverall": 12
+      },
+      {
+       "key": "walgreens-boots-alliance",
+       "name": "Walgreens Boots",
+       "revenue": 139.5,
+       "rankOverall": 16
+      },
+      {
+       "key": "kroger",
+       "name": "Kroger",
+       "revenue": 132.5,
+       "rankOverall": 17
+      },
+      {
+       "key": "target",
+       "name": "Target",
+       "revenue": 93.6,
+       "rankOverall": 30
+      },
+      {
+       "key": "procter-gamble",
+       "name": "P&G",
+       "revenue": 71.0,
+       "rankOverall": 43
+      },
+      {
+       "key": "pepsico",
+       "name": "PepsiCo",
+       "revenue": 70.4,
+       "rankOverall": 44
+      },
+      {
+       "key": "archer-daniels-midland",
+       "name": "ADM",
+       "revenue": 64.4,
+       "rankOverall": 51
+      },
+      {
+       "key": "albertsons-cos",
+       "name": "Albertsons",
+       "revenue": 62.5,
+       "rankOverall": 52
+      },
+      {
+       "key": "sysco",
+       "name": "Sysco",
+       "revenue": 52.9,
+       "rankOverall": 60
+      }
+     ]
+    },
+    "2025": {
+     "listYear": 2026,
+     "count": 42,
+     "rows": [
+      {
+       "key": "walmart",
+       "name": "Walmart",
+       "revenue": 713.2,
+       "rankOverall": 2
+      },
+      {
+       "key": "costco",
+       "name": "Costco",
+       "revenue": 275.2,
+       "rankOverall": 13
+      },
+      {
+       "key": "kroger",
+       "name": "Kroger",
+       "revenue": 147.6,
+       "rankOverall": 27
+      },
+      {
+       "key": "target",
+       "name": "Target",
+       "revenue": 104.8,
+       "rankOverall": 42
+      },
+      {
+       "key": "pepsico",
+       "name": "PepsiCo",
+       "revenue": 93.9,
+       "rankOverall": 46
+      },
+      {
+       "key": "procter-gamble",
+       "name": "P&G",
+       "revenue": 84.3,
+       "rankOverall": 54
+      },
+      {
+       "key": "sysco",
+       "name": "Sysco",
+       "revenue": 81.4,
+       "rankOverall": 55
+      },
+      {
+       "key": "albertsons-cos",
+       "name": "Albertsons",
+       "revenue": 80.4,
+       "rankOverall": 57
+      },
+      {
+       "key": "archer-daniels-midland",
+       "name": "ADM",
+       "revenue": 80.3,
+       "rankOverall": 58
+      },
+      {
+       "key": "publix-super-markets",
+       "name": "Publix",
+       "revenue": 63.2,
+       "rankOverall": 72
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "healthcare",
+   "name": "헬스케어",
+   "metrics": {
+    "leaderChanges": 4,
+    "leaderCount": 5,
+    "stay30": 2,
+    "top3Stay30": 0,
+    "everTop10": 22,
+    "newPerStep": 2.5,
+    "movePerStep": 1.24
+   },
+   "snapshots": {
+    "1995": {
+     "listYear": 1996,
+     "count": 28,
+     "rows": [
+      {
+       "key": "johnson-johnson",
+       "name": "Johnson & Johnson",
+       "revenue": 18.8,
+       "rankOverall": 43
+      },
+      {
+       "key": "hca-holdings",
+       "name": "Columbia/HCA",
+       "revenue": 17.7,
+       "rankOverall": 51
+      },
+      {
+       "key": "merck",
+       "name": "Merck",
+       "revenue": 16.7,
+       "rankOverall": 55
+      },
+      {
+       "key": "bristol-myers-squibb",
+       "name": "Bristol-Myers",
+       "revenue": 13.8,
+       "rankOverall": 79
+      },
+      {
+       "key": "wyeth",
+       "name": "Amer. Home Prod.",
+       "revenue": 13.4,
+       "rankOverall": 86
+      },
+      {
+       "key": "mckesson",
+       "name": "McKesson",
+       "revenue": 13.3,
+       "rankOverall": 87
+      },
+      {
+       "key": "pfizer",
+       "name": "Pfizer",
+       "revenue": 10.0,
+       "rankOverall": 127
+      },
+      {
+       "key": "abbott-laboratories",
+       "name": "Abbott Labs",
+       "revenue": 10.0,
+       "rankOverall": 129
+      },
+      {
+       "key": "baxter-international",
+       "name": "Baxter",
+       "revenue": 9.7,
+       "rankOverall": 133
+      },
+      {
+       "key": "bergen-brunswig-corporation",
+       "name": "Bergen Brunswig",
+       "revenue": 8.4,
+       "rankOverall": 153
+      }
+     ]
+    },
+    "2000": {
+     "listYear": 2001,
+     "count": 36,
+     "rows": [
+      {
+       "key": "merck",
+       "name": "Merck",
+       "revenue": 40.4,
+       "rankOverall": 30
+      },
+      {
+       "key": "mckesson",
+       "name": "McKesson HBOC",
+       "revenue": 37.1,
+       "rankOverall": 35
+      },
+      {
+       "key": "cardinal-health",
+       "name": "Cardinal Health",
+       "revenue": 29.9,
+       "rankOverall": 51
+      },
+      {
+       "key": "pfizer",
+       "name": "Pfizer",
+       "revenue": 29.6,
+       "rankOverall": 53
+      },
+      {
+       "key": "johnson-johnson",
+       "name": "Johnson & Johnson",
+       "revenue": 29.1,
+       "rankOverall": 57
+      },
+      {
+       "key": "aetna",
+       "name": "Aetna",
+       "revenue": 26.8,
+       "rankOverall": 63,
+       "gap": true
+      },
+      {
+       "key": "bristol-myers-squibb",
+       "name": "Bristol-Myers",
+       "revenue": 21.3,
+       "rankOverall": 88
+      },
+      {
+       "key": "unitedhealth-group",
+       "name": "UnitedHealth",
+       "revenue": 21.1,
+       "rankOverall": 91
+      },
+      {
+       "key": "cvs-health",
+       "name": "CVS",
+       "revenue": 20.1,
+       "rankOverall": 100
+      },
+      {
+       "key": "cigna",
+       "name": "Cigna",
+       "revenue": 20.0,
+       "rankOverall": 102
+      }
+     ]
+    },
+    "2005": {
+     "listYear": 2006,
+     "count": 40,
+     "rows": [
+      {
+       "key": "mckesson",
+       "name": "McKesson",
+       "revenue": 80.5,
+       "rankOverall": 16
+      },
+      {
+       "key": "cardinal-health",
+       "name": "Cardinal Health",
+       "revenue": 74.9,
+       "rankOverall": 19
+      },
+      {
+       "key": "amerisourcebergen",
+       "name": "AmerisourceBergen",
+       "revenue": 54.6,
+       "rankOverall": 27
+      },
+      {
+       "key": "pfizer",
+       "name": "Pfizer",
+       "revenue": 51.4,
+       "rankOverall": 31
+      },
+      {
+       "key": "johnson-johnson",
+       "name": "Johnson & Johnson",
+       "revenue": 50.5,
+       "rankOverall": 32
+      },
+      {
+       "key": "unitedhealth-group",
+       "name": "UnitedHealth",
+       "revenue": 45.4,
+       "rankOverall": 37
+      },
+      {
+       "key": "elevance-health",
+       "name": "WellPoint",
+       "revenue": 45.1,
+       "rankOverall": 38
+      },
+      {
+       "key": "medco-health-solutions-inc",
+       "name": "Medco Health",
+       "revenue": 37.9,
+       "rankOverall": 51
+      },
+      {
+       "key": "cvs-health",
+       "name": "CVS",
+       "revenue": 37.0,
+       "rankOverall": 53
+      },
+      {
+       "key": "caremark-rx-inc",
+       "name": "Caremark Rx",
+       "revenue": 33.0,
+       "rankOverall": 60
+      }
+     ]
+    },
+    "2010": {
+     "listYear": 2011,
+     "count": 49,
+     "rows": [
+      {
+       "key": "mckesson",
+       "name": "McKesson",
+       "revenue": 108.7,
+       "rankOverall": 15
+      },
+      {
+       "key": "cardinal-health",
+       "name": "Cardinal Health",
+       "revenue": 98.6,
+       "rankOverall": 19
+      },
+      {
+       "key": "cvs-health",
+       "name": "CVS Caremark",
+       "revenue": 96.4,
+       "rankOverall": 21
+      },
+      {
+       "key": "unitedhealth-group",
+       "name": "UnitedHealth",
+       "revenue": 94.2,
+       "rankOverall": 22
+      },
+      {
+       "key": "amerisourcebergen",
+       "name": "AmerisourceBergen",
+       "revenue": 78.0,
+       "rankOverall": 27
+      },
+      {
+       "key": "pfizer",
+       "name": "Pfizer",
+       "revenue": 67.8,
+       "rankOverall": 31
+      },
+      {
+       "key": "medco-health-solutions-inc",
+       "name": "Medco Health",
+       "revenue": 66.0,
+       "rankOverall": 34
+      },
+      {
+       "key": "johnson-johnson",
+       "name": "Johnson & Johnson",
+       "revenue": 61.6,
+       "rankOverall": 40
+      },
+      {
+       "key": "elevance-health",
+       "name": "WellPoint",
+       "revenue": 58.8,
+       "rankOverall": 42
+      },
+      {
+       "key": "merck",
+       "name": "Merck",
+       "revenue": 46.0,
+       "rankOverall": 53
+      }
+     ]
+    },
+    "2015": {
+     "listYear": 2016,
+     "count": 48,
+     "rows": [
+      {
+       "key": "mckesson",
+       "name": "McKesson",
+       "revenue": 181.2,
+       "rankOverall": 5
+      },
+      {
+       "key": "unitedhealth-group",
+       "name": "UnitedHealth",
+       "revenue": 157.1,
+       "rankOverall": 6
+      },
+      {
+       "key": "cvs-health",
+       "name": "CVS Health",
+       "revenue": 153.3,
+       "rankOverall": 7
+      },
+      {
+       "key": "amerisourcebergen",
+       "name": "AmerisourceBergen",
+       "revenue": 136.0,
+       "rankOverall": 12
+      },
+      {
+       "key": "cardinal-health",
+       "name": "Cardinal Health",
+       "revenue": 102.5,
+       "rankOverall": 21
+      },
+      {
+       "key": "express-scripts-holding",
+       "name": "Express Scripts",
+       "revenue": 101.8,
+       "rankOverall": 22
+      },
+      {
+       "key": "elevance-health",
+       "name": "Anthem",
+       "revenue": 79.2,
+       "rankOverall": 33
+      },
+      {
+       "key": "johnson-johnson",
+       "name": "Johnson & Johnson",
+       "revenue": 70.1,
+       "rankOverall": 39
+      },
+      {
+       "key": "aetna",
+       "name": "Aetna",
+       "revenue": 60.3,
+       "rankOverall": 46,
+       "gap": true
+      },
+      {
+       "key": "humana",
+       "name": "Humana",
+       "revenue": 54.3,
+       "rankOverall": 52
+      }
+     ]
+    },
+    "2020": {
+     "listYear": 2021,
+     "count": 47,
+     "rows": [
+      {
+       "key": "cvs-health",
+       "name": "CVS Health",
+       "revenue": 268.7,
+       "rankOverall": 4
+      },
+      {
+       "key": "unitedhealth-group",
+       "name": "UnitedHealth",
+       "revenue": 257.1,
+       "rankOverall": 5
+      },
+      {
+       "key": "mckesson",
+       "name": "McKesson",
+       "revenue": 231.1,
+       "rankOverall": 7
+      },
+      {
+       "key": "amerisourcebergen",
+       "name": "AmerisourceBergen",
+       "revenue": 189.9,
+       "rankOverall": 8
+      },
+      {
+       "key": "cigna",
+       "name": "Cigna",
+       "revenue": 160.4,
+       "rankOverall": 13
+      },
+      {
+       "key": "cardinal-health",
+       "name": "Cardinal Health",
+       "revenue": 152.9,
+       "rankOverall": 14
+      },
+      {
+       "key": "elevance-health",
+       "name": "Anthem",
+       "revenue": 121.9,
+       "rankOverall": 23
+      },
+      {
+       "key": "centene",
+       "name": "Centene",
+       "revenue": 111.1,
+       "rankOverall": 24
+      },
+      {
+       "key": "johnson-johnson",
+       "name": "Johnson & Johnson",
+       "revenue": 82.6,
+       "rankOverall": 36
+      },
+      {
+       "key": "humana",
+       "name": "Humana",
+       "revenue": 77.2,
+       "rankOverall": 41
+      }
+     ]
+    },
+    "2025": {
+     "listYear": 2026,
+     "count": 47,
+     "rows": [
+      {
+       "key": "unitedhealth-group",
+       "name": "UnitedHealth",
+       "revenue": 447.6,
+       "rankOverall": 3
+      },
+      {
+       "key": "cvs-health",
+       "name": "CVS Health",
+       "revenue": 402.1,
+       "rankOverall": 6
+      },
+      {
+       "key": "mckesson",
+       "name": "McKesson",
+       "revenue": 359.1,
+       "rankOverall": 8
+      },
+      {
+       "key": "amerisourcebergen",
+       "name": "Cencora",
+       "revenue": 321.3,
+       "rankOverall": 10
+      },
+      {
+       "key": "cigna",
+       "name": "Cigna",
+       "revenue": 274.9,
+       "rankOverall": 14
+      },
+      {
+       "key": "cardinal-health",
+       "name": "Cardinal Health",
+       "revenue": 222.6,
+       "rankOverall": 15
+      },
+      {
+       "key": "elevance-health",
+       "name": "Elevance Health",
+       "revenue": 199.1,
+       "rankOverall": 18
+      },
+      {
+       "key": "centene",
+       "name": "Centene",
+       "revenue": 194.8,
+       "rankOverall": 19
+      },
+      {
+       "key": "humana",
+       "name": "Humana",
+       "revenue": 129.7,
+       "rankOverall": 34
+      },
+      {
+       "key": "johnson-johnson",
+       "name": "Johnson & Johnson",
+       "revenue": 94.2,
+       "rankOverall": 45
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "financials",
+   "name": "금융",
+   "metrics": {
+    "leaderChanges": 3,
+    "leaderCount": 4,
+    "stay30": 2,
+    "top3Stay30": 0,
+    "everTop10": 20,
+    "newPerStep": 2.33,
+    "movePerStep": 1.43
+   },
+   "snapshots": {
+    "1995": {
+     "listYear": 1996,
+     "count": 92,
+     "rows": [
+      {
+       "key": "prudential-financial",
+       "name": "Prudential",
+       "revenue": 41.3,
+       "rankOverall": 11
+      },
+      {
+       "key": "state-farm-insurance-cos",
+       "name": "State Farm",
+       "revenue": 40.8,
+       "rankOverall": 12
+      },
+      {
+       "key": "citicorp",
+       "name": "Citicorp",
+       "revenue": 31.7,
+       "rankOverall": 19
+      },
+      {
+       "key": "metlife",
+       "name": "Metropolitan Life",
+       "revenue": 28.0,
+       "rankOverall": 22
+      },
+      {
+       "key": "aig",
+       "name": "AIG",
+       "revenue": 25.9,
+       "rankOverall": 25
+      },
+      {
+       "key": "allstate",
+       "name": "Allstate",
+       "revenue": 22.8,
+       "rankOverall": 31
+      },
+      {
+       "key": "fannie-mae",
+       "name": "Fannie Mae",
+       "revenue": 22.2,
+       "rankOverall": 32
+      },
+      {
+       "key": "merrill-lynch-co-inc",
+       "name": "Merrill Lynch",
+       "revenue": 21.5,
+       "rankOverall": 33
+      },
+      {
+       "key": "bankamerica",
+       "name": "BankAmerica",
+       "revenue": 20.4,
+       "rankOverall": 37,
+       "gap": true
+      },
+      {
+       "key": "cigna",
+       "name": "Cigna",
+       "revenue": 19.0,
+       "rankOverall": 42
+      }
+     ]
+    },
+    "2000": {
+     "listYear": 2001,
+     "count": 81,
+     "rows": [
+      {
+       "key": "citigroup",
+       "name": "Citigroup",
+       "revenue": 111.8,
+       "rankOverall": 6
+      },
+      {
+       "key": "jpmorgan-chase",
+       "name": "J.P. Morgan Chase",
+       "revenue": 60.1,
+       "rankOverall": 12
+      },
+      {
+       "key": "bank-of-america-corp",
+       "name": "Bank of America",
+       "revenue": 57.7,
+       "rankOverall": 13
+      },
+      {
+       "key": "state-farm-insurance-cos",
+       "name": "State Farm",
+       "revenue": 47.9,
+       "rankOverall": 21
+      },
+      {
+       "key": "aig",
+       "name": "AIG",
+       "revenue": 46.0,
+       "rankOverall": 22
+      },
+      {
+       "key": "morgan-stanley",
+       "name": "Morgan Stanley DW",
+       "revenue": 45.4,
+       "rankOverall": 24
+      },
+      {
+       "key": "merrill-lynch-co-inc",
+       "name": "Merrill Lynch",
+       "revenue": 44.9,
+       "rankOverall": 25
+      },
+      {
+       "key": "fannie-mae",
+       "name": "Fannie Mae",
+       "revenue": 44.1,
+       "rankOverall": 26
+      },
+      {
+       "key": "tiaa",
+       "name": "TIAA-CREF",
+       "revenue": 38.1,
+       "rankOverall": 33
+      },
+      {
+       "key": "berkshire-hathaway",
+       "name": "Berkshire Hathaway",
+       "revenue": 34.0,
+       "rankOverall": 40
+      }
+     ]
+    },
+    "2005": {
+     "listYear": 2006,
+     "count": 76,
+     "rows": [
+      {
+       "key": "citigroup",
+       "name": "Citigroup",
+       "revenue": 131.0,
+       "rankOverall": 8
+      },
+      {
+       "key": "aig",
+       "name": "AIG",
+       "revenue": 108.9,
+       "rankOverall": 9
+      },
+      {
+       "key": "bank-of-america-corp",
+       "name": "Bank of America",
+       "revenue": 84.0,
+       "rankOverall": 12
+      },
+      {
+       "key": "berkshire-hathaway",
+       "name": "Berkshire Hathaway",
+       "revenue": 81.7,
+       "rankOverall": 13
+      },
+      {
+       "key": "jpmorgan-chase",
+       "name": "JPMorgan Chase",
+       "revenue": 79.9,
+       "rankOverall": 17
+      },
+      {
+       "key": "state-farm-insurance-cos",
+       "name": "State Farm",
+       "revenue": 59.2,
+       "rankOverall": 22
+      },
+      {
+       "key": "morgan-stanley",
+       "name": "Morgan Stanley",
+       "revenue": 52.5,
+       "rankOverall": 30
+      },
+      {
+       "key": "merrill-lynch-co-inc",
+       "name": "Merrill Lynch",
+       "revenue": 47.8,
+       "rankOverall": 34
+      },
+      {
+       "key": "metlife",
+       "name": "MetLife",
+       "revenue": 47.0,
+       "rankOverall": 35
+      },
+      {
+       "key": "goldman-sachs-group",
+       "name": "Goldman Sachs",
+       "revenue": 43.4,
+       "rankOverall": 41
+      }
+     ]
+    },
+    "2010": {
+     "listYear": 2011,
+     "count": 74,
+     "rows": [
+      {
+       "key": "fannie-mae",
+       "name": "Fannie Mae",
+       "revenue": 153.8,
+       "rankOverall": 5
+      },
+      {
+       "key": "berkshire-hathaway",
+       "name": "Berkshire Hathaway",
+       "revenue": 136.2,
+       "rankOverall": 7
+      },
+      {
+       "key": "bank-of-america-corp",
+       "name": "Bank of America",
+       "revenue": 134.2,
+       "rankOverall": 9
+      },
+      {
+       "key": "jpmorgan-chase",
+       "name": "JPMorgan Chase",
+       "revenue": 115.5,
+       "rankOverall": 13
+      },
+      {
+       "key": "citigroup",
+       "name": "Citigroup",
+       "revenue": 111.1,
+       "rankOverall": 14
+      },
+      {
+       "key": "aig",
+       "name": "AIG",
+       "revenue": 104.4,
+       "rankOverall": 17
+      },
+      {
+       "key": "freddie-mac",
+       "name": "Freddie Mac",
+       "revenue": 98.4,
+       "rankOverall": 20
+      },
+      {
+       "key": "wells-fargo",
+       "name": "Wells Fargo",
+       "revenue": 93.2,
+       "rankOverall": 23
+      },
+      {
+       "key": "state-farm-insurance-cos",
+       "name": "State Farm",
+       "revenue": 63.2,
+       "rankOverall": 37
+      },
+      {
+       "key": "metlife",
+       "name": "MetLife",
+       "revenue": 52.7,
+       "rankOverall": 46
+      }
+     ]
+    },
+    "2015": {
+     "listYear": 2016,
+     "count": 83,
+     "rows": [
+      {
+       "key": "berkshire-hathaway",
+       "name": "Berkshire Hathaway",
+       "revenue": 210.8,
+       "rankOverall": 4
+      },
+      {
+       "key": "fannie-mae",
+       "name": "Fannie Mae",
+       "revenue": 110.4,
+       "rankOverall": 16
+      },
+      {
+       "key": "jpmorgan-chase",
+       "name": "JPMorgan Chase",
+       "revenue": 101.0,
+       "rankOverall": 23
+      },
+      {
+       "key": "bank-of-america-corp",
+       "name": "Bank of America",
+       "revenue": 93.1,
+       "rankOverall": 26
+      },
+      {
+       "key": "wells-fargo",
+       "name": "Wells Fargo",
+       "revenue": 90.0,
+       "rankOverall": 27
+      },
+      {
+       "key": "citigroup",
+       "name": "Citigroup",
+       "revenue": 88.3,
+       "rankOverall": 29
+      },
+      {
+       "key": "state-farm-insurance-cos",
+       "name": "State Farm",
+       "revenue": 75.7,
+       "rankOverall": 35
+      },
+      {
+       "key": "metlife",
+       "name": "MetLife",
+       "revenue": 70.0,
+       "rankOverall": 40
+      },
+      {
+       "key": "freddie-mac",
+       "name": "Freddie Mac",
+       "revenue": 63.5,
+       "rankOverall": 43
+      },
+      {
+       "key": "aig",
+       "name": "AIG",
+       "revenue": 58.3,
+       "rankOverall": 49
+      }
+     ]
+    },
+    "2020": {
+     "listYear": 2021,
+     "count": 97,
+     "rows": [
+      {
+       "key": "berkshire-hathaway",
+       "name": "Berkshire Hathaway",
+       "revenue": 245.5,
+       "rankOverall": 6
+      },
+      {
+       "key": "jpmorgan-chase",
+       "name": "JPMorgan Chase",
+       "revenue": 129.5,
+       "rankOverall": 19
+      },
+      {
+       "key": "fannie-mae",
+       "name": "Fannie Mae",
+       "revenue": 106.4,
+       "rankOverall": 25
+      },
+      {
+       "key": "bank-of-america-corp",
+       "name": "Bank of America",
+       "revenue": 93.8,
+       "rankOverall": 29
+      },
+      {
+       "key": "citigroup",
+       "name": "Citigroup",
+       "revenue": 88.8,
+       "rankOverall": 33
+      },
+      {
+       "key": "wells-fargo",
+       "name": "Wells Fargo",
+       "revenue": 80.3,
+       "rankOverall": 37
+      },
+      {
+       "key": "state-farm-insurance-cos",
+       "name": "State Farm",
+       "revenue": 78.9,
+       "rankOverall": 39
+      },
+      {
+       "key": "metlife",
+       "name": "MetLife",
+       "revenue": 67.8,
+       "rankOverall": 46
+      },
+      {
+       "key": "freddie-mac",
+       "name": "Freddie Mac",
+       "revenue": 66.2,
+       "rankOverall": 47
+      },
+      {
+       "key": "prudential-financial",
+       "name": "Prudential",
+       "revenue": 57.0,
+       "rankOverall": 55
+      }
+     ]
+    },
+    "2025": {
+     "listYear": 2026,
+     "count": 98,
+     "rows": [
+      {
+       "key": "berkshire-hathaway",
+       "name": "Berkshire Hathaway",
+       "revenue": 371.4,
+       "rankOverall": 7
+      },
+      {
+       "key": "jpmorgan-chase",
+       "name": "JPMorgan Chase",
+       "revenue": 280.3,
+       "rankOverall": 12
+      },
+      {
+       "key": "bank-of-america-corp",
+       "name": "Bank of America",
+       "revenue": 191.6,
+       "rankOverall": 20
+      },
+      {
+       "key": "citigroup",
+       "name": "Citigroup",
+       "revenue": 168.3,
+       "rankOverall": 24
+      },
+      {
+       "key": "fannie-mae",
+       "name": "Fannie Mae",
+       "revenue": 159.2,
+       "rankOverall": 26
+      },
+      {
+       "key": "stonex-group",
+       "name": "StoneX",
+       "revenue": 132.4,
+       "rankOverall": 31
+      },
+      {
+       "key": "state-farm-insurance-cos",
+       "name": "State Farm",
+       "revenue": 132.3,
+       "rankOverall": 32
+      },
+      {
+       "key": "freddie-mac",
+       "name": "Freddie Mac",
+       "revenue": 131.7,
+       "rankOverall": 33
+      },
+      {
+       "key": "goldman-sachs-group",
+       "name": "Goldman Sachs",
+       "revenue": 125.1,
+       "rankOverall": 36
+      },
+      {
+       "key": "wells-fargo",
+       "name": "Wells Fargo",
+       "revenue": 123.5,
+       "rankOverall": 38
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "industrials",
+   "name": "산업재",
+   "metrics": {
+    "leaderChanges": 2,
+    "leaderCount": 3,
+    "stay30": 7,
+    "top3Stay30": 1,
+    "everTop10": 16,
+    "newPerStep": 2.17,
+    "movePerStep": 1.17
+   },
+   "snapshots": {
+    "1995": {
+     "listYear": 1996,
+     "count": 87,
+     "rows": [
+      {
+       "key": "general-electric",
+       "name": "General Electric",
+       "revenue": 70.0,
+       "rankOverall": 7
+      },
+      {
+       "key": "lockheed-martin",
+       "name": "Lockheed Martin",
+       "revenue": 22.9,
+       "rankOverall": 29
+      },
+      {
+       "key": "raytheon-technologies",
+       "name": "United Tech.",
+       "revenue": 22.8,
+       "rankOverall": 30
+      },
+      {
+       "key": "ups",
+       "name": "UPS",
+       "revenue": 21.0,
+       "rankOverall": 35
+      },
+      {
+       "key": "boeing",
+       "name": "Boeing",
+       "revenue": 19.5,
+       "rankOverall": 40
+      },
+      {
+       "key": "american-airlines-group",
+       "name": "AMR",
+       "revenue": 16.9,
+       "rankOverall": 53
+      },
+      {
+       "key": "3m",
+       "name": "3M",
+       "revenue": 16.1,
+       "rankOverall": 62
+      },
+      {
+       "key": "caterpillar",
+       "name": "Caterpillar",
+       "revenue": 16.1,
+       "rankOverall": 63
+      },
+      {
+       "key": "united-continental-holdings",
+       "name": "UAL",
+       "revenue": 14.9,
+       "rankOverall": 70
+      },
+      {
+       "key": "honeywell-international",
+       "name": "AlliedSignal",
+       "revenue": 14.3,
+       "rankOverall": 73
+      }
+     ]
+    },
+    "2000": {
+     "listYear": 2001,
+     "count": 74,
+     "rows": [
+      {
+       "key": "general-electric",
+       "name": "General Electric",
+       "revenue": 129.9,
+       "rankOverall": 5
+      },
+      {
+       "key": "boeing",
+       "name": "Boeing",
+       "revenue": 51.3,
+       "rankOverall": 15
+      },
+      {
+       "key": "ups",
+       "name": "UPS",
+       "revenue": 29.8,
+       "rankOverall": 52
+      },
+      {
+       "key": "raytheon-technologies",
+       "name": "United Tech.",
+       "revenue": 26.6,
+       "rankOverall": 64
+      },
+      {
+       "key": "lockheed-martin",
+       "name": "Lockheed Martin",
+       "revenue": 25.3,
+       "rankOverall": 69
+      },
+      {
+       "key": "honeywell-international",
+       "name": "Honeywell",
+       "revenue": 25.0,
+       "rankOverall": 71
+      },
+      {
+       "key": "american-airlines-group",
+       "name": "AMR",
+       "revenue": 20.2,
+       "rankOverall": 98
+      },
+      {
+       "key": "caterpillar",
+       "name": "Caterpillar",
+       "revenue": 20.2,
+       "rankOverall": 99
+      },
+      {
+       "key": "united-continental-holdings",
+       "name": "UAL",
+       "revenue": 19.4,
+       "rankOverall": 104
+      },
+      {
+       "key": "raytheon-company",
+       "name": "Raytheon",
+       "revenue": 18.3,
+       "rankOverall": 111
+      }
+     ]
+    },
+    "2005": {
+     "listYear": 2006,
+     "count": 72,
+     "rows": [
+      {
+       "key": "general-electric",
+       "name": "General Electric",
+       "revenue": 157.2,
+       "rankOverall": 7
+      },
+      {
+       "key": "boeing",
+       "name": "Boeing",
+       "revenue": 54.8,
+       "rankOverall": 26
+      },
+      {
+       "key": "raytheon-technologies",
+       "name": "United Tech.",
+       "revenue": 42.7,
+       "rankOverall": 43
+      },
+      {
+       "key": "ups",
+       "name": "UPS",
+       "revenue": 42.6,
+       "rankOverall": 44
+      },
+      {
+       "key": "lockheed-martin",
+       "name": "Lockheed Martin",
+       "revenue": 37.2,
+       "rankOverall": 52
+      },
+      {
+       "key": "caterpillar",
+       "name": "Caterpillar",
+       "revenue": 36.3,
+       "rankOverall": 55
+      },
+      {
+       "key": "northrop-grumman",
+       "name": "Northrop Grumman",
+       "revenue": 30.7,
+       "rankOverall": 67
+      },
+      {
+       "key": "fedex",
+       "name": "FedEx",
+       "revenue": 29.4,
+       "rankOverall": 70
+      },
+      {
+       "key": "honeywell-international",
+       "name": "Honeywell",
+       "revenue": 28.9,
+       "rankOverall": 71
+      },
+      {
+       "key": "deere",
+       "name": "Deere",
+       "revenue": 21.9,
+       "rankOverall": 96
+      }
+     ]
+    },
+    "2010": {
+     "listYear": 2011,
+     "count": 69,
+     "rows": [
+      {
+       "key": "general-electric",
+       "name": "General Electric",
+       "revenue": 151.6,
+       "rankOverall": 6
+      },
+      {
+       "key": "boeing",
+       "name": "Boeing",
+       "revenue": 64.3,
+       "rankOverall": 36
+      },
+      {
+       "key": "raytheon-technologies",
+       "name": "United Tech.",
+       "revenue": 54.3,
+       "rankOverall": 44
+      },
+      {
+       "key": "ups",
+       "name": "UPS",
+       "revenue": 49.5,
+       "rankOverall": 48
+      },
+      {
+       "key": "lockheed-martin",
+       "name": "Lockheed Martin",
+       "revenue": 46.9,
+       "rankOverall": 52
+      },
+      {
+       "key": "caterpillar",
+       "name": "Caterpillar",
+       "revenue": 42.6,
+       "rankOverall": 58
+      },
+      {
+       "key": "northrop-grumman",
+       "name": "Northrop Grumman",
+       "revenue": 34.8,
+       "rankOverall": 72
+      },
+      {
+       "key": "fedex",
+       "name": "FedEx",
+       "revenue": 34.7,
+       "rankOverall": 73
+      },
+      {
+       "key": "honeywell-international",
+       "name": "Honeywell",
+       "revenue": 33.4,
+       "rankOverall": 81
+      },
+      {
+       "key": "general-dynamics",
+       "name": "General Dynamics",
+       "revenue": 32.5,
+       "rankOverall": 86
+      }
+     ]
+    },
+    "2015": {
+     "listYear": 2016,
+     "count": 72,
+     "rows": [
+      {
+       "key": "general-electric",
+       "name": "General Electric",
+       "revenue": 140.4,
+       "rankOverall": 11
+      },
+      {
+       "key": "boeing",
+       "name": "Boeing",
+       "revenue": 96.1,
+       "rankOverall": 24
+      },
+      {
+       "key": "raytheon-technologies",
+       "name": "United Tech.",
+       "revenue": 61.0,
+       "rankOverall": 45,
+       "gap": true
+      },
+      {
+       "key": "ups",
+       "name": "UPS",
+       "revenue": 58.4,
+       "rankOverall": 48
+      },
+      {
+       "key": "fedex",
+       "name": "FedEx",
+       "revenue": 47.5,
+       "rankOverall": 58
+      },
+      {
+       "key": "caterpillar",
+       "name": "Caterpillar",
+       "revenue": 47.0,
+       "rankOverall": 59
+      },
+      {
+       "key": "lockheed-martin",
+       "name": "Lockheed Martin",
+       "revenue": 46.1,
+       "rankOverall": 60
+      },
+      {
+       "key": "american-airlines-group",
+       "name": "American Airlines",
+       "revenue": 41.0,
+       "rankOverall": 67
+      },
+      {
+       "key": "delta-air-lines",
+       "name": "Delta Air Lines",
+       "revenue": 40.7,
+       "rankOverall": 68
+      },
+      {
+       "key": "honeywell-international",
+       "name": "Honeywell",
+       "revenue": 38.6,
+       "rankOverall": 75
+      }
+     ]
+    },
+    "2020": {
+     "listYear": 2021,
+     "count": 72,
+     "rows": [
+      {
+       "key": "ups",
+       "name": "UPS",
+       "revenue": 84.6,
+       "rankOverall": 35
+      },
+      {
+       "key": "general-electric",
+       "name": "General Electric",
+       "revenue": 79.6,
+       "rankOverall": 38
+      },
+      {
+       "key": "fedex",
+       "name": "FedEx",
+       "revenue": 69.2,
+       "rankOverall": 45
+      },
+      {
+       "key": "lockheed-martin",
+       "name": "Lockheed Martin",
+       "revenue": 65.4,
+       "rankOverall": 49
+      },
+      {
+       "key": "boeing",
+       "name": "Boeing",
+       "revenue": 58.2,
+       "rankOverall": 54
+      },
+      {
+       "key": "raytheon-technologies",
+       "name": "Raytheon Tech.",
+       "revenue": 56.6,
+       "rankOverall": 57
+      },
+      {
+       "key": "caterpillar",
+       "name": "Caterpillar",
+       "revenue": 41.7,
+       "rankOverall": 78
+      },
+      {
+       "key": "general-dynamics",
+       "name": "General Dynamics",
+       "revenue": 37.9,
+       "rankOverall": 84
+      },
+      {
+       "key": "northrop-grumman",
+       "name": "Northrop Grumman",
+       "revenue": 36.8,
+       "rankOverall": 86
+      },
+      {
+       "key": "deere",
+       "name": "Deere",
+       "revenue": 35.5,
+       "rankOverall": 88
+      }
+     ]
+    },
+    "2025": {
+     "listYear": 2026,
+     "count": 79,
+     "rows": [
+      {
+       "key": "boeing",
+       "name": "Boeing",
+       "revenue": 89.5,
+       "rankOverall": 47
+      },
+      {
+       "key": "ups",
+       "name": "UPS",
+       "revenue": 88.7,
+       "rankOverall": 48
+      },
+      {
+       "key": "raytheon-technologies",
+       "name": "RTX",
+       "revenue": 88.6,
+       "rankOverall": 49
+      },
+      {
+       "key": "fedex",
+       "name": "FedEx",
+       "revenue": 87.9,
+       "rankOverall": 50
+      },
+      {
+       "key": "lockheed-martin",
+       "name": "Lockheed Martin",
+       "revenue": 75.0,
+       "rankOverall": 61
+      },
+      {
+       "key": "caterpillar",
+       "name": "Caterpillar",
+       "revenue": 67.6,
+       "rankOverall": 65
+      },
+      {
+       "key": "delta-air-lines",
+       "name": "Delta Air Lines",
+       "revenue": 63.4,
+       "rankOverall": 71
+      },
+      {
+       "key": "united-continental-holdings",
+       "name": "United Airlines",
+       "revenue": 59.1,
+       "rankOverall": 81
+      },
+      {
+       "key": "american-airlines-group",
+       "name": "American Airlines",
+       "revenue": 54.6,
+       "rankOverall": 86
+      },
+      {
+       "key": "general-dynamics",
+       "name": "General Dynamics",
+       "revenue": 52.5,
+       "rankOverall": 91
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "energy",
+   "name": "에너지",
+   "metrics": {
+    "leaderChanges": 0,
+    "leaderCount": 1,
+    "stay30": 3,
+    "top3Stay30": 1,
+    "everTop10": 28,
+    "newPerStep": 3.5,
+    "movePerStep": 0.92
+   },
+   "snapshots": {
+    "1995": {
+     "listYear": 1996,
+     "count": 29,
+     "rows": [
+      {
+       "key": "exxon-mobil",
+       "name": "Exxon",
+       "revenue": 110.0,
+       "rankOverall": 3
+      },
+      {
+       "key": "mobil-corporation",
+       "name": "Mobil",
+       "revenue": 66.7,
+       "rankOverall": 8
+      },
+      {
+       "key": "texaco-inc",
+       "name": "Texaco",
+       "revenue": 36.8,
+       "rankOverall": 14
+      },
+      {
+       "key": "chevron",
+       "name": "Chevron",
+       "revenue": 32.1,
+       "rankOverall": 18
+      },
+      {
+       "key": "amoco-corporation",
+       "name": "Amoco",
+       "revenue": 27.7,
+       "rankOverall": 23
+      },
+      {
+       "key": "marathon-oil",
+       "name": "USX",
+       "revenue": 18.2,
+       "rankOverall": 47
+      },
+      {
+       "key": "atlantic-richfield-company",
+       "name": "ARCO",
+       "revenue": 16.7,
+       "rankOverall": 54
+      },
+      {
+       "key": "conocophillips",
+       "name": "Phillips Petroleum",
+       "revenue": 13.5,
+       "rankOverall": 81
+      },
+      {
+       "key": "ashland-global-holdings",
+       "name": "Ashland",
+       "revenue": 11.3,
+       "rankOverall": 113
+      },
+      {
+       "key": "occidental-petroleum",
+       "name": "Occidental",
+       "revenue": 10.4,
+       "rankOverall": 122
+      }
+     ]
+    },
+    "2000": {
+     "listYear": 2001,
+     "count": 29,
+     "rows": [
+      {
+       "key": "exxon-mobil",
+       "name": "Exxon Mobil",
+       "revenue": 210.4,
+       "rankOverall": 1
+      },
+      {
+       "key": "enron",
+       "name": "Enron",
+       "revenue": 100.8,
+       "rankOverall": 7
+      },
+      {
+       "key": "texaco-inc",
+       "name": "Texaco",
+       "revenue": 51.1,
+       "rankOverall": 16
+      },
+      {
+       "key": "chevron",
+       "name": "Chevron",
+       "revenue": 48.1,
+       "rankOverall": 20
+      },
+      {
+       "key": "marathon-oil",
+       "name": "USX",
+       "revenue": 35.6,
+       "rankOverall": 39
+      },
+      {
+       "key": "conoco-inc",
+       "name": "Conoco",
+       "revenue": 32.5,
+       "rankOverall": 44
+      },
+      {
+       "key": "dynegy",
+       "name": "Dynegy",
+       "revenue": 29.4,
+       "rankOverall": 54
+      },
+      {
+       "key": "tosco-corporation",
+       "name": "Tosco",
+       "revenue": 24.5,
+       "rankOverall": 72
+      },
+      {
+       "key": "el-paso-corporation",
+       "name": "El Paso Energy",
+       "revenue": 21.9,
+       "rankOverall": 86
+      },
+      {
+       "key": "conocophillips",
+       "name": "Phillips Petroleum",
+       "revenue": 21.2,
+       "rankOverall": 89
+      }
+     ]
+    },
+    "2005": {
+     "listYear": 2006,
+     "count": 35,
+     "rows": [
+      {
+       "key": "exxon-mobil",
+       "name": "Exxon Mobil",
+       "revenue": 339.9,
+       "rankOverall": 1
+      },
+      {
+       "key": "chevron",
+       "name": "Chevron",
+       "revenue": 189.5,
+       "rankOverall": 4
+      },
+      {
+       "key": "conocophillips",
+       "name": "ConocoPhillips",
+       "revenue": 166.7,
+       "rankOverall": 6
+      },
+      {
+       "key": "valero-energy",
+       "name": "Valero",
+       "revenue": 81.4,
+       "rankOverall": 15
+      },
+      {
+       "key": "marathon-oil",
+       "name": "Marathon Oil",
+       "revenue": 59.0,
+       "rankOverall": 23
+      },
+      {
+       "key": "plains-gp-holdings",
+       "name": "Plains All Amer.",
+       "revenue": 31.2,
+       "rankOverall": 65
+      },
+      {
+       "key": "sunoco-inc",
+       "name": "Sunoco",
+       "revenue": 31.2,
+       "rankOverall": 66
+      },
+      {
+       "key": "hess",
+       "name": "Amerada Hess",
+       "revenue": 23.3,
+       "rankOverall": 88
+      },
+      {
+       "key": "halliburton",
+       "name": "Halliburton",
+       "revenue": 21.0,
+       "rankOverall": 103
+      },
+      {
+       "key": "andeavor",
+       "name": "Tesoro",
+       "revenue": 16.5,
+       "rankOverall": 132
+      }
+     ]
+    },
+    "2010": {
+     "listYear": 2011,
+     "count": 37,
+     "rows": [
+      {
+       "key": "exxon-mobil",
+       "name": "Exxon Mobil",
+       "revenue": 354.7,
+       "rankOverall": 2
+      },
+      {
+       "key": "chevron",
+       "name": "Chevron",
+       "revenue": 196.3,
+       "rankOverall": 3
+      },
+      {
+       "key": "conocophillips",
+       "name": "ConocoPhillips",
+       "revenue": 185.0,
+       "rankOverall": 4
+      },
+      {
+       "key": "valero-energy",
+       "name": "Valero",
+       "revenue": 86.0,
+       "rankOverall": 24
+      },
+      {
+       "key": "marathon-oil",
+       "name": "Marathon Oil",
+       "revenue": 68.4,
+       "rankOverall": 29
+      },
+      {
+       "key": "sunoco-inc",
+       "name": "Sunoco",
+       "revenue": 35.5,
+       "rankOverall": 68
+      },
+      {
+       "key": "hess",
+       "name": "Hess",
+       "revenue": 34.6,
+       "rankOverall": 74
+      },
+      {
+       "key": "enterprise-products-partners",
+       "name": "Enterprise Prod.",
+       "revenue": 33.7,
+       "rankOverall": 80
+      },
+      {
+       "key": "plains-gp-holdings",
+       "name": "Plains All Amer.",
+       "revenue": 25.9,
+       "rankOverall": 99
+      },
+      {
+       "key": "murphy-oil",
+       "name": "Murphy Oil",
+       "revenue": 23.3,
+       "rankOverall": 113
+      }
+     ]
+    },
+    "2015": {
+     "listYear": 2016,
+     "count": 36,
+     "rows": [
+      {
+       "key": "exxon-mobil",
+       "name": "Exxon Mobil",
+       "revenue": 246.2,
+       "rankOverall": 2
+      },
+      {
+       "key": "chevron",
+       "name": "Chevron",
+       "revenue": 131.1,
+       "rankOverall": 14
+      },
+      {
+       "key": "phillips",
+       "name": "Phillips 66",
+       "revenue": 87.2,
+       "rankOverall": 30
+      },
+      {
+       "key": "valero-energy",
+       "name": "Valero",
+       "revenue": 81.8,
+       "rankOverall": 32
+      },
+      {
+       "key": "marathon-petroleum",
+       "name": "Marathon Petroleum",
+       "revenue": 64.6,
+       "rankOverall": 42
+      },
+      {
+       "key": "energy-transfer-equity",
+       "name": "Energy Transfer",
+       "revenue": 42.1,
+       "rankOverall": 65
+      },
+      {
+       "key": "conocophillips",
+       "name": "ConocoPhillips",
+       "revenue": 30.9,
+       "rankOverall": 90
+      },
+      {
+       "key": "world-fuel-services",
+       "name": "World Fuel Svcs.",
+       "revenue": 30.4,
+       "rankOverall": 92
+      },
+      {
+       "key": "andeavor",
+       "name": "Tesoro",
+       "revenue": 28.1,
+       "rankOverall": 98
+      },
+      {
+       "key": "enterprise-products-partners",
+       "name": "Enterprise Prod.",
+       "revenue": 27.0,
+       "rankOverall": 104
+      }
+     ]
+    },
+    "2020": {
+     "listYear": 2021,
+     "count": 28,
+     "rows": [
+      {
+       "key": "exxon-mobil",
+       "name": "Exxon Mobil",
+       "revenue": 181.5,
+       "rankOverall": 10
+      },
+      {
+       "key": "chevron",
+       "name": "Chevron",
+       "revenue": 94.7,
+       "rankOverall": 27
+      },
+      {
+       "key": "marathon-petroleum",
+       "name": "Marathon Petroleum",
+       "revenue": 89.0,
+       "rankOverall": 32
+      },
+      {
+       "key": "phillips",
+       "name": "Phillips 66",
+       "revenue": 65.5,
+       "rankOverall": 48
+      },
+      {
+       "key": "valero-energy",
+       "name": "Valero",
+       "revenue": 60.1,
+       "rankOverall": 53
+      },
+      {
+       "key": "energy-transfer-equity",
+       "name": "Energy Transfer",
+       "revenue": 39.0,
+       "rankOverall": 81
+      },
+      {
+       "key": "enterprise-products-partners",
+       "name": "Enterprise Prod.",
+       "revenue": 27.2,
+       "rankOverall": 105
+      },
+      {
+       "key": "plains-gp-holdings",
+       "name": "Plains GP",
+       "revenue": 23.3,
+       "rankOverall": 127
+      },
+      {
+       "key": "baker-hughes",
+       "name": "Baker Hughes",
+       "revenue": 20.7,
+       "rankOverall": 140
+      },
+      {
+       "key": "world-fuel-services",
+       "name": "World Fuel Svcs.",
+       "revenue": 20.4,
+       "rankOverall": 147
+      }
+     ]
+    },
+    "2025": {
+     "listYear": 2026,
+     "count": 33,
+     "rows": [
+      {
+       "key": "exxon-mobil",
+       "name": "Exxon Mobil",
+       "revenue": 332.2,
+       "rankOverall": 9
+      },
+      {
+       "key": "chevron",
+       "name": "Chevron",
+       "revenue": 189.0,
+       "rankOverall": 21
+      },
+      {
+       "key": "phillips",
+       "name": "Phillips 66",
+       "revenue": 136.6,
+       "rankOverall": 29
+      },
+      {
+       "key": "marathon-petroleum",
+       "name": "Marathon Petroleum",
+       "revenue": 135.2,
+       "rankOverall": 30
+      },
+      {
+       "key": "valero-energy",
+       "name": "Valero",
+       "revenue": 115.9,
+       "rankOverall": 40
+      },
+      {
+       "key": "energy-transfer-equity",
+       "name": "Energy Transfer",
+       "revenue": 85.5,
+       "rankOverall": 53
+      },
+      {
+       "key": "conocophillips",
+       "name": "ConocoPhillips",
+       "revenue": 61.5,
+       "rankOverall": 75
+      },
+      {
+       "key": "enterprise-products-partners",
+       "name": "Enterprise Prod.",
+       "revenue": 52.6,
+       "rankOverall": 89
+      },
+      {
+       "key": "plains-gp-holdings",
+       "name": "Plains GP",
+       "revenue": 45.6,
+       "rankOverall": 103
+      },
+      {
+       "key": "world-fuel-services",
+       "name": "World Kinect",
+       "revenue": 36.9,
+       "rankOverall": 128
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "materials",
+   "name": "소재",
+   "metrics": {
+    "leaderChanges": 1,
+    "leaderCount": 2,
+    "stay30": 2,
+    "top3Stay30": 2,
+    "everTop10": 26,
+    "newPerStep": 2.83,
+    "movePerStep": 1.23
+   },
+   "snapshots": {
+    "1995": {
+     "listYear": 1996,
+     "count": 49,
+     "rows": [
+      {
+       "key": "dupont",
+       "name": "DuPont",
+       "revenue": 37.6,
+       "rankOverall": 13
+      },
+      {
+       "key": "dow",
+       "name": "Dow Chemical",
+       "revenue": 21.0,
+       "rankOverall": 36
+      },
+      {
+       "key": "international-paper",
+       "name": "Int'l Paper",
+       "revenue": 19.8,
+       "rankOverall": 39
+      },
+      {
+       "key": "georgia-pacific-corporation",
+       "name": "Georgia-Pacific",
+       "revenue": 14.3,
+       "rankOverall": 75
+      },
+      {
+       "key": "alcoa",
+       "name": "Alcoa",
+       "revenue": 12.7,
+       "rankOverall": 95
+      },
+      {
+       "key": "weyerhaeuser",
+       "name": "Weyerhaeuser",
+       "revenue": 11.8,
+       "rankOverall": 104
+      },
+      {
+       "key": "monsanto",
+       "name": "Monsanto",
+       "revenue": 9.0,
+       "rankOverall": 146
+      },
+      {
+       "key": "stone-container-corporation",
+       "name": "Stone Container",
+       "revenue": 7.4,
+       "rankOverall": 175
+      },
+      {
+       "key": "reynolds-metals-company",
+       "name": "Reynolds Metals",
+       "revenue": 7.3,
+       "rankOverall": 179
+      },
+      {
+       "key": "ppg-industries",
+       "name": "PPG",
+       "revenue": 7.1,
+       "rankOverall": 185
+      }
+     ]
+    },
+    "2000": {
+     "listYear": 2001,
+     "count": 33,
+     "rows": [
+      {
+       "key": "dupont",
+       "name": "DuPont",
+       "revenue": 29.2,
+       "rankOverall": 56
+      },
+      {
+       "key": "international-paper",
+       "name": "Int'l Paper",
+       "revenue": 28.2,
+       "rankOverall": 61
+      },
+      {
+       "key": "alcoa",
+       "name": "Alcoa",
+       "revenue": 23.1,
+       "rankOverall": 77
+      },
+      {
+       "key": "dow",
+       "name": "Dow Chemical",
+       "revenue": 23.0,
+       "rankOverall": 78
+      },
+      {
+       "key": "georgia-pacific-corporation",
+       "name": "Georgia-Pacific",
+       "revenue": 22.2,
+       "rankOverall": 84
+      },
+      {
+       "key": "weyerhaeuser",
+       "name": "Weyerhaeuser",
+       "revenue": 16.0,
+       "rankOverall": 122
+      },
+      {
+       "key": "smurfit-stone-container-corporation",
+       "name": "Smurfit-Stone",
+       "revenue": 8.8,
+       "rankOverall": 217
+      },
+      {
+       "key": "ppg-industries",
+       "name": "PPG",
+       "revenue": 8.6,
+       "rankOverall": 220
+      },
+      {
+       "key": "ashland-global-holdings",
+       "name": "Ashland",
+       "revenue": 8.2,
+       "rankOverall": 234
+      },
+      {
+       "key": "boise-cascade",
+       "name": "Boise Cascade",
+       "revenue": 7.8,
+       "rankOverall": 241
+      }
+     ]
+    },
+    "2005": {
+     "listYear": 2006,
+     "count": 36,
+     "rows": [
+      {
+       "key": "dow",
+       "name": "Dow Chemical",
+       "revenue": 46.3,
+       "rankOverall": 36
+      },
+      {
+       "key": "dupont",
+       "name": "DuPont",
+       "revenue": 28.5,
+       "rankOverall": 73
+      },
+      {
+       "key": "alcoa",
+       "name": "Alcoa",
+       "revenue": 26.6,
+       "rankOverall": 79
+      },
+      {
+       "key": "international-paper",
+       "name": "Int'l Paper",
+       "revenue": 25.8,
+       "rankOverall": 82
+      },
+      {
+       "key": "weyerhaeuser",
+       "name": "Weyerhaeuser",
+       "revenue": 23.0,
+       "rankOverall": 90
+      },
+      {
+       "key": "lyondell-chemical-company",
+       "name": "Lyondell",
+       "revenue": 18.6,
+       "rankOverall": 121
+      },
+      {
+       "key": "united-states-steel",
+       "name": "U.S. Steel",
+       "revenue": 14.0,
+       "rankOverall": 158
+      },
+      {
+       "key": "huntsman",
+       "name": "Huntsman",
+       "revenue": 13.0,
+       "rankOverall": 172
+      },
+      {
+       "key": "nucor",
+       "name": "Nucor",
+       "revenue": 12.7,
+       "rankOverall": 177
+      },
+      {
+       "key": "ppg-industries",
+       "name": "PPG",
+       "revenue": 10.2,
+       "rankOverall": 232
+      }
+     ]
+    },
+    "2010": {
+     "listYear": 2011,
+     "count": 37,
+     "rows": [
+      {
+       "key": "dow",
+       "name": "Dow Chemical",
+       "revenue": 53.7,
+       "rankOverall": 45
+      },
+      {
+       "key": "dupont",
+       "name": "DuPont",
+       "revenue": 32.7,
+       "rankOverall": 84
+      },
+      {
+       "key": "international-paper",
+       "name": "Int'l Paper",
+       "revenue": 25.2,
+       "rankOverall": 105
+      },
+      {
+       "key": "alcoa",
+       "name": "Alcoa",
+       "revenue": 21.0,
+       "rankOverall": 123
+      },
+      {
+       "key": "freeport-mcmoran",
+       "name": "Freeport-McMoRan",
+       "revenue": 19.0,
+       "rankOverall": 136
+      },
+      {
+       "key": "united-states-steel",
+       "name": "U.S. Steel",
+       "revenue": 17.4,
+       "rankOverall": 148
+      },
+      {
+       "key": "nucor",
+       "name": "Nucor",
+       "revenue": 15.8,
+       "rankOverall": 157
+      },
+      {
+       "key": "ppg-industries",
+       "name": "PPG",
+       "revenue": 13.4,
+       "rankOverall": 181
+      },
+      {
+       "key": "monsanto",
+       "name": "Monsanto",
+       "revenue": 10.5,
+       "rankOverall": 234
+      },
+      {
+       "key": "linde",
+       "name": "Praxair",
+       "revenue": 10.1,
+       "rankOverall": 241
+      }
+     ]
+    },
+    "2015": {
+     "listYear": 2016,
+     "count": 32,
+     "rows": [
+      {
+       "key": "dow",
+       "name": "Dow Chemical",
+       "revenue": 48.8,
+       "rankOverall": 56
+      },
+      {
+       "key": "dupont",
+       "name": "DuPont",
+       "revenue": 27.9,
+       "rankOverall": 101
+      },
+      {
+       "key": "alcoa",
+       "name": "Alcoa",
+       "revenue": 22.5,
+       "rankOverall": 126
+      },
+      {
+       "key": "international-paper",
+       "name": "Int'l Paper",
+       "revenue": 22.4,
+       "rankOverall": 127
+      },
+      {
+       "key": "nucor",
+       "name": "Nucor",
+       "revenue": 16.4,
+       "rankOverall": 170
+      },
+      {
+       "key": "freeport-mcmoran",
+       "name": "Freeport-McMoRan",
+       "revenue": 15.9,
+       "rankOverall": 175
+      },
+      {
+       "key": "ppg-industries",
+       "name": "PPG",
+       "revenue": 15.3,
+       "rankOverall": 182
+      },
+      {
+       "key": "monsanto",
+       "name": "Monsanto",
+       "revenue": 15.0,
+       "rankOverall": 189
+      },
+      {
+       "key": "ecolab",
+       "name": "Ecolab",
+       "revenue": 13.5,
+       "rankOverall": 206
+      },
+      {
+       "key": "united-states-steel",
+       "name": "U.S. Steel",
+       "revenue": 11.6,
+       "rankOverall": 244
+      }
+     ]
+    },
+    "2020": {
+     "listYear": 2021,
+     "count": 33,
+     "rows": [
+      {
+       "key": "dow",
+       "name": "Dow",
+       "revenue": 38.5,
+       "rankOverall": 82
+      },
+      {
+       "key": "international-paper",
+       "name": "Int'l Paper",
+       "revenue": 20.6,
+       "rankOverall": 141
+      },
+      {
+       "key": "dupont",
+       "name": "DuPont",
+       "revenue": 20.4,
+       "rankOverall": 144
+      },
+      {
+       "key": "nucor",
+       "name": "Nucor",
+       "revenue": 20.1,
+       "rankOverall": 149
+      },
+      {
+       "key": "sherwin-williams",
+       "name": "Sherwin-Williams",
+       "revenue": 18.4,
+       "rankOverall": 162
+      },
+      {
+       "key": "westrock",
+       "name": "WestRock",
+       "revenue": 17.6,
+       "rankOverall": 170
+      },
+      {
+       "key": "corteva",
+       "name": "Corteva",
+       "revenue": 14.2,
+       "rankOverall": 214
+      },
+      {
+       "key": "freeport-mcmoran",
+       "name": "Freeport-McMoRan",
+       "revenue": 14.2,
+       "rankOverall": 215
+      },
+      {
+       "key": "ppg-industries",
+       "name": "PPG",
+       "revenue": 13.8,
+       "rankOverall": 220
+      },
+      {
+       "key": "ecolab",
+       "name": "Ecolab",
+       "revenue": 12.7,
+       "rankOverall": 237
+      }
+     ]
+    },
+    "2025": {
+     "listYear": 2026,
+     "count": 28,
+     "rows": [
+      {
+       "key": "dow",
+       "name": "Dow",
+       "revenue": 40.0,
+       "rankOverall": 120
+      },
+      {
+       "key": "nucor",
+       "name": "Nucor",
+       "revenue": 32.5,
+       "rankOverall": 142
+      },
+      {
+       "key": "international-paper",
+       "name": "Int'l Paper",
+       "revenue": 26.1,
+       "rankOverall": 176
+      },
+      {
+       "key": "freeport-mcmoran",
+       "name": "Freeport-McMoRan",
+       "revenue": 25.9,
+       "rankOverall": 177
+      },
+      {
+       "key": "sherwin-williams",
+       "name": "Sherwin-Williams",
+       "revenue": 23.6,
+       "rankOverall": 194
+      },
+      {
+       "key": "newmont-mining",
+       "name": "Newmont",
+       "revenue": 22.7,
+       "rankOverall": 200
+      },
+      {
+       "key": "cleveland-cliffs",
+       "name": "Cleveland-Cliffs",
+       "revenue": 18.6,
+       "rankOverall": 233
+      },
+      {
+       "key": "steel-dynamics",
+       "name": "Steel Dynamics",
+       "revenue": 18.2,
+       "rankOverall": 244
+      },
+      {
+       "key": "corteva",
+       "name": "Corteva",
+       "revenue": 17.4,
+       "rankOverall": 254
+      },
+      {
+       "key": "ecolab",
+       "name": "Ecolab",
+       "revenue": 16.1,
+       "rankOverall": 280
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "utilities",
+   "name": "유틸리티",
+   "metrics": {
+    "leaderChanges": 3,
+    "leaderCount": 3,
+    "stay30": 5,
+    "top3Stay30": 1,
+    "everTop10": 22,
+    "newPerStep": 3.33,
+    "movePerStep": 2.25
+   },
+   "snapshots": {
+    "1995": {
+     "listYear": 1996,
+     "count": 34,
+     "rows": [
+      {
+       "key": "pge-corp",
+       "name": "PG&E",
+       "revenue": 9.6,
+       "rankOverall": 134
+      },
+      {
+       "key": "southern",
+       "name": "Southern Co.",
+       "revenue": 9.2,
+       "rankOverall": 142
+      },
+      {
+       "key": "edison-international",
+       "name": "SCEcorp",
+       "revenue": 8.4,
+       "rankOverall": 155
+      },
+      {
+       "key": "unicom-corporation",
+       "name": "Unicom",
+       "revenue": 6.9,
+       "rankOverall": 189
+      },
+      {
+       "key": "consolidated-edison",
+       "name": "Con Edison",
+       "revenue": 6.4,
+       "rankOverall": 204
+      },
+      {
+       "key": "entergy",
+       "name": "Entergy",
+       "revenue": 6.3,
+       "rankOverall": 209
+      },
+      {
+       "key": "public-service-enterprise-group",
+       "name": "PSEG",
+       "revenue": 6.2,
+       "rankOverall": 212
+      },
+      {
+       "key": "american-electric-power",
+       "name": "AEP",
+       "revenue": 5.7,
+       "rankOverall": 231
+      },
+      {
+       "key": "txu-corp",
+       "name": "Texas Utilities",
+       "revenue": 5.6,
+       "rankOverall": 233
+      },
+      {
+       "key": "nextera-energy",
+       "name": "FPL Group",
+       "revenue": 5.6,
+       "rankOverall": 236
+      }
+     ]
+    },
+    "2000": {
+     "listYear": 2001,
+     "count": 39,
+     "rows": [
+      {
+       "key": "duke-energy",
+       "name": "Duke Energy",
+       "revenue": 49.3,
+       "rankOverall": 17
+      },
+      {
+       "key": "centerpoint-energy",
+       "name": "Reliant Energy",
+       "revenue": 29.3,
+       "rankOverall": 55
+      },
+      {
+       "key": "utilicorp-united-inc",
+       "name": "UtiliCorp",
+       "revenue": 29.0,
+       "rankOverall": 60
+      },
+      {
+       "key": "southern",
+       "name": "Southern Co.",
+       "revenue": 23.4,
+       "rankOverall": 76
+      },
+      {
+       "key": "pge-corp",
+       "name": "PG&E",
+       "revenue": 22.5,
+       "rankOverall": 82
+      },
+      {
+       "key": "txu-corp",
+       "name": "TXU",
+       "revenue": 22.0,
+       "rankOverall": 85
+      },
+      {
+       "key": "american-electric-power",
+       "name": "AEP",
+       "revenue": 13.7,
+       "rankOverall": 146
+      },
+      {
+       "key": "edison-international",
+       "name": "Edison Int'l",
+       "revenue": 11.6,
+       "rankOverall": 164
+      },
+      {
+       "key": "xcel-energy",
+       "name": "Xcel Energy",
+       "revenue": 11.6,
+       "rankOverall": 166
+      },
+      {
+       "key": "entergy",
+       "name": "Entergy",
+       "revenue": 10.0,
+       "rankOverall": 187
+      }
+     ]
+    },
+    "2005": {
+     "listYear": 2006,
+     "count": 36,
+     "rows": [
+      {
+       "key": "duke-energy",
+       "name": "Duke Energy",
+       "revenue": 18.9,
+       "rankOverall": 117
+      },
+      {
+       "key": "dominion-resources",
+       "name": "Dominion",
+       "revenue": 18.0,
+       "rankOverall": 123
+      },
+      {
+       "key": "constellation-energy",
+       "name": "Constellation",
+       "revenue": 17.4,
+       "rankOverall": 125
+      },
+      {
+       "key": "exelon",
+       "name": "Exelon",
+       "revenue": 15.4,
+       "rankOverall": 144
+      },
+      {
+       "key": "southern",
+       "name": "Southern Co.",
+       "revenue": 13.6,
+       "rankOverall": 165
+      },
+      {
+       "key": "public-service-enterprise-group",
+       "name": "PSEG",
+       "revenue": 12.7,
+       "rankOverall": 178
+      },
+      {
+       "key": "firstenergy",
+       "name": "FirstEnergy",
+       "revenue": 12.2,
+       "rankOverall": 184
+      },
+      {
+       "key": "american-electric-power",
+       "name": "AEP",
+       "revenue": 12.1,
+       "rankOverall": 185
+      },
+      {
+       "key": "edison-international",
+       "name": "Edison Int'l",
+       "revenue": 11.9,
+       "rankOverall": 194
+      },
+      {
+       "key": "nextera-energy",
+       "name": "FPL Group",
+       "revenue": 11.8,
+       "rankOverall": 195
+      }
+     ]
+    },
+    "2010": {
+     "listYear": 2011,
+     "count": 32,
+     "rows": [
+      {
+       "key": "exelon",
+       "name": "Exelon",
+       "revenue": 18.6,
+       "rankOverall": 141
+      },
+      {
+       "key": "southern",
+       "name": "Southern Co.",
+       "revenue": 17.5,
+       "rankOverall": 147
+      },
+      {
+       "key": "aes",
+       "name": "AES",
+       "revenue": 17.1,
+       "rankOverall": 150
+      },
+      {
+       "key": "nextera-energy",
+       "name": "NextEra Energy",
+       "revenue": 15.3,
+       "rankOverall": 161
+      },
+      {
+       "key": "dominion-resources",
+       "name": "Dominion",
+       "revenue": 15.3,
+       "rankOverall": 162
+      },
+      {
+       "key": "american-electric-power",
+       "name": "AEP",
+       "revenue": 14.4,
+       "rankOverall": 169
+      },
+      {
+       "key": "constellation-energy",
+       "name": "Constellation",
+       "revenue": 14.3,
+       "rankOverall": 172
+      },
+      {
+       "key": "duke-energy",
+       "name": "Duke Energy",
+       "revenue": 14.3,
+       "rankOverall": 173
+      },
+      {
+       "key": "pge-corp",
+       "name": "PG&E",
+       "revenue": 13.8,
+       "rankOverall": 177
+      },
+      {
+       "key": "firstenergy",
+       "name": "FirstEnergy",
+       "revenue": 13.3,
+       "rankOverall": 183
+      }
+     ]
+    },
+    "2015": {
+     "listYear": 2016,
+     "count": 27,
+     "rows": [
+      {
+       "key": "exelon",
+       "name": "Exelon",
+       "revenue": 29.4,
+       "rankOverall": 95
+      },
+      {
+       "key": "duke-energy",
+       "name": "Duke Energy",
+       "revenue": 24.0,
+       "rankOverall": 115
+      },
+      {
+       "key": "southern",
+       "name": "Southern Co.",
+       "revenue": 17.5,
+       "rankOverall": 162
+      },
+      {
+       "key": "nextera-energy",
+       "name": "NextEra Energy",
+       "revenue": 17.5,
+       "rankOverall": 163
+      },
+      {
+       "key": "american-electric-power",
+       "name": "AEP",
+       "revenue": 16.9,
+       "rankOverall": 165
+      },
+      {
+       "key": "pge-corp",
+       "name": "PG&E",
+       "revenue": 16.8,
+       "rankOverall": 166
+      },
+      {
+       "key": "firstenergy",
+       "name": "FirstEnergy",
+       "revenue": 15.0,
+       "rankOverall": 188
+      },
+      {
+       "key": "aes",
+       "name": "AES",
+       "revenue": 15.0,
+       "rankOverall": 190
+      },
+      {
+       "key": "nrg-energy",
+       "name": "NRG Energy",
+       "revenue": 14.7,
+       "rankOverall": 193
+      },
+      {
+       "key": "consolidated-edison",
+       "name": "Con Edison",
+       "revenue": 12.6,
+       "rankOverall": 229
+      }
+     ]
+    },
+    "2020": {
+     "listYear": 2021,
+     "count": 26,
+     "rows": [
+      {
+       "key": "exelon",
+       "name": "Exelon",
+       "revenue": 33.0,
+       "rankOverall": 92
+      },
+      {
+       "key": "duke-energy",
+       "name": "Duke Energy",
+       "revenue": 23.5,
+       "rankOverall": 126
+      },
+      {
+       "key": "southern",
+       "name": "Southern Co.",
+       "revenue": 20.4,
+       "rankOverall": 146
+      },
+      {
+       "key": "pge-corp",
+       "name": "PG&E",
+       "revenue": 18.5,
+       "rankOverall": 160
+      },
+      {
+       "key": "nextera-energy",
+       "name": "NextEra Energy",
+       "revenue": 18.0,
+       "rankOverall": 166
+      },
+      {
+       "key": "dominion-resources",
+       "name": "Dominion",
+       "revenue": 16.1,
+       "rankOverall": 193
+      },
+      {
+       "key": "american-electric-power",
+       "name": "AEP",
+       "revenue": 14.9,
+       "rankOverall": 204
+      },
+      {
+       "key": "edison-international",
+       "name": "Edison Int'l",
+       "revenue": 13.6,
+       "rankOverall": 226
+      },
+      {
+       "key": "consolidated-edison",
+       "name": "Con Edison",
+       "revenue": 12.2,
+       "rankOverall": 249
+      },
+      {
+       "key": "dte-energy",
+       "name": "DTE Energy",
+       "revenue": 12.2,
+       "rankOverall": 250
+      }
+     ]
+    },
+    "2025": {
+     "listYear": 2026,
+     "count": 25,
+     "rows": [
+      {
+       "key": "duke-energy",
+       "name": "Duke Energy",
+       "revenue": 31.8,
+       "rankOverall": 145
+      },
+      {
+       "key": "nrg-energy",
+       "name": "NRG Energy",
+       "revenue": 30.7,
+       "rankOverall": 149
+      },
+      {
+       "key": "southern",
+       "name": "Southern Co.",
+       "revenue": 29.6,
+       "rankOverall": 152
+      },
+      {
+       "key": "nextera-energy",
+       "name": "NextEra Energy",
+       "revenue": 27.4,
+       "rankOverall": 167
+      },
+      {
+       "key": "constellation-energy",
+       "name": "Constellation",
+       "revenue": 25.5,
+       "rankOverall": 178
+      },
+      {
+       "key": "pge-corp",
+       "name": "PG&E",
+       "revenue": 24.9,
+       "rankOverall": 185
+      },
+      {
+       "key": "exelon",
+       "name": "Exelon",
+       "revenue": 24.3,
+       "rankOverall": 189
+      },
+      {
+       "key": "american-electric-power",
+       "name": "AEP",
+       "revenue": 21.9,
+       "rankOverall": 209
+      },
+      {
+       "key": "edison-international",
+       "name": "Edison Int'l",
+       "revenue": 19.3,
+       "rankOverall": 228
+      },
+      {
+       "key": "vistra-energy",
+       "name": "Vistra",
+       "revenue": 17.7,
+       "rankOverall": 251
+      }
+     ]
+    }
+   }
+  }
+ ]
+}

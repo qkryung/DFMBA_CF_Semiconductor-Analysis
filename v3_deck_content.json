@@ -234,533 +234,1170 @@
     {
       "id": "sector-ranking",
       "part": 1,
-      "title": "산업이 바뀌면, 1위도 바뀌는가?",
-      "sub": "미국 Fortune 500 · 11개 섹터 매출 Top 5 · 2000 → 2026",
-      "html": "<div class=\"sector\"><div class=\"sector-nav\"><div id=\"sectorPills\"></div><button id=\"sectorPlay\">▶ 산업 순환</button></div><div class=\"col\"><div id=\"bump\" data-h=\"408\" style=\"min-height:408px\"></div><div id=\"sectorStat\"></div><p class=\"note\" id=\"sectorScope\"></p></div></div>",
-      "take": "IT의 1위는 IBM → HP → Apple로 바뀌었다. 성숙한 선두도 산업의 중심이 이동하면 자리를 내준다.",
+      "title": "1위가 바뀌지 않는 산업, 1위가 바뀌는 산업",
+      "sub": "미국 Fortune 500 · 10개 섹터 매출 Top 10 · 1995 → 2025 · 5년 간격",
+      "html": "<div class=\"sector\"><div class=\"sector-nav\"><div class=\"sector-h\"><span>섹터</span><span>1위 교체</span></div><div id=\"sectorPills\"></div><button id=\"sectorPlay\">▶ 산업 순환</button><p class=\"sector-hint\">7개 시점에서 매출 1위<br>기업이 바뀐 횟수</p></div><div class=\"col\"><div id=\"bump\" data-h=\"454\" style=\"min-height:454px\"></div><div id=\"sectorStat\"></div><p class=\"note\" id=\"sectorScope\"></p></div></div>",
+      "take": "필수소비재 · 에너지의 1위는 30년간 그대로다. IT의 1위는 IBM → HP → Apple — 산업의 중심이 이동하면 선두도 바뀐다.",
       "sources": [
-        "fortune500_2000",
-        "fortune500_2010",
-        "fortune500_2020",
-        "fortune500_2026"
+        "fortune500_1996",
+        "fortune500_2001",
+        "fortune500_2006",
+        "fortune500_2011",
+        "fortune500_2016",
+        "fortune500_2021",
+        "fortune500_2026",
+        "fortune500_gap"
       ],
       "kind": "",
-      "method": "각 발표연도에 실린 기업을 그대로 사용(현재 생존 기업만 역추적하지 않음). 회사 전체 연결매출 기준이며 반도체 매출·시가총액 순위와 다름. Fortune 업종을 11개 경제 섹터로 분석자가 재분류함 — GICS 명칭을 참고했으나 공식 GICS 과거 시계열이 아님. 아카이브가 현재 사명으로 연결한 일부 회사는 당시 이름으로 표시. 합병 전후 사업 범위·회계기준이 달라 성장률로 해석하면 안 됨. 아카이브의 일부 과거 순위 누락은 보간하지 않았으며, 표는 확인된 기업 중 매출 상위 5곳.",
+      "method": "Fortune 500 N년판은 직전 회계연도(N−1)의 매출 순위이므로 화면에는 매출 연도(1995–2025)로 표시. 5년 간격 7개 시점만 비교하므로 그 사이의 순위 변동은 반영되지 않음. 당시 Fortune 업종을 경제 섹터로 묶은 분석용 분류(공식 GICS 과거 시계열 아님). Fortune 업종만으로 섹터가 갈리지 않는 기업은 현재 섹터 기준으로 직접 지정(예: Walmart·Target·Costco = 필수소비재, McKesson·CVS = 헬스케어, Alphabet·Meta = 커뮤니케이션, Amazon = 경기소비재). 당시 주력 사업이 달랐던 기업은 당시 Fortune 업종을 따름(예: 1995년 Cigna = 금융, Ashland = 에너지). 합병은 존속 법인(인수 주체), 분할은 본업과 사명을 이어 간 쪽을 같은 기업으로 연결. 표시 이름은 당시 사명(예: Dayton Hudson → Target, Philip Morris → Altria, SBC → AT&T). Fortune 500은 미국 법인만 포함하며, 다른 상장사에 연결되는 자회사·비공개 기업은 빠진다(예: T-Mobile US, 2015년 Dell, 2025년 Walgreens). 2006년판에는 결산을 제때 내지 못한 Fannie Mae·Freddie Mac이 없다. 2000년 유틸리티 매출은 에너지 트레이딩 총액 계상으로 부풀려져 있다(Duke Energy · Reliant · UtiliCorp). 부동산 섹터는 제외(Fortune 500 편입 기업이 적어 Top 10을 만들 수 없음). Fortune 아카이브 페이지에 빠져 있던 순위 29건은 공개 데이터셋 cmusam/fortune500 (GitHub)으로 채웠고(이 가운데 Top 10에 들어간 것은 6건: 1995 BankAmerica · 2000 Aetna · 2000 Albertson's · 2000 Lowe's · 2015 Aetna · 2015 United Technologies), 2001년판에서 순위·매출이 어긋난 4건은 같은 자료로 바로잡음. 회사 전체 연결매출 기준이어서 반도체 매출·시가총액 순위와 다르며, 합병 전후로 사업 범위와 회계기준이 달라 매출 증가를 성장률로 해석하면 안 됨. 조사 기준 2026-11-09.",
       "tables": [
         {
-          "title": "IT · 매출 상위 5 ($bn)",
+          "title": "필수소비재 · 매출 Top 10 ($bn) · †는 보완 자료의 값",
           "head": [
             "순위",
+            "1995",
             "2000",
+            "2005",
             "2010",
+            "2015",
             "2020",
-            "2026"
+            "2025"
           ],
           "rows": [
             [
               "1",
-              "IBM 87.5",
-              "Hewlett-Packard 114.6",
-              "Apple 260.2",
-              "Apple 416.2"
-            ],
-            [
-              "2",
-              "Hewlett-Packard 48.3",
-              "IBM 95.8",
-              "Microsoft 125.8",
-              "Microsoft 281.7"
-            ],
-            [
-              "3",
-              "Compaq 38.5",
-              "Microsoft 58.4",
-              "Dell Technologies 92.2",
-              "Nvidia 215.9"
-            ],
-            [
-              "4",
-              "Lucent 38.3",
-              "Dell 52.9",
-              "IBM 77.1",
-              "Dell Technologies 113.5"
-            ],
-            [
-              "5",
-              "Motorola 30.9",
-              "Apple 36.5",
-              "Intel 72.0",
-              "IBM 67.5"
-            ]
-          ]
-        },
-        {
-          "title": "커뮤니케이션 · 매출 상위 5 ($bn)",
-          "head": [
-            "순위",
-            "2000",
-            "2010",
-            "2020",
-            "2026"
-          ],
-          "rows": [
-            [
-              "1",
-              "AT&T 62.4",
-              "AT&T 123.0",
-              "AT&T 181.2",
-              "Alphabet 402.8"
-            ],
-            [
-              "2",
-              "SBC Communications 49.5",
-              "Verizon Communications 107.8",
-              "Alphabet 161.9",
-              "Meta Platforms 201.0"
-            ],
-            [
-              "3",
-              "MCI WorldCom 37.1",
-              "Walt Disney 36.1",
-              "Verizon Communications 131.9",
-              "Verizon Communications 138.2"
-            ],
-            [
-              "4",
-              "Bell Atlantic 33.2",
-              "Comcast 35.8",
-              "Comcast 108.9",
-              "AT&T 125.6"
-            ],
-            [
-              "5",
-              "Time Warner 27.3",
-              "Sprint Nextel 32.3",
-              "Facebook 70.7",
-              "Comcast 123.7"
-            ]
-          ]
-        },
-        {
-          "title": "경기소비재 · 매출 상위 5 ($bn)",
-          "head": [
-            "순위",
-            "2000",
-            "2010",
-            "2020",
-            "2026"
-          ],
-          "rows": [
-            [
-              "1",
-              "General Motors 189.1",
-              "Ford Motor 118.3",
-              "Amazon 280.5",
-              "Amazon 716.9"
-            ],
-            [
-              "2",
-              "Ford Motor 162.6",
-              "General Motors 104.6",
-              "Ford Motor 155.9",
-              "Ford Motor 187.3"
-            ],
-            [
-              "3",
-              "Sears 41.1",
-              "Home Depot 66.2",
-              "General Motors 137.2",
-              "General Motors 185.0"
-            ],
-            [
-              "4",
-              "Home Depot 38.4",
-              "Lowe's 47.2",
-              "Home Depot 110.2",
-              "Home Depot 164.7"
-            ],
-            [
-              "5",
-              "Kmart 35.9",
-              "Best Buy 45.0",
-              "Lowe's 72.1",
-              "Tesla 94.8"
-            ]
-          ]
-        },
-        {
-          "title": "필수소비재 · 매출 상위 5 ($bn)",
-          "head": [
-            "순위",
-            "2000",
-            "2010",
-            "2020",
-            "2026"
-          ],
-          "rows": [
-            [
-              "1",
-              "Walmart 166.8",
-              "Walmart 408.2",
-              "Walmart 524.0",
+              "Walmart 93.6",
+              "Walmart 193.3",
+              "Walmart 315.7",
+              "Walmart 421.8",
+              "Walmart 482.1",
+              "Walmart 559.2",
               "Walmart 713.2"
             ],
             [
               "2",
-              "Philip Morris 61.8",
-              "Procter & Gamble 79.7",
-              "Costco Wholesale 152.7",
-              "Costco Wholesale 275.2"
+              "Philip Morris 53.1",
+              "Philip Morris 63.3",
+              "Altria 69.1",
+              "Kroger 82.2",
+              "Costco 116.2",
+              "Costco 166.8",
+              "Costco 275.2"
             ],
             [
               "3",
-              "Kroger 45.4",
-              "Kroger 76.7",
-              "Walgreens Boots Alliance 136.9",
+              "P&G 33.4",
+              "Kroger 49.0",
+              "Kroger 60.6",
+              "P&G 79.7",
+              "Kroger 109.8",
+              "Walgreens Boots 139.5",
               "Kroger 147.6"
             ],
             [
               "4",
-              "Procter & Gamble 38.1",
-              "Costco Wholesale 71.4",
-              "Kroger 122.3",
+              "PepsiCo 30.4",
+              "P&G 40.0",
+              "P&G 56.7",
+              "Costco 77.9",
+              "Walgreens Boots 103.4",
+              "Kroger 132.5",
               "Target 104.8"
             ],
             [
               "5",
-              "Target 33.7",
-              "Archer Daniels Midland 69.2",
-              "Target 78.1",
+              "ConAgra 24.1",
+              "Target 36.9",
+              "Costco 52.9",
+              "Walgreen 67.4",
+              "P&G 78.8",
+              "Target 93.6",
               "PepsiCo 93.9"
+            ],
+            [
+              "6",
+              "Kroger 23.9",
+              "Albertson's 36.8 †",
+              "Target 52.6",
+              "Target 67.4",
+              "Target 73.8",
+              "P&G 71.0",
+              "P&G 84.3"
+            ],
+            [
+              "7",
+              "Dayton Hudson 23.5",
+              "Costco 32.2",
+              "Walgreen 42.2",
+              "ADM 61.7",
+              "ADM 67.7",
+              "PepsiCo 70.4",
+              "Sysco 81.4"
+            ],
+            [
+              "8",
+              "American Stores 18.3",
+              "Safeway 32.0",
+              "Albertson's 40.4",
+              "PepsiCo 57.8",
+              "PepsiCo 63.1",
+              "ADM 64.4",
+              "Albertsons 80.4"
+            ],
+            [
+              "9",
+              "Price/Costco 18.2",
+              "ConAgra 25.4",
+              "Safeway 38.4",
+              "Kraft Foods 49.5",
+              "Sysco 48.7",
+              "Albertsons 62.5",
+              "ADM 80.3"
+            ],
+            [
+              "10",
+              "Coca-Cola 18.0",
+              "Walgreen 21.2",
+              "ADM 35.9",
+              "Safeway 41.0",
+              "Coca-Cola 44.3",
+              "Sysco 52.9",
+              "Publix 63.2"
             ]
           ]
         },
         {
-          "title": "헬스케어 · 매출 상위 5 ($bn)",
+          "title": "에너지 · 매출 Top 10 ($bn)",
           "head": [
             "순위",
+            "1995",
             "2000",
+            "2005",
             "2010",
+            "2015",
             "2020",
-            "2026"
+            "2025"
           ],
           "rows": [
             [
               "1",
-              "Merck 32.7",
-              "McKesson 106.6",
-              "CVS Health 256.8",
-              "UnitedHealth Group 447.6"
-            ],
-            [
-              "2",
-              "McKesson 30.4",
-              "Cardinal Health 99.6",
-              "UnitedHealth Group 242.2",
-              "CVS Health 402.1"
-            ],
-            [
-              "3",
-              "Johnson & Johnson 27.5",
-              "CVS Caremark 98.7",
-              "McKesson 214.3",
-              "McKesson 359.1"
-            ],
-            [
-              "4",
-              "Aetna 26.5",
-              "UnitedHealth Group 87.1",
-              "AmerisourceBergen 179.6",
-              "Cencora 321.3"
-            ],
-            [
-              "5",
-              "Cardinal Health 25.0",
-              "AmerisourceBergen 71.8",
-              "Cigna Group 153.6",
-              "Cigna Group 274.9"
-            ]
-          ]
-        },
-        {
-          "title": "금융 · 매출 상위 5 ($bn)",
-          "head": [
-            "순위",
-            "2000",
-            "2010",
-            "2020",
-            "2026"
-          ],
-          "rows": [
-            [
-              "1",
-              "Citigroup 82.0",
-              "Bank of America 150.4",
-              "Berkshire Hathaway 254.6",
-              "Berkshire Hathaway 371.4"
-            ],
-            [
-              "2",
-              "Bank of America 51.4",
-              "JPMorgan Chase 115.6",
-              "JPMorgan Chase 142.4",
-              "JPMorgan Chase 280.3"
-            ],
-            [
-              "3",
-              "State Farm 44.6",
-              "Berkshire Hathaway 112.5",
-              "Fannie Mae 120.3",
-              "Bank of America 191.6"
-            ],
-            [
-              "4",
-              "AIG 40.7",
-              "Citigroup 108.8",
-              "Bank of America 113.6",
-              "Citigroup 168.3"
-            ],
-            [
-              "5",
-              "TIAA-CREF 39.4",
-              "AIG 103.2",
-              "Wells Fargo 103.9",
-              "Fannie Mae 159.2"
-            ]
-          ]
-        },
-        {
-          "title": "산업재 · 매출 상위 5 ($bn)",
-          "head": [
-            "순위",
-            "2000",
-            "2010",
-            "2020",
-            "2026"
-          ],
-          "rows": [
-            [
-              "1",
-              "General Electric 111.6",
-              "General Electric 156.8",
-              "General Electric 95.2",
-              "Boeing 89.5"
-            ],
-            [
-              "2",
-              "Boeing 58.0",
-              "Boeing 68.3",
-              "Boeing 76.6",
-              "UPS 88.7"
-            ],
-            [
-              "3",
-              "Ingram Micro 28.1",
-              "United Technologies 52.9",
-              "UPS 74.1",
-              "RTX 88.6"
-            ],
-            [
-              "4",
-              "UPS 27.1",
-              "UPS 45.3",
-              "FedEx 69.7",
-              "FedEx 87.9"
-            ],
-            [
-              "5",
-              "Lockheed Martin 25.5",
-              "Lockheed Martin 45.2",
-              "Lockheed Martin 59.8",
-              "Lockheed Martin 75.0"
-            ]
-          ]
-        },
-        {
-          "title": "에너지 · 매출 상위 5 ($bn)",
-          "head": [
-            "순위",
-            "2000",
-            "2010",
-            "2020",
-            "2026"
-          ],
-          "rows": [
-            [
-              "1",
-              "Exxon Mobil 163.9",
-              "Exxon Mobil 284.6",
-              "Exxon Mobil 264.9",
+              "Exxon 110.0",
+              "Exxon Mobil 210.4",
+              "Exxon Mobil 339.9",
+              "Exxon Mobil 354.7",
+              "Exxon Mobil 246.2",
+              "Exxon Mobil 181.5",
               "Exxon Mobil 332.2"
             ],
             [
               "2",
-              "Enron 40.1",
-              "Chevron 163.5",
-              "Chevron 146.5",
+              "Mobil 66.7",
+              "Enron 100.8",
+              "Chevron 189.5",
+              "Chevron 196.3",
+              "Chevron 131.1",
+              "Chevron 94.7",
               "Chevron 189.0"
             ],
             [
               "3",
-              "Texaco 35.7",
-              "ConocoPhillips 139.5",
-              "Marathon Petroleum 124.8",
+              "Texaco 36.8",
+              "Texaco 51.1",
+              "ConocoPhillips 166.7",
+              "ConocoPhillips 185.0",
+              "Phillips 66 87.2",
+              "Marathon Petroleum 89.0",
               "Phillips 66 136.6"
             ],
             [
               "4",
-              "Chevron 32.7",
-              "Valero Energy 70.0",
-              "Phillips 66 109.6",
+              "Chevron 32.1",
+              "Chevron 48.1",
+              "Valero 81.4",
+              "Valero 86.0",
+              "Valero 81.8",
+              "Phillips 66 65.5",
               "Marathon Petroleum 135.2"
             ],
             [
               "5",
-              "USX 25.6",
-              "Marathon Oil 49.4",
-              "Valero Energy 102.7",
-              "Valero Energy 115.9"
+              "Amoco 27.7",
+              "USX 35.6",
+              "Marathon Oil 59.0",
+              "Marathon Oil 68.4",
+              "Marathon Petroleum 64.6",
+              "Valero 60.1",
+              "Valero 115.9"
+            ],
+            [
+              "6",
+              "USX 18.2",
+              "Conoco 32.5",
+              "Plains All Amer. 31.2",
+              "Sunoco 35.5",
+              "Energy Transfer 42.1",
+              "Energy Transfer 39.0",
+              "Energy Transfer 85.5"
+            ],
+            [
+              "7",
+              "ARCO 16.7",
+              "Dynegy 29.4",
+              "Sunoco 31.2",
+              "Hess 34.6",
+              "ConocoPhillips 30.9",
+              "Enterprise Prod. 27.2",
+              "ConocoPhillips 61.5"
+            ],
+            [
+              "8",
+              "Phillips Petroleum 13.5",
+              "Tosco 24.5",
+              "Amerada Hess 23.3",
+              "Enterprise Prod. 33.7",
+              "World Fuel Svcs. 30.4",
+              "Plains GP 23.3",
+              "Enterprise Prod. 52.6"
+            ],
+            [
+              "9",
+              "Ashland 11.3",
+              "El Paso Energy 21.9",
+              "Halliburton 21.0",
+              "Plains All Amer. 25.9",
+              "Tesoro 28.1",
+              "Baker Hughes 20.7",
+              "Plains GP 45.6"
+            ],
+            [
+              "10",
+              "Occidental 10.4",
+              "Phillips Petroleum 21.2",
+              "Tesoro 16.5",
+              "Murphy Oil 23.3",
+              "Enterprise Prod. 27.0",
+              "World Fuel Svcs. 20.4",
+              "World Kinect 36.9"
             ]
           ]
         },
         {
-          "title": "소재 · 매출 상위 5 ($bn)",
+          "title": "경기소비재 · 매출 Top 10 ($bn) · †는 보완 자료의 값",
           "head": [
             "순위",
+            "1995",
             "2000",
+            "2005",
             "2010",
+            "2015",
             "2020",
-            "2026"
+            "2025"
           ],
           "rows": [
             [
               "1",
-              "DuPont 27.9",
-              "Dow Chemical 44.9",
-              "Dow 43.0",
+              "General Motors 168.8",
+              "General Motors 184.6",
+              "General Motors 192.6",
+              "General Motors 135.6",
+              "General Motors 152.4",
+              "Amazon 386.1",
+              "Amazon 716.9"
+            ],
+            [
+              "2",
+              "Ford 137.1",
+              "Ford 180.6",
+              "Ford 177.2",
+              "Ford 129.0",
+              "Ford 149.6",
+              "Home Depot 132.1",
+              "Ford 187.3"
+            ],
+            [
+              "3",
+              "Chrysler 53.2",
+              "Home Depot 45.7",
+              "Home Depot 81.5",
+              "Home Depot 68.0",
+              "Amazon 107.0",
+              "Ford 127.1",
+              "General Motors 185.0"
+            ],
+            [
+              "4",
+              "Sears 35.2",
+              "Sears 40.9",
+              "Sears Holdings 49.1",
+              "Best Buy 49.7",
+              "Home Depot 88.5",
+              "General Motors 122.5",
+              "Home Depot 164.7"
+            ],
+            [
+              "5",
+              "Kmart 34.7",
+              "Kmart 37.0",
+              "Lowe's 43.2",
+              "Lowe's 48.8",
+              "Lowe's 59.1",
+              "Lowe's 89.6",
+              "Tesla 94.8"
+            ],
+            [
+              "6",
+              "J.C. Penney 21.4",
+              "J.C. Penney 33.0",
+              "Johnson Controls 28.0",
+              "Sears Holdings 43.3",
+              "Johnson Controls 40.2",
+              "Best Buy 47.3",
+              "Lowe's 86.3"
+            ],
+            [
+              "7",
+              "Home Depot 15.5",
+              "Delphi 29.1",
+              "Best Buy 27.4",
+              "Chrysler Group 41.9",
+              "Best Buy 39.7",
+              "Nike 37.4",
+              "TJX 60.4"
+            ],
+            [
+              "8",
+              "Eastman Kodak 15.3",
+              "AutoNation 22.3",
+              "Delphi 27.2",
+              "Johnson Controls 34.3",
+              "TJX 30.9",
+              "TJX 32.1",
+              "Nike 46.3"
+            ],
+            [
+              "9",
+              "Federated 15.0",
+              "Lowe's 18.8 †",
+              "Federated 23.3",
+              "Amazon 34.2",
+              "Nike 30.6",
+              "Tesla 31.5",
+              "Best Buy 41.7"
+            ],
+            [
+              "10",
+              "Goodyear 13.2",
+              "Federated 18.4",
+              "McDonald's 20.5",
+              "Macy's 25.0",
+              "Macy's 27.1",
+              "Starbucks 23.5",
+              "Lithia Motors 38.1"
+            ]
+          ]
+        },
+        {
+          "title": "소재 · 매출 Top 10 ($bn)",
+          "head": [
+            "순위",
+            "1995",
+            "2000",
+            "2005",
+            "2010",
+            "2015",
+            "2020",
+            "2025"
+          ],
+          "rows": [
+            [
+              "1",
+              "DuPont 37.6",
+              "DuPont 29.2",
+              "Dow Chemical 46.3",
+              "Dow Chemical 53.7",
+              "Dow Chemical 48.8",
+              "Dow 38.5",
               "Dow 40.0"
             ],
             [
               "2",
-              "International Paper 24.6",
-              "DuPont 27.3",
-              "3M 32.1",
+              "Dow Chemical 21.0",
+              "Int'l Paper 28.2",
+              "DuPont 28.5",
+              "DuPont 32.7",
+              "DuPont 27.9",
+              "Int'l Paper 20.6",
               "Nucor 32.5"
             ],
             [
               "3",
-              "Dow Chemical 18.9",
-              "International Paper 23.4",
-              "Nucor 22.6",
-              "International Paper 26.1"
+              "Int'l Paper 19.8",
+              "Alcoa 23.1",
+              "Alcoa 26.6",
+              "Int'l Paper 25.2",
+              "Alcoa 22.5",
+              "DuPont 20.4",
+              "Int'l Paper 26.1"
             ],
             [
               "4",
-              "Georgia-Pacific 17.8",
-              "Alcoa 18.7",
-              "International Paper 22.4",
-              "3M 24.9"
+              "Georgia-Pacific 14.3",
+              "Dow Chemical 23.0",
+              "Int'l Paper 25.8",
+              "Alcoa 21.0",
+              "Int'l Paper 22.4",
+              "Nucor 20.1",
+              "Freeport-McMoRan 25.9"
             ],
             [
               "5",
-              "Alcoa 16.4",
-              "PPG Industries 12.2",
-              "DuPont 21.5",
+              "Alcoa 12.7",
+              "Georgia-Pacific 22.2",
+              "Weyerhaeuser 23.0",
+              "Freeport-McMoRan 19.0",
+              "Nucor 16.4",
+              "Sherwin-Williams 18.4",
               "Sherwin-Williams 23.6"
+            ],
+            [
+              "6",
+              "Weyerhaeuser 11.8",
+              "Weyerhaeuser 16.0",
+              "Lyondell 18.6",
+              "U.S. Steel 17.4",
+              "Freeport-McMoRan 15.9",
+              "WestRock 17.6",
+              "Newmont 22.7"
+            ],
+            [
+              "7",
+              "Monsanto 9.0",
+              "Smurfit-Stone 8.8",
+              "U.S. Steel 14.0",
+              "Nucor 15.8",
+              "PPG 15.3",
+              "Corteva 14.2",
+              "Cleveland-Cliffs 18.6"
+            ],
+            [
+              "8",
+              "Stone Container 7.4",
+              "PPG 8.6",
+              "Huntsman 13.0",
+              "PPG 13.4",
+              "Monsanto 15.0",
+              "Freeport-McMoRan 14.2",
+              "Steel Dynamics 18.2"
+            ],
+            [
+              "9",
+              "Reynolds Metals 7.3",
+              "Ashland 8.2",
+              "Nucor 12.7",
+              "Monsanto 10.5",
+              "Ecolab 13.5",
+              "PPG 13.8",
+              "Corteva 17.4"
+            ],
+            [
+              "10",
+              "PPG 7.1",
+              "Boise Cascade 7.8",
+              "PPG 10.2",
+              "Praxair 10.1",
+              "U.S. Steel 11.6",
+              "Ecolab 12.7",
+              "Ecolab 16.1"
             ]
           ]
         },
         {
-          "title": "유틸리티 · 매출 상위 5 ($bn)",
+          "title": "산업재 · 매출 Top 10 ($bn) · †는 보완 자료의 값",
           "head": [
             "순위",
+            "1995",
             "2000",
+            "2005",
             "2010",
+            "2015",
             "2020",
-            "2026"
+            "2025"
           ],
           "rows": [
             [
               "1",
-              "Duke Energy 21.7",
-              "Exelon 17.3",
-              "Exelon 34.4",
+              "General Electric 70.0",
+              "General Electric 129.9",
+              "General Electric 157.2",
+              "General Electric 151.6",
+              "General Electric 140.4",
+              "UPS 84.6",
+              "Boeing 89.5"
+            ],
+            [
+              "2",
+              "Lockheed Martin 22.9",
+              "Boeing 51.3",
+              "Boeing 54.8",
+              "Boeing 64.3",
+              "Boeing 96.1",
+              "General Electric 79.6",
+              "UPS 88.7"
+            ],
+            [
+              "3",
+              "United Tech. 22.8",
+              "UPS 29.8",
+              "United Tech. 42.7",
+              "United Tech. 54.3",
+              "United Tech. 61.0 †",
+              "FedEx 69.2",
+              "RTX 88.6"
+            ],
+            [
+              "4",
+              "UPS 21.0",
+              "United Tech. 26.6",
+              "UPS 42.6",
+              "UPS 49.5",
+              "UPS 58.4",
+              "Lockheed Martin 65.4",
+              "FedEx 87.9"
+            ],
+            [
+              "5",
+              "Boeing 19.5",
+              "Lockheed Martin 25.3",
+              "Lockheed Martin 37.2",
+              "Lockheed Martin 46.9",
+              "FedEx 47.5",
+              "Boeing 58.2",
+              "Lockheed Martin 75.0"
+            ],
+            [
+              "6",
+              "AMR 16.9",
+              "Honeywell 25.0",
+              "Caterpillar 36.3",
+              "Caterpillar 42.6",
+              "Caterpillar 47.0",
+              "Raytheon Tech. 56.6",
+              "Caterpillar 67.6"
+            ],
+            [
+              "7",
+              "3M 16.1",
+              "AMR 20.2",
+              "Northrop Grumman 30.7",
+              "Northrop Grumman 34.8",
+              "Lockheed Martin 46.1",
+              "Caterpillar 41.7",
+              "Delta Air Lines 63.4"
+            ],
+            [
+              "8",
+              "Caterpillar 16.1",
+              "Caterpillar 20.2",
+              "FedEx 29.4",
+              "FedEx 34.7",
+              "American Airlines 41.0",
+              "General Dynamics 37.9",
+              "United Airlines 59.1"
+            ],
+            [
+              "9",
+              "UAL 14.9",
+              "UAL 19.4",
+              "Honeywell 28.9",
+              "Honeywell 33.4",
+              "Delta Air Lines 40.7",
+              "Northrop Grumman 36.8",
+              "American Airlines 54.6"
+            ],
+            [
+              "10",
+              "AlliedSignal 14.3",
+              "Raytheon 18.3",
+              "Deere 21.9",
+              "General Dynamics 32.5",
+              "Honeywell 38.6",
+              "Deere 35.5",
+              "General Dynamics 52.5"
+            ]
+          ]
+        },
+        {
+          "title": "IT · 매출 Top 10 ($bn)",
+          "head": [
+            "순위",
+            "1995",
+            "2000",
+            "2005",
+            "2010",
+            "2015",
+            "2020",
+            "2025"
+          ],
+          "rows": [
+            [
+              "1",
+              "IBM 71.9",
+              "IBM 88.4",
+              "IBM 91.1",
+              "Hewlett-Packard 126.0",
+              "Apple 233.7",
+              "Apple 274.5",
+              "Apple 416.2"
+            ],
+            [
+              "2",
+              "Hewlett-Packard 31.5",
+              "Hewlett-Packard 48.8",
+              "Hewlett-Packard 86.7",
+              "IBM 99.9",
+              "HP 103.4",
+              "Microsoft 143.0",
+              "Microsoft 281.7"
+            ],
+            [
+              "3",
+              "Motorola 27.0",
+              "Compaq 42.4",
+              "Dell 55.9",
+              "Apple 65.2",
+              "Microsoft 93.6",
+              "Dell Technologies 94.2",
+              "Nvidia 215.9"
+            ],
+            [
+              "4",
+              "Xerox 19.0",
+              "Lucent 41.4",
+              "Microsoft 39.8",
+              "Microsoft 62.5",
+              "IBM 82.5",
+              "Intel 77.9",
+              "Dell Technologies 113.5"
+            ],
+            [
+              "5",
+              "Intel 16.2",
+              "Motorola 37.6",
+              "Intel 38.8",
+              "Dell 61.5",
+              "Intel 55.4",
+              "IBM 73.6",
+              "IBM 67.5"
+            ],
+            [
+              "6",
+              "Compaq 14.8",
+              "Intel 33.7",
+              "Motorola 36.8",
+              "Intel 43.6",
+              "Cisco 49.2",
+              "HP 56.6",
+              "Broadcom 63.9"
+            ],
+            [
+              "7",
+              "Digital Equipment 13.8",
+              "Dell Computer 31.9",
+              "Ingram Micro 28.8",
+              "Cisco 40.0",
+              "Ingram Micro 43.0",
+              "Cisco 49.3",
+              "TD Synnex 62.5"
+            ],
+            [
+              "8",
+              "Texas Instruments 13.1",
+              "Ingram Micro 30.7",
+              "Cisco 24.8",
+              "Ingram Micro 34.6",
+              "Oracle 38.2",
+              "Oracle 39.1",
+              "Oracle 57.4"
+            ],
+            [
+              "9",
+              "Apple Computer 11.1",
+              "Microsoft 23.0",
+              "Tech Data 20.5",
+              "Oracle 26.8",
+              "Avnet 27.9",
+              "Arrow Electronics 28.7",
+              "Cisco 56.7"
+            ],
+            [
+              "10",
+              "Unisys 6.5",
+              "Tech Data 20.4",
+              "EDS 20.5",
+              "Tech Data 24.4",
+              "Tech Data 26.4",
+              "Jabil 27.3",
+              "HP 55.3"
+            ]
+          ]
+        },
+        {
+          "title": "유틸리티 · 매출 Top 10 ($bn)",
+          "head": [
+            "순위",
+            "1995",
+            "2000",
+            "2005",
+            "2010",
+            "2015",
+            "2020",
+            "2025"
+          ],
+          "rows": [
+            [
+              "1",
+              "PG&E 9.6",
+              "Duke Energy 49.3",
+              "Duke Energy 18.9",
+              "Exelon 18.6",
+              "Exelon 29.4",
+              "Exelon 33.0",
               "Duke Energy 31.8"
             ],
             [
               "2",
-              "PG&E 20.8",
-              "Southern 15.7",
-              "Duke Energy 24.7",
-              "Southern 29.6"
+              "Southern Co. 9.2",
+              "Reliant Energy 29.3",
+              "Dominion 18.0",
+              "Southern Co. 17.5",
+              "Duke Energy 24.0",
+              "Duke Energy 23.5",
+              "NRG Energy 30.7"
             ],
             [
               "3",
-              "UtiliCorp United 18.6",
-              "NextEra Energy 15.6",
-              "Southern 21.4",
-              "NextEra Energy 27.4"
+              "SCEcorp 8.4",
+              "UtiliCorp 29.0",
+              "Constellation 17.4",
+              "AES 17.1",
+              "Southern Co. 17.5",
+              "Southern Co. 20.4",
+              "Southern Co. 29.6"
             ],
             [
               "4",
-              "Texas Utilities 17.1",
-              "Dominion Resources 15.1",
-              "NextEra Energy 19.2",
-              "PG&E 24.9"
+              "Unicom 6.9",
+              "Southern Co. 23.4",
+              "Exelon 15.4",
+              "NextEra Energy 15.3",
+              "NextEra Energy 17.5",
+              "PG&E 18.5",
+              "NextEra Energy 27.4"
             ],
             [
               "5",
-              "Reliant Energy 15.3",
-              "PG&E 13.4",
-              "PG&E 17.1",
+              "Con Edison 6.4",
+              "PG&E 22.5",
+              "Southern Co. 13.6",
+              "Dominion 15.3",
+              "AEP 16.9",
+              "NextEra Energy 18.0",
+              "Constellation 25.5"
+            ],
+            [
+              "6",
+              "Entergy 6.3",
+              "TXU 22.0",
+              "PSEG 12.7",
+              "AEP 14.4",
+              "PG&E 16.8",
+              "Dominion 16.1",
+              "PG&E 24.9"
+            ],
+            [
+              "7",
+              "PSEG 6.2",
+              "AEP 13.7",
+              "FirstEnergy 12.2",
+              "Constellation 14.3",
+              "FirstEnergy 15.0",
+              "AEP 14.9",
               "Exelon 24.3"
+            ],
+            [
+              "8",
+              "AEP 5.7",
+              "Edison Int'l 11.6",
+              "AEP 12.1",
+              "Duke Energy 14.3",
+              "AES 15.0",
+              "Edison Int'l 13.6",
+              "AEP 21.9"
+            ],
+            [
+              "9",
+              "Texas Utilities 5.6",
+              "Xcel Energy 11.6",
+              "Edison Int'l 11.9",
+              "PG&E 13.8",
+              "NRG Energy 14.7",
+              "Con Edison 12.2",
+              "Edison Int'l 19.3"
+            ],
+            [
+              "10",
+              "FPL Group 5.6",
+              "Entergy 10.0",
+              "FPL Group 11.8",
+              "FirstEnergy 13.3",
+              "Con Edison 12.6",
+              "DTE Energy 12.2",
+              "Vistra 17.7"
             ]
           ]
         },
         {
-          "title": "부동산 · 매출 상위 5 ($bn)",
+          "title": "커뮤니케이션 · 매출 Top 10 ($bn)",
           "head": [
             "순위",
+            "1995",
             "2000",
+            "2005",
             "2010",
+            "2015",
             "2020",
-            "2026"
+            "2025"
           ],
           "rows": [
             [
               "1",
-              "—",
-              "CB Richard Ellis 4.2",
-              "CBRE Group 23.9",
-              "CBRE Group 40.5"
+              "AT&T 79.6",
+              "AT&T 66.0",
+              "Verizon 75.1",
+              "AT&T 124.6",
+              "AT&T 146.8",
+              "Alphabet 182.5",
+              "Alphabet 402.8"
             ],
             [
               "2",
-              "—",
-              "—",
-              "Jones Lang LaSalle 18.0",
-              "Jones Lang LaSalle 26.1"
+              "GTE 20.0",
+              "Verizon 64.7",
+              "AT&T 43.9",
+              "Verizon 106.6",
+              "Verizon 131.6",
+              "AT&T 171.8",
+              "Meta 201.0"
             ],
             [
               "3",
-              "—",
-              "—",
-              "American Tower 7.6",
-              "Welltower 10.8"
+              "BellSouth 17.9",
+              "SBC 51.5",
+              "Time Warner 43.7",
+              "Walt Disney 38.1",
+              "Alphabet 75.0",
+              "Verizon 128.3",
+              "Verizon 138.2"
             ],
             [
               "4",
-              "—",
-              "—",
-              "Realogy 5.9",
-              "American Tower 10.6"
+              "MCI 15.3",
+              "WorldCom 39.1",
+              "Sprint Nextel 34.7",
+              "Comcast 37.9",
+              "Comcast 74.5",
+              "Comcast 103.6",
+              "AT&T 125.6"
             ],
             [
               "5",
-              "—",
-              "—",
-              "Crown Castle 5.8",
-              "Equinix 9.3"
+              "Sprint 13.6",
+              "BellSouth 26.2",
+              "Walt Disney 31.9",
+              "News Corp. 32.8",
+              "Walt Disney 52.5",
+              "Facebook 86.0",
+              "Comcast 123.7"
+            ],
+            [
+              "6",
+              "Bell Atlantic 13.4",
+              "Walt Disney 25.4",
+              "News Corp. 23.9",
+              "Sprint Nextel 32.6",
+              "21st Century Fox 29.0",
+              "Walt Disney 65.4",
+              "Walt Disney 94.4"
+            ],
+            [
+              "7",
+              "Ameritech 13.4",
+              "Sprint 23.6",
+              "Comcast 22.3",
+              "Google 29.3",
+              "Time Warner 28.1",
+              "Charter 48.1",
+              "Charter 54.8"
+            ],
+            [
+              "8",
+              "NYNEX 13.4",
+              "Viacom 20.0",
+              "BellSouth 20.6",
+              "Time Warner 26.9",
+              "Time Warner Cable 23.7",
+              "ViacomCBS 26.2",
+              "Netflix 45.2"
+            ],
+            [
+              "9",
+              "SBC 12.7",
+              "Qwest 16.6",
+              "CBS 14.5",
+              "DirecTV 24.1",
+              "Facebook 17.9",
+              "Netflix 25.0",
+              "Warner Bros. Disc. 37.3"
+            ],
+            [
+              "10",
+              "Walt Disney 12.1",
+              "Comcast 8.2",
+              "Qwest 13.9",
+              "Time Warner Cable 18.9",
+              "CenturyLink 17.9",
+              "Lumen 20.7",
+              "Paramount Skydance 28.9"
+            ]
+          ]
+        },
+        {
+          "title": "금융 · 매출 Top 10 ($bn) · †는 보완 자료의 값",
+          "head": [
+            "순위",
+            "1995",
+            "2000",
+            "2005",
+            "2010",
+            "2015",
+            "2020",
+            "2025"
+          ],
+          "rows": [
+            [
+              "1",
+              "Prudential 41.3",
+              "Citigroup 111.8",
+              "Citigroup 131.0",
+              "Fannie Mae 153.8",
+              "Berkshire Hathaway 210.8",
+              "Berkshire Hathaway 245.5",
+              "Berkshire Hathaway 371.4"
+            ],
+            [
+              "2",
+              "State Farm 40.8",
+              "J.P. Morgan Chase 60.1",
+              "AIG 108.9",
+              "Berkshire Hathaway 136.2",
+              "Fannie Mae 110.4",
+              "JPMorgan Chase 129.5",
+              "JPMorgan Chase 280.3"
+            ],
+            [
+              "3",
+              "Citicorp 31.7",
+              "Bank of America 57.7",
+              "Bank of America 84.0",
+              "Bank of America 134.2",
+              "JPMorgan Chase 101.0",
+              "Fannie Mae 106.4",
+              "Bank of America 191.6"
+            ],
+            [
+              "4",
+              "Metropolitan Life 28.0",
+              "State Farm 47.9",
+              "Berkshire Hathaway 81.7",
+              "JPMorgan Chase 115.5",
+              "Bank of America 93.1",
+              "Bank of America 93.8",
+              "Citigroup 168.3"
+            ],
+            [
+              "5",
+              "AIG 25.9",
+              "AIG 46.0",
+              "JPMorgan Chase 79.9",
+              "Citigroup 111.1",
+              "Wells Fargo 90.0",
+              "Citigroup 88.8",
+              "Fannie Mae 159.2"
+            ],
+            [
+              "6",
+              "Allstate 22.8",
+              "Morgan Stanley DW 45.4",
+              "State Farm 59.2",
+              "AIG 104.4",
+              "Citigroup 88.3",
+              "Wells Fargo 80.3",
+              "StoneX 132.4"
+            ],
+            [
+              "7",
+              "Fannie Mae 22.2",
+              "Merrill Lynch 44.9",
+              "Morgan Stanley 52.5",
+              "Freddie Mac 98.4",
+              "State Farm 75.7",
+              "State Farm 78.9",
+              "State Farm 132.3"
+            ],
+            [
+              "8",
+              "Merrill Lynch 21.5",
+              "Fannie Mae 44.1",
+              "Merrill Lynch 47.8",
+              "Wells Fargo 93.2",
+              "MetLife 70.0",
+              "MetLife 67.8",
+              "Freddie Mac 131.7"
+            ],
+            [
+              "9",
+              "BankAmerica 20.4 †",
+              "TIAA-CREF 38.1",
+              "MetLife 47.0",
+              "State Farm 63.2",
+              "Freddie Mac 63.5",
+              "Freddie Mac 66.2",
+              "Goldman Sachs 125.1"
+            ],
+            [
+              "10",
+              "Cigna 19.0",
+              "Berkshire Hathaway 34.0",
+              "Goldman Sachs 43.4",
+              "MetLife 52.7",
+              "AIG 58.3",
+              "Prudential 57.0",
+              "Wells Fargo 123.5"
+            ]
+          ]
+        },
+        {
+          "title": "헬스케어 · 매출 Top 10 ($bn) · †는 보완 자료의 값",
+          "head": [
+            "순위",
+            "1995",
+            "2000",
+            "2005",
+            "2010",
+            "2015",
+            "2020",
+            "2025"
+          ],
+          "rows": [
+            [
+              "1",
+              "Johnson & Johnson 18.8",
+              "Merck 40.4",
+              "McKesson 80.5",
+              "McKesson 108.7",
+              "McKesson 181.2",
+              "CVS Health 268.7",
+              "UnitedHealth 447.6"
+            ],
+            [
+              "2",
+              "Columbia/HCA 17.7",
+              "McKesson HBOC 37.1",
+              "Cardinal Health 74.9",
+              "Cardinal Health 98.6",
+              "UnitedHealth 157.1",
+              "UnitedHealth 257.1",
+              "CVS Health 402.1"
+            ],
+            [
+              "3",
+              "Merck 16.7",
+              "Cardinal Health 29.9",
+              "AmerisourceBergen 54.6",
+              "CVS Caremark 96.4",
+              "CVS Health 153.3",
+              "McKesson 231.1",
+              "McKesson 359.1"
+            ],
+            [
+              "4",
+              "Bristol-Myers 13.8",
+              "Pfizer 29.6",
+              "Pfizer 51.4",
+              "UnitedHealth 94.2",
+              "AmerisourceBergen 136.0",
+              "AmerisourceBergen 189.9",
+              "Cencora 321.3"
+            ],
+            [
+              "5",
+              "Amer. Home Prod. 13.4",
+              "Johnson & Johnson 29.1",
+              "Johnson & Johnson 50.5",
+              "AmerisourceBergen 78.0",
+              "Cardinal Health 102.5",
+              "Cigna 160.4",
+              "Cigna 274.9"
+            ],
+            [
+              "6",
+              "McKesson 13.3",
+              "Aetna 26.8 †",
+              "UnitedHealth 45.4",
+              "Pfizer 67.8",
+              "Express Scripts 101.8",
+              "Cardinal Health 152.9",
+              "Cardinal Health 222.6"
+            ],
+            [
+              "7",
+              "Pfizer 10.0",
+              "Bristol-Myers 21.3",
+              "WellPoint 45.1",
+              "Medco Health 66.0",
+              "Anthem 79.2",
+              "Anthem 121.9",
+              "Elevance Health 199.1"
+            ],
+            [
+              "8",
+              "Abbott Labs 10.0",
+              "UnitedHealth 21.1",
+              "Medco Health 37.9",
+              "Johnson & Johnson 61.6",
+              "Johnson & Johnson 70.1",
+              "Centene 111.1",
+              "Centene 194.8"
+            ],
+            [
+              "9",
+              "Baxter 9.7",
+              "CVS 20.1",
+              "CVS 37.0",
+              "WellPoint 58.8",
+              "Aetna 60.3 †",
+              "Johnson & Johnson 82.6",
+              "Humana 129.7"
+            ],
+            [
+              "10",
+              "Bergen Brunswig 8.4",
+              "Cigna 20.0",
+              "Caremark Rx 33.0",
+              "Merck 46.0",
+              "Humana 54.3",
+              "Humana 77.2",
+              "Johnson & Johnson 94.2"
             ]
           ]
         }
@@ -795,7 +1432,7 @@
       "part": 2,
       "title": "반도체 80년을 한 시간축에: 수요 · 거시환경 · 사건 · 기업",
       "sub": "가운데 시대 축 위는 산업 안쪽(기업·수요·매출), 아래는 바깥 환경(사건·금리·구조) · 시대를 누르면 세부 설명",
-      "html": "<div class=\"pills\"><label><input type=\"checkbox\" data-layer=\"leaders\" checked> 기업 · 산업 구조</label><label><input type=\"checkbox\" data-layer=\"demand\" checked> 수요 · 매출</label><label><input type=\"checkbox\" data-layer=\"events\" checked> 주요 사건</label><label><input type=\"checkbox\" data-layer=\"macro\" checked> 금리 · 거시 환경</label></div><div id=\"timeline\" data-h=\"500\" style=\"min-height:500px\"></div>",
+      "html": "<div class=\"pills\"><label><input type=\"checkbox\" data-layer=\"leaders\" checked> 기업 · 산업 구조</label><label><input type=\"checkbox\" data-layer=\"demand\" checked> 수요 · 매출</label><label><input type=\"checkbox\" data-layer=\"events\" checked> 주요 사건</label><label><input type=\"checkbox\" data-layer=\"macro\" checked> 금리 · 거시 환경</label></div><div id=\"timeline\" data-h=\"506\" style=\"min-height:506px\"></div>",
       "take": "시대 구분은 수요 중심의 분석 틀이다. 실제 전환은 서로 겹친다.",
       "sources": [
         "chm",
@@ -824,41 +1461,26 @@
       "id": "era0-invention",
       "part": 2,
       "title": "태동기: 먼저 위험을 떠안은 고객은 국가였다",
-      "sub": "1947–1970s · 발명에서 양산으로, 그리고 오늘의 칩까지",
-      "html": "<div class=\"strip-h\"><span class=\"on\" style=\"flex:3\">태동기 · 이 장의 주제</span><span style=\"flex:4\">그 이후의 발전 → 현재</span></div><div class=\"strip\" style=\"--ph:178px\"><div class=\"frame \"><img src=\"assets/v3/deck/transistor.jpg\" alt=\"1947년 점접촉 트랜지스터 전시물\"><span class=\"yr\">1947</span><h3>트랜지스터</h3><p>전류를 증폭·전환하는 최초의 반도체 소자</p><div class=\"cr\">사진 · Windell Oskay · CC BY 2.0</div></div><div class=\"frame \"><img src=\"assets/v3/deck/ic-replica.jpg\" alt=\"잭 킬비의 1958년 집적회로 복제품\"><span class=\"yr\">1958</span><h3>집적회로</h3><p>여러 소자를 한 칩에 (사진은 복제품)</p><div class=\"cr\">사진 · Florian Schäffer · CC BY-SA 4.0</div></div><div class=\"frame \"><img src=\"assets/v3/deck/intel-4004.jpg\" alt=\"인텔 4004 — 최초의 상용 마이크로프로세서 (1971년 출시)\"><span class=\"yr\">1971</span><h3>마이크로프로세서</h3><p>Intel 4004 · 연산 장치를 칩 하나에</p><div class=\"cr\">사진 · Thomas Nguyen · CC BY-SA 4.0</div></div><div class=\"frame later\"><img src=\"assets/v3/deck/dram-256k-nec.jpg\" alt=\"NEC 256K D램 μPD41256 (1987년 제조, 일본)\"><span class=\"yr\">1980s</span><h3>D램</h3><p>NEC 256K D램 · 일본 메모리의 전성기</p><div class=\"cr\">사진 · Mister rf · CC BY-SA 4.0</div></div><div class=\"frame later\"><img src=\"assets/v3/deck/wafer-300mm.jpg\" alt=\"회로가 형성된 300mm(12인치) 실리콘 웨이퍼 (2011년 게시 사진)\"><span class=\"yr\">2000s</span><h3>300mm 웨이퍼</h3><p>12인치 웨이퍼 · 대형 팹의 시대</p><div class=\"cr\">사진 · Peellden · CC BY-SA 3.0</div></div><div class=\"frame later\"><img src=\"assets/v3/deck/soc-apple-a4.jpg\" alt=\"애플 A4 모바일 SoC — 아이폰 4 메인보드 (2010년)\"><span class=\"yr\">2010</span><h3>모바일 SoC</h3><p>Apple A4 · 스마트폰의 두뇌</p><div class=\"cr\">사진 · Raimond Spekking · CC BY-SA 4.0</div></div><div class=\"frame later\"><img src=\"assets/v3/deck/ai-nvidia-b200.jpg\" alt=\"엔비디아 HGX B200 — 블랙웰 GPU 8개를 탑재한 AI 서버 보드 (2025년 촬영)\"><span class=\"yr\">2025</span><h3>AI 가속기</h3><p>NVIDIA HGX B200 · GPU 8개 AI 서버 보드</p><div class=\"cr\">사진 · Pokiiri · CC BY-SA 4.0</div></div></div><div class=\"inv-bottom\"><div class=\"frame wide\" style=\"--ph:168px\"><img src=\"assets/v3/deck/apollo11.jpg\" alt=\"아폴로 11호 발사, 1969.7.16\"><span class=\"yr\">1969</span><h3>아폴로 11호 발사</h3><div class=\"cr\">사진 · NASA · Public domain</div></div><div class=\"col\" style=\"justify-content:space-between;gap:12px\"><span class=\"kicker\">누가 초기 위험을 떠안았나</span><div class=\"flow \"><div class=\"node\"><b>정부 연구 · 조달</b><span>불확실한 초기 수요를 보완</span></div><span class=\"arrow\">→</span><div class=\"node\"><b>반복 생산</b><span>수율 학습 · 단가 하락</span></div><span class=\"arrow\">→</span><div class=\"node\"><b>민간 시장</b><span>계산기 · 컴퓨터로 확대</span></div></div><div class=\"band\"><em>첫 고객</em><b>아폴로 유도컴퓨터</b><span>1965년까지 IC의 최대 수요처 · 약 20만 개를 개당 $20–30에 구매 — 이후 미니트맨 미사일이 그 자리를 이었다</span></div></div></div>",
-      "take": "정부는 초기 기술의 고객이자 위험 분담자였다.",
+      "sub": "1947–1970s · 발명에서 양산으로 · 미·소 군비 경쟁이 만든 조달 수요",
+      "html": "<div class=\"rows gap14\"><div><div class=\"strip-h\"><span class=\"on\" style=\"flex:3\">태동기 · 이 장의 주제</span><span style=\"flex:4\">그 이후의 발전 → 현재</span></div><div class=\"strip sm\" style=\"--ph:106px\"><div class=\"frame \"><img src=\"assets/v3/deck/transistor.jpg\" alt=\"1947년 점접촉 트랜지스터 전시물\"><span class=\"yr\">1947</span><h3>트랜지스터</h3><p>전류를 증폭·전환하는 최초의 반도체 소자</p><div class=\"cr\">사진 · Windell Oskay · CC BY 2.0</div></div><div class=\"frame \"><img src=\"assets/v3/deck/ic-replica.jpg\" alt=\"잭 킬비의 1958년 집적회로 복제품\"><span class=\"yr\">1958</span><h3>집적회로</h3><p>여러 소자를 한 칩에 (사진은 복제품)</p><div class=\"cr\">사진 · Florian Schäffer · CC BY-SA 4.0</div></div><div class=\"frame \"><img src=\"assets/v3/deck/intel-4004.jpg\" alt=\"인텔 4004 — 최초의 상용 마이크로프로세서 (1971년 출시)\"><span class=\"yr\">1971</span><h3>마이크로프로세서</h3><p>Intel 4004 · 연산 장치를 칩 하나에</p><div class=\"cr\">사진 · Thomas Nguyen · CC BY-SA 4.0</div></div><div class=\"frame later\"><img src=\"assets/v3/deck/dram-256k-nec.jpg\" alt=\"NEC 256K D램 μPD41256 (1987년 제조, 일본)\"><span class=\"yr\">1980s</span><h3>D램</h3><p>NEC 256K D램 · 일본 메모리의 전성기</p><div class=\"cr\">사진 · Mister rf · CC BY-SA 4.0</div></div><div class=\"frame later\"><img src=\"assets/v3/deck/wafer-300mm.jpg\" alt=\"회로가 형성된 300mm(12인치) 실리콘 웨이퍼 (2011년 게시 사진)\"><span class=\"yr\">2000s</span><h3>300mm 웨이퍼</h3><p>12인치 웨이퍼 · 대형 팹의 시대</p><div class=\"cr\">사진 · Peellden · CC BY-SA 3.0</div></div><div class=\"frame later\"><img src=\"assets/v3/deck/soc-apple-a4.jpg\" alt=\"애플 A4 모바일 SoC — 아이폰 4 메인보드 (2010년)\"><span class=\"yr\">2010</span><h3>모바일 SoC</h3><p>Apple A4 · 스마트폰의 두뇌</p><div class=\"cr\">사진 · Raimond Spekking · CC BY-SA 4.0</div></div><div class=\"frame later\"><img src=\"assets/v3/deck/ai-nvidia-b200.jpg\" alt=\"엔비디아 HGX B200 — 블랙웰 GPU 8개를 탑재한 AI 서버 보드 (2025년 촬영)\"><span class=\"yr\">2025</span><h3>AI 가속기</h3><p>NVIDIA HGX B200 · GPU 8개 AI 서버 보드</p><div class=\"cr\">사진 · Pokiiri · CC BY-SA 4.0</div></div></div></div><div class=\"split grow auto\"><div class=\"col\"><div data-chart=\"milex\" class=\"grow\"></div><p class=\"note\">Correlates of War NMC v6.0 · 명목 달러 · 소련은 환산 추정치 — 수준보다 함께 늘어난 추세를 볼 것 · 반도체 구매액이 아닌 거시 배경</p></div><div class=\"col center text\"><span class=\"kicker\">첫 번째 대량 고객 · 아폴로 유도컴퓨터</span><div class=\"big amber\">20만 개</div><p>IC를 개당 <b>$20–30</b>에 구매<br>1965년까지 IC의 <b>최대 수요처</b></p><div class=\"tags \"><span>정부 연구 · 조달</span><i>→</i><span>반복 생산 · 단가 하락</span><i>→</i><span>민간 시장</span></div><p class=\"sm\">“정부가 모든 손실을 보장했다”는 뜻은 아님 — 기술·생산 위험은 여전히 기업에 남았다.</p></div></div></div>",
+      "take": "수익이 아직 불확실한 단계에서, 정부는 첫 고객이자 위험 분담자였다.",
       "sources": [
         "transistor",
         "kilby",
         "intel_4004",
         "chm",
+        "cow_nmc",
+        "hist_korea",
+        "hist_sputnik",
+        "hist_vietnam",
+        "img_apollo11",
         "img_transistor",
         "img_ic-replica",
         "img_intel-4004",
         "img_dram-256k-nec",
         "img_wafer-300mm",
         "img_soc-apple-a4",
-        "img_ai-nvidia-b200",
-        "img_apollo11"
-      ],
-      "kind": "",
-      "method": "",
-      "tables": []
-    },
-    {
-      "id": "era0-capital",
-      "part": 2,
-      "title": "정부 수요가 기술의 초기 자본비용을 낮췄다",
-      "sub": "미·소 냉전의 군비 경쟁 → 조달 수요 → 연구개발·생산능력 축적",
-      "html": "<div class=\"split\"><div class=\"col\"><div data-chart=\"milex\" class=\"grow\"></div><p class=\"note\">Correlates of War · National Material Capabilities v6.0 · 명목 달러. 소련은 추정치로, 환산 방법에 따라 수준·순위가 달라진다 — 절대 수준보다 양측이 함께 늘어난 추세를 볼 것. 반도체 구매액이 아닌 거시적 배경.</p></div><div class=\"col center text\"><span class=\"kicker\">첫 번째 대량 고객</span><div class=\"big amber tn\">20만 개</div><p>아폴로 유도컴퓨터가 구매한 IC · 개당 <b>$20–30</b><br>1965년까지 IC의 <b>최대 수요처</b></p><h2 class=\"mt20\">수요 위험의 완화</h2><p>원가보상형 개발 계약<br>우주·군수의 초기 대량 발주<br>신뢰성 요구와 학습 효과</p><p class=\"sm\">“정부가 모든 손실을 보장했다”는 의미는 아님. 기술·생산 위험은 여전히 기업에 남음.</p></div></div>",
-      "take": "수익이 아직 불확실한 단계에서는 “누가 첫 고객인가”가 중요했다.",
-      "sources": [
-        "cow_nmc",
-        "chm",
-        "hist_korea",
-        "hist_sputnik",
-        "hist_vietnam",
-        "img_apollo11"
+        "img_ai-nvidia-b200"
       ],
       "kind": "",
       "method": "군사비는 Correlates of War NMC v6.0의 명목 달러(당해연도) 값. 소련 값은 루블 지출을 달러로 환산한 추정치여서 출처마다 크게 다름. 두 선의 교차 시점을 근거로 삼지 않음. 조사 기준 2026-11-08.",
@@ -896,18 +1518,21 @@
     {
       "id": "era1-leaders",
       "part": 2,
-      "title": "일본의 부상, 한국의 진입",
-      "sub": "1990 반도체 공급업체 매출 순위 · 파운드리 제외",
-      "html": "<div class=\"split s50\"><div class=\"col\"><span class=\"kicker\">1990 반도체 공급업체 매출 Top 10 · $bn</span><div class=\"medium\" style=\"margin:6px 0 14px\">Top 10 중 <span class=\"amber\">6곳</span>이 일본</div><div class=\"hb tall\" style=\"--hbn:190px\"><div class=\"hb-row\"><span><span class=\"rk\">1</span>NEC</span><div class=\"hb-track\"><i style=\"width:100.0%;background:#d95926\"></i></div><b>4.32</b></div><div class=\"hb-row\"><span><span class=\"rk\">2</span>Toshiba</span><div class=\"hb-track\"><i style=\"width:97.2%;background:#d95926\"></i></div><b>4.20</b></div><div class=\"hb-row\"><span><span class=\"rk\">3</span>Motorola</span><div class=\"hb-track\"><i style=\"width:81.9%;background:#3987e5\"></i></div><b>3.54</b></div><div class=\"hb-row\"><span><span class=\"rk\">4</span>Hitachi</span><div class=\"hb-track\"><i style=\"width:81.4%;background:#d95926\"></i></div><b>3.52</b></div><div class=\"hb-row\"><span><span class=\"rk\">5</span>Intel</span><div class=\"hb-track\"><i style=\"width:73.4%;background:#3987e5\"></i></div><b>3.17</b></div><div class=\"hb-row\"><span><span class=\"rk\">6</span>Fujitsu</span><div class=\"hb-track\"><i style=\"width:60.1%;background:#d95926\"></i></div><b>2.60</b></div><div class=\"hb-row\"><span><span class=\"rk\">7</span>Texas Instruments</span><div class=\"hb-track\"><i style=\"width:59.6%;background:#3987e5\"></i></div><b>2.57</b></div><div class=\"hb-row\"><span><span class=\"rk\">8</span>Mitsubishi</span><div class=\"hb-track\"><i style=\"width:48.8%;background:#d95926\"></i></div><b>2.11</b></div><div class=\"hb-row\"><span><span class=\"rk\">9</span>Philips</span><div class=\"hb-track\"><i style=\"width:45.2%;background:#199e70\"></i></div><b>1.96</b></div><div class=\"hb-row\"><span><span class=\"rk\">10</span>Matsushita</span><div class=\"hb-track\"><i style=\"width:42.2%;background:#d95926\"></i></div><b>1.83</b></div></div><div class=\"legend inline mt14\"><span><i class=\"sq\" style=\"background:#d95926;border-color:#d95926\"></i>일본</span><span><i class=\"sq\" style=\"background:#3987e5;border-color:#3987e5\"></i>미국</span><span><i class=\"sq\" style=\"background:#199e70;border-color:#199e70\"></i>유럽</span></div><p class=\"note\">미국 3곳(Motorola · Intel · TI)은 CPU 등 비메모리에서 자리를 지켰다 — Intel은 1985년 DRAM 철수 발표. Gartner 집계 기준 대표 연도 순위.</p></div><article class=\"panel\"><div class=\"sidepic\" style=\"grid-template-columns:1fr 290px;align-items:center\"><div><div class=\"kicker\">1983 · 도쿄 선언</div><h3 style=\"font-size:30px;margin:10px 0 0\">삼성의 DRAM 진입</h3></div><div class=\"frame \" style=\"--ph:116px\"><img src=\"assets/v3/deck/dram-1m-samsung.jpg\" alt=\"삼성 1M D램 KM44C256BP-8 (1990년경 제조, 한국)\"><span class=\"yr\">1990년경 · 삼성 1M D램</span><h3></h3><div class=\"cr\">사진 · Drahtlos · CC BY-SA 4.0</div></div></div><div class=\"vtl lg\"><div><b>1983.02</b>도쿄 선언 — 메모리 사업 진출</div><div><b>1983.12</b>64K DRAM 개발 (세계 3번째)</div><div><b>1984.05</b>기흥 1라인 준공</div><div class=\"hi\"><b>1992</b>64Mb DRAM 개발 · DRAM 출하 1위</div><div class=\"hi\"><b>1993</b>메모리 반도체 1위</div></div><div class=\"pquote\"><span>후발주자에게 필요했던 것은 기술과 함께</span><b>“손실을 견딜 시간”</b><span>그룹 차원의 자본 지원과 장기 의사결정</span></div></article></div>",
+      "title": "거시환경의 차이가 바꾼 주도권: 미국에서 일본으로",
+      "sub": "1980년대 미·일의 금리 · 환율 격차 → 1990 반도체 공급업체 매출 순위 (파운드리 제외)",
+      "html": "<div class=\"rows gap14\"><div class=\"split s50 linked to grow auto\"><div class=\"col macro\"><span class=\"kicker\">원인 · 1980년대 거시환경의 차이</span><div class=\"mside\" style=\"border-left-color:#3987e5\"><div class=\"mside-h\"><em>미국</em><b>고금리 · 강달러</b></div><div class=\"mside-n\"><div><b>19.1%</b><span>FF 금리 · 1981.06 월평균</span></div><div><b>+54%</b><span>달러지수 · 1980.09–85.03</span></div></div><p><b>투자 · 수출 부담</b> → CPU 등 비메모리로 재편 <small>Intel, 1985년 DRAM 철수 발표</small></p></div><div class=\"mgap\"><span>1981.06 정책금리 격차</span><b>12.9%p</b></div><div class=\"mside\" style=\"border-left-color:#d95926\"><div class=\"mside-h\"><em>일본</em><b>저금리 · 은행 금융</b></div><div class=\"mside-n\"><div><b>6.25%</b><span>공정할인율 · 1981.06</span></div></div><p><b>오래 걸리는 설비 경쟁을 지속</b> → 메모리(DRAM) 주도</p></div><p class=\"note\">금리만의 결과는 아님 — 수율 · 품질 · 고객 기반 · 산업정책이 함께 작용.</p></div><div class=\"col\"><span class=\"kicker\">결과 · 1990 반도체 공급업체 매출 Top 10 · $bn</span><div class=\"medium\" style=\"margin:4px 0 10px\">Top 10 중 <span class=\"amber\">6곳</span>이 일본</div><div class=\"segbar\" role=\"img\" aria-label=\"Top 10 매출 합계의 국가별 비중: 일본 6곳 62.3%, 미국 3곳 31.1%, 유럽 1곳 6.6%\"><i style=\"flex:62.30;background:#d95926\" data-tip=\"일본 6곳|Top 10 매출 합계의 62.3%\"><b>일본 6곳</b>62%</i><i style=\"flex:31.14;background:#3987e5\" data-tip=\"미국 3곳|Top 10 매출 합계의 31.1%\"><b>미국 3곳</b>31%</i><i style=\"flex:6.56;background:#199e70\" data-tip=\"유럽 1곳|Top 10 매출 합계의 6.6%\">7%</i></div><div class=\"segcap\"><span>Top 10 매출 합계의 국가별 비중</span><div class=\"legend inline \"><span><i class=\"sq\" style=\"background:#d95926;border-color:#d95926\"></i>일본</span><span><i class=\"sq\" style=\"background:#3987e5;border-color:#3987e5\"></i>미국</span><span><i class=\"sq\" style=\"background:#199e70;border-color:#199e70\"></i>유럽</span></div></div><div class=\"hb c10\" style=\"--hbn:190px\"><div class=\"hb-row\"><span><span class=\"rk\">1</span>NEC</span><div class=\"hb-track\"><i style=\"width:100.0%;background:#d95926\"></i></div><b>4.32</b></div><div class=\"hb-row\"><span><span class=\"rk\">2</span>Toshiba</span><div class=\"hb-track\"><i style=\"width:97.2%;background:#d95926\"></i></div><b>4.20</b></div><div class=\"hb-row\"><span><span class=\"rk\">3</span>Motorola</span><div class=\"hb-track\"><i style=\"width:81.9%;background:#3987e5\"></i></div><b>3.54</b></div><div class=\"hb-row\"><span><span class=\"rk\">4</span>Hitachi</span><div class=\"hb-track\"><i style=\"width:81.4%;background:#d95926\"></i></div><b>3.52</b></div><div class=\"hb-row\"><span><span class=\"rk\">5</span>Intel</span><div class=\"hb-track\"><i style=\"width:73.4%;background:#3987e5\"></i></div><b>3.17</b></div><div class=\"hb-row\"><span><span class=\"rk\">6</span>Fujitsu</span><div class=\"hb-track\"><i style=\"width:60.1%;background:#d95926\"></i></div><b>2.60</b></div><div class=\"hb-row\"><span><span class=\"rk\">7</span>Texas Instruments</span><div class=\"hb-track\"><i style=\"width:59.6%;background:#3987e5\"></i></div><b>2.57</b></div><div class=\"hb-row\"><span><span class=\"rk\">8</span>Mitsubishi</span><div class=\"hb-track\"><i style=\"width:48.8%;background:#d95926\"></i></div><b>2.11</b></div><div class=\"hb-row\"><span><span class=\"rk\">9</span>Philips</span><div class=\"hb-track\"><i style=\"width:45.2%;background:#199e70\"></i></div><b>1.96</b></div><div class=\"hb-row\"><span><span class=\"rk\">10</span>Matsushita</span><div class=\"hb-track\"><i style=\"width:42.2%;background:#d95926\"></i></div><b>1.83</b></div></div><p class=\"note\">미국 3곳(Motorola · Intel · TI)은 CPU 등 비메모리에서 자리를 지켰다. Gartner 집계 기준 대표 연도 순위.</p></div></div><div class=\"band top aside\"><em>덧붙임 · 한국의 진입</em><span>삼성 — <b>1983</b> 도쿄 선언 → <b>1992</b> DRAM 출하 1위 → <b>1993</b> 메모리 반도체 1위 · 후발주자에게 필요했던 것은 <b>“손실을 견딜 시간”</b></span></div></div>",
       "take": "미국의 퇴장이 아니라 경쟁 분야의 재편이었다. CPU와 메모리의 길이 갈렸다.",
       "sources": [
         "ranking_history",
-        "samsung_history",
+        "japan",
+        "fred_ff",
+        "boj",
+        "fred_twex",
         "hist_intel_dram",
-        "img_dram-1m-samsung"
+        "samsung_history"
       ],
       "kind": "",
-      "method": "",
+      "method": "금리는 미국 연방기금 실효금리 월평균과 일본 공정할인율(월말 적용 기준)로, 정의가 다른 두 지표이며 기업의 실제 조달금리가 아님. 달러지수는 연준 무역가중 지수(주요 통화)의 1980.09 → 1985.03 상승률. 국가별 비중은 1990년 Top 10 기업의 매출 합계를 본사 소재지로 나눈 값이며 세계 시장 점유율이 아님. 조사 기준 2026-11-09.",
       "tables": [
         {
           "title": "1990 반도체 공급업체 매출 Top 10",
@@ -977,6 +1602,31 @@
               "Matsushita",
               "일본",
               "1.826"
+            ]
+          ]
+        },
+        {
+          "title": "1990 Top 10 매출 합계의 국가별 비중",
+          "head": [
+            "국가·지역",
+            "기업 수",
+            "비중 (%)"
+          ],
+          "rows": [
+            [
+              "일본",
+              "6",
+              "62.3"
+            ],
+            [
+              "미국",
+              "3",
+              "31.1"
+            ],
+            [
+              "유럽",
+              "1",
+              "6.6"
             ]
           ]
         }
@@ -1176,41 +1826,25 @@
       "id": "buyer-dashboard",
       "part": 3,
       "title": "매출의 성장보다, 현금의 내구성을 확인한다",
-      "sub": "기업 선택 → 여덟 가지 지표를 같은 화면에서 비교",
+      "sub": "기업 선택 → 여덟 가지 지표의 분기 추이 · 2023Q1–2026Q3",
       "html": "<div class=\"dash-top\"><label for=\"companySelect\">기업</label><select id=\"companySelect\"><option>Microsoft</option><option>Alphabet</option><option>Amazon</option><option>Meta</option></select></div><div class=\"dashboard\" id=\"dashboard\"></div><p class=\"note\" id=\"dashNote\"></p>",
       "take": "같은 AI 투자 경쟁이어도 기존 사업의 현금창출력과 재무구조는 다르다.",
       "sources": [
-        "fin_Microsoft",
-        "fin_Alphabet",
-        "fin_Amazon",
-        "fin_Meta"
+        "sec_qf_Microsoft",
+        "sec_qf_Alphabet",
+        "sec_qf_Amazon",
+        "sec_qf_Meta"
       ],
       "kind": "",
-      "method": "",
-      "tables": []
-    },
-    {
-      "id": "buyer-checklist",
-      "part": 3,
-      "title": "빅테크 재무 건전성: 일곱 가지 체크",
-      "sub": "엘피다를 현재에 적용하되, 사업 모델의 차이를 인정한다",
-      "html": "<div class=\"cklist\"><div class=\"ckrow\"><div class=\"ckhead\"><b>벌어들이는 힘</b><span>투자를 회수하고 있는가</span></div><div class=\"ckitems\"><div class=\"ck\"><span class=\"n\">①</span><div><strong>매출 / CAPEX</strong><span>클라우드 성장 vs 투자 증가</span><em>투자 회수 속도</em></div></div><div class=\"ck\"><span class=\"n\">②</span><div><strong>FCF</strong><span>영업CF − 현금 CAPEX · 금융리스 원금은 별도 확인</span><em>자체 조달 여력</em></div></div></div></div><div class=\"ckrow\"><div class=\"ckhead\"><b>버티는 힘</b><span>불황과 금리를 견디는가</span></div><div class=\"ckitems\"><div class=\"ck\"><span class=\"n\">③</span><div><strong>이자보상</strong><span>영업이익 / 이자비용</span><em>금리 상승 흡수력</em></div></div><div class=\"ck\"><span class=\"n\">④</span><div><strong>순부채 · 현금</strong><span>현금성 자산과 총차입을 함께</span><em>유동성 완충력</em></div></div><div class=\"ck\"><span class=\"n\">⑤</span><div><strong>만기 구조</strong><span>향후 1–3년의 만기 집중</span><em>차환 위험</em></div></div></div></div><div class=\"ckrow\"><div class=\"ckhead\"><b>조절하는 힘</b><span>하강기에 속도를 늦출 수 있는가</span></div><div class=\"ckitems\"><div class=\"ck\"><span class=\"n\">⑥</span><div><strong>계약 · 고객</strong><span>수주잔고 · 선급금 · 고객 집중</span><em>수익의 질</em></div></div><div class=\"ck\"><span class=\"n\">⑦</span><div><strong>투자 유연성</strong><span>취소 가능한 CAPEX · 전력 계약</span><em>하강 시 조절 여력</em></div></div></div></div></div>",
-      "take": "기술력이 있어도 현금이 먼저 소진될 수 있다. 그러나 높은 차입만으로 탈락을 단정할 수 없다.",
-      "sources": [
-        "elpida_failure",
-        "fin_Microsoft",
-        "fin_Amazon"
-      ],
-      "kind": "",
-      "method": "",
+      "method": "SEC XBRL(companyfacts)에 태그된 값을 역년 분기로 맞춤. 손익 · 현금흐름 항목은 3개월 공시값을 우선 쓰고, 없으면 회계연도 누계의 차감으로 구함(회계 4분기 = 연간 − 9개월 누계). 재무상태 항목은 분기 말 잔액. 정정 공시가 있으면 가장 최근 제출분을 사용하며, 태그된 값으로 구할 수 없는 분기는 비워 두고 추정 · 보간하지 않음. 매출 성장률 = 전년 동기 대비 · 영업이익률 = 영업이익 ÷ 매출 · FCF = 영업CF − 현금 CAPEX(금융리스 원금 미차감) · 이자보상배율 = 분기 영업이익 ÷ 영업외 이자비용 · 부채비율 = 총부채 ÷ 자본(분기 말, Amazon의 총부채 = 자산 − 자본). Meta의 분기 이자비용은 차입금 이자(InterestExpenseDebt, 금융리스 이자 제외) 기준이며, 2024Q1 · Q2는 두 분기 합산치만 태그되어 있어 이자보상배율을 비움. Microsoft는 6월 결산이어서 회계 분기를 역년 분기에 대응시킴. 조사 기준 2026-11-09.",
       "tables": []
     },
     {
       "id": "rates-2026",
       "part": 3,
       "title": "② 금리의 재상승은 회수기간을 더 무겁게 만든다",
-      "sub": "이란 전쟁·에너지 물가와 견조한 수요가 겹친 2026년",
-      "html": "<div class=\"split\"><div class=\"col\"><div data-chart=\"ratesNow\" class=\"grow\"></div><p class=\"note\">시장금리는 10년 만기 국채 수익률의 월평균. 기업의 조달금리 = 국채금리 + 신용스프레드 등.</p></div><div class=\"col center text\"><span class=\"kicker\">연준 목표범위 · 2026.10</span><div class=\"big amber tn\">3.75–4.00%</div><p>9월 25bp 인상 → 10월 동결</p><p>10년물 국채 <b>5.13%</b> · 2026.10 월평균</p><p class=\"mt20\">당장 빅테크의 지급능력 붕괴보다<br><b>신규 투자 수익률 · 차환비용</b>의 변화에 주목</p></div></div>",
+      "sub": "이란 전쟁·에너지 물가와 견조한 수요가 겹친 2026년 · 미·일의 역사로 미·중의 현재를 본다",
+      "html": "<div class=\"split s42\"><div class=\"col\"><span class=\"kicker\">연준 목표범위 · 2026.10</span><div class=\"big amber\">3.75–4.00%</div><p class=\"rate-sub\">9월 25bp 인상 → 10월 동결 · 10년물 국채 <b>5.13%</b> <small>(2026.10 월평균)</small></p><div data-chart=\"ratesNow\" class=\"grow\"></div><p class=\"note\">시장금리는 10년 만기 국채 수익률의 월평균. 기업의 조달금리 = 국채금리 + 신용스프레드 등.</p><div class=\"insight mt8\">당장의 지급능력보다 <b>신규 투자 수익률 · 차환비용</b>의 변화에 주목</div></div><div class=\"col chase\"><div><span class=\"kicker\">1980년대의 질문을 다시 · 미·일의 역사와 미·중의 현재</span><h2>낮은 자본비용은 추격의 충분조건인가?</h2></div><div class=\"analogy\"><div class=\"pair \"><div class=\"pair-h\"><span class=\"yr\">1980s</span><b>미국 ↔ 일본</b></div><div class=\"pair-b\"><div class=\"side\" style=\"border-left-color:#3987e5\"><em>미국</em><b>고금리</b></div><span class=\"vsx\">vs</span><div class=\"side\" style=\"border-left-color:#d95926\"><em>일본</em><b>저금리 · 은행 금융</b></div></div></div><i>↓</i><div class=\"pair now\"><div class=\"pair-h\"><span class=\"yr\">2020s</span><b>미국 ↔ 중국</b></div><div class=\"pair-b\"><div class=\"side\" style=\"border-left-color:#3987e5\"><em>미국</em><b>금리 재상승</b></div><span class=\"vsx\">vs</span><div class=\"side\" style=\"border-left-color:#d95926\"><em>중국</em><b>정책금융 · 보조금</b></div></div></div></div><div class=\"grid g2 gap14 grow auto\"><article class=\"panel sm\"><div class=\"kicker\">공통점</div><h3>긴 회수기간을 견디는 자본</h3><div class=\"plist\"><div>저금리 · 정책금융 · 정부 지원이<br>설비 · 전력망의 투자 부담을 완화</div><div>미국의 지연은 상대적 기회</div></div><div class=\"pfoot\">낮은 자본비용은 추격의 발판</div></article><article class=\"panel sm\"><div class=\"kicker\">차이점</div><h3>자금만으로 풀리지 않는 병목</h3><div class=\"plist\"><div>첨단 장비 · 공정 · HBM 접근</div><div>수율 · 소프트웨어 · 고객 생태계</div><div>달러 자본시장과 내부 현금흐름</div></div><div class=\"pfoot\">그러나 충분조건은 아니다</div></article></div><div class=\"verdict\"><em>판단</em><b>전면 대체가 아닌, 부분 추격</b><span>미국의 투자 지연 + 중국의 칩 · 전력 · 모델 효율 개선 → <b>일부 영역</b>의 격차 축소</span></div></div></div>",
       "take": "1980년대의 교훈은 반복될 수 있다. 다만 금리 격차가 곧 기술 격차는 아니다.",
       "sources": [
         "fred_10",
@@ -1218,23 +1852,9 @@
         "fed_2026",
         "audit_3_0",
         "audit_3_1",
-        "audit_3_2"
-      ],
-      "kind": "",
-      "method": "",
-      "tables": []
-    },
-    {
-      "id": "rates-china",
-      "part": 3,
-      "title": "중국의 낮은 자본비용은 추격의 충분조건인가?",
-      "sub": "미·일의 역사와 미·중의 현재 · 유사한 금융 조건, 다른 제약",
-      "html": "<div class=\"rows\"><div class=\"analogy\"><div class=\"pair \"><div class=\"pair-h\"><span class=\"yr\">1980s</span><b>미국 ↔ 일본</b></div><div class=\"pair-b\"><div class=\"side\" style=\"border-left-color:#3987e5\"><em>미국</em><b>고금리</b></div><span class=\"vsx\">vs</span><div class=\"side\" style=\"border-left-color:#d95926\"><em>일본</em><b>저금리 · 은행 금융</b></div></div></div><i>→</i><div class=\"pair now\"><div class=\"pair-h\"><span class=\"yr\">2020s</span><b>미국 ↔ 중국</b></div><div class=\"pair-b\"><div class=\"side\" style=\"border-left-color:#3987e5\"><em>미국</em><b>금리 재상승</b></div><span class=\"vsx\">vs</span><div class=\"side\" style=\"border-left-color:#d95926\"><em>중국</em><b>정책금융 · 보조금</b></div></div></div></div><div class=\"grid g3 grow auto\"><article class=\"panel \"><div class=\"kicker\">공통점</div><h3>긴 회수기간을 견디는 자본</h3><div class=\"plist\"><div>저금리 · 정책금융 · 정부 지원이<br>설비와 전력망의 투자 부담을 완화</div><div>미국의 지연은 상대적 기회</div></div><div class=\"pfoot lg\">낮은 자본비용은 추격의 발판</div></article><article class=\"panel \"><div class=\"kicker\">차이점</div><h3>자금만으로 풀리지 않는 병목</h3><div class=\"plist\"><div>첨단 장비 · 공정 · HBM 접근</div><div>수율 · 소프트웨어 · 고객 생태계</div><div>달러 자본시장과 내부 현금흐름</div></div><div class=\"pfoot lg\">그러나 충분조건은 아니다</div></article><article class=\"panel key\"><div class=\"kicker\">판단</div><h3>조건부 추격 시나리오</h3><div class=\"plist\"><div>미국의 투자 지연</div><i>+</i><div>중국의 칩 · 전력 · 모델 효율 개선</div><i>↓</i><div class=\"res\"><b>일부 영역</b>의 격차 축소</div></div><div class=\"pfoot lg\">전면 대체가 아닌, 부분 추격</div></article></div></div>",
-      "take": "중국의 추격 가능성은 있다. “저금리이므로 미국을 대체한다”는 결론은 성립하지 않는다.",
-      "sources": [
+        "audit_3_2",
         "ai_index",
-        "japan",
-        "audit_3_0"
+        "japan"
       ],
       "kind": "",
       "method": "",

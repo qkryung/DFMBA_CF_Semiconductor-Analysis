@@ -1,7 +1,7 @@
 {
-  "slides": 34,
-  "checks": 83,
-  "sectorCombinations": 44,
+  "slides": 31,
+  "checks": 109,
+  "sectorCombinations": 70,
   "companies": 4,
   "consoleErrors": [],
   "visualLayout": "not checked by this script: jsdom has no layout engine. See README for the browser screenshot review.",

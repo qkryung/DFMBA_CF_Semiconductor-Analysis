@@ -7,18 +7,27 @@ const w=dom.window,d=w.document,ev=s=>w.eval(s);
 let count=ev('SLIDES.length'),checks=0;
 for(let i=0;i<count;i++){
  ev(`goto(${i})`);assert(d.querySelector('.slide'));assert(!d.querySelector('#stage').textContent.match(/NaN|undefined|\?\?\?\?/),`invalid content ${i}`);
+ assert(!d.querySelector('.slide .foot button'),`slide ${i}: the per-slide source link was removed`);
  ev(`SLIDES[${i}].sources.forEach(id=>{if(!SOURCES[id])throw new Error('missing source '+id)})`);checks++;
 }
 const click=e=>e.dispatchEvent(new w.MouseEvent('click',{bubbles:true,cancelable:true}));
-// 빅테크 대시보드: 기업을 바꿔도 지표 타일 8개가 모두 그려진다
+// 장표 구성: 31장. 합치거나 뺀 장표의 id는 남아 있지 않다
+assert.equal(count,31);const ids=ev('SLIDES.map(s=>s.id)');for(const gone of ['era0-capital','buyer-checklist','rates-china'])assert(!ids.includes(gone),gone+' should be gone');
+// 빅테크 대시보드: 기업을 바꿔도 지표 타일 8개가 모두 분기(2023Q1–2026Q3, 15개 분기) 추이로 그려진다
 ev("goto(SLIDES.findIndex(s=>s.id==='buyer-dashboard'))");
 const companies=ev('Object.keys(FIN.companies)');
-for(const c of companies){let e=d.querySelector('#companySelect');e.value=c;e.dispatchEvent(new w.Event('change'));assert.equal(d.querySelectorAll('#dashboard .tile').length,8);assert.equal(d.querySelectorAll('#dashboard .tile-c svg').length,8);assert(!d.querySelector('#dashboard').innerHTML.match(/NaN|undefined/));checks++}
-// 섹터 순위(미국 Fortune 500 · 2000/2010/2020/2026): 11개 섹터 버튼과 자동 순환
+for(const c of companies){let e=d.querySelector('#companySelect');e.value=c;e.dispatchEvent(new w.Event('change'));assert.equal(d.querySelectorAll('#dashboard .tile').length,8);assert.equal(d.querySelectorAll('#dashboard .tile-c svg').length,8);assert(!d.querySelector('#dashboard').innerHTML.match(/NaN|undefined/));
+ const q=ev(`FIN.companies[${JSON.stringify(c)}].quarters.map(x=>x.q)`);assert.equal(q.length,15);assert.equal(q[0],'2023Q1');assert.equal(q[14],'2026Q3');assert(d.querySelector('#dashNote').textContent.includes('역년 분기 2023Q1–2026Q3'));assert(d.querySelector('#dashboard .tile-v em').textContent.startsWith('26Q3'));checks++}
+// 섹터 순위(미국 Fortune 500 · 매출 연도 1995–2025, 5년 간격 7개 시점): 10개 섹터 버튼, 섹터마다 Top 10 × 7 = 70칸, 자동 순환
 ev("goto(SLIDES.findIndex(s=>s.id==='sector-ranking'))");
-const pills=[...d.querySelectorAll('#sectorPills [data-sector]')],years=ev('SECTOR.years.length');assert.equal(pills.length,11);assert.equal(years,4);
-for(const p of pills){p.click();assert(p.classList.contains('active'));assert.equal(d.querySelectorAll('#bump svg').length,1);assert(!(d.querySelector('#bump').innerHTML+d.querySelector('#sectorStat').innerHTML).match(/NaN|undefined/));checks+=years}
+const pills=[...d.querySelectorAll('#sectorPills [data-sector]')],years=ev('SECTOR.years.length');assert.equal(pills.length,10);assert.equal(years,7);assert.deepEqual(ev('SECTOR.years'),[1995,2000,2005,2010,2015,2020,2025]);
+assert.equal(d.querySelector('#sectorPills .active span').textContent,'IT');
+for(const p of pills){p.click();assert(p.classList.contains('active'));assert.equal(d.querySelectorAll('#bump svg').length,1);assert.equal(d.querySelectorAll('#bump g.cell').length,10*years);assert(d.querySelector('#sectorChain').textContent.length>0);assert(!(d.querySelector('#bump').innerHTML+d.querySelector('#sectorStat').innerHTML).match(/NaN|undefined/));checks+=years}
 d.querySelector('#sectorPlay').click();assert(ev('!!playTimer'));d.querySelector('#sectorPlay').click();assert(ev('!playTimer'));
+// 합친 장표: 사진 띠 + 군사비 차트 / 거시환경(원인) → 1990 순위(결과) + 덧붙임 / 금리 차트 + 미·일 ↔ 미·중
+ev("goto(SLIDES.findIndex(s=>s.id==='era0-invention'))");assert.equal(d.querySelectorAll('.strip .frame img').length,7);assert(d.querySelector('[data-chart="milex"] svg'));
+ev("goto(SLIDES.findIndex(s=>s.id==='era1-leaders'))");assert.equal(d.querySelectorAll('.mside').length,2);assert.equal(d.querySelectorAll('.hb.c10 .hb-row').length,10);assert.equal(d.querySelectorAll('.segbar i').length,3);assert(d.querySelector('.band.aside').textContent.includes('삼성'));
+ev("goto(SLIDES.findIndex(s=>s.id==='rates-2026'))");assert(d.querySelector('[data-chart="ratesNow"] svg'));assert.equal(d.querySelectorAll('.analogy .pair').length,2);assert(d.querySelector('.verdict'));checks+=3;
 // 시간축 지도: 시대 팝업과 레이어 끄기
 ev("goto(SLIDES.findIndex(s=>s.id==='industry-map'))");assert.equal(d.querySelectorAll('[data-era]').length,ev('ERAS.length'));click(d.querySelector('[data-era]'));assert(d.querySelector('#modal').open);d.querySelector('#modal').close();
 let layers=d.querySelectorAll('[data-layer]');assert.equal(layers.length,4);assert.equal(d.querySelectorAll('#timeline .lane.off').length,0);layers[0].checked=false;layers[0].dispatchEvent(new w.Event('change'));assert(d.querySelectorAll('#timeline .lane.off').length>0);

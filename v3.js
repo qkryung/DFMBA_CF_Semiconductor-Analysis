@@ -118,7 +118,7 @@ function view(s,i){const bare=s.kind==='cover'||s.kind==='divider';
     +(bare?'':`<header class="shead"><div class="eyebrow">${esc(s.part===0?'12조 · 기업재무':'PART '+s.part+' · '+PARTS[s.part])}</div><h1>${s.title}</h1>${s.sub?`<p class="sub">${s.sub}</p>`:''}</header>`)
     +`<div class="body">${s.html}</div>`
     +(s.take?`<div class="take"><p>${s.take}</p></div>`:'')
-    +(s.kind==='cover'?'':`<div class="foot">${!bare&&(s.sources||[]).length?`<button data-sources="${i}">출처 ↗</button>`:'<span></span>'}<span class="tn">12조 · ${String(i+1).padStart(2,'0')} / ${SLIDES.length}</span></div>`)
+    +(s.kind==='cover'?'':`<div class="foot"><span class="tn">12조 · ${String(i+1).padStart(2,'0')} / ${SLIDES.length}</span></div>`)
     +'</section>'}
 function stopPlay(){clearInterval(playTimer);playTimer=null;const b=$('#sectorPlay');if(b)b.textContent='▶ 산업 순환'}
 function render(){stopPlay();tipOff();inkClear();PLOTS={};slidePlots=[];
@@ -156,9 +156,11 @@ function setLinear(k){linearView=k;$$('[data-linear]').forEach(b=>b.classList.to
 function timeline(){
   const el=$('#timeline'),W=el.clientWidth||1328,H=+el.dataset.h||500,G=66,x0=G,x1=W-8,Y0=TL.start,Y1=TL.end,X=v=>x0+(Math.max(Y0,Math.min(Y1,v))-Y0)/(Y1-Y0)*(x1-x0);
   const off=new Set($$('[data-layer]').filter(c=>!c.checked).map(c=>c.dataset.layer)),ln=k=>`class="lane${off.has(k)?' off':''}"`;
-  const yLead=15,hTop=28,hBase=118,rTop=130,rBase=204,aTop=206,aH=30,yYear=252,eY=[272,290,308,326],fTop=344,fBase=398,rowH=18,mY=[408,430],sY=[454,476];
-  const gut=(t,y)=>`<text x="0" y="${y}" fill="${K.ink3}" font-size="11" letter-spacing=".5">${t}</text>`;
+  const yLead=15,hTop=28,hBase=114,rTop=124,rBase=194,aTop=202,aH=36,aB=aTop+aH,yYear=262,eY=[282,300,318,336],fTop=352,fBase=404,rowH=18,mY=[414,436],sY=[460,482];
+  const gut=(t,y,strong)=>`<text x="0" y="${y}" fill="${strong?K.ink:K.ink3}" font-size="${strong?12.5:11}"${strong?' font-weight="800"':''} letter-spacing=".5">${t}</text>`;
   let s='';
+  /* 시대 경계선: 모든 층을 가로질러 위·아래를 같은 시대로 묶는다 */
+  TL.eras.slice(1).forEach(e=>{s+=`<line x1="${X(e.a)}" x2="${X(e.a)}" y1="${yLead+8}" y2="${H-4}" stroke="#1c3246"/>`});
   /* 기업 */
   s+=`<g ${ln('leaders')}>${gut('주도 기업',yLead)}${TL.eras.map((e,i)=>`<text x="${(X(e.a)+X(e.b))/2}" y="${yLead}" text-anchor="middle" fill="${K.ink2}" font-size="12.5" font-weight="700">${esc(e.lead||ERAS[i].leaders.short)}</text>`).join('')}</g>`;
   /* 수요의 물결 */
@@ -173,10 +175,15 @@ function timeline(){
   rv.forEach(d=>{s+=`<rect x="${X(d[0])}" y="${rTop-4}" width="${X(d[0]+1)-X(d[0])}" height="${rBase-rTop+4}" fill="transparent" data-tip="${d[0]}년${d[2]?' ('+esc(d[2])+')':''}|세계 반도체 매출 $${num(d[1],0)}bn"/>`});
   TL.wstsNotes.forEach(o=>{const d=rv.find(q=>q[0]===o.y);if(!d)return;const cx=X(d[0]+.5),cy=ry(d[1]);s+=`<circle cx="${cx}" cy="${cy}" r="${d[2]?4.5:3.5}" fill="${d[2]?K.surf:K.s[0]}" stroke="${d[2]?K.s[0]:K.surf}" stroke-width="2"/><text x="${cx+(o.dx||0)}" y="${cy+(o.dy||-8)}" text-anchor="${o.anchor||'middle'}" fill="${K.ink}" font-size="12" font-weight="700" class="halo">${esc(o.t)}</text>`});
   s+='</g>';
-  /* 시대 축 */
-  s+=`<g>${gut('시대 구분',aTop+19)}`;
-  TL.eras.forEach((e,i)=>{const xa=X(e.a)+1,xb=X(e.b)-1,w=xb-xa;s+=`<g class="era" data-era="${i}" tabindex="0" role="button" aria-label="${esc(e.name)} 세부 보기"><rect x="${xa}" y="${aTop}" width="${w}" height="${aH}" rx="5" fill="${i%2?'#15405c':'#0f3350'}" stroke="#2b6688"/><text x="${xa+w/2}" y="${aTop+20}" text-anchor="middle" fill="${K.ink}" font-size="14" font-weight="800">${esc(e.name)}<tspan fill="${K.ink2}" font-size="11.5" font-weight="500" dx="7">${esc(w>170?e.years:e.yearsShort)}</tspan></text></g>`});
-  for(let yv=1950;yv<=2020;yv+=10)s+=`<line x1="${X(yv)}" x2="${X(yv)}" y1="${aTop+aH}" y2="${aTop+aH+5}" stroke="${K.axis}"/><text x="${X(yv)}" y="${yYear}" text-anchor="middle" fill="${K.ink3}" font-size="11.5" class="tn">${yv}</text>`;
+  /* 시대 축: 오른쪽 끝이 화살표인 띠 하나. 시대 사이는 바탕색 틈으로만 나누고, 아래에 1년 · 5년 · 10년 눈금자를 단다 */
+  s+=`<g>${gut('시대 구분',aTop+aH/2+4,1)}`;
+  const nE=TL.eras.length,tipW=14,aM=aTop+aH/2;
+  TL.eras.forEach((e,i)=>{const last=i===nE-1,xa=X(e.a)+(i?1:0),xb=X(e.b)-(last?0:1),w=xb-xa,mid=xa+(w-(last?tipW:0))/2;
+    const d=i===0?`M${xa+7},${aTop}H${xb}V${aB}H${xa+7}Q${xa},${aB} ${xa},${aB-7}V${aTop+7}Q${xa},${aTop} ${xa+7},${aTop}Z`:last?`M${xa},${aTop}H${xb-tipW}L${xb},${aM}L${xb-tipW},${aB}H${xa}Z`:`M${xa},${aTop}H${xb}V${aB}H${xa}Z`;
+    s+=`<g class="era" data-era="${i}" tabindex="0" role="button" aria-label="${esc(e.name)} 세부 보기"><path d="${d}" fill="${i%2?'#216f95':'#1a5d80'}"/><text x="${mid}" y="${aM+6}" text-anchor="middle" fill="#fff" font-size="16.5" font-weight="800">${esc(e.name)}<tspan fill="#e2f1fa" font-size="12.5" font-weight="600" dx="8">${esc(w>170?e.years:e.yearsShort)}</tspan></text></g>`});
+  for(let yv=Y0;yv<=Y1;yv++){const dec=yv%10===0,five=yv%5===0,xx=X(yv);
+    s+=`<line x1="${xx}" x2="${xx}" y1="${aB}" y2="${aB+(dec?9:five?6:3)}" stroke="${dec?K.ink2:five?K.ink3:K.axis}"${dec?' stroke-width="1.5"':''}/>`;
+    if(dec)s+=`<text x="${xx}" y="${yYear}" text-anchor="middle" fill="${K.ink}" font-size="13" font-weight="700" class="tn">${yv}</text>`}
   s+='</g>';
   /* 사건 핀: 겹치면 아래 단으로 내린다 */
   s+=`<g ${ln('events')}>${gut('주요 사건',eY[0])}`;
@@ -199,45 +206,59 @@ function timeline(){
 function eraModal(i){const e=ERAS[i],L=[['demand','주요 수요'],['macro','거시 환경'],['events','전환점'],['leaders','주도 기업']];
   modal(e.name+' · '+e.years,L.map(([k,t])=>`<div class="source"><b class="era-k">${t} — ${esc(e[k].short)}</b><p>${esc(e[k].detail)} <a href="${esc(e[k].source||'#')}" target="_blank" rel="noopener">근거 ↗</a></p></div>`).join(''))}
 
-/* 섹터 Top 5 범프 차트: 4개 시점을 나란히 두고 같은 기업을 선으로 잇는다 */
+/* 섹터 Top 10 범프 차트: 5년 간격의 시점을 나란히 두고 같은 기업을 선으로 잇는다 */
 function mountSectors(){
-  if(sector==null)sector=Math.max(0,SECTOR.sectors.findIndex(s=>s.id==='it'));
-  $('#sectorPills').innerHTML=SECTOR.sectors.map((s,i)=>`<button data-sector="${i}">${esc(s.name)}</button>`).join('');
+  if(sector==null||!SECTOR.sectors[sector])sector=Math.max(0,SECTOR.sectors.findIndex(s=>s.id==='it'));
+  $('#sectorPills').innerHTML=SECTOR.sectors.map((s,i)=>`<button data-sector="${i}"><span>${esc(s.name)}</span><em class="tn">${s.changes}<small>회</small></em></button>`).join('');
   $$('[data-sector]').forEach(b=>b.onclick=()=>{stopPlay();sector=+b.dataset.sector;drawSector()});
   $('#sectorPlay').onclick=()=>{if(playTimer){stopPlay();return}$('#sectorPlay').textContent='Ⅱ 정지';playTimer=setInterval(()=>{sector=(sector+1)%SECTOR.sectors.length;drawSector()},2600)};
+  /* 기업 하나에 포인터를 올리면 그 기업의 칸과 선만 남긴다 */
+  const el=$('#bump'),trace=k=>{const svg=$('svg',el);if(!svg)return;svg.classList.toggle('trace',k!=null);$$('[data-k]',svg).forEach(n=>n.classList.toggle('on',k!=null&&n.dataset.k===k))};
+  el.onpointerover=e=>{const g=e.target.closest?.('[data-k]');trace(g&&!ink.on?g.dataset.k:null)};
+  el.onpointerleave=()=>trace(null);
   drawSector()}
 function drawSector(){
-  const s=SECTOR.sectors[sector],Y=SECTOR.years,el=$('#bump'),W=el.clientWidth||1100,H=+el.dataset.h||400;
+  const s=SECTOR.sectors[sector],Y=SECTOR.years,el=$('#bump'),W=el.clientWidth||1154,H=+el.dataset.h||464;
   $$('[data-sector]').forEach(b=>b.classList.toggle('active',+b.dataset.sector===sector));
-  const cols=Y.map(y=>s.snapshots[String(y)]?.rows||[]),nc=Y.length,cw=214,gap=(W-nc*cw)/(nc-1),top=40,rh=(H-top)/5,ch=Math.min(56,rh-12);
-  const cx=k=>k*(cw+gap),cy=r=>top+r*rh+(rh-ch)/2,mx=Math.max(1,...cols.flat().map(r=>r.revenue));
-  const firstCol=cols.find(c=>c.length)||[],k0=firstCol[0]?.key,k1=cols[nc-1][0]?.key;
-  const tone=key=>key===k1?K.s[0]:key===k0?K.s[1]:null;
-  let links='',cells='';
-  for(let k=0;k<nc-1;k++)cols[k].forEach((r,a)=>{const b=cols[k+1].findIndex(q=>q.key===r.key);if(b<0)return;const xa=cx(k)+cw,xb=cx(k+1),ya=cy(a)+ch/2,yb2=cy(b)+ch/2,t=tone(r.key);
-    links+=`<path d="M${xa},${ya}C${xa+gap*.5},${ya} ${xb-gap*.5},${yb2} ${xb},${yb2}" fill="none" stroke="${t||K.mute}" stroke-width="${t?3:1.75}" opacity="${t?1:.75}"/>`});
-  cols.forEach((c,k)=>{cells+=`<text x="${cx(k)}" y="24" fill="${K.ink}" font-size="24" font-weight="800" class="tn">${Y[k]}</text>`;
-    if(!c.length){cells+=`<text x="${cx(k)+cw/2}" y="${cy(2)+ch/2+5}" text-anchor="middle" fill="${K.ink3}" font-size="14">비교 가능한 자료 없음</text>`;return}
-    c.forEach((r,a)=>{const x=cx(k),yy=cy(a),t=tone(r.key);let nm=r.short||r.name;while(tw(nm,15.5)>cw-58&&nm.length>4)nm=nm.slice(0,-2)+'…';
-      cells+=`<g data-tip="${esc(Y[k]+' · '+(a+1)+'위 '+r.name+'|매출 $'+num(r.revenue,1,1)+'bn'+(r.rankOverall?'|Fortune 500 전체 '+r.rankOverall+'위':''))}"><rect x="${x}" y="${yy}" width="${cw}" height="${ch}" rx="8" fill="${t?'#10283f':'#0c1c2c'}" stroke="${t||'#21394c'}" stroke-width="${t?2:1}"/><text x="${x+14}" y="${yy+ch/2+6}" fill="${t?K.ink:K.ink3}" font-size="17" font-weight="800" class="tn">${a+1}</text><text x="${x+38}" y="${yy+ch/2-2}" fill="${K.ink}" font-size="15.5" font-weight="${t||a===0?800:600}">${esc(nm)}</text><text x="${x+38}" y="${yy+ch/2+15}" fill="${K.ink2}" font-size="12" class="tn">$${num(r.revenue,1,1)}bn</text><rect x="${x+cw-76}" y="${yy+ch/2+8}" width="64" height="4" rx="2" fill="#17293a"/><rect x="${x+cw-76}" y="${yy+ch/2+8}" width="${Math.max(2,64*r.revenue/mx)}" height="4" rx="2" fill="${t||K.mute}"/></g>`})});
-  el.innerHTML=`<svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(s.name)} 섹터 매출 상위 5개 기업의 시점별 순위">${links}${cells}</svg>`;
-  const tops=cols.map(c=>c[0]).filter(Boolean),chain=tops.map(r=>r.short||r.name).filter((v,i,a)=>!i||a[i-1]!==v),stay=firstCol.filter(r=>cols[nc-1].some(q=>q.key===r.key)).length;
-  $('#sectorStat').innerHTML=`<div class="sstat"><span class="k">1위의 이동</span><b>${chain.map(esc).join(' <i>→</i> ')}</b></div><div class="sstat"><span class="k">${Y[cols.indexOf(firstCol)]}년 Top 5 중 ${Y[nc-1]}년에도 Top 5</span><b>${stay} <small>/ ${firstCol.length}곳</small></b></div><div class="legend bump-legend">${k0&&k0!==k1?`<span><i class="sq" style="background:${K.s[1]}"></i>${Y[cols.indexOf(firstCol)]}년 1위 기업</span>`:''}<span><i class="sq" style="background:${K.s[0]}"></i>${Y[nc-1]}년 1위 기업</span><span><i class="ln" style="background:${K.mute}"></i>같은 기업의 순위 이동</span></div>`;
-  $('#sectorScope').textContent=SECTOR.scope+(s.note?' · '+s.note:'')}
+  const cols=Y.map(y=>s.snapshots[String(y)].rows),nc=Y.length,nr=cols[0].length,G=26,gap=34,cw=(W-G-(nc-1)*gap)/nc,top=30,rh=(H-top)/nr,ch=rh-6,pad=8,inner=cw-2*pad;
+  const cx=k=>G+k*(cw+gap),cy=r=>top+r*rh+3,k0=cols[0][0].key,k1=cols[nc-1][0].key,tone=key=>key===k1?K.s[0]:key===k0?K.s[1]:null;
+  /* 1위 줄은 옅은 띠로 받치고, 왼쪽에 순위를 적는다 */
+  let guide=`<rect x="0" y="${cy(0)-3}" width="${W}" height="${ch+6}" rx="8" fill="#fff" opacity=".045"/>`,links='',hot='',cells='';
+  for(let r=0;r<nr;r++)guide+=`<text x="${G-9}" y="${cy(r)+ch/2+5}" text-anchor="end" fill="${r?K.ink3:K.ink}" font-size="${r?12.5:15}" font-weight="${r?500:800}" class="tn">${r+1}</text>`;
+  for(let k=0;k<nc-1;k++)cols[k].forEach((r,a)=>{const b=cols[k+1].findIndex(q=>q.key===r.key);if(b<0)return;const xa=cx(k)+cw,xb=cx(k+1),ya=cy(a)+ch/2,yb=cy(b)+ch/2,t=tone(r.key);
+    const p=`<path class="lk${t?' tone':''}" data-k="${esc(r.key)}" d="M${xa.toFixed(1)},${ya.toFixed(1)}C${(xa+gap*.5).toFixed(1)},${ya.toFixed(1)} ${(xb-gap*.5).toFixed(1)},${yb.toFixed(1)} ${xb.toFixed(1)},${yb.toFixed(1)}" fill="none" stroke="${t||K.mute}" stroke-width="${t?3:1.5}" opacity="${t?1:.75}"/>`;if(t)hot+=p;else links+=p});
+  cols.forEach((c,k)=>{cells+=`<text x="${(cx(k)+cw/2).toFixed(1)}" y="20" text-anchor="middle" fill="${K.ink}" font-size="19" font-weight="800" class="tn">${Y[k]}</text>`;
+    c.forEach((r,a)=>{const x=cx(k),yy=cy(a),t=tone(r.key),strong=t||a===0,f=Math.max(11,Math.min(13.5,13.5*inner/tw(r.name,13.5)));
+      const tip=Y[k]+'년 · '+(a+1)+'위 '+r.name+'|매출 $'+num(r.revenue,1,1)+'bn'+(r.rankOverall?'|Fortune 500 전체 '+r.rankOverall+'위':'')+(r.gap?'|아카이브에 빠져 있던 순위 — 보완 자료의 값':'');
+      cells+=`<g class="cell${t?' tone':''}" data-k="${esc(r.key)}" data-tip="${esc(tip)}"><rect x="${x.toFixed(1)}" y="${yy.toFixed(1)}" width="${cw.toFixed(1)}" height="${ch.toFixed(1)}" rx="6" fill="${t?'#10283f':'#0c1c2c'}" stroke="${t||'#21394c'}" stroke-width="${t?2:1}"/><text class="nm" x="${(x+pad).toFixed(1)}" y="${(yy+ch/2-2).toFixed(1)}" fill="${strong?K.ink:K.ink2}" font-size="${f.toFixed(1)}" font-weight="${strong?800:600}">${esc(r.name)}</text><text x="${(x+pad).toFixed(1)}" y="${(yy+ch/2+12).toFixed(1)}" fill="${K.ink3}" font-size="10.5" class="tn">$${num(r.revenue,1,1)}bn${r.gap?' †':''}</text></g>`})});
+  el.innerHTML=`<svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(s.name)} 섹터 매출 상위 ${nr}개 기업의 ${Y[0]}–${Y[nc-1]}년 순위">${guide}${links}${hot}${cells}</svg>`;
+  /* 추정한 폭보다 실제 글자가 넓으면 글자 크기를 실제 폭에 맞춰 줄인다. 그래도 넘칠 때만 칸 안쪽 폭으로 좁힌다 (글자가 칸 밖으로 나가지 않게) */
+  $$('text.nm',el).forEach(t=>{if(!t.getComputedTextLength)return;let L=t.getComputedTextLength();if(L<=inner)return;
+    t.setAttribute('font-size',Math.max(10.5,Math.floor(+t.getAttribute('font-size')*inner/L*10)/10));L=t.getComputedTextLength();
+    if(L>inner){t.setAttribute('textLength',inner.toFixed(1));t.setAttribute('lengthAdjust','spacingAndGlyphs')}});
+  const lg=(c,t,ln)=>`<span><i class="${ln?'ln':'sq'}" style="background:${c}"></i>${t}</span>`;
+  $('#sectorStat').innerHTML=`<div class="sstat wide"><span class="k">매출 1위 · ${nc}개 시점에서 ${s.changes?'교체 '+s.changes+'회':'교체 없음'}</span><b id="sectorChain">${s.leaders.map(esc).join(' <i>→</i> ')}</b></div>`
+    +`<div class="sstat"><span class="k">${Y[0]}년 Top ${nr} 중 ${Y[nc-1]}년에도 Top ${nr}</span><b>${s.stay} <small>/ ${nr}곳</small></b></div>`
+    +`<div class="legend bump-legend">${k0===k1?lg(K.s[0],Y[0]+' · '+Y[nc-1]+'년 모두 1위'):lg(K.s[1],Y[0]+'년 1위 기업')+lg(K.s[0],Y[nc-1]+'년 1위 기업')}${lg(K.mute,'같은 기업의 순위 이동',1)}</div>`;
+  const chain=$('#sectorChain');for(let f=20;f>13&&chain.scrollWidth>chain.clientWidth;)chain.style.fontSize=(--f)+'px';
+  $('#sectorScope').textContent=SECTOR.scope+(s.note?' · '+s.note:'')+(cols.some(c=>c.some(r=>r.gap))?' · †는 보완 자료의 값':'')}
 
-/* 빅테크 재무 타일: 지표마다 축을 하나씩만 쓴다 */
-function finRows(c){return c.annual.filter(x=>x.year<=2025).concat(c.ttm2026?[c.ttm2026]:c.ttm?[c.ttm]:[])}
-/* 이자보상배율이 500배를 넘는 연도는 축을 왜곡하므로 그래프에서 빼고 주석으로 알린다 */
-const finVal=(x,k)=>{const q=x[k];return Number.isFinite(q)&&!(k==='interestCoverage'&&q>500)?q:null};
+/* 빅테크 재무 타일: 역년 분기 추이. 지표마다 축을 하나씩만 쓴다 */
 function dashboard(){
-  const c=FIN.companies[company],d=finRows(c),labels=d.map(x=>String(x.label||'').includes('TTM')?'26TTM':"'"+String(x.year).slice(2));
-  const specs=[['매출','revenue','$bn','bar',0],['매출 성장률','revenueGrowth','%','line',1],['순이익','netIncome','$bn','bar',0],['영업이익률','operatingMargin','%','line',1],['CAPEX','capex','$bn','bar',0,1],['FCF','fcf','$bn','bar',0,1],['이자보상배율','interestCoverage','배','line',0],['부채비율','debtRatio','%','line',1]];
+  const c=FIN.companies[company],d=c.quarters,li=d.length-1,labels=d.map(x=>x.q.slice(2)),tips=d.map(x=>x.q.slice(0,4)+' '+x.q.slice(4));
+  const ticks=labels.map((l,i)=>l.endsWith('Q1')?i:-1).filter(i=>i>=0);
+  const specs=[['매출','revenue','$bn','bar'],['매출 성장률','revenueGrowth','%','line'],['순이익','netIncome','$bn','bar'],['영업이익률','operatingMargin','%','line'],['CAPEX','capex','$bn','bar',1],['FCF','fcf','$bn','bar',1],['이자보상배율','interestCoverage','배','line'],['부채비율','debtRatio','%','line']];
+  const val=(x,k)=>Number.isFinite(x[k])?x[k]:null,show=(v,u)=>u==='$bn'?(v<0?'−$':'$')+num(Math.abs(v),1,1):num(v,1,1);
   slidePlots=[];
-  $('#dashboard').innerHTML=specs.map((s,k)=>{const v=d.map(x=>finVal(x,s[1])),last=[...v].reverse().find(Number.isFinite),first=v.find(Number.isFinite);
-    return `<div class="tile${s[5]?' key':''}"><div class="tile-h"><span>${s[0]}</span><small>${s[2]}</small></div><div class="tile-v">${last==null?'N/A':s[2]==='$bn'?(last<0?'−$':'$')+num(Math.abs(last),s[4],s[4]):num(last,s[4],s[4])}<small>${s[2]==='$bn'?'bn':s[2]}</small><em>26TTM${first!=null&&last!=null&&s[2]==='$bn'&&first>0?' · FY21 대비 '+num(last/first,1,1)+'배':''}</em></div><div class="tile-c" data-k="${k}"></div></div>`}).join('');
-  $$('.tile-c').forEach(el=>{const s=specs[+el.dataset.k];const spec={title:company+' · '+s[0],labels,type:s[3],fs:11,suf:s[2]==='$bn'?'':s[2]==='%'?'%':'배',pre:s[2]==='$bn'?'$':'',dec:s[4],y:{n:2,head:.18},series:[{name:s[0],values:d.map(x=>finVal(x,s[1])),color:K.s[0],div:s[1]==='fcf',area:s[3]==='line'}],legend:false};
-    el.innerHTML=plot(spec,el.clientWidth||290,+el.dataset.h||el.clientHeight||112);slidePlots.push(spec)});
-  $('#dashNote').textContent=`${company} · ${c.fiscalYearEnd} 결산 · FY2021–25 + 2026.09 TTM(최근 12개월, FY25와 일부 중첩). 총현금 CAPEX 기준 · FCF=영업CF−CAPEX · 부채비율=총부채/자본 · 이자보상=영업이익/이자비용 · N/A는 미공시.`+d.filter(x=>x.interestCoverage>500).map(x=>` ${x.label||x.year} 이자보상배율 ${num(x.interestCoverage,0)}배는 축 왜곡을 피하려 그래프에서 생략.`).join('')}
+  /* 큰 숫자는 가장 최근 분기, 옆의 작은 글씨는 첫 분기와의 비교 */
+  $('#dashboard').innerHTML=specs.map((s,k)=>{const v=d.map(x=>val(x,s[1])),last=v[li],first=v[0],u=s[2],unit=u==='$bn'?'bn':u;
+    const cmp=first==null||last==null?'':u==='$bn'&&first>0&&last>0?` · ${labels[0]}의 ${num(last/first,1,1)}배`:` · ${labels[0]} ${show(first,u)}${unit}`;
+    return `<div class="tile${s[4]?' key':''}"><div class="tile-h"><span>${s[0]}</span><small>${u}</small></div><div class="tile-v">${last==null?'N/A':show(last,u)}<small>${unit}</small><em>${labels[li]}${cmp}</em></div><div class="tile-c" data-k="${k}"></div></div>`}).join('');
+  $$('.tile-c').forEach(el=>{const s=specs[+el.dataset.k],u=s[2],line=s[3]==='line';
+    const spec={title:company+' · '+s[0]+' (분기)',labels,tipLabels:tips,type:s[3],fs:11,suf:u==='$bn'?'':u,pre:u==='$bn'?'$':'',dec:1,x:{ticks},y:{n:2,head:.18},
+      series:[{name:s[0],values:d.map(x=>val(x,s[1])),color:K.s[0],div:s[1]==='fcf',area:line,markers:false,pts:line?[li]:null,ptText:{[li]:''}}],legend:false};
+    el.innerHTML=plot(spec,el.clientWidth||290,+el.dataset.h||el.clientHeight||138);slidePlots.push(spec)});
+  $('#dashNote').textContent=`${company} · 역년 분기 ${d[0].q}–${d[li].q}${c.fiscalYearEnd==='6월 말'?' (6월 결산 — 회계 분기를 역년 분기에 대응)':''} · 성장률 = 전년 동기 대비 · FCF = 영업CF − CAPEX · 이자보상 = 분기 영업이익 ÷ 이자비용 · 부채비율 = 총부채 ÷ 자본(분기 말) · 순이익은 영업외손익 포함.${c.quarterNote?' '+c.quarterNote:''}`}
 function financialOverview(){
   const names=Object.keys(FIN.companies),labels=['FY21','FY22','FY23','FY24','FY25','26TTM'];
   const fcf={title:'빅테크 4사 FCF',labels,pre:'$',dec:1,series:names.map(n=>{const c=FIN.companies[n];return {name:n,values:c.annual.filter(x=>x.year<=2025).map(x=>x.fcf).concat((c.ttm2026||c.ttm)?.fcf??null),end:true,w:n==='Amazon'?3.5:2}})};
@@ -271,9 +292,8 @@ function initInk(){const sv=$('#ink');
   $$('[data-ink-tool]').forEach(b=>b.onclick=()=>{ink.tool=b.dataset.inkTool;inkStyle()});inkStyle()}
 
 /* ───────── 이벤트 ───────── */
-document.addEventListener('click',e=>{const b=e.target.closest('[data-goto],[data-sources],button[data-part],[data-era],[data-jump],[data-linear]');if(!b)return;
+document.addEventListener('click',e=>{const b=e.target.closest('[data-goto],button[data-part],[data-era],[data-jump],[data-linear]');if(!b)return;
   if(b.dataset.goto)goto(SLIDES.findIndex(s=>s.id===b.dataset.goto));
-  else if(b.dataset.sources)sources(+b.dataset.sources);
   else if(b.dataset.part)goto(SLIDES.findIndex(s=>s.part===+b.dataset.part));
   else if(b.dataset.era)eraModal(+b.dataset.era);
   else if(b.dataset.jump){$('#modal').close();goto(+b.dataset.jump)}
