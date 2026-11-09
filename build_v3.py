@@ -1,138 +1,1644 @@
-import json,re,html,base64,mimetypes,csv
+"""기업재무 12조 발표 덱 빌더.
+
+data.json · research_*.json · macro_raw.json · sector_history.json 을 읽어
+SLIDES / CHARTS / SOURCES / ERAS / FIN / SECTOR / TL 상수를 만들고,
+v3.css · v3.js 와 합쳐 한 파일짜리 HTML(기업재무_발표자료_12조.html = index.html)로 내보낸다.
+
+장표 본문은 1440×810 무대 기준이다. 본문 영역은 대략 1326×554px
+(머리 102 + 본문 + 한 줄 요약 64 + 바닥 26)이므로 높이를 넘기지 않게 맞춘다.
+"""
+import base64
+import csv
+import json
+import mimetypes
+import re
+from decimal import Decimal, ROUND_HALF_UP
+from html import escape
 from pathlib import Path
-P=Path(__file__).parent
-read=lambda n:json.loads((P/n).read_text(encoding='utf-8-sig'))
-D=read('data.json'); F=read('research_financials.json'); M=read('macro_raw.json'); SOURCES=D['sources'].copy();SLIDES=[];CHARTS={}
-def source(k,title,url,note='',publisher='공식 자료'):
- SOURCES[k]={'title':title,'url':url,'note':note,'publisher':publisher};return k
-source('fred_ff','미 연준 · 연방기금 실효금리, 월평균','https://fred.stlouisfed.org/series/FEDFUNDS','정책 목표범위와 구별. 금리 자체가 기업 WACC는 아님.')
-source('fred_10','미 연준 · 미국 10년 국채 수익률, 월평균','https://fred.stlouisfed.org/series/GS10')
-source('boj','일본은행 · 1972–95 공정할인율','https://www.boj.or.jp/en/statistics/boj/other/discount/','미국 실효 연방기금금리와 지표 정의가 다름. 일본은 당시 공정할인율.')
-source('defense','BEA · 연방 국방소비·총투자','https://fred.stlouisfed.org/series/FDEFX','명목 $bn, 분기 연율. IC 조달액과 다름.')
-source('chm','Computer History Museum · 항공우주와 초기 IC','https://www.computerhistory.org/siliconengine/aerospace-systems-are-first-the-applications-for-ics-in-computers/')
-source('ai_index','Stanford HAI · AI Index 2026','https://hai.stanford.edu/ai-index/2026-ai-index-report','2026.03 Arena 최고 모델 점수 미국 1,503 / 중국 1,464. 모델 벤치마크이며 반도체 제조역량 지표가 아님.')
-source('midterms','AP · 2026 미국 중간선거','https://apnews.com/article/ef6199e25927a9ac9f4c18eae0e497cd','2026.11.04 민주당 상·하원 다수 확보 보도. 새 의회는 2027년 출범.',publisher='AP')
-source('dc_ballot','Data Center Ballot · 지역 주민투표 집계','https://ballot.dcmap.us/','2026.11.06 집계. 구속력 있는 35건 중 31건 제한 찬성. 인증 전 결과 포함. 정당별·전국 법률 통계 아님.',publisher='Data Center Ballot')
-source('nv_openai','NVIDIA–OpenAI · 2025.09 협력 의향서','https://openai.com/index/openai-nvidia-systems-partnership/','최대 $100bn 단계적 투자 의향과 10GW 구상. 해당 시점 의향서의 구조 설명이며 전액 집행을 뜻하지 않음.')
-source('lucent','Lucent · FY2000 10-K 고객금융','https://www.sec.gov/Archives/edgar/data/1006240/000095012300011855/y43690e10-k405.txt','고객 대출·지급보증·미집행 약정은 서로 구별해야 함.',publisher='SEC')
-for n,c in F['companies'].items():source('fin_'+n,n+' · SEC XBRL 재무 공시',c['source'],'연도·공시·태그별 근거는 research_financials.json. FCF=영업CF−총현금 CAPEX; 리스 원금 제외.',publisher='SEC')
-for n,c in F['peers'].items():source('peer_'+n,n+' · SEC 매출 공시',c['source'],publisher='SEC')
-for i,a in enumerate(F['audit']):
- for j,u in enumerate(a.get('sources',[a.get('url')])):
-  if u:source('audit_'+str(i)+'_'+str(j),a['claim'],u,a['finding'])
-for c in F['companies'].values():c['ttm2026']=c['latestTTM']
-def add(id,part,title,sub,body,take='',sources=None,kind='',method=''):
- SLIDES.append(dict(id=id,part=part,title=title,sub=sub,html=body,take=take,sources=sources or [],kind=kind,method=method))
-def panel(k,t,p,stat=''):
- return f'<article class="panel"><div class="kicker">{k}</div><h3>{t}</h3>'+ (f'<div class="big">{stat}</div>' if stat else '')+f'<p>{p}</p></article>'
-def cards(*args):return '<div class="grid g'+str(len(args))+'">'+''.join(args)+'</div>'
-def table(headers,rows):return '<table class="table"><tr>'+''.join('<th>'+x+'</th>' for x in headers)+'</tr>'+''.join('<tr>'+''.join('<td>'+x+'</td>' for x in r)+'</tr>' for r in rows)+'</table>'
-def chart(id,title,labels,series):CHARTS[id]=dict(title=title,labels=labels,series=series)
-def ser(name,values,unit='',right=False):return dict(name=name,values=values,unit=unit,right=right)
-def slot(id,h=295):return f'<div data-chart="{id}" data-height="{h}"></div>'
-def flow(nodes):return '<div class="flow">'+ '<span class="arrow">→</span>'.join('<div class="node"><b>'+a+'</b><span>'+b+'</span></div>' for a,b in nodes)+'</div>'
-PARTS={0:'도입',1:'케이스 이후의 Linear Technology',2:'반도체 산업의 변천',3:'AI 시대 마주한 재무적 이슈들'}
-def divider(n,title,desc):add('part'+str(n),n,title,'',f'<div class="divider"><div class="number">0{n}</div><div><div class="eyebrow">PART {n}</div><h1>{title}</h1><p>{desc}</p></div></div>',kind='divider')
-chip='<svg viewBox="0 0 520 450" role="img" aria-label="반도체 칩 개념도">'+''.join(f'<path d="M{30+i*22} 420 L{210+i*15} 300 L510 {80+i*22}" stroke="#174c68" fill="none"/>' for i in range(12))+'<path d="M40 280 260 150 480 280 260 410Z" fill="#08263e" stroke="#37ccff" stroke-width="3"/><path d="M120 230 260 150 400 230 260 310Z" fill="#12456a" stroke="#37ccff" stroke-width="3"/><path d="M150 170 260 105 370 170 260 235Z" fill="#1b6e9c" stroke="#7bebff" stroke-width="3"/><text x="260" y="180" fill="white" text-anchor="middle" font-size="29" font-weight="bold">LINEAR → AI</text><text x="260" y="445" fill="#5e99bd" text-anchor="middle" font-size="16" letter-spacing="5">DEMAND × CAPITAL × TIME</text></svg>'
-add('cover',0,'리니어는 왜 사라졌나?','',f'<div class="hero"><div><div class="eyebrow">KAIST DFMBA · 기업재무 · 12조</div><h1>리니어는 왜<br><span class="green">사라졌나?</span></h1><div class="parts">'+''.join(f'<button data-goto="part{i}">0{i} &nbsp; {PARTS[i]}</button>' for i in [1,2,3])+f'</div><p class="note">조사 기준 2026.11.08 · 방향키 이동 / T 목차 / S 출처 / F 전체화면</p></div>{chip}</div>',kind='cover')
-divider(1,'케이스 이후의<br>Linear Technology','2003년의 질문은 “현금을 어떻게 나눌까”였다.<br>2016년의 질문은 “어디에서 더 큰 가치를 만들까”가 됐다.')
-a=D['linear']['series'];labels=[str(x['fy'])[2:] for x in a]
-chart('linear','Linear 매출과 주당배당',labels,[ser('매출',[x['revenue'] for x in a],'$M'),ser('주당배당',[x['dps'] for x in a],'$',True)])
-chart('linearGrowth','Linear 연간 매출성장률',labels,[ser('매출성장률',[None]+[(a[i]['revenue']/a[i-1]['revenue']-1)*100 for i in range(1,len(a))],'%')])
-add('linear-cash',1,'배당은 성장했고, 매출은 멈췄다','FY2003–2016 · 성숙한 현금창출 기업의 모습','<div class="split"><div><div class="pills" id="linearToggle"><button class="active" data-linear="linear">매출 × 주당배당</button><button data-linear="linearGrowth">매출 성장률</button></div><div id="linearChart"></div><p class="note">회계연도. 배당은 연간 합계, 주가 수익률과 다름. 2011→16 매출 CAGR 직접 계산.</p></div><div class="text"><div class="big amber">−0.8%</div><p>2011–2016 매출 연평균 성장</p><div class="medium green">$0.21 → $1.24</div><p>2003–2016 주당배당<br>2016 영업이익률 <b>44.5%</b></p></div></div>','회사는 잘 벌고 있었다. 성장의 다음 축이 약해졌을 뿐이다.',['linear_10k_2016','linear_10k_2007'])
-ps=[ser('Linear',[(next(x['revenue'] for x in a if x['fy']==y)/next(x['revenue'] for x in a if x['fy']==y-1)-1)*100 for y in range(2011,2017)],'%')]
-for n,c in F['peers'].items():
- p=c['series'];ps.append(ser(n,[(p[i]['revenue']/p[i-1]['revenue']-1)*100 for i in range(1,len(p))],'%'))
-chart('peers','아날로그 경쟁사 매출성장률',list(range(2011,2017)),ps)
-add('linear-peers',1,'성장 둔화는 공통이었다. 대응은 달랐다','매출 성장률 비교 · 기업별 회계연도 / 인수 효과 포함','<div class="split"><div>'+slot('peers',325)+'<p class="note">FY11–16 CAGR: Linear −0.8% / TI −0.5% / ADI +2.7% / Maxim −2.4%<br>ADI에는 Hittite 인수(2014) 효과 포함. 유기적 성장률 비교는 아님.</p></div><div>'+table(['회사','성장의 방식'],[['Linear','고성능 아날로그 집중'],['TI','제품군·제조 규모 확대'],['ADI','Hittite → Linear → Maxim'],['Maxim','혼합신호·전력관리 집중']])+'</div></div>','배당 정책만으로 인수 여부를 설명할 수 없다.',['linear_10k_2016','peer_TI','peer_ADI','peer_Maxim','linear_deal'])
-source('linear_tsr_original','Linear FY2016 10-K · Item 5 총주주수익 그래프','https://www.sec.gov/Archives/edgar/data/791907/000079190716000207/lltc-20160703x10k.htm','2011.07.03 투자100, 배당 재투자. 2016.07.03 지수는 그래프 육안 판독의 반올림 근사치이며 정밀 가격자료가 아님.',publisher='SEC')
-source('analog_rank2025','GMI · 2025 아날로그 반도체 시장 추정','https://www.gminsights.com/industry-analysis/analog-semiconductors-market','2026.09 발행. TI 1위, ADI 2위. 시장 범위에 따라 순위와 점유율이 달라질 수 있음.',publisher='Global Market Insights')
-chart('linearTSR','Linear 총주주수익 지수 (근사)',['Linear','S&P 500','SOX'],[ser('2016.07 지수, 2011=100',[160,157,195],'지수')]);CHARTS['linearTSR']['kind']='bar'
-add('linear-returns',1,'주주에게 실패한 기업은 아니었다','배당을 재투자한 5년 총주주수익 · 인수 발표 전 기간','<div class="split"><div>'+slot('linearTSR',330)+'<p class="note">2011.07.03 = 100 → 2016.07.03. SEC 공시 그래프 판독 근사치.<br>주가만의 상승률이 아닌 배당 재투자 총수익. SOX는 필라델피아 반도체 지수.</p></div><div class="text"><div class="big green">약 +60%</div><p>Linear 5년 누적 총주주수익</p><p>현금창출과 환원은 주주가치를 만들었다.<br>다만 산업 성장의 중심과는 거리가 있었다.</p></div></div>','좋은 주주환원과 독립기업의 장기 생존은 같은 질문이 아니다.',['linear_tsr_original'],method='원본 주가수익 그래프를 판독한 근사치. 배당 인상이 주가 상승을 유발했다는 인과관계는 입증하지 않음.')
-add('linear-deal',1,'독자 성장의 가치 vs 지금의 프리미엄','2015–2017 · 처음부터 매각을 선택한 것은 아니었다',flow([('2015.08','ADI 약 $51.50 제안<br>9월 이사회 거절'),('2016.04–06','$58 → $60 협상<br>대안·독자경영 비교'),('2016.07.26','약 $14.8bn 계약<br>직전 종가 대비 약 24%'),('2017.03.10','인수 완료<br>독립 상장회사 종료')])+'<div class="grid g2" style="height:auto;margin-top:28px">'+panel('독자 경영','미래 현금흐름의 현재가치','높은 수익성 유지 가능성<br>성장 정체·실행 위험은 주주가 부담')+panel('현금 + 주식','주당 $46 + ADI 0.2321주','현금 프리미엄 확보 + 통합기업 상승 여지<br>주식 부분의 가격·종결 위험은 남음')+'</div>','인수는 실패의 증거가 아니라, 주주가치 실현 방식의 선택이었다.',['linear_defm14a','linear_deal','linear_close'])
-add('linear-context',1,'왜 팔렸나: 세 가지 시대 배경','고수익 기업도 산업 구조의 변화에서는 자유롭지 않다',cards(panel('01 · 수요','고객은 통합 솔루션을 원했다','개별 고성능 칩 → 신호처리·전력관리·연결을 묶은 제안'),panel('02 · 자본','초저금리가 M&A를 뒷받침했다','인수자의 차입 조달 여건 개선<br>현금창출 자산의 가치 상승'),panel('03 · 규모','포트폴리오의 폭이 중요해졌다','제품·고객·판매망 결합<br>ADI는 TI에 이은 아날로그 2위<br><span class="note">2025 GMI 시장조사 추정</span>')),'리니어의 기술은 ADI 안에 남았다. 사라진 것은 독립 상장회사다.',['linear_finance','linear_deal','fed_history','analog_rank2025'])
-add('sector-ranking',1,'산업이 바뀌면, 1위도 바뀌는가?','11개 섹터 · 확인 가능한 역사적 매출 순위 탐색','<div class="toolbar"><label for="sectorSelect">산업</label><select id="sectorSelect"></select><button id="sectorPlay">▶ 순위 변화</button><button id="sectorMethod">범위·출처</button></div><div class="pills" id="sectorYears"></div><div class="split"><div><div class="year-label" id="sectorYear"></div><div id="rankRows"></div><p class="note">단위: $bn · 매출 상위 5개, 시가총액 순위 아님</p></div><div id="sectorHistory"></div></div><p class="note" id="sectorScope"></p>','순위의 지속성과 교체 속도를 함께 본다. 현재 생존기업만으로 과거를 재구성하지 않는다.',method='Fortune Global 500 공식 아카이브의 관측 가능한 기업을 11개 섹터로 재분류. 1990과 누락 기업은 보간하지 않음.')
-life='<svg viewBox="0 0 1250 390" class="chart" role="img" aria-label="기업 생애주기 및 성숙기 재투자를 통한 재성장 개념도"><path d="M60 330H1200M60 330V20" stroke="#5a7890" fill="none"/><path d="M80 315 C190 315 220 300 270 270 S420 70 610 70 S860 70 940 140 S1100 270 1180 290" fill="none" stroke="#37ccff" stroke-width="6"/><g id="renewal" style="opacity:1"><path d="M680 72 C800 70 820 45 900 30 S1090 20 1180 20" fill="none" stroke="#39e2b0" stroke-width="6" stroke-dasharray="10 7"/><text x="830" y="105" fill="#39e2b0" font-size="24">R&amp;D · 재투자 → 재성장</text></g><text x="680" y="160" fill="#ffb15e" font-size="22">성숙기의 자본배분</text>'+''.join(f'<text x="{x}" y="370" text-anchor="middle" fill="#d3e8f5" font-size="22">{t}</text>' for x,t in [(130,'스타트업'),(320,'유년기'),(520,'성장기'),(770,'성숙기'),(1080,'쇠락')])+'<text x="80" y="25" fill="#89a7bc" font-size="15">사업 규모 / 현금창출력 (개념)</text></svg>'
-add('life-cycle',1,'성숙기는 종착점이 아니라 선택의 시점','기업 생애주기 · 설명용 개념도, 실제 기업 추정 곡선 아님',life+'<div class="toolbar"><button id="lifeToggle" aria-pressed="true">재투자 경로 켜기 / 끄기</button><p class="note">성숙기의 현금 → 배당·자사주 / R&amp;D·CAPEX / M&amp;A · 재성장은 보장되지 않음</p></div>','순간의 재무 최적화와 장기 산업 변화에 대한 판단이 함께 필요하다.')
-divider(2,'반도체 산업의 변천','기술 목록보다 수요의 이동을 본다.<br>누가 투자를 감당했고, 누가 불황을 버텼는가.')
-ERAS=[]
-def era(years,name,demand,macro,events,leaders):
- ERAS.append(dict(years=years,name=name,demand=dict(short=demand[0],detail=demand[1],source=demand[2]),macro=dict(short=macro[0],detail=macro[1],source=macro[2]),events=dict(short=events[0],detail=events[1],source=events[2]),leaders=dict(short=leaders[0],detail=leaders[1],source=leaders[2])))
-chm=SOURCES['chm']['url'];fed=SOURCES['fred_ff']['url'];tsmc=SOURCES['tsmc_foundry']['url'];rank=SOURCES['ranking_history']['url'];wsts=SOURCES['wsts_q2_2026']['url']
-era('1947–1970s','태동기',('국방 · 우주 → 계산기','1947 트랜지스터, 1958–59 IC가 출발. 미사일·우주용 전자장치가 작은 크기·낮은 전력의 가치를 먼저 인정. 이후 계산기와 민간 전자기기로 확대.',chm),('냉전 · 정부 조달','정부 연구비와 군수·우주 조달이 기술 초기의 수요 위험을 줄임. 일부 원가보상 계약이 R&D 위험을 분담했지만 모든 IC 계약이 같은 방식이었던 것은 아님.',chm),('트랜지스터 / IC / MPU','1947 발명 → 1957 Fairchild → 1958 Kilby·1959 Noyce IC → 1968 Intel → 1971 마이크로프로세서. Fairchild는 Shockley를 거친 연구자들이 설립.',chm),('TI · Fairchild · Motorola','기술·제조 역량을 쌓은 초기 주역. 초기 기업 나열은 매출 순위가 아닌 대표 기업.',chm))
-era('1980–1990s 초','제1기',('PC · DRAM','1981 IBM PC 이후 대중 컴퓨팅 수요 확대. CPU와 메모리의 역할 분화, DRAM의 수율·공정·규모 경쟁 심화.',rank),('볼커 고금리 / 일본 완화','미국 고금리와 강달러, 일본 은행 중심 장기금융 및 1986–87 완화가 투자 환경에 영향을 줌. 품질·공정·산업정책도 중요했음.',fed),('1983 삼성 / 1986 협정','삼성 도쿄 선언과 DRAM 진입. 1986·1991 미일 반도체 협정, 1985 전후 Intel의 DRAM 철수. 자금조달 조건과 사업 선택이 함께 바뀜.',rank),('NEC · Toshiba · Hitachi','1990 공급업체 순위 NEC 1위·Toshiba 2위·Hitachi 4위. 미국은 CPU 등 비메모리 경쟁력을 유지.',rank))
-era('1990s 중반–2000s','제2기',('PC 확산 · 인터넷','1990년대 PC·인터넷과 통신망 확대 → 2000–01 닷컴 붕괴 → 디지털 가전 확산. 성장 추세와 재고 사이클이 공존.',rank),('세계화 · 팹 투자 확대','미세공정이 발전할수록 공장·장비와 설계의 복잡성이 증가. 고정비를 여러 고객에 나누는 제조 전문화가 확대.',tsmc),('1987 TSMC → 분업 정착','TSMC 설립은 제2기보다 이른 1987년. 1990년대 이후 팹리스·파운드리 생태계 확대. 2001 산업 매출은 약32% 감소.',tsmc),('Intel · 삼성 / TSMC','Intel PC CPU, 삼성 메모리. TSMC는 제조 수탁으로 성장해 공급업체 순위와 별도 집계. NVIDIA는 팹리스로 출발.',rank))
-era('2010s','제3기',('스마트폰 · 클라우드','모바일 연산·통신·전력관리와 서버 메모리 확대. 2017–18 메모리 호황, 2019 조정으로 가격 효과 확인.',rank),('QE · 제로금리','금융위기 이후 낮은 자본비용. 그러나 저금리도 현금 유출·만기 집중·고객 이탈을 막아주지는 못함.',fed),('2012 Elpida / SK 인수','엘피다 회생절차 2012, Micron 인수완료 2013. SK의 하이닉스 인수 2012. 메모리 Big3 형성. 2017 Linear의 ADI 편입.',SOURCES['elpida_failure']['url']),('삼성 · SK hynix · Micron','DRAM 과점. 반도체 전체 공급업체 1위는 2017–18 삼성, 2019–20 Intel로 바뀜. 메모리 가격이 매출 순위를 흔듦.',rank))
-era('2020s–현재','제4기',('AI · GPU + HBM','팬데믹 공급난 → 2022–23 재고 조정 → 2024–26 AI 인프라. HBM·선단공정·패키징과 범용 메모리로 수요 확산.',wsts),('금리 · 보조금 · 전력','고금리·공급망 블록화와 국가 보조금 공존. 전력·계통접속·부지 인허가가 투자 시점을 좌우.',SOURCES['audit_3_0']['url']),('생성형 AI / 수출통제','2022 생성형 AI 확산, 2024 이후 GPU·HBM 투자 확대. 2026 구매자 현금흐름·장기계약·전력 제약이 재무 이슈로 부상.',wsts),('NVIDIA / TSMC / HBM','NVIDIA 설계 플랫폼, TSMC 제조·패키징, SK hynix·삼성·Micron 메모리. 서로 다른 단계이므로 매출을 단순 합치면 중복.',wsts))
-add('industry-map',2,'수요 · 거시환경 · 사건을 한 시간축에','레이어를 선택하고, 각 항목을 눌러 세부 흐름 확인','<div class="pills">'+''.join(f'<label><input type="checkbox" data-layer="{k}" checked> {v}</label>' for k,v in [('demand','수요'),('macro','거시환경'),('events','주요 사건'),('leaders','기업')])+'</div><div id="timeline"></div>','시대 구분은 수요 중심의 분석 틀이다. 실제 전환은 서로 겹친다.',['chm','ranking_history','tsmc_foundry','fed_history','wsts_q2_2026'])
-# Image markers resolved after assets are ready
-add('era0-invention',2,'태동기: 먼저 위험을 떠안은 고객은 국가였다','1947–1970s · 발명에서 양산으로','<div class="grid g3"><div>{{PHOTO:transistor}}<h3>1947 · 트랜지스터</h3><p class="note">작은 반도체로 전류를 증폭·전환</p></div><div>{{PHOTO:ic}}<h3>1958–59 · 집적회로</h3><p class="note">여러 소자를 한 칩에 결합</p></div><div>{{PHOTO:apollo}}<h3>1960s · 우주·국방</h3><p class="note">소형화·신뢰성을 위해 높은 초기 비용 감수</p></div></div><div style="margin-top:25px">'+flow([('정부 연구·조달','불확실한 초기 수요 보완'),('반복 생산','수율 학습·단가 하락'),('민간 시장','계산기·컴퓨터로 확대')])+'</div>','정부는 초기 기술의 고객이자 위험 분담자였다.',['transistor','chm'])
-df=[(d,v) for d,v in M['FDEFX'] if d[:4] in ['1950','1955','1960','1965','1970'] and d[5:7]=='01'];chart('defense','미국 국방지출', [d[:4] for d,v in df],[ser('연방 국방소비·총투자',[v for d,v in df],'$bn')])
-add('era0-capital',2,'정부 수요가 기술의 초기 자본비용을 낮췄다','냉전의 조달 수요 → 연구개발·생산능력 축적','<div class="split"><div>'+slot('defense',330)+'<p class="note">BEA · 명목 국방소비·총투자, 각 연도 1분기 연율. 반도체 구매액이 아닌 거시적 배경.</p></div><div class="text"><h2>수요 위험의 완화</h2><p>원가보상형 개발 계약<br>우주·군수의 초기 대량 발주<br>신뢰성 요구와 학습 효과</p><p class="small">“정부가 모든 손실을 보장했다”는 의미는 아님. 기술·생산 위험은 여전히 기업에 남음.</p></div></div>','수익이 아직 불확실한 단계에서는 “누가 첫 고객인가”가 중요했다.',['defense','chm'])
-# US and Japan year-end representative observations
-bj=[]
-for row in csv.reader((P/'boj_discount.csv').read_text(encoding='utf-8').splitlines()):
- if row and re.match(r'^\d{4}\.\d{2}\.\d{2}$',row[0]):bj.append((row[0].replace('.','-'),float(row[1])))
-yrs=list(range(1980,1992));us=[next(v for d,v in M['FEDFUNDS'] if d==f'{y}-12-01') for y in yrs];jp=[next(v for d,v in reversed(bj) if d<=f'{y}-12-31') for y in yrs]
-chart('rates80','미국과 일본의 금리',yrs,[ser('미국 실효 FF (12월 평균)',us,'%'),ser('일본 공정할인율 (연말)',jp,'%')])
-add('era1-rates',2,'제1기: 같은 투자에도 자금의 가격은 달랐다','1980–1990s 초 · PC 확산과 미·일 경쟁','<div class="split"><div>'+slot('rates80',340)+'<p class="note">미국 실효 FF vs 일본 공정할인율: 지표가 다름. 1981.06 미국 월평균 19.1%; 연말 차트와 구별.</p></div><div class="text"><div class="big amber">자본비용</div><p>미국: 고금리·강달러 부담<br>일본: 은행 금융·설비 경쟁력</p><p class="small">일본의 부상은 금리만의 결과가 아님. 공정 수율·품질·고객 기반·산업정책이 함께 작용.</p></div></div>','낮은 자금조달 비용은 오래 걸리는 설비투자에서 경쟁력이 된다.',['fred_ff','boj','japan'])
-r=D['ranking']['snapshots'][0]['rows'][:5]
-add('era1-leaders',2,'일본의 부상, 한국의 진입','1990 반도체 공급업체 매출 순위 · 파운드리 제외','<div class="split"><div>'+''.join(f'<div class="rankrow"><span>{x["rank"]}</span><span>{x["name"]}</span><div class="rankbar"><i style="width:{x["revenue"]/r[0]["revenue"]*100}%"></i></div><strong>{x["revenue"]:.2f}</strong></div>' for x in r)+'<p class="note">단위 $bn · Gartner 대표 연도 순위</p></div>'+panel('1983 · 도쿄 선언','삼성의 DRAM 진입','기술 도입 → 생산 학습 → 반복 투자<br>그룹 차원의 자본 지원과 장기 의사결정<br><br>후발주자에게 필요했던 것은<br>기술과 함께 “손실을 견딜 시간”')+'</div>','미국의 퇴장이 아니라 경쟁 분야의 재편이었다. CPU와 메모리의 길이 갈렸다.',['ranking_history','samsung_history'])
-add('era2-split',2,'제2기: 한 회사가 모든 투자를 감당하기 어려워졌다','1990s 중반–2000s · 인터넷·PC 확산과 수직적 분업',flow([('IP · EDA','Arm / Synopsys / Cadence<br>설계 자산·도구'),('팹리스','NVIDIA / Qualcomm<br>제품 설계·판매'),('파운드리','TSMC / UMC<br>웨이퍼 제조'),('OSAT','ASE / Amkor<br>패키징·테스트')])+'<div class="grid g2" style="margin-top:28px;height:auto">'+panel('제조의 기반','장비 · 소재','ASML / Applied Materials / Lam<br>신에츠 / SUMCO / Tokyo Electron')+panel('분업과 공존','IDM','Intel / Samsung / TI<br>설계·제조를 내부에 유지하는 모델')+'</div>','팹리스는 공장 부담을 덜고, 파운드리는 여러 고객의 수요를 묶었다.',['tsmc_foundry'])
-add('era2-finance',2,'분업은 위험을 없애지 않았다. 위치를 바꿨다','TSMC는 1987년 출발 · 1990s 이후 전문화가 본격 확산',cards(panel('설계기업','R&D · 제품 위험','공장 대신 설계 인력·IP에 투자<br>양산은 외부에 맡기지만<br>공정·공급자 의존성 증가'),panel('제조기업','CAPEX · 가동률 위험','고가의 팹을 여러 고객과 공유<br>고정비 회수는 가동률에 달림<br>고객 다변화와 기술 선도가 핵심'),panel('2001 · 닷컴 붕괴','수요 전망의 함정','인터넷 장기 성장과<br>단기 과잉투자는 동시에 가능','−32%')),'자본 효율성의 개선이 산업 전체의 경기순환을 없애지는 못했다.',['tsmc_foundry','wsts'])
-add('era3-consolidation',2,'제3기: 저금리 속에서도 탈락은 있었다','2010s · 모바일·클라우드 수요와 메모리의 재편',flow([('2008–09','금융위기·가격 하락<br>전 업계 투자 압박'),('2012','Elpida 회생절차<br>SK의 하이닉스 인수'),('2013','Micron, Elpida 인수<br>DRAM Big 3 정착'),('2017–19','슈퍼사이클 → 조정<br>삼성·Intel 순위 재교체')])+'<div class="grid g3" style="height:auto;margin-top:30px">'+panel('Elpida','가격 · 엔고 · 만기','수익성 악화와 차환 부담이 결합')+panel('Samsung','다각화 · 투자 여력','불황 이후 공급 경쟁력 확보')+panel('SK hynix','지배주주 · 자본 기반','2012 약 3.4조원 인수<br>장기 투자 기반 강화')+'</div>','치킨게임은 기술력과 유동성, 그리고 회복까지 남은 시간의 경쟁이다.',['elpida_failure','elpida_acquisition','fed_crisis','ranking_2017'])
-add('era3-maturity',2,'공장은 장기 자산, 만기는 먼저 돌아온다','엘피다에서 배울 점: 총차입보다 현금흐름과 만기 구조','<div class="grid g2">'+panel('자산의 시간','설비 → 양산 → 회수','수년의 투자·수율 학습<br>가격 하락 시 회수기간 연장<br>매각도 쉽지 않은 특수 자산')+panel('부채의 시간','이자 → 원금 → 차환','고정된 지급 일정<br>시장 경색 시 차환 실패<br>장기채도 만기가 오면 유동성 위험')+'</div>','“차입이 많은 회사부터 탈락”은 법칙이 아니다. 현금·만기·마진·지원 여력을 함께 봐야 한다.',['elpida_failure','elpida_causes','elpida_bonds'])
-# Common cash flow / supplier normalized growth contrast, exact points explicit
-chart('ai-transfer','AI 현금흐름의 양면',['2024','2025','26TTM'],[ser('Amazon FCF',[x['fcf'] for x in F['companies']['Amazon']['chartSeries'][-3:]],'$bn'),ser('Microsoft FCF',[x['fcf'] for x in F['companies']['Microsoft']['chartSeries'][-3:]],'$bn')])
-chart('sk-revenue','SK hynix 분기 매출',['25Q3','26Q2','26Q3'],[ser('매출',[24.4489,79.3187,104.6155],'조원')])
-add('era4-ai',2,'제4기: 투자는 구매자가, 매출은 공급자가','2020s–현재 · AI 수요가 GPU에서 HBM·DRAM·NAND로 확산','<div class="grid g2"><div class="chartcard"><h3>구매자 · FCF의 차별화</h3>'+slot('ai-transfer',290)+'<p class="note">FY2024·25 및 2026.09 TTM / $bn · 기간 일부 중첩</p></div><div class="chartcard"><h3>공급자 · SK hynix 분기 매출</h3>'+slot('sk-revenue',290)+'<p class="note">조원 · 선별 분기 실제치(시간 간격 불균등). 원화 매출과 달러 FCF를 직접 비교하지 않음.</p></div></div>','산업의 호황을 이해하려면, 투자하는 쪽의 장부도 봐야 한다.',['fin_Amazon','fin_Microsoft','audit_6_0'])
-add('industry-lessons',2,'반도체의 역사는 네 가지 질문으로 남는다','리니어의 질문을 산업 전체로 확장',cards(panel('01 · 수요','성장의 중심은 어디인가','PC: Intel / 메모리 호황: 삼성<br>AI: NVIDIA<br>아날로그는 필수지만 리니어의 성장률은 제한'),panel('02 · 가격','매출 증가는 물량인가 가격인가','메모리는 ASP 변화가<br>이익과 순위를 크게 흔듦<br>높은 마진의 지속성 검증'),panel('03 · 자본','회복까지 버틸 수 있는가','현금·만기·투자 유연성<br>장기 자산과 차환 위험<br>불황의 생존이 다음 기회를 만듦'),panel('04 · 정책','자본비용을 누가 바꾸는가','금리·보조금·수출통제<br>전력·부지 인허가<br>기술 외적 조건이 투자 회수 좌우')),'필수 기술이라는 사실과, 가장 빠르게 성장한다는 사실은 다르다.',['ranking_history','linear_10k_2016','elpida_failure','fed_history'])
-divider(3,'AI 시대 마주한<br>재무적 이슈들','수요가 폭발할수록 더 중요한 질문.<br>누가 지불하고, 누가 위험을 떠안고, 현금을 어디에 쓸 것인가.')
-chart('market26','세계 반도체 매출 실제와 전망',['2025 1H','2026 1H'],[ser('상반기 매출',[702/2.02,702],'$bn')])
-add('market-2026',3,'2026년, 산업 매출이 1년 만에 두 배가 됐다','정확히는 상반기 실제 매출 +102% · 연간 수치는 아직 전망','<div class="split"><div>'+slot('market26',330)+'<p class="note">2025 1H 약 $347.5bn: WSTS의 반올림 성장률로 역산. 2026 1H $702bn 실제.</p></div><div class="text"><div class="big green">+102%</div><p>상반기 전년동기 대비</p><div class="medium">$1.655tn</div><p>2026 연간 계산 전망 · +108%<br><span class="badge">연간 확정 실적 아님</span></p></div></div>','AI 물량 확대와 메모리 가격 상승이 함께 만든 호황이다.',['audit_0_0'])
-add('buyer-cash',3,'① 투자 경쟁이 현금흐름을 압박한다','2026 CAPEX 가이던스 합계 $720–740bn · 집행 실적과 구별','<div class="grid g2"><div class="chartcard"><h3>빅테크 4사 · FCF</h3><div id="financialOverview"></div><p class="note">FY21–25 + 2026.09 TTM. Microsoft 6월 결산, 나머지 12월 결산.</p></div><div class="chartcard"><h3>Meta · 장기차입 조달액 증가</h3><div id="debtChart"></div><p class="note">현금흐름표 조달액 $bn. 차입잔액·순증액과 다름.<br>기업별 회사채·대출 포함 범위가 달라 Meta 사례로 한정.</p></div></div>','모두 적자는 아니다. Amazon은 TTM 적자, 다른 3사는 양수지만 투자 부담은 확대됐다.',['fin_Microsoft','fin_Alphabet','fin_Amazon','fin_Meta','audit_1_0','audit_1_1','audit_1_2','audit_1_3'])
-add('buyer-dashboard',3,'매출의 성장보다, 현금의 내구성을 확인한다','기업 선택 → 4개 재무 축을 같은 화면에서 비교','<div class="toolbar"><label for="companySelect">기업</label><select id="companySelect">'+''.join('<option>'+n+'</option>' for n in F['companies'])+'</select><button id="dashTable">원자료·산식</button></div><div class="dashboard" id="dashboard"></div><p class="note" id="dashNote"></p>','같은 AI 투자 경쟁이어도 기존 사업의 현금창출력과 재무구조는 다르다.',['fin_Microsoft','fin_Alphabet','fin_Amazon','fin_Meta'])
-add('buyer-checklist',3,'빅테크 재무 건전성: 일곱 가지 체크','엘피다를 현재에 적용하되, 사업 모델의 차이를 인정한다',table(['체크포인트','관찰할 변화','해석'],[['① 매출 / CAPEX','클라우드 성장 vs 투자 증가','투자 회수 속도'],['② FCF','영업CF − 현금 CAPEX<br>금융리스 원금 별도 확인','자체 조달 여력'],['③ 이자보상','영업이익 / 이자비용','금리 상승 흡수력'],['④ 순부채 · 현금','현금성 자산과 총차입 함께','유동성 완충력'],['⑤ 만기 구조','향후 1–3년 만기 집중','차환 위험'],['⑥ 계약 · 고객','수주잔고·선급금·고객 집중','수익의 질'],['⑦ 투자 유연성','취소 가능 CAPEX · 전력 계약','하강 시 조절 여력']]),'기술력이 있어도 현금이 먼저 소진될 수 있다. 그러나 높은 차입만으로 탈락을 단정할 수 없다.',['elpida_failure','fin_Microsoft','fin_Amazon'])
-gs=[(d,v) for d,v in M['GS10'] if d>='2023-01-01' and (d[5:7] in ['01','07'] or d=='2026-10-01')];chart('ratesNow','미 국채 시장금리',[d[:7] for d,v in gs],[ser('미국 10년 국채 월평균',[v for d,v in gs],'%')])
-add('rates-2026',3,'② 금리의 재상승은 회수기간을 더 무겁게 만든다','이란 전쟁·에너지 물가와 견조한 수요가 겹친 2026년','<div class="split"><div>'+slot('ratesNow',330)+'<p class="note">시장금리: 10년 국채 월평균. 기업 조달금리 = 국채금리 + 신용스프레드 등.</p></div><div class="text"><div class="medium amber">3.75–4.00%</div><p>연준 목표범위<br>9월 25bp 인상 → 10월 동결</p><p>당장 빅테크 지급능력 붕괴보다<br><b>신규 투자 수익률·차환비용</b>의 변화에 주목</p></div></div>','1980년대의 교훈은 반복될 수 있다. 다만 금리 격차가 곧 기술 격차는 아니다.',['fred_10','audit_3_0','audit_3_1','audit_3_2','fred_ff','boj'])
-add('rates-china',3,'중국의 낮은 자본비용은 추격의 충분조건인가?','미·일의 역사와 미·중의 현재 · 유사한 금융 조건, 다른 제약',cards(panel('공통점','긴 회수기간을 견디는 자본','저금리·정책금융·정부 지원이<br>설비와 전력망의 투자 부담 완화<br>미국의 지연은 상대적 기회'),panel('차이점','자금만으로 풀리지 않는 병목','첨단 장비·공정·HBM 접근<br>수율·소프트웨어·고객 생태계<br>달러 자본시장과 내부 현금흐름'),panel('판단','조건부 추격 시나리오','미국의 투자 지연 +<br>중국의 칩·전력·모델 효율 개선<br>→ 일부 영역의 격차 축소')),'중국의 추격 가능성은 있다. “저금리이므로 미국을 대체한다”는 결론은 성립하지 않는다.',['ai_index','japan','audit_3_0'])
-ring=lambda left,right,top,bottom:f'<div class="ring"><div class="transfer">{top} →</div><div class="money"><strong>{left}</strong><span>공급자 · 자금 제공자</span></div><div class="money warn"><strong>{right}</strong><span>고객 · 투자 수혜자</span></div><div class="transfer">← {bottom}</div></div>'
-add('circular-flow',3,'③ 공급자·고객·투자자가 겹치기 시작했다','자금의 순환과 최종 외부 수요를 분리해서 본다','<div class="grid g2"><div class="panel"><div class="kicker">AI · 2025.09 발표 구조</div><h3>NVIDIA ↔ OpenAI</h3>'+ring('NVIDIA','OpenAI','단계적 지분 투자 구상','GPU·시스템 구매 / 컴퓨트 수요')+'<p class="note">최대 $100bn 의향서 사례. 전액 집행된 현금이라는 뜻 아님. 클라우드·AI 랩의 지분투자와 컴퓨트 약정도 유사한 연결.</p></div><div class="panel"><div class="kicker">통신 · 1990s 말–2000</div><h3>Lucent ↔ 통신사업자</h3>'+ring('장비 공급자','통신사업자','고객 대출·지급보증','통신장비 매출·원리금 상환')+'<p class="note">고객 금융이 장비 수주를 지원. 고객 부실은 대출손실·매출 감소로 동시에 전이.</p></div></div>','외부 고객이 내는 현금이 충분하지 않으면, 연결된 위험이 함께 커진다.',['nv_openai','lucent'])
-add('circular-compare',3,'닮은 것은 자금 연결, 다른 것은 손실의 경로','순환 구조 자체가 가공매출이나 부정회계를 의미하지는 않는다',table(['구분','통신장비 벤더 파이낸싱','AI 투자·구매 연결'],[['자금의 성격','대출·보증·고객금융','지분투자 + 구매·클라우드 약정'],['공통 위험','과잉투자·고객 지급능력','독립 수요보다 투자금에 의존'],['손실의 경로','대손·보증 지급·매출 감소','지분 평가손실·계약 축소·매출 감소'],['다른 점','주로 네트워크 용량 경쟁','학습·추론·플랫폼, GPU의 빠른 노후화'],['확인할 것','회수가능액·담보·대출 만기','최종 고객 현금·매출 인식·취소조건']]),'같은 현금이 거래망을 돌아도, 거래를 유지시키는 힘은 최종 고객의 지불 의사다.',['nv_openai','lucent'])
-add('politics',3,'④ 선거는 투자 총량보다 입지와 시간을 바꾼다','2026 중간선거 결과와 데이터센터의 지역 정치','<div class="split"><div>'+cards(panel('선거 결과 · AP','민주당, 상·하원 다수 확보','새 의회는 2027년 출범<br>선거 승리와 법률 시행은 별개'),panel('지역 주민투표','제한 찬성 31 / 35건','11월 6일 집계 · 인증 전 포함<br>전국 일괄 금지로 해석 불가'))+'</div><div class="text"><h2>비용이 지역으로 돌아왔다</h2><p>전기요금 · 물 사용<br>송전망 · 소음 · 토지<br>→ 인허가 지연·입지 이동</p><p class="small">데이터센터 반대는 양당 지역에서 나타남. 모든 규제를 민주당 정책으로 묶지 않음.</p></div></div>','규제는 투자 회수 시점과 비용을 바꾼다. 국가 간 경쟁은 투자의 지속 압력으로 남는다.',['midterms','dc_ballot'])
-chart('china','AI 모델 성능 비교',['미국 최고','중국 최고'],[ser('Arena 점수',[1503,1464],'점')])
-add('china-race',3,'속도를 늦추는 비용도 정치적이다','2026.03 최고 AI 모델 비교 · Stanford AI Index 2026','<div class="split"><div>'+slot('china',310)+'<p class="note">미국 1,503 vs 중국 1,464 · 39점 차이. 점수를 성능 비율로 해석하지 않음.<br>단일 벤치마크·시점 기준. 칩 제조능력이나 전체 국가 경쟁력 순위 아님.</p></div><div class="text"><div class="big amber">39점</div><p>최고 모델의 벤치마크 점수 차이</p><p>미국의 인프라 지연<br>+ 중국의 효율·전력 확장<br>→ 상대적 경쟁력 압박</p></div></div>','해석: 투자 사이클을 완전히 꺾기는 어렵지만, 개별 사업의 수익성까지 보장되지는 않는다.',['ai_index','dc_ballot'])
-chart('supplier','메모리 공급자 영업이익',['2026 Q2','2026 Q3'],[ser('삼성전자 연결',[89.5,107.4],'조원'),ser('SK hynix',[60.5426,83.3338],'조원')])
-add('cash-allocation',3,'⑤ 막대한 현금, 어디에 배분할 것인가?','리니어의 질문이 2026년의 삼성·SK hynix로 돌아왔다','<div class="split"><div>'+slot('supplier',300)+'<p class="note">연결 분기 영업이익, 조원. 삼성 Q2는 Q3 발표의 전분기 차이로 계산.<br>회사 규모·사업구성 차이 있음. 현금흐름과 영업이익은 다름.</p></div><div class="text"><h2>삼성전자</h2><p>2026 CAPEX <b>84.4조</b> 전망<br>주주환원 <b>90–110조</b> 예상</p><h2>SK hynix</h2><p>3Q말 순현금 <b>98.7조</b> 실제<br>2026 환원 약 <b>100조</b> 계획<br>2027 용인 투자 확대</p></div></div>','성장의 투자와 주주환원, 다음 불황을 위한 현금은 같은 재원에서 나온다.',['audit_5_0','audit_5_1','audit_6_0'])
-add('contracts',3,'장기계약은 보이는 물량을 늘린다. 위험을 없애지는 않는다','LTA · 투자·환원을 결정하기 전에 계약의 질을 확인',cards(panel('물량','얼마나 보장되는가','SK hynix: 14개 고객 LTA<br>2027–28 생산능력 50%+<br>공급 계획의 가시성 개선'),panel('가격','얼마나 지켜지는가','합의한 범위 안에서<br>시장 상황 반영 메커니즘<br>가격 재협상 가능성'),panel('신용 · 자본배분','누가 끝까지 지불하는가','고객 지급능력·보증·선급금<br>투자 집행을 단계화<br>환원 후에도 불황 완충력 유지')),'장기계약은 과거에도 존재했다. 현재는 규모·기간·고객 집중과 위험 배분이 핵심이다.',['audit_7_0','audit_6_0'])
-closing=[('수요자 재무','Elpida · 만기와 유동성','빅테크 CAPEX · FCF','회복까지 버틸 현금'),('자본비용','미·일 금리와 투자','고금리 · 중국 추격','수익률 > 자본비용'),('거래 구조','통신 벤더 금융','AI 투자·구매의 연결','독립된 최종 수요'),('정책 · 경쟁','정부조달 · 무역협정','전력 규제 · AI 경쟁','입지·비용·시점'),('현금 배분','Linear · 환원과 매각','공급자 호황 · LTA','재투자·환원·완충력')]
-add('closing',3,'과거의 질문은 다른 모습으로 돌아온다','기술이 기회를 만든다. 자본배분의 선택이 기업의 다음 장을 결정한다.','<div class="closing-grid">'+''.join(f'<div class="panel"><div class="kicker">0{i+1}</div><h3>{t}</h3><p class="past">과거<br>{pa}</p><p class="now">현재<br>{now}</p><p class="rule">{rule}</p></div>' for i,(t,pa,now,rule) in enumerate(closing))+'</div><p class="quote" style="margin-top:35px">“얼마를 벌었나” 다음에는<br><span class="green">“누가 지불하고, 어디에 다시 쓸 것인가”</span>를 묻는다.</p>','리니어는 사라졌지만, 리니어가 마주했던 재무적 선택은 끝나지 않았다.')
-for cid in ['market26','china','sk-revenue']:CHARTS[cid]['kind']='bar'
-# Sector adapter is filled from independently sourced dataset.
-sector_path=P/'sector_history.json';SECTOR=read('sector_history.json') if sector_path.exists() else {'years':[1990,2000,2010,2020,2026],'sectors':[],'scope':'자료 구성 중','sources':[]}
-RAW_SECTOR=SECTOR
-SECTOR={'years':RAW_SECTOR['years'],'sectors':[],'scope':'Fortune Global 500 공식 아카이브 확인기업 내 상위 5 · 발표연도 · $bn','method':' / '.join(RAW_SECTOR['methodology']),'sources':[{'title':'Fortune Global500 '+str(x['year']),'url':x['sourceUrl']} for x in RAW_SECTOR['markets']['global']['snapshots'] if x['sourceRows']]}
-for sec in RAW_SECTOR['sectors']:
- item={'name':sec['label'],'snapshots':{}}
- for snap in RAW_SECTOR['markets']['global']['snapshots']:
-  row=snap['sectors'][sec['id']]
-  item['snapshots'][str(snap['year'])]={'rows':row['companies'],'note':SECTOR['scope']+' / '+row['note']}
- SECTOR['sectors'].append(item)
-ATTR=read('assets/v3/attribution.json')
-for a in ATTR:source('img_'+a['id'],a['caption'],a['source'],a['credit']+' · '+a['license']+' · '+a['licenseUrl'],publisher='이미지 출처')
-for sl in SLIDES:
- if sl['id']=='era0-invention':sl['sources']+=['img_transistor','img_ic-replica','img_apollo11']
-# Images use local data URIs for offline portability. Missing photos get an explicit diagram fallback only during development.
-assets=P/'assets'/'v3'
-def photo(key):
- files=[f for f in assets.glob('*') if key in f.stem.lower() and f.suffix.lower() in ['.jpg','.jpeg','.png','.webp']]
- if files:
-  f=files[0];src='data:'+mimetypes.guess_type(f.name)[0]+';base64,'+base64.b64encode(f.read_bytes()).decode();return '<img class="photo" src="'+src+'" alt="'+{'transistor':'초기 트랜지스터','ic':'킬비 집적회로 복제품','apollo':'아폴로 우주 계획'}[key]+'"><div class="photo-caption">'+{'transistor':'Windell Oskay · CC BY 2.0','ic':'Florian Schäffer · CC BY-SA 4.0 · 복제품','apollo':'NASA · Public domain'}[key]+'</div>'
- return '<div class="photo" style="display:grid;place-items:center">'+chip+'</div>'
+
+P = Path(__file__).parent
+
+
+def read(name):
+    return json.loads((P / name).read_text(encoding='utf-8-sig'))
+
+
+D = read('data.json')                      # Linear 시계열 · WSTS 연간 · 1990 순위 · 출처 목록
+F = read('research_financials.json')       # 빅테크 연간 재무 · 아날로그 동종사 · 감사 메모
+M = read('macro_raw.json')                 # FEDFUNDS · GS10 월별
+Q = read('research_quarterly.json')        # 빅테크 · 삼성 · SK hynix · WSTS 분기
+HIS = read('research_history.json')        # 냉전 군사비 · 1980년대 거시 · Linear 인수 협상
+RAW_SECTOR = read('sector_history.json')   # Fortune 500 섹터별 매출 상위
+ATTR = read('assets/v3/deck/attribution.json')
+
+SLIDES, CHARTS, ERAS = [], {}, []
+PARTS = {0: '도입', 1: '케이스 이후의 Linear Technology', 2: '반도체 산업의 변천', 3: 'AI 시대 마주한 재무적 이슈들'}
+
+# 차트 색: v3.js 의 K.s 와 같은 순서. 색은 순위가 아니라 대상(기업·국가)을 따라간다.
+C = ['#3987e5', '#d95926', '#199e70', '#c98500', '#d55181', '#008300', '#9085e9', '#e66767']
+MUTE, INK, INK2, INK3 = '#566b7e', '#edf7ff', '#a8bbcb', '#7f97aa'
+AXIS, GRID, SURF = '#33495d', '#142536', '#07121f'
+CYAN, GREEN, AMBER, RED = '#37ccff', '#39e2b0', '#ffb15e', '#ff8298'
+
+
+# ───────────────────────── 도구 ─────────────────────────
+def r1(x, nd=1):
+    """표시용 반올림(사사오입). 부동소수 오차로 12.85가 12.8이 되는 일을 막는다."""
+    return Decimal(str(x)).quantize(Decimal(1).scaleb(-nd), rounding=ROUND_HALF_UP)
+
+
+def fmt(x, nd=1, sign=False):
+    v = r1(x, nd)
+    body = f'{abs(v):,.{nd}f}'
+    if v < 0:
+        return '−' + body
+    return ('+' if sign and v > 0 else '') + body
+
+
+def cagr(first, last, years):
+    return ((last / first) ** (1 / years) - 1) * 100
+
+
+def tw(text, fs):
+    """v3.js 의 tw 와 같은 글자 폭 추정."""
+    w = 0
+    for ch in str(text):
+        if ord(ch) > 0x2e7f:
+            w += 1
+        elif ch == ' ':
+            w += .3
+        elif ch in ".,:;·'|il1()":
+            w += .32
+        elif ch in 'ABCDEFGHIJKLMNOPQRSTUVWXYZ%$−+':
+            w += .7
+        else:
+            w += .57
+    return w * fs
+
+
+def add(id, part, title, sub, body, take='', sources=None, kind='', method='', tables=None):
+    SLIDES.append(dict(id=id, part=part, title=title, sub=sub, html=body, take=take,
+                       sources=sources or [], kind=kind, method=method, tables=tables or []))
+
+
+def slot(chart_id, h=None):
+    """차트 자리. 높이를 주지 않으면 세로 배치 안에서 남는 높이를 모두 쓴다."""
+    if h is None:
+        return f'<div data-chart="{chart_id}" class="grow"></div>'
+    return f'<div data-chart="{chart_id}" data-h="{h}" style="min-height:{h}px"></div>'
+
+
+def card(title, unit, inner, note='', cls=''):
+    small = f'<small>{unit}</small>' if unit else ''
+    foot = f'<p class="note">{note}</p>' if note else ''
+    return f'<div class="chartcard {cls}"><h3>{title}{small}</h3>{inner}{foot}</div>'
+
+
+def panel(kicker, title, text='', cls='', pre='', post=''):
+    p = f'<p>{text}</p>' if text else ''
+    return f'<article class="panel {cls}">{pre}<div class="kicker">{kicker}</div><h3>{title}</h3>{p}{post}</article>'
+
+
+def flow(nodes, seps=None, cls='', key=None):
+    """가로 흐름. key 는 강조할 칸의 번호."""
+    out = []
+    for i, (head, text) in enumerate(nodes):
+        if i:
+            out.append(f'<span class="arrow">{seps[i - 1] if seps else "→"}</span>')
+        out.append(f'<div class="node{" key" if i == key else ""}"><b>{head}</b><span>{text}</span></div>')
+    return f'<div class="flow {cls}">' + ''.join(out) + '</div>'
+
+
+def steps(items, cls=''):
+    return (f'<div class="steps {cls}">'
+            + ''.join(f'<div class="step"><b>{head}</b><span>{text}</span></div>' for head, text in items) + '</div>')
+
+
+def tags(items, sep='→', cls=''):
+    """알약 꼬리표. sep 을 비우면 화살표 없이 나열한다."""
+    mid = f'<i>{sep}</i>' if sep else ''
+    return f'<div class="tags {cls}">' + mid.join(f'<span>{t}</span>' for t in items) + '</div>'
+
+
+def T(x, y, s, size=12, fill=INK2, anchor='start', weight=None, cls='', extra=''):
+    """SVG 글자 한 줄."""
+    a = f' text-anchor="{anchor}"' if anchor != 'start' else ''
+    w = f' font-weight="{weight}"' if weight else ''
+    c = f' class="{cls}"' if cls else ''
+    return f'<text x="{x}" y="{y}" fill="{fill}" font-size="{size}"{a}{w}{c}{extra}>{s}</text>'
+
+
+def legend(items, cls=''):
+    """items: (모양 클래스, 색, 글자). 모양: ln 선 · sq 사각 · dot 점 · ring 빈 점."""
+    return (f'<div class="legend inline {cls}">'
+            + ''.join(f'<span><i class="{k}" style="background:{c};border-color:{c}"></i>{t}</span>' for k, c, t in items) + '</div>')
+
+
+# ───────────────────────── 출처 ─────────────────────────
+SOURCES = D['sources'].copy()
+
+
+def source(key, title, url, note='', publisher='공식 자료', published=''):
+    SOURCES[key] = {'title': title, 'url': url, 'note': note, 'publisher': publisher, 'published': published}
+    return key
+
+
+FRED = 'FRED · 세인트루이스 연준'
+FEDHIST = 'Federal Reserve History'
+STATE = '미 국무부 역사실 (Office of the Historian)'
+SEC = 'SEC EDGAR'
+
+source('fred_ff', '미 연준 · 연방기금 실효금리, 월평균', 'https://fred.stlouisfed.org/series/FEDFUNDS',
+       '정책 목표범위와 구별. 금리 자체가 기업 WACC는 아님.', FRED)
+source('fred_10', '미 연준 · 미국 10년 국채 수익률, 월평균', 'https://fred.stlouisfed.org/series/GS10', '', FRED)
+source('fred_cpi', '미국 소비자물가지수 (CPI-U, 비계절조정)', 'https://fred.stlouisfed.org/series/CPIAUCNS',
+       '전년동월 대비 상승률 정점 14.76% (1980.03).', FRED)
+source('fred_twex', '달러 실효환율 지수 (주요 통화, TWEXMMTH)', 'https://fred.stlouisfed.org/series/TWEXMMTH',
+       '1980.09 93.16 → 1985.03 143.91 (+54.5%). 시작 월을 어디로 잡느냐에 따라 상승 폭이 달라짐.', FRED)
+source('fred_exjpus', '엔/달러 환율, 월평균 (EXJPUS)', 'https://fred.stlouisfed.org/series/EXJPUS',
+       '1985.09 236.53엔 → 1987.12 128.24엔.', FRED)
+source('boj', '일본은행 · 1972–95 공정할인율', 'https://www.boj.or.jp/en/statistics/boj/other/discount/',
+       '미국 실효 연방기금금리와 지표 정의가 다름. 일본은 당시 공정할인율.', '일본은행')
+source('fh_inflation', 'The Great Inflation', 'https://www.federalreservehistory.org/essays/great-inflation', '', FEDHIST)
+source('fh_oil73', 'Oil Shock of 1973–74', 'https://www.federalreservehistory.org/essays/oil-shock-of-1973-74', '', FEDHIST)
+source('fh_oil79', 'Oil Shock of 1978–79', 'https://www.federalreservehistory.org/essays/oil-shock-of-1978-79', '', FEDHIST)
+source('fh_volcker', "Volcker's Announcement of Anti-Inflation Measures",
+       'https://www.federalreservehistory.org/essays/anti-inflation-measures',
+       '1979.10.06 통화량 목표를 앞세운 긴축 전환 발표.', FEDHIST)
+source('fh_recession', 'Recession of 1981–82', 'https://www.federalreservehistory.org/essays/recession-of-1981-82', '', FEDHIST)
+source('feds_2016062', 'Kahn & Meade (2016) · 연준 FEDS 2016-062 — 1980년대 달러 강세와 국제 정책 공조',
+       'https://www.federalreserve.gov/econresdata/feds/2016/files/2016062pap.pdf',
+       '긴축 통화정책과 확장 재정의 조합이 금리와 달러를 함께 끌어올린 경로를 설명.', '미 연준 이사회')
+source('omb_hist', 'OMB · Historical Tables 1.2 (재정수지의 GDP 대비 비율)',
+       'https://www.govinfo.gov/content/pkg/BUDGET-2025-TAB/xls/BUDGET-2025-TAB-2-2.xlsx',
+       '연방 재정적자는 FY1983에 GDP의 5.9%까지 확대.', '미 관리예산처')
+source('g5_plaza', 'G5 재무장관·중앙은행 총재 발표문 (플라자 합의, 1985.09.22)',
+       'https://www.g7.utoronto.ca/finance/fm850922.htm', '', 'G7 Information Centre · 토론토대')
+source('chm', 'Computer History Museum · 항공우주와 초기 IC',
+       'https://www.computerhistory.org/siliconengine/aerospace-systems-are-first-the-applications-for-ics-in-computers/',
+       '아폴로 유도컴퓨터(AGC)는 1965년까지 IC의 최대 수요처로 약 20만 개를 개당 $20–30에 구매. 이후 미니트맨 II 미사일이 최대 수요처가 됨.',
+       'Computer History Museum')
+source('cow_nmc', 'Correlates of War · National Material Capabilities v6.0 (군사비)', HIS['milex']['url'],
+       '명목 달러(당해연도). 소련 값은 환율·가격 가정에 따라 크게 달라지는 추정치이므로 수준·순위보다 추세를 본다.',
+       'Correlates of War Project')
+source('hist_korea', 'The Korean War, 1950–1953', 'https://history.state.gov/milestones/1945-1952/korean-war', '', STATE)
+source('hist_sputnik', 'Sputnik, 1957', 'https://history.state.gov/milestones/1953-1960/sputnik',
+       '1957.10.04 소련의 첫 인공위성 발사.', STATE)
+source('hist_vietnam', 'U.S. Involvement in the Vietnam War: the Gulf of Tonkin and Escalation, 1964',
+       'https://history.state.gov/milestones/1961-1968/gulf-of-tonkin',
+       '1964년 통킹만 사건 이후 1965년 북폭 개시와 지상 전투부대 파병으로 확전.', STATE)
+source('apple_iphone', 'Apple · iPhone 발표 (2007.01.09)',
+       'https://www.apple.com/newsroom/2007/01/09Apple-Reinvents-the-Phone-with-iPhone/', '', 'Apple Newsroom')
+source('ai_index', 'Stanford HAI · AI Index 2026', 'https://hai.stanford.edu/ai-index/2026-ai-index-report',
+       '2026.03 Arena 최고 모델 점수 미국 1,503 / 중국 1,464. 모델 벤치마크이며 반도체 제조역량 지표가 아님.', 'Stanford HAI')
+source('midterms', 'AP · 2026 미국 중간선거', 'https://apnews.com/article/ef6199e25927a9ac9f4c18eae0e497cd',
+       '2026.11.04 민주당 상·하원 다수 확보 보도. 새 의회는 2027년 출범.', 'AP')
+source('dc_ballot', 'Data Center Ballot · 지역 주민투표 집계', 'https://ballot.dcmap.us/',
+       '2026.11.06 집계. 구속력 있는 35건 중 31건 제한 찬성. 인증 전 결과 포함. 정당별·전국 법률 통계 아님.', 'Data Center Ballot')
+source('nv_openai', 'NVIDIA–OpenAI · 2025.09 협력 의향서', 'https://openai.com/index/openai-nvidia-systems-partnership/',
+       '최대 $100bn 단계적 투자 의향과 10GW 구상. 해당 시점 의향서의 구조 설명이며 전액 집행을 뜻하지 않음.', 'OpenAI')
+source('lucent', 'Lucent · FY2000 10-K 고객금융',
+       'https://www.sec.gov/Archives/edgar/data/1006240/000095012300011855/y43690e10-k405.txt',
+       '고객 대출·지급보증·미집행 약정은 서로 구별해야 함.', SEC)
+source('analog_rank2025', 'GMI · 2025 아날로그 반도체 시장 추정',
+       'https://www.gminsights.com/industry-analysis/analog-semiconductors-market',
+       '2026.09 발행. TI 1위, ADI 2위. 시장 범위에 따라 순위와 점유율이 달라질 수 있음.', 'Global Market Insights')
+source('linear_defm14a_val', 'Linear DEFM14A · 재무자문사(Qatalyst Partners)의 가치평가 요약', HIS['deal']['url'],
+       'DCF $51.51–66.99 · 유사 거래 P/E $45.10–68.84 · 유사 거래 매출 배수 $44.89–57.01 · 동종 상장사 P/E '
+       '$41.12–55.63(경영진 계획) / $38.28–51.79(애널리스트 전망). 경영진 계획 매출 2016E $1,424M → 2022E $2,218M(연 +7.7%). '
+       '자문사가 경영진 전망을 바탕으로 낸 분석 범위이며 확정 가치가 아님.', SEC)
+source('linear_pr_sec', 'ADI · Linear 공동 보도자료 (2016.07.26, SEC 제출본)',
+       'https://www.sec.gov/Archives/edgar/data/791907/000119312516658272/d215052dex991.htm',
+       '지분가치 약 $14.8bn. 조달 계획: 신주 약 5,800만 주 + 신규 장기부채 약 $7.3bn + 보유 현금.', SEC)
+source('adi_presentation_2016', 'ADI · 인수 발표 투자자 설명 자료 (2016.07.26, Rule 425)',
+       'https://www.sec.gov/Archives/edgar/data/6281/000119312516658223/d225858d425.htm',
+       '산업·통신 인프라·자동차 대응 시장(2015) $8bn → $14bn. 늘어난 $6bn이 전원 관리. Linear FY2015 매출의 59%가 전원 관리.', SEC)
+source('wsts_hbr', 'WSTS · Historical Billings Report (2026.08판 통계표)', Q['sources']['wsts_workbook'],
+       '월별 실적을 분기로 합산. 2026 상반기 $722.0bn, 전년동기 $347.0bn 대비 +108%. '
+       '8월 6일 보도자료의 $702bn · +102%와는 집계 시점·기준이 달라 수치에 차이가 있음.', 'WSTS')
+source('sia_q3_2026', 'SIA · 2026년 3분기 세계 반도체 매출 (2026.11.03)', Q['wsts']['sia_reported_2026Q3']['url'],
+       '3분기 $517.7bn, 전분기 대비 +24.1%. WSTS 8월판 통계표보다 나중에 집계된 수치.', 'SIA')
+source('skh_q', 'SK hynix · 분기 실적 발표 (2023Q1–2026Q3)', Q['skhynix'][-1]['url'],
+       '연결 K-IFRS, 조원. 분기별 발표문 주소는 research_quarterly.json 에 기록.', 'SK hynix Newsroom')
+source('sam_q', '삼성전자 · 분기 실적 발표 (2023Q1–2026Q3)', Q['samsung'][-1]['url'],
+       '연결 기준, 조원. 발표 수치(반올림). 분기별 발표문 주소는 research_quarterly.json 에 기록.', 'Samsung Newsroom')
+for name, c in F['companies'].items():
+    source('fin_' + name, name + ' · SEC XBRL 재무 공시', c['source'],
+           '연도·공시·태그별 근거는 research_financials.json. FCF=영업CF−총현금 CAPEX; 리스 원금 제외.', 'SEC')
+    source('sec_q_' + name, name + ' · SEC XBRL 분기 현금흐름', Q['sources']['sec_companyfacts'][name],
+           '분기 영업현금흐름과 CAPEX(총현금 기준). FCF=영업CF−CAPEX, 금융리스 원금은 차감하지 않음.', 'SEC')
+for name, c in F['peers'].items():
+    source('peer_' + name, name + ' · SEC 매출 공시', c['source'], '', 'SEC')
+for i, a in enumerate(F['audit']):
+    for j, url in enumerate(a.get('sources', [a.get('url')])):
+        if url:
+            source(f'audit_{i}_{j}', a['claim'], url, a['finding'])
+for snap in RAW_SECTOR['markets']['us']['snapshots']:
+    if snap['sourceRows']:
+        source(f'fortune500_{snap["year"]}', f'Fortune 500 · {snap["year"]}년 발표 순위', snap['sourceUrl'],
+               '발표연도 기준(대체로 직전 회계연도 매출). 아카이브에 없는 순위는 보간하지 않음.', 'Fortune')
+IMG = {a['id']: a for a in ATTR}
+for a in ATTR:
+    source('img_' + a['id'], a['caption'], a['source'], f'{a["credit"]} · {a["license"]} · {a["licenseUrl"]}', '이미지 출처')
+
+
+def credit(a):
+    lic = 'Public domain' if 'public domain' in a['license'].lower() else a['license']
+    return a['credit'].split(' / ')[0] + ' · ' + lic
+
+
+def frame(img_id, year, title, text='', ph=None, cls=''):
+    """사진 한 칸. src 는 상대 경로로 두고, HTML 을 쓸 때 data URI 로 바꾼다."""
+    a = IMG[img_id]
+    style = f' style="--ph:{ph}px"' if ph else ''
+    p = f'<p>{text}</p>' if text else ''
+    return (f'<div class="frame {cls}"{style}><img src="{a["path"]}" alt="{a["caption"]}">'
+            f'<span class="yr">{year}</span><h3>{title}</h3>{p}<div class="cr">사진 · {credit(a)}</div></div>')
+
+
+# ───────────────────────── 표지 ─────────────────────────
+def chip_svg():
+    """표지 그림: 등각 투영으로 그린 칩 패키지."""
+    cx, cy, k = 270, 208, .52
+
+    def pt(u, v, z=0):
+        return f'{cx + u - v:.1f},{cy + (u + v) * k - z:.1f}'
+
+    def poly(pts, fill, stroke='none', sw=1, extra=''):
+        return (f'<polygon points="{" ".join(pt(*p) for p in pts)}" fill="{fill}" stroke="{stroke}" '
+                f'stroke-width="{sw}" stroke-linejoin="round"{extra}/>')
+
+    def square(half, z):
+        return [(-half, -half, z), (half, -half, z), (half, half, z), (-half, half, z)]
+
+    h, bt, d, dz = 107.5, 18, 68, 40          # 기판 반폭 · 기판 두께 · 다이 반폭 · 다이 윗면 높이
+    pins = range(-78, 79, 26)
+    s = ['<defs><radialGradient id="cvGlow"><stop offset="0" stop-color="#1479b8" stop-opacity=".42"/>'
+         '<stop offset="1" stop-color="#1479b8" stop-opacity="0"/></radialGradient>'
+         '<linearGradient id="cvDie" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1f7fb3"/>'
+         '<stop offset="1" stop-color="#12456a"/></linearGradient></defs>',
+         f'<ellipse cx="{cx}" cy="{cy + 14}" rx="262" ry="170" fill="url(#cvGlow)"/>']
+    for m in (1.12, 1.24):
+        s.append(poly(square(h * m, 0), 'none', '#1a5373', 1, ' stroke-dasharray="3 7"'))
+    for t in pins:                             # 뒤쪽 핀: 기판에 가려지도록 먼저 그린다
+        s.append(poly([(-h - 15, t - 6, 9), (-h, t - 6, 9), (-h, t + 6, 9), (-h - 15, t + 6, 9)], '#2a88ad'))
+        s.append(poly([(t - 6, -h - 15, 9), (t + 6, -h - 15, 9), (t + 6, -h, 9), (t - 6, -h, 9)], '#1f6f90'))
+    s.append(poly([(-h, h, bt), (h, h, bt), (h, h, 0), (-h, h, 0)], '#071f33', '#1d5f85'))
+    s.append(poly([(h, h, bt), (h, -h, bt), (h, -h, 0), (h, h, 0)], '#05182a', '#1d5f85'))
+    s.append(poly(square(h, bt), '#0a2c47', '#37ccff', 2))
+    for t in range(-44, 45, 22):               # 다이에서 기판 가장자리로 뻗는 배선
+        for a, b in (((t, d), (t, h - 8)), ((d, t), (h - 8, t)), ((t, -d), (t, 8 - h)), ((-d, t), (8 - h, t))):
+            s.append(f'<polyline points="{pt(*a, bt)} {pt(*b, bt)}" fill="none" stroke="#37ccff" '
+                     'stroke-opacity=".55" stroke-width="1.5"/>')
+            ex, ey = pt(*b, bt).split(',')
+            s.append(f'<circle cx="{ex}" cy="{ey}" r="2.4" fill="#7bebff"/>')
+    for t in pins:                             # 앞쪽 핀: 다리(세로 면) 다음에 윗면
+        s.append(poly([(t - 6, h + 15, 9), (t + 6, h + 15, 9), (t + 6, h + 15, -5), (t - 6, h + 15, -5)], '#2a88ad'))
+        s.append(poly([(t - 6, h, 9), (t + 6, h, 9), (t + 6, h + 15, 9), (t - 6, h + 15, 9)], '#7bebff'))
+        s.append(poly([(h + 15, t - 6, 9), (h + 15, t + 6, 9), (h + 15, t + 6, -5), (h + 15, t - 6, -5)], '#1f6f90'))
+        s.append(poly([(h, t - 6, 9), (h, t + 6, 9), (h + 15, t + 6, 9), (h + 15, t - 6, 9)], '#5fd0ee'))
+    s.append(poly([(-d, d, dz), (d, d, dz), (d, d, bt), (-d, d, bt)], '#0d3a5b', '#2e9fd0'))
+    s.append(poly([(d, d, dz), (d, -d, dz), (d, -d, bt), (d, d, bt)], '#0a2e4a', '#2e9fd0'))
+    s.append(poly(square(d, dz), 'url(#cvDie)', '#7bebff', 2))
+    s.append(poly(square(52, dz), 'none', '#7bebff', 1, ' stroke-opacity=".45"'))
+    s.append(f'<text x="{cx}" y="{cy - dz + 8}" fill="#fff" text-anchor="middle" font-size="24" font-weight="800" '
+             'letter-spacing="1">LINEAR → AI</text>')
+    s.append(f'<text x="{cx}" y="420" fill="#5e99bd" text-anchor="middle" font-size="15" letter-spacing="5">'
+             'DEMAND × CAPITAL × TIME</text>')
+    return '<svg viewBox="0 0 540 430" role="img" aria-label="반도체 칩 개념도">' + ''.join(s) + '</svg>'
+
+
+TEAM = [('김태현', '20269117'), ('박민영', '20269159'), ('박상준', '20269162'),
+        ('안상현', '20269234'), ('채재희', '20269423'), ('하진관', '20269450')]
+assert [n for n, _ in TEAM] == sorted(n for n, _ in TEAM), '팀원은 가나다순'
+
+add('cover', 0, '리니어는 왜 사라졌나?', '',
+    '<div class="cover-main"><div class="eyebrow">KAIST DFMBA · 기업재무 · 12조</div>'
+    '<h1>리니어는 왜<br><span class="green">사라졌나?</span></h1><div class="parts">'
+    + ''.join(f'<button data-goto="part{i}"><b>PART {i}</b>{PARTS[i]}</button>' for i in (1, 2, 3))
+    + f'</div></div><div class="cover-art">{chip_svg()}</div>'
+    '<div class="team"><div class="team-label">TEAM 12<small>가나다순</small></div>'
+    + ''.join(f'<div class="member"><b>{n}</b><span>DFMBA · {sid}</span></div>' for n, sid in TEAM) + '</div>',
+    kind='cover')
+
+
+def divider(n, title, desc):
+    road = ''.join(f'<div class="{"on" if i == n else ""}"><b>PART {i}</b>{PARTS[i]}</div>' for i in (1, 2, 3))
+    add(f'part{n}', n, title, '',
+        f'<div class="number">0{n}</div><div><div class="eyebrow">PART {n}</div><h1>{title}</h1>{desc}</div>'
+        f'<div class="roadmap">{road}</div>', kind='divider')
+
+
+# ═════════════════════════ PART 1 · Linear ═════════════════════════
+divider(1, '케이스 이후의<br>Linear Technology',
+        '<div class="qrow"><span><span class="qy">2003</span>년의 질문은</span><span class="q">“현금을 어떻게 나눌까”</span></div>'
+        '<div class="qrow now"><span><span class="qy">2016</span>년의 질문은</span><span class="q">“어디에서 더 큰 가치를 만들까”</span></div>')
+
+# ── 배당은 늘고 성장은 사라졌다 ──
+LIN = D['linear']['series']
+lin_rev = [x['revenue'] for x in LIN]
+lin_dps = [x['dps'] for x in LIN]
+lin_lab = ["'" + str(x['fy'])[2:] for x in LIN]
+lin_tip = ['FY' + str(x['fy']) for x in LIN]
+i11 = next(i for i, x in enumerate(LIN) if x['fy'] == 2011)
+i16 = next(i for i, x in enumerate(LIN) if x['fy'] == 2016)
+lin_cagr = cagr(lin_rev[i11], lin_rev[i16], 5)
+lin_growth = [(lin_rev[i] / lin_rev[i - 1] - 1) * 100 for i in range(1, len(LIN))]
+assert fmt(lin_cagr) == '−0.8' and (LIN[0]['fy'], LIN[-1]['fy']) == (2003, 2016)
+
+lin_pad = {'l': 64, 'r': 26}
+CHARTS['linear'] = {'panels': [
+    dict(share=.56, title='Linear 매출', cap='매출 ($M)', labels=lin_lab, tipLabels=lin_tip, pre='$', suf='M', dec=0,
+         x={'hide': True}, y={'step': 500, 'max': 1700, 'pre': '$'}, pad=lin_pad,
+         series=[dict(name='매출', values=lin_rev, area=True, w=3, pts=[0, i11, i16],
+                      ptText={0: f'${lin_rev[0]:,.0f}M', i11: f'${lin_rev[i11]:,.0f}M · 정점', i16: f'${lin_rev[i16]:,.0f}M'},
+                      ptAnchor={0: 'start', i16: 'end'}, ptBelow=[i16])],
+         bands=[dict(a=i11, b=i16, label=f'FY11–16 · 매출 연평균 {fmt(lin_cagr)}%')]),
+    dict(share=.44, title='Linear 주당배당', cap='주당배당 ($)', type='bar', labels=lin_lab, tipLabels=lin_tip, pre='$', dec=2,
+         y={'step': .5, 'max': 1.5, 'pre': '$', 'dec': 2}, pad=lin_pad,
+         series=[dict(name='주당배당', values=lin_dps, color=C[2], pts=[0, len(LIN) - 1])]),
+]}
+CHARTS['linearGrowth'] = dict(
+    title='Linear 연간 매출 성장률', cap='연간 매출 성장률 (전년 대비, %)', type='bar', labels=lin_lab[1:], tipLabels=lin_tip[1:],
+    suf='%', dec=1, y={'min': -30, 'max': 40, 'step': 10, 'suf': '%'}, pad=lin_pad,
+    series=[dict(name='매출 성장률', values=[round(v, 2) for v in lin_growth], div=True, pts=[0, 5, 7, 8, 12])],
+    bands=[dict(a=i11, b=i16 - 1, label=f'FY2011 → FY2016 · 연평균 {fmt(lin_cagr)}%')],
+    legendItems=[dict(c=C[0], t='증가', bar=True), dict(c=C[7], t='감소', bar=True)])
+
+add('linear-cash', 1, '배당은 계속 늘었지만, 성장은 사라졌다', 'FY2003–2016 · 성숙한 현금창출 기업의 모습',
+    '<div class="split"><div class="col">'
+    '<div class="pills"><button data-linear="linear">매출 × 주당배당</button><button data-linear="linearGrowth">매출 성장률</button></div>'
+    '<div id="linearChart" data-h="470"></div>'
+    '<p class="note">회계연도. 배당은 연간 합계, 주가 수익률과 다름. 2011→16 매출 CAGR 직접 계산.</p></div>'
+    '<div class="statcol">'
+    '<button class="stat" data-linear="linear"><span class="kicker">① 배당은 계속 늘었다</span>'
+    f'<span class="hero green">${lin_dps[0]:.2f} → ${lin_dps[-1]:.2f}</span>'
+    '<span class="cap">2003–2016 주당배당<br>2016 영업이익률 <b>44.5%</b></span></button>'
+    '<div class="then">그러나</div>'
+    '<button class="stat" data-linear="linearGrowth"><span class="kicker">② 성장은 사라졌다</span>'
+    f'<span class="hero amber">{fmt(lin_cagr)}%</span>'
+    '<span class="cap">2011–2016 매출 연평균 성장</span></button>'
+    '</div></div>',
+    '회사는 잘 벌고 있었다. 성장의 다음 축이 약해졌을 뿐이다.', ['linear_10k_2016', 'linear_10k_2007'])
+
+# ── 아날로그 4사: 둔화는 공통, 대응은 달랐다 ──
+ORDER4 = ['Linear', 'Maxim', 'TI', 'ADI']
+COL4 = dict(zip(ORDER4, C))
+PEER = {n: [r['revenue'] for r in F['peers'][n]['series'][-6:]] for n in ('Maxim', 'TI', 'ADI')}
+PEER['Linear'] = lin_rev[i11:i16 + 1]          # 지수로 바꾸므로 $M · $bn 단위 차이는 상관없다
+for n in ('Maxim', 'TI', 'ADI'):
+    assert [r['year'] for r in F['peers'][n]['series'][-6:]] == list(range(2011, 2017)), n
+peer_idx = {n: [v / PEER[n][0] * 100 for v in PEER[n]] for n in ORDER4}
+peer_cagr = {n: cagr(PEER[n][0], PEER[n][-1], 5) for n in ORDER4}
+
+CHARTS['peersIdx'] = dict(
+    title='아날로그 4사 매출 지수 (FY2011=100)', labels=[f'FY{y}' for y in range(11, 17)], dec=1, fs=13,
+    y={'min': 80, 'max': 120, 'step': 10, 'fit': True}, refs=[dict(v=100, label='FY2011 = 100', left=True)],
+    series=[dict(name=n, values=[round(v, 2) for v in peer_idx[n]], color=COL4[n], end=True, w=3.5 if n == 'Linear' else 2)
+            for n in ORDER4],
+    notes=[dict(i=4, v=peer_idx['ADI'][4], text='Hittite 인수(2014) 반영', dx=-12, dy=5, anchor='end')])
+
+
+def choice_row(name, color, tag, desc, out_head, out_sub='', gone=False):
+    return (f'<div class="choice-row{" gone" if gone else ""}"><div><div class="nm"><i style="background:{color}"></i>{name}'
+            f'<span class="tag">{tag}</span></div><p>{desc}</p></div><div class="out"><b>{out_head}</b>{out_sub}</div></div>')
+
+
+add('linear-peers', 1, '성장 둔화는 공통이었다. 대응은 달랐다',
+    '아날로그 4사 매출 지수 (FY2011=100) · 기업별 회계연도 · 인수 효과 포함',
+    '<div class="split s55"><div class="col">' + slot('peersIdx', 392)
+    + '<div class="cagr">' + ''.join(
+        f'<div><span><i style="background:{COL4[n]}"></i>{n}</span><b>{fmt(peer_cagr[n], sign=True)}%</b></div>' for n in ORDER4)
+    + '</div><p class="note">FY2011→2016 매출 연평균 성장률 · 기업별 회계연도. ADI에는 Hittite 인수(2014) 효과가 포함돼 '
+      '유기적 성장률 비교는 아님.</p></div>'
+    '<div class="choice"><div class="choice-h"><span>성장 둔화에 대한 대응</span><span style="text-align:right">그 이후</span></div>'
+    + choice_row('Linear', COL4['Linear'], '집중', '고성능 아날로그 한 우물 · 영업이익률 44.5%', '2017 ADI에 편입', '독립 상장 종료', True)
+    + choice_row('Maxim', COL4['Maxim'], '집중', '혼합신호·전력관리 중심의 독자 노선', '2021 ADI에 편입', '독립 상장 종료', True)
+    + choice_row('TI', COL4['TI'], '규모', '제품군·자체 제조 확대 · 2011 National 인수', '독립 유지', '아날로그 1위')
+    + choice_row('ADI', COL4['ADI'], '인수', 'Hittite(2014) → Linear(2017) → Maxim(2021)', '인수 주체', '2025 아날로그 2위')
+    + '<div class="insight"><b>집중</b>을 택한 두 회사는 ADI에 편입됐고,<br><b>규모·인수</b>를 택한 두 회사는 독립을 지켰다.'
+      '<small>순위: IC Insights(2015) · GMI(2025 추정)</small></div>'
+    '</div></div>',
+    '성장 둔화는 모두에게 왔다. 갈린 것은 그 다음의 선택 — 집중, 규모, 인수 — 이었다.',
+    ['linear_10k_2016', 'peer_TI', 'peer_ADI', 'peer_Maxim', 'NATIONAL', 'MAXIM', 'linear_close', 'icinsights_analog2015',
+     'analog_rank2025'])
+
+# ── 인수 협상: 독자 성장의 가치 vs 지금의 프리미엄 ──
+DEAL = HIS['deal']
+OFFER = {t['date']: t for t in DEAL['timeline']}
+PX_CLOSE, PX_FINAL = DEAL['close_2016_07_25'], DEAL['implied_value']
+premium = (PX_FINAL / PX_CLOSE - 1) * 100
+cash_share = 46 / PX_FINAL * 100                       # 대가: 주당 현금 $46 + ADI 0.2321주
+VAL = sorted((dict(v, mid=(v['lo'] + v['hi']) / 2) for v in DEAL['valuation']), key=lambda v: v['mid'])
+DCF = next(v for v in VAL if v['method'] == 'DCF')
+assert round(premium) == DEAL['premium_pct']['close'] == 24 and round(cash_share) == 77
+assert all(v['mid'] < PX_FINAL for v in VAL), '제안가는 다섯 범위의 중간값보다 모두 높다'
+assert {v['method'] for v in VAL if v['hi'] >= PX_FINAL} == {'DCF', '유사 거래 P/E'}, '세 범위는 상단도 넘는다'
+assert fmt(DEAL['projection']['revenue_cagr_pct']) == '7.7'
+
+
+def tip(title, *lines):
+    return ' data-tip="' + escape('|'.join((title,) + lines), quote=True) + '"'
+
+
+def negotiation_svg():
+    """협상 흐름. 가로축은 사건 순서이며 시간 간격에 비례하지 않는다."""
+    W, H, base, k = 709, 438, 408, 21.2
+
+    def y(p):
+        return round(base - (p - 44) * k, 1)
+
+    dates = ['2015-08-14', '2015-09-04', '2016-04-05', '2016-05-18', '2016-06-22', '2016-07-26']
+    xs = dict(zip(dates, [100, 196, 330, 428, 528, 640]))
+    y1, y2, y3 = (y(OFFER[d]['price']) for d in ('2015-08-14', '2016-04-05', '2016-06-22'))
+    y3rd, yf, yc = y(OFFER['2016-05-18']['price']), y(PX_FINAL), y(PX_CLOSE)
+    adi = C[3]
+    s = []
+    for p in (45, 50, 55, 60):
+        s.append(f'<line x1="52" x2="{W - 8}" y1="{y(p)}" y2="{y(p)}" stroke="{GRID}"/>')
+        s.append(T(46, y(p) + 4, f'${p}', 12, INK3, 'end', cls='tn'))
+    s.append(f'<path d="M52,{base}H255M271,{base}H{W - 8}" stroke="{AXIS}" fill="none"/>')
+    s.append(f'<path d="M256,{base + 6}l6,-12M264,{base + 6}l6,-12" stroke="{INK3}" stroke-width="1.5" fill="none"/>')
+    for d, x in xs.items():
+        s.append(T(x, base + 22, d[:7].replace('-', '.'), 12, INK3, 'middle', cls='tn'))
+    # ADI 제안가: 거절 뒤 7개월은 제안이 없던 구간(점선)
+    s.append(f'<path d="M100,{y1}H196" fill="none" stroke="{adi}" stroke-width="3" stroke-linecap="round"/>')
+    s.append(f'<path d="M204,{y1}H330" fill="none" stroke="{INK3}" stroke-width="2" stroke-dasharray="3 6"/>')
+    s.append(f'<path d="M330,{y1}V{y2}H528V{y3}H640V{yf}" fill="none" stroke="{adi}" stroke-width="3" '
+             'stroke-linejoin="round" stroke-linecap="round"/>')
+    # 프리미엄: 발표 전 종가 → 합의 가격
+    s.append(f'<line x1="640" x2="640" y1="{yc - 10}" y2="{yf + 20}" stroke="{GREEN}" stroke-width="3"/>')
+    s.append(f'<polygon points="640,{yf + 9} 633,{yf + 22} 647,{yf + 22}" fill="{GREEN}"/>')
+    s.append(f'<circle cx="640" cy="{yc}" r="6" fill="{SURF}" stroke="{INK2}" stroke-width="2"/>')
+    for x, yy in ((100, y1), (330, y2), (528, y3)):
+        s.append(f'<circle cx="{x}" cy="{yy}" r="6" fill="{adi}" stroke="{SURF}" stroke-width="2"/>')
+    s.append(f'<circle cx="428" cy="{y3rd}" r="6" fill="{MUTE}" stroke="{SURF}" stroke-width="2"/>')
+    s.append(f'<circle cx="640" cy="{yf}" r="7.5" fill="{GREEN}" stroke="{SURF}" stroke-width="2"/>')
+    s.append(f'<circle cx="196" cy="{y1}" r="11" fill="{SURF}"/>'
+             f'<path d="M189,{y1 - 7}l14,14M203,{y1 - 7}l-14,14" stroke="{RED}" stroke-width="3" stroke-linecap="round"/>')
+    # 라벨
+    s.append(T(100, y1 - 28, '$51.50', 16, INK, 'middle', 800, 'halo tn'))
+    s.append(T(100, y1 - 12, '주식 75% · 현금 25%', 11.5, INK2, 'middle', cls='halo'))
+    s.append(T(196, y1 + 25, '이사회 거절', 13, INK, 'middle', 700, 'halo'))
+    s.append(T(196, y1 + 42, '“상당히 저평가”', 11.5, INK2, 'middle', cls='halo'))
+    s.append(T(267, y1 - 9, '2016.03까지 접촉 없음', 11, INK3, 'middle', cls='halo'))
+    s.append(T(342, y2 + 24, '$58.00', 16, INK, weight=800, cls='halo tn'))
+    s.append(T(342, y2 + 40, '현금 75% · 주식 25%', 11.5, INK2, cls='halo'))
+    s.append(T(428, y3rd + 23, '$54.00 · 제3자', 13, INK, 'middle', 700, 'halo'))
+    s.append(T(428, y3rd + 39, '전액 현금 제안', 11.5, INK2, 'middle', cls='halo'))
+    s.append(T(528, y3 - 28, '$60.00', 16, INK, 'middle', 800, 'halo tn'))
+    s.append(T(528, y3 - 12, '‘best and final’', 11.5, INK2, 'middle', cls='halo'))
+    s.append(T(640, yf - 38, '$60.05', 21, INK, 'middle', 900, 'halo tn'))
+    s.append(T(640, yf - 19, '7/26 계약 체결', 11.5, INK2, 'middle', cls='halo'))
+    mid = (yc + yf) / 2
+    s.append(T(626, mid + 2, f'+{premium:.0f}%', 25, INK, 'end', 900, 'halo tn'))
+    s.append(T(626, mid + 20, '프리미엄', 12.5, INK2, 'end', cls='halo'))
+    s.append(f'<text x="626" y="{yc + 4.5}" text-anchor="end" font-size="12.5" fill="{INK2}" class="halo">7/25 종가 '
+             f'<tspan fill="{INK}" font-weight="700">${PX_CLOSE:.2f}</tspan></text>')
+    # 마우스를 올리면 원문 요지
+    hits = [(100, y1, '2015.08.14 · ADI 첫 제안 $51.50', OFFER['2015-08-14']['text']),
+            (196, y1, '2015.09.04 · Linear 이사회 거절', OFFER['2015-09-04']['text']),
+            (330, y2, '2016.04.05 · ADI 재제안 $58.00', OFFER['2016-04-05']['text']),
+            (428, y3rd, '2016.05.18 · 제3자(Company A) $54.00', OFFER['2016-05-18']['text']),
+            (528, y3, '2016.06.22 · ADI 최종 제안 $60.00', OFFER['2016-06-22']['text']),
+            (640, yf, '2016.07.26 · 합병계약 $60.05', OFFER['2016-07-26']['text']),
+            (640, yc, '2016.07.25 · 발표 전 종가 $48.47',
+             f'합의 가격은 종가 대비 +{DEAL["premium_pct"]["close"]}%',
+             f'30일 평균 대비 +{DEAL["premium_pct"]["avg30d"]}% · 60일 평균 대비 +{DEAL["premium_pct"]["avg60d"]}%')]
+    for x, yy, *t in hits:
+        s.append(f'<circle cx="{x}" cy="{yy}" r="17" fill="transparent"{tip(*t)}/>')
+    return (f'<svg width="{W}" height="{H}" viewBox="0 0 {W} {H}" role="img" '
+            'aria-label="2015년 8월 첫 제안부터 2016년 7월 계약까지 주당 제안가의 변화">' + ''.join(s) + '</svg>')
+
+
+VAL_LABEL = {   # (평가 방법, 범위 하단) → 화면에 쓸 두 줄 이름
+    ('동종 상장사 P/E', 38.28): ('동종 상장사 P/E', '애널리스트 전망 · 17–23배'),
+    ('동종 상장사 P/E', 41.12): ('동종 상장사 P/E', '경영진 계획 · 17–23배'),
+    ('유사 거래 매출 배수', 44.89): ('유사 거래 · 매출 배수', '향후 12개월 매출 · 6.5–8.5배'),
+    ('유사 거래 P/E', 45.1): ('유사 거래 · P/E', '향후 12개월 이익 · 19–29배'),
+    ('DCF', 51.51): ('DCF · 현금흐름 할인', '경영진 계획 · 할인율 8–10%'),
+}
+
+
+def valuation_svg():
+    """가치 범위(풋볼 필드): 다섯 평가 범위 위에 발표 전 종가와 합의 가격을 겹친다."""
+    W, top, pitch = 581, 24, 46
+    bottom = top + pitch * len(VAL) + 2
+    H = bottom + 22
+
+    def x(p):
+        return round(196 + (p - 35) * 8.4, 1)
+
+    s = []
+    for p in (40, 50, 60, 70):
+        s.append(f'<line x1="{x(p)}" x2="{x(p)}" y1="{top}" y2="{bottom}" stroke="{GRID}"/>')
+        s.append(T(x(p), bottom + 16, f'${p}', 12, INK3, 'middle', cls='tn'))
+    for i, v in enumerate(VAL):
+        cy, key = top + 1 + pitch * i + pitch // 2, v is DCF
+        head, sub = VAL_LABEL[(v['method'], v['lo'])]
+        s.append(T(0, cy - 3, head, 13.5, INK, weight=700))
+        s.append(T(0, cy + 13, sub, 11.5, INK3))
+        s.append(f'<rect x="{x(v["lo"])}" y="{cy - 9}" width="{round(x(v["hi"]) - x(v["lo"]), 1)}" height="18" rx="4" '
+                 f'fill="{C[0] if key else MUTE}"/>')
+        s.append(f'<line x1="{x(v["mid"])}" x2="{x(v["mid"])}" y1="{cy - 13}" y2="{cy + 13}" stroke="{INK}" stroke-width="2"/>')
+        s.append(T(W, cy + 4, f'${v["lo"]:.2f} – ${v["hi"]:.2f}', 11.5, INK if key else INK2, 'end', 700 if key else None, 'tn'))
+    xc, xf = x(PX_CLOSE), x(PX_FINAL)
+    s.append(f'<line x1="{xc}" x2="{xc}" y1="{top - 4}" y2="{bottom}" stroke="{INK2}" stroke-width="1.5" stroke-dasharray="4 4"/>')
+    s.append(f'<line x1="{xf}" x2="{xf}" y1="{top - 4}" y2="{bottom}" stroke="{GREEN}" stroke-width="2.5"/>')
+    s.append(T(xc - 6, 13, f'7/25 종가 ${PX_CLOSE:.2f}', 12, INK2, 'end', cls='tn'))
+    s.append(T(xf + 6, 13, f'ADI 제안 ${PX_FINAL:.2f}', 13.5, INK, weight=800, cls='tn'))
+    s.append(f'<line x1="1" x2="1" y1="{bottom + 6}" y2="{bottom + 18}" stroke="{INK}" stroke-width="2"/>'
+             + T(8, bottom + 16, '범위의 중간값', 11.5, INK3))
+    for i, v in enumerate(VAL):                # 마우스를 올리면 전제 설명
+        s.append(f'<rect x="0" y="{top + 1 + pitch * i}" width="{W}" height="{pitch}" fill="transparent"'
+                 + tip(f'{v["method"]} · ${v["lo"]:.2f}–{v["hi"]:.2f}', v['basis'], f'중간값 ${v["mid"]:.2f}') + '/>')
+    return (f'<svg width="{W}" height="{H}" viewBox="0 0 {W} {H}" role="img" '
+            'aria-label="재무자문사의 다섯 가지 주당 가치 범위와 발표 전 종가, ADI 제안가 비교">' + ''.join(s) + '</svg>')
+
+
+add('linear-deal', 1, '독자 성장의 가치 vs 지금의 프리미엄',
+    '2015.08 첫 제안은 거절 → 2016.07 $60.05에 합의 · 처음부터 매각을 택한 것은 아니었다',
+    '<div class="split s55"><div class="col">'
+    '<div class="khead"><span class="kicker">협상 흐름 · 주당 제안가 ($)</span>'
+    + legend([('ln', C[3], 'ADI 제안가'), ('dot', MUTE, '제3자 제안'), ('ring', INK2, '발표 전 종가')])
+    + '</div>' + negotiation_svg()
+    + '<div class="dealend"><em>결말</em><span><b>2017.03.10 인수 완료</b> → Linear, 독립 상장회사로서의 역사 종료</span></div>'
+    '<p class="note">Linear DEFM14A(2016.09) “Background of the Merger”. 가로축은 사건 순서 · 점에 마우스를 올리면 세부 내용.</p></div>'
+    '<div class="deal-right"><span class="kicker">가치 범위 · 주당 ($) — Linear 측 재무자문사(Qatalyst)의 분석</span>'
+    + valuation_svg()
+    + '<div class="vs lt">'
+    f'<div><span class="k">독자 성장의 가치 · DCF 중간값</span><div class="v">${DCF["mid"]:.2f}'
+    f'<small class="rng">범위 ${DCF["lo"]:.2f}–{DCF["hi"]:.2f}</small></div>'
+    f'<p>전제: 경영진 계획 매출 연 +{fmt(DEAL["projection"]["revenue_cagr_pct"])}%<br>직전 5년 실적은 연 <b>{fmt(lin_cagr)}%</b></p></div>'
+    '<span class="sign">&lt;</span>'
+    f'<div class="win"><span class="k">지금의 프리미엄</span><div class="v">${PX_FINAL:.2f}'
+    f'<small class="rng">7/25 종가 ${PX_CLOSE:.2f} 대비 +{premium:.0f}%</small></div>'
+    f'<p>대가의 약 {cash_share:.0f}%가 현금 = 확정 가치<br>지난 15년 어느 종가보다 높은 가격</p></div></div>'
+    '<p class="note" style="margin-top:0">제안가는 다섯 평가 범위 중 세 개의 상단을 넘고, 나머지 둘(DCF · 유사 거래 P/E)에서도 중간값보다 높다. '
+    '이사회가 명시한 위험: 독립을 유지하면 주가가 합병 대가 이상으로 거래되지 못할 수 있다 — “단기에도, 장기간에도, 혹은 영영”.</p>'
+    '</div></div>',
+    '독자 성장의 기대가치보다 지금 확정되는 프리미엄이 컸다 — 인수는 실패가 아니라 가치 실현 방식의 선택이었다.',
+    ['linear_defm14a', 'linear_defm14a_val', 'linear_deal', 'linear_pr_sec', 'linear_close'],
+    method='가치 범위는 Linear 이사회의 재무자문사가 경영진 계획·애널리스트 전망을 바탕으로 낸 분석이며 확정 가치가 아님. '
+           '“DCF 중간값”은 범위 양 끝의 산술 평균으로, 위임장 서류의 수치가 아니라 이 덱에서 직접 계산한 값. 조사 기준 2026-11-08.',
+    tables=[dict(title='협상 일지 (Linear DEFM14A)', head=['날짜', '주체', '주당 가격($)', '내용'],
+                 rows=[[t['date'], t['who'], f'{t["price"]:.2f}' if 'price' in t else '—', t['text']] for t in DEAL['timeline']]),
+            dict(title='재무자문사 가치평가 범위 (주당 $)', head=['방법', '전제', '하단', '상단', '중간값'],
+                 rows=[[v['method'], v['basis'], f'{v["lo"]:.2f}', f'{v["hi"]:.2f}', f'{v["mid"]:.2f}'] for v in VAL])])
+
+# ── 왜 팔렸나: 세 가지 시대 배경 ──
+VIZ_H = 280
+
+
+def system_svg():
+    """01 수요: 신호 체인의 네 블록 + 그 전부에 전력을 대는 전원 관리, 그리고 합쳤을 때의 대응 시장."""
+    W, adi, lin = 388, C[3], C[0]
+    s = [T(0, 12, '물리 세계의 신호 → 디지털 처리 → 연결', 11.5, INK3)]
+    blocks = [('센서', '온도 · 압력 · 전류', False), ('증폭 · 변환', '증폭기 · 컨버터', True),
+              ('프로세서', 'MCU · FPGA', False), ('통신 · RF', 'RF · 인터페이스', True)]
+    for i, (name, sub, is_adi) in enumerate(blocks):
+        x = i * 100
+        fill, stroke = ('rgba(201,133,0,.2)', adi) if is_adi else ('#0c1c2c', '#2b4a62')
+        s.append(f'<line x1="{x + 44}" x2="{x + 44}" y1="77" y2="114" stroke="{lin}" stroke-width="1.5" stroke-dasharray="3 3"/>')
+        s.append(f'<rect x="{x + .5}" y="22.5" width="87" height="54" rx="6" fill="{fill}" stroke="{stroke}"/>')
+        s.append(T(x + 44, 46, name, 13.5, INK, 'middle', 700))
+        s.append(T(x + 44, 63.5, sub, 10.5, INK2, 'middle'))
+        if i:
+            s.append(f'<path d="M{x - 10},49.5h7m-3,-3l3,3l-3,3" fill="none" stroke="{INK3}" stroke-width="1.25"/>')
+    s.append(f'<rect x=".5" y="114.5" width="{W - 1}" height="38" rx="6" fill="rgba(57,135,229,.22)" stroke="{lin}"/>')
+    s.append(T(W / 2, 138.5, '전원 관리 — 모든 블록에 전력을 공급', 14, INK, 'middle', 700))
+    s.append(f'<rect x="0" y="166" width="10" height="10" rx="2" fill="{adi}"/>' + T(15, 175, 'ADI의 강점: 컨버터·증폭기·RF', 12, INK2))
+    s.append(f'<rect x="204" y="166" width="10" height="10" rx="2" fill="{lin}"/>' + T(219, 175, 'Linear의 강점: 전원 관리', 12, INK2))
+    # 대응 가능 시장: $1bn = 18px
+    u, x0 = 18, 90
+    s.append(T(0, 206, '대응 가능 시장(TAM) · 2015 · 산업 · 통신 인프라 · 자동차', 11.5, INK3))
+    s.append(T(0, 233, 'ADI 단독', 12.5, INK2))
+    s.append(f'<rect x="{x0}" y="218" width="{8 * u}" height="20" rx="3" fill="{adi}"/>')
+    s.append(T(x0 + 8 * u + 6, 233, '$8bn', 12.5, INK, weight=700, cls='tn'))
+    s.append(T(0, 265, 'ADI + Linear', 12, INK, weight=700))
+    s.append(f'<rect x="{x0}" y="250" width="{8 * u}" height="20" rx="3" fill="{adi}"/>')
+    s.append(f'<rect x="{x0 + 8 * u + 2}" y="250" width="{6 * u - 2}" height="20" rx="3" fill="{lin}"/>')
+    s.append(T(x0 + 11 * u + 1, 264.5, '+ 전원 관리 $6bn', 11, '#fff', 'middle', 700))
+    s.append(T(x0 + 14 * u + 6, 265, '$14bn', 12.5, INK, weight=800, cls='tn'))
+    return (f'<svg width="{W}" height="{VIZ_H}" viewBox="0 0 {W} {VIZ_H}" role="img" aria-label="신호 체인 네 블록과 전원 관리, '
+            'ADI 단독 8십억 달러에서 Linear를 더하면 14십억 달러로 넓어지는 대응 시장">' + ''.join(s) + '</svg>')
+
+
+FF = [(d[:7], v) for d, v in M['FEDFUNDS']]
+ff00 = [(d, v) for d, v in FF if '2000-01' <= d <= '2017-12']
+at00 = {d: i for i, (d, _) in enumerate(ff00)}
+CHARTS['ff2000'] = dict(
+    title='미국 연방기금 실효금리 2000–2017', cap='미국 연방기금 실효금리 (월평균, %)', fs=11, suf='%', dec=2, legend=False,
+    labels=[d.replace('-', '.') for d, _ in ff00], y={'max': 7, 'step': 2},
+    x={'ticks': [at00[f'{y}-01'] for y in range(2000, 2017, 4)], 'map': {at00[f'{y}-01']: str(y) for y in range(2000, 2017, 4)}},
+    series=[dict(name='연방기금 실효금리', values=[v for _, v in ff00], area=True)],
+    bands=[dict(a=at00['2008-12'], b=at00['2015-12'], label='제로금리 7년')],
+    marks=[dict(i=at00['2016-07'], label='2016.07 인수 계약', anchor='end', y=14)])
+MNA = [('2010–14 평균', 12.6), ('2015', 107.3), ('2016', 99.8), ('2017', 27.7), ('2018', 25.9)]   # IC Insights, 발표액 $bn
+mna_multiple = (MNA[1][1] + MNA[2][1]) / 2 / MNA[0][1]
+assert round(mna_multiple) == 8
+CHARTS['mna'] = dict(
+    title='반도체 M&A 발표액', cap='반도체 M&A 발표액 ($bn)', type='bar', fs=11, pre='$', suf='bn', dec=1, legend=False,
+    labels=[k for k, _ in MNA], y={'n': 3, 'pre': '$'},
+    series=[dict(name='M&A 발표액', values=[v for _, v in MNA], hi=[1, 2], pts=[0, 1, 2])])
+
+
+def ctx_panel(kicker, title, viz, text, note):
+    return (f'<article class="panel"><div class="kicker">{kicker}</div><h3>{title}</h3><div class="viz">{viz}</div>'
+            f'<p>{text}</p><div class="note">{note}</div></article>')
+
+
+add('linear-context', 1, '왜 팔렸나: 세 가지 시대 배경', '고수익 기업도 산업 구조의 변화에서는 자유롭지 않다',
+    '<div class="ctx">'
+    + ctx_panel('01 · 수요', '고객은 통합 솔루션을 원했다', system_svg(),
+                '자동차 전장·산업 자동화·통신 인프라처럼 <b>시스템이 복잡해질수록</b> 신호 처리·전력·연결이 한 설계 안에서 맞물려야 한다. '
+                '고객사는 자체 아날로그 설계 역량을 줄이면서 검증된 조합을 <b>한 파트너</b>에게 맡기려 했다.',
+                'ADI CEO Roche: “고객은 더 많은 시스템 수준의 솔루션을 요구한다” · TAM $8bn → $14bn은 인수 발표 자료(2016.07) · '
+                'Linear 매출의 59%가 전원 관리(FY2015)')
+    + ctx_panel('02 · 자본', '초저금리가 M&amp;A를 뒷받침했다', slot('ff2000', VIZ_H),
+                '2008.12–2015.12 <b>제로금리 7년</b>, 계약 직전 미 10년물 국채금리는 <b>당시 사상 최저 1.37%</b>(2016.07). '
+                '인수자의 차입 조달 여건이 좋아졌고, 현금창출 자산의 가치도 높아졌다.',
+                'ADI 조달 계획: 신규 장기부채 약 $7.3bn + 신주 약 5,800만 주 + 보유 현금 (인수 발표문)')
+    + ctx_panel('03 · 규모', '포트폴리오의 폭이 중요해졌다', slot('mna', VIZ_H),
+                f'2015–16년 반도체 M&amp;A 발표액은 직전 5년 평균의 <b>약 {mna_multiple:.0f}배</b>. 아날로그 1위 TI의 점유율이 <b>18%</b>일 때 '
+                'Linear는 <b>3%</b>(8위) — 제품·고객·판매망의 폭이 경쟁 조건이 됐다.',
+                'IC Insights · 발표액 기준 · 점유율은 2015 아날로그 IC 시장($47.0bn) 기준')
+    + '</div>',
+    '리니어의 기술은 ADI 안에 남았다. 사라진 것은 독립 상장회사다.',
+    ['linear_deal', 'linear_finance', 'adi_presentation_2016', 'mckinsey_mna', 'linear_pr_sec', 'fred_ff', 'fred_dgs10',
+     'fed_history', 'icinsights_mna', 'icinsights_analog2015', 'adi_10k_2017'],
+    tables=[dict(title='대응 가능 시장 (ADI 인수 발표 자료, 2015 기준 $bn)', head=['구분', '컨버터', '증폭기', '인터페이스', '클럭·타이밍', '전원 관리', '합계'],
+                 rows=[['ADI 단독', '3', '3', '1', '1', '—', '8'], ['ADI + Linear', '3', '3', '1', '1', '6', '14']])])
+
+# ── 섹터별 매출 상위: 미국 Fortune 500, 2000 → 2026 ──
+SECTOR_YEARS = [2000, 2010, 2020, 2026]
+SECTOR_ORDER = ['it', 'communication', 'discretionary', 'staples', 'healthcare', 'financials', 'industrials',
+                'energy', 'materials', 'utilities', 'realestate']
+KEY_ALIAS = {   # 같은 회사가 해마다 다른 주소로 실린 경우를 하나로 묶는다
+    'the-dow-chemical-company': 'dow', 'dow-chemical': 'dupont', 'e-i-du-pont-de-nemours-and-company': 'dupont',
+    'pge-corporation': 'pge', 'pge-corp': 'pge', 'bell-atlantic-corporation': 'verizon',
+    'cb-richard-ellis-group-inc': 'cbre-group',
+}
+NAME_FIX = {    # 긴 법인명 → 통용 이름
+    'International Business Machines': 'IBM', 'Exxon Mobil Holdings': 'Exxon Mobil', 'Philip Morris Companies Inc.': 'Philip Morris',
+    'Sears Roebuck and Company': 'Sears', 'Kmart Corporation': 'Kmart', 'Texaco, Inc.': 'Texaco', 'USX Corporation': 'USX',
+    'UtiliCorp United Inc.': 'UtiliCorp United', 'Texas Utilities Company': 'Texas Utilities',
+    'Reliant Energy, Incorporated': 'Reliant Energy', 'PG&E Corporation': 'PG&E', 'Compaq Computer Corporation': 'Compaq',
+    'Lucent Technologies Inc.': 'Lucent', 'Motorola, Inc.': 'Motorola', 'Aetna Inc.': 'Aetna', 'Ingram Micro Inc.': 'Ingram Micro',
+    'E.I. du Pont de Nemours and Company': 'DuPont', 'Georgia-Pacific Corporation': 'Georgia-Pacific',
+    'SBC Communications Inc.': 'SBC Communications', 'MCI WorldCom, Inc.': 'MCI WorldCom', 'Bell Atlantic Corporation': 'Bell Atlantic',
+    'Sprint Nextel Corporation': 'Sprint Nextel', 'CB Richard Ellis Group, Inc.': 'CB Richard Ellis', 'Merck & Co.': 'Merck',
+    'State Farm Insurance': 'State Farm',
+}
+NAME_AT = {     # 아카이브가 현재 사명으로 바꿔 실은 회사 → 그 해의 이름
+    (2020, 'general-electric'): 'General Electric', (2020, 'facebook'): 'Facebook', (2020, 'realogy-holdings'): 'Realogy',
+    (2010, 'dell-technologies'): 'Dell', (2010, 'cvs-health'): 'CVS Caremark', (2010, 'dominion-resources'): 'Dominion Resources',
+    (2000, 'tiaa'): 'TIAA-CREF',
+}
+SHORT = {'Costco Wholesale': 'Costco', 'Archer Daniels Midland': 'ADM', 'Walgreens Boots Alliance': 'Walgreens',
+         'Verizon Communications': 'Verizon', 'Jones Lang LaSalle': 'JLL', 'International Paper': 'Intl. Paper',
+         'UnitedHealth Group': 'UnitedHealth', 'United Technologies': 'United Tech.', 'SBC Communications': 'SBC'}
+SECTOR_NOTE = {
+    'realestate': '2000년에는 이 섹터로 분류된 기업이 없음',
+    'communication': 'AT&T는 2005년 SBC가 인수해 사명을 승계 — 아카이브의 연결을 그대로 따름',
+    'industrials': '2020년은 아카이브 누락 순위(4건)의 영향 가능',
+    'materials': 'Dow · DuPont은 2017 합병, 2019 재분할 — 사명 기준으로 연결',
+}
+US_SNAP = {s['year']: s for s in RAW_SECTOR['markets']['us']['snapshots']}
+SECTOR_LABEL = {s['id']: s['label'] for s in RAW_SECTOR['sectors']}
+
+
+def sector_rows(year, companies):
+    rows = []
+    for c in sorted(companies, key=lambda c: -c['revenue'])[:5]:
+        slug = (c.get('url') or c['name']).rstrip('/').rsplit('/', 1)[-1]
+        name = NAME_AT.get((year, slug)) or NAME_FIX.get(c['name'], c['name'])
+        row = dict(key=KEY_ALIAS.get(slug, slug), name=name, revenue=round(c['revenue'], 1), rankOverall=c.get('rankOverall'))
+        if name in SHORT:
+            row['short'] = SHORT[name]
+        rows.append(row)
+    return rows
+
+
+SECTOR = dict(
+    years=SECTOR_YEARS,
+    scope='미국 Fortune 500 · 발표연도 기준(대체로 직전 회계연도 매출) · $bn · 아카이브 누락 순위는 보간하지 않음',
+    sectors=[dict(id=sid, name=SECTOR_LABEL[sid], note=SECTOR_NOTE.get(sid, ''),
+                  snapshots={str(y): {'rows': sector_rows(y, US_SNAP[y]['sectors'].get(sid, {}).get('companies', []))}
+                             for y in SECTOR_YEARS})
+             for sid in SECTOR_ORDER])
+assert set(SECTOR_ORDER) == set(SECTOR_LABEL), '섹터 목록이 원자료와 다름'
+it_top = [SECTOR['sectors'][0]['snapshots'][str(y)]['rows'][0]['name'] for y in SECTOR_YEARS]
+assert it_top == ['IBM', 'Hewlett-Packard', 'Apple', 'Apple'], it_top
+
+add('sector-ranking', 1, '산업이 바뀌면, 1위도 바뀌는가?', '미국 Fortune 500 · 11개 섹터 매출 Top 5 · 2000 → 2026',
+    '<div class="sector"><div class="sector-nav"><div id="sectorPills"></div><button id="sectorPlay">▶ 산업 순환</button></div>'
+    '<div class="col"><div id="bump" data-h="408" style="min-height:408px"></div><div id="sectorStat"></div>'
+    '<p class="note" id="sectorScope"></p></div></div>',
+    'IT의 1위는 IBM → HP → Apple로 바뀌었다. 성숙한 선두도 산업의 중심이 이동하면 자리를 내준다.',
+    [f'fortune500_{y}' for y in SECTOR_YEARS],
+    method='각 발표연도에 실린 기업을 그대로 사용(현재 생존 기업만 역추적하지 않음). 회사 전체 연결매출 기준이며 반도체 매출·시가총액 순위와 다름. '
+           'Fortune 업종을 11개 경제 섹터로 분석자가 재분류함 — GICS 명칭을 참고했으나 공식 GICS 과거 시계열이 아님. '
+           '아카이브가 현재 사명으로 연결한 일부 회사는 당시 이름으로 표시. 합병 전후 사업 범위·회계기준이 달라 성장률로 해석하면 안 됨. '
+           '아카이브의 일부 과거 순위 누락은 보간하지 않았으며, 표는 확인된 기업 중 매출 상위 5곳.',
+    tables=[dict(title=f'{sec["name"]} · 매출 상위 5 ($bn)', head=['순위'] + [str(y) for y in SECTOR_YEARS],
+                 rows=[[str(r + 1)] + [(lambda rows: f'{rows[r]["name"]} {rows[r]["revenue"]:,.1f}' if r < len(rows) else '—')(
+                     sec['snapshots'][str(y)]['rows']) for y in SECTOR_YEARS] for r in range(5)])
+            for sec in SECTOR['sectors']])
+
+
+# ── 기업 생애주기: 성숙기는 선택의 시점 ──
+def lifecycle_svg():
+    W, H = 1326, 462
+    s = ['<rect x="720" y="40" width="280" height="360" fill="#fff" opacity=".04"/>']
+    for x in (250, 470, 720, 1000):
+        s.append(f'<line x1="{x}" x2="{x}" y1="40" y2="400" stroke="{AXIS}" stroke-dasharray="3 6"/>')
+    s.append(f'<path d="M60,20V400H1290M1283,395l7,5l-7,5" fill="none" stroke="{AXIS}" stroke-width="1.5"/>')
+    s.append(T(72, 28, '사업 규모 · 현금창출력 (개념)', 13, INK3))
+    stages = [(155, '스타트업', '아이디어 · 적자'), (360, '유년기', '시장 확인'), (595, '성장기', '매출 급증 · 투자 확대'),
+              (860, '성숙기', '안정적 현금 · 성장 둔화'), (1145, '쇠락', '수요 이탈')]
+    for x, name, desc in stages:
+        on = name == '성숙기'
+        s.append(T(x, 432, name, 20 if on else 17, INK if on else INK2, 'middle', 800 if on else 600))
+        s.append(T(x, 454, desc, 13.5, INK2 if on else INK3, 'middle'))
+    s.append('<path d="M70,388C170,386 230,372 300,340C400,292 470,170 600,128C680,102 760,96 840,100'
+             f'C920,104 990,128 1060,176C1130,224 1200,276 1285,300" fill="none" stroke="{CYAN}" stroke-width="5" stroke-linecap="round"/>')
+    s.append(T(1150, 326, '기존 사업만으로는 쇠락', 16, INK2, 'middle', cls='halo'))
+    # 재투자 경로: 이름표는 선 위에 둔다
+    s.append('<g id="renewal"><path d="M860,101C940,97 1010,84 1090,72C1170,60 1230,54 1285,52" fill="none" '
+             f'stroke="{GREEN}" stroke-width="4" stroke-dasharray="11 8" stroke-linecap="round"/>'
+             + T(1112, 44, 'R&amp;D · 재투자 → 재성장', 19, INK, 'middle', 800, 'halo') + '</g>')
+    # 갈림길과 성숙기 현금의 세 가지 쓰임
+    s.append(f'<line x1="860" x2="860" y1="112" y2="152" stroke="{AMBER}" stroke-width="1.5" stroke-dasharray="3 4"/>')
+    s.append(f'<circle cx="860" cy="101" r="9" fill="{SURF}" stroke="{AMBER}" stroke-width="3"/>')
+    s.append(T(846, 80, '선택의 시점', 17, AMBER, 'end', 800, 'halo'))
+    s.append(T(860, 170, '성숙기의 현금 — 세 가지 쓰임', 14, INK2, 'middle', 700))
+    for i, (name, role) in enumerate([('배당 · 자사주', '주주 환원'), ('R&amp;D · CAPEX', '내부 재투자'), ('M&amp;A', '외부 성장')]):
+        y = 182 + i * 46
+        s.append(f'<rect x="740.5" y="{y + .5}" width="239" height="36" rx="8" fill="#0c2033" stroke="#235069"/>')
+        s.append(T(756, y + 24, name, 17, INK, weight=700))
+        s.append(T(964, y + 23, role, 13.5, INK3, 'end'))
+    return (f'<svg width="{W}" height="{H}" viewBox="0 0 {W} {H}" role="img" aria-label="기업 생애주기 개념도: 스타트업, 유년기, '
+            '성장기, 성숙기, 쇠락. 성숙기에서 재투자를 하면 재성장 경로로 갈라진다">' + ''.join(s) + '</svg>')
+
+
+add('life-cycle', 1, '성숙기는 종착점이 아니라 선택의 시점', '기업 생애주기 · 설명용 개념도, 실제 기업 추정 곡선 아님',
+    '<div class="col" style="height:100%">' + lifecycle_svg()
+    + '<div class="toolbar mt8"><button id="lifeToggle" aria-pressed="true">재투자 경로 켜기 / 끄기</button>'
+      '<p class="note">성숙기의 현금 → 배당·자사주 / R&amp;D·CAPEX / M&amp;A · 재성장은 보장되지 않음</p></div></div>',
+    '순간의 재무 최적화와 장기 산업 변화에 대한 판단이 함께 필요하다.')
+
+# ═════════════════════════ PART 2 · 반도체 산업의 변천 ═════════════════════════
+divider(2, '반도체 산업의 변천',
+        '<p class="dv-desc">기술 목록보다 <strong>수요의 이동</strong><br>누가 투자를 감당했고, 누가 불황을 버텼는가.</p>')
+
+
+# ── 시대 설명(시간축에서 시대를 누르면 뜨는 창) ──
+def era(years, name, demand, macro, events, leaders):
+    keys = ('short', 'detail', 'source')
+    ERAS.append(dict(years=years, name=name, demand=dict(zip(keys, demand)), macro=dict(zip(keys, macro)),
+                     events=dict(zip(keys, events)), leaders=dict(zip(keys, leaders))))
+
+
+chm, fed, tsmc, rank, wsts = (SOURCES[k]['url'] for k in ('chm', 'fred_ff', 'tsmc_foundry', 'ranking_history', 'wsts_q2_2026'))
+era('1947–1970s', '태동기',
+    ('국방 · 우주 → 계산기', '1947 트랜지스터, 1958–59 IC가 출발. 미사일·우주용 전자장치가 작은 크기·낮은 전력의 가치를 먼저 인정. 이후 계산기와 민간 전자기기로 확대.', chm),
+    ('냉전 · 정부 조달', '정부 연구비와 군수·우주 조달이 기술 초기의 수요 위험을 줄임. 일부 원가보상 계약이 R&D 위험을 분담했지만 모든 IC 계약이 같은 방식이었던 것은 아님.', chm),
+    ('트랜지스터 / IC / MPU', '1947 발명 → 1957 Fairchild → 1958 Kilby·1959 Noyce IC → 1968 Intel → 1971 마이크로프로세서. Fairchild는 Shockley를 거친 연구자들이 설립.', chm),
+    ('TI · Fairchild · Motorola', '기술·제조 역량을 쌓은 초기 주역. 초기 기업 나열은 매출 순위가 아닌 대표 기업.', chm))
+era('1980–1990s 초', '제1기',
+    ('PC · DRAM', '1981 IBM PC 이후 대중 컴퓨팅 수요 확대. CPU와 메모리의 역할 분화, DRAM의 수율·공정·규모 경쟁 심화.', rank),
+    ('볼커 고금리 / 일본 완화', '미국 고금리와 강달러, 일본 은행 중심 장기금융 및 1986–87 완화가 투자 환경에 영향을 줌. 품질·공정·산업정책도 중요했음.', fed),
+    ('1983 삼성 / 1986 협정', '삼성 도쿄 선언과 DRAM 진입. 1986·1991 미일 반도체 협정, 1985 전후 Intel의 DRAM 철수. 자금조달 조건과 사업 선택이 함께 바뀜.', rank),
+    ('NEC · Toshiba · Hitachi', '1990 공급업체 순위 NEC 1위·Toshiba 2위·Hitachi 4위. 미국은 CPU 등 비메모리 경쟁력을 유지.', rank))
+era('1990s 중반–2000s', '제2기',
+    ('PC 확산 · 인터넷', '1990년대 PC·인터넷과 통신망 확대 → 2000–01 닷컴 붕괴 → 디지털 가전 확산. 성장 추세와 재고 사이클이 공존.', rank),
+    ('세계화 · 팹 투자 확대', '미세공정이 발전할수록 공장·장비와 설계의 복잡성이 증가. 고정비를 여러 고객에 나누는 제조 전문화가 확대.', tsmc),
+    ('1987 TSMC → 분업 정착', 'TSMC 설립은 제2기보다 이른 1987년. 1990년대 이후 팹리스·파운드리 생태계 확대. 2001 산업 매출은 약32% 감소.', tsmc),
+    ('Intel · 삼성 / TSMC', 'Intel PC CPU, 삼성 메모리. TSMC는 제조 수탁으로 성장해 공급업체 순위와 별도 집계. NVIDIA는 팹리스로 출발.', rank))
+era('2010s', '제3기',
+    ('스마트폰 · 클라우드', '모바일 연산·통신·전력관리와 서버 메모리 확대. 2017–18 메모리 호황, 2019 조정으로 가격 효과 확인.', rank),
+    ('QE · 제로금리', '금융위기 이후 낮은 자본비용. 그러나 저금리도 현금 유출·만기 집중·고객 이탈을 막아주지는 못함.', fed),
+    ('2012 Elpida / SK 인수', '엘피다 회생절차 2012, Micron 인수완료 2013. SK의 하이닉스 인수 2012. 메모리 Big3 형성. 2017 Linear의 ADI 편입.', SOURCES['elpida_failure']['url']),
+    ('삼성 · SK hynix · Micron', 'DRAM 과점. 반도체 전체 공급업체 1위는 2017–18 삼성, 2019–20 Intel로 바뀜. 메모리 가격이 매출 순위를 흔듦.', rank))
+era('2020s–현재', '제4기',
+    ('AI · GPU + HBM', '팬데믹 공급난 → 2022–23 재고 조정 → 2024–26 AI 인프라. HBM·선단공정·패키징과 범용 메모리로 수요 확산.', wsts),
+    ('금리 · 보조금 · 전력', '고금리·공급망 블록화와 국가 보조금 공존. 전력·계통접속·부지 인허가가 투자 시점을 좌우.', SOURCES['audit_3_0']['url']),
+    ('생성형 AI / 수출통제', '2022 생성형 AI 확산, 2024 이후 GPU·HBM 투자 확대. 2026 구매자 현금흐름·장기계약·전력 제약이 재무 이슈로 부상.', wsts),
+    ('NVIDIA / TSMC / HBM', 'NVIDIA 설계 플랫폼, TSMC 제조·패키징, SK hynix·삼성·Micron 메모리. 서로 다른 단계이므로 매출을 단순 합치면 중복.', wsts))
+
+# ── 80년을 한 시간축에 ──
+WSTS_Y = D['wsts']
+wsts_full = [(w['year'], w['usd_billion']) for w in WSTS_Y if w.get('full_year', True)]
+wsts_part = next(w for w in WSTS_Y if not w.get('full_year', True))
+WY = dict(wsts_full)
+dotcom_drop = (WY[2001] / WY[2000] - 1) * 100
+assert wsts_part['year'] == 2026 and fmt(dotcom_drop, 0) == '−32'
+
+TL = dict(
+    start=1947, end=2027,
+    eras=[dict(a=1947, b=1980, name='태동기', years='1947–1970s', yearsShort="'47–'70s", lead='TI · Fairchild · Motorola'),
+          dict(a=1980, b=1994, name='제1기', years='1980–1990s 초', yearsShort="'80–'90s 초", lead='NEC · Toshiba · Hitachi'),
+          dict(a=1994, b=2010, name='제2기', years='1990s 중반–2000s', yearsShort="'90s–'00s", lead='Intel · 삼성 · TSMC'),
+          dict(a=2010, b=2020, name='제3기', years='2010s', yearsShort='2010s', lead='삼성 · SK hynix · Micron'),
+          dict(a=2020, b=2027, name='제4기', years='2020s–현재', yearsShort='2020s–', lead='NVIDIA · TSMC')],
+    waves=[dict(a=1950, b=1972, name='국방·우주', tip='미사일 유도·우주 탐사용 전자장치|작고 가볍고 믿을 수 있는 부품에 높은 가격을 지불한 첫 고객'),
+           dict(a=1964, b=1988, name='계산기·가전', tip='전자계산기·시계·가전|민간 대량 시장이 열리며 가격이 빠르게 하락'),
+           dict(a=1978, b=2012, name='PC', tip='개인용 컴퓨터|CPU와 DRAM 수요를 수십 년간 이끈 중심 시장'),
+           dict(a=1993, b=2006, name='인터넷·통신', tip='인터넷·통신망 투자|닷컴 호황과 2001년의 급락을 함께 만든 수요'),
+           dict(a=2006, b=2024, name='스마트폰', tip='스마트폰|모바일 AP·통신칩·낸드·전력관리 수요 확대'),
+           dict(a=2009, b=2027, name='클라우드', tip='클라우드 데이터센터|서버 CPU·메모리 수요의 장기 확대'),
+           dict(a=2021, b=2027, name='AI', tip='AI 가속기|GPU·HBM·첨단 패키징으로 수요 집중')],
+    wsts=[[y, round(v, 1)] for y, v in wsts_full]
+         + [[wsts_part['year'], round(wsts_part['usd_billion'], 1), f'1–{wsts_part["months"]}월']],
+    wstsNotes=[dict(y=1986, t=f'1986 ${WY[1986]:.0f}bn'),
+               dict(y=2000, t=f'2000 ${WY[2000]:.0f}bn → 2001 {fmt(dotcom_drop, 0)}%'),
+               dict(y=2026, t=f'2026 1–{wsts_part["months"]}월 ${wsts_part["usd_billion"]:,.0f}bn', anchor='end', dx=-9, dy=4)],
+    events=[dict(y=1947, t='트랜지스터', key=1, tip='벨 연구소의 점접촉 트랜지스터 시연'),
+            dict(y=1958, t='집적회로', key=1, tip='TI 잭 킬비의 첫 집적회로 · 1959년 페어차일드 노이스의 평면형 IC'),
+            dict(y=1968, t='Intel 설립', tip='노이스와 무어가 페어차일드를 떠나 설립'),
+            dict(y=1971, t='마이크로프로세서', tip='Intel 4004 출시'),
+            dict(y=1981, t='IBM PC', key=1, tip='IBM PC 5150 출시 · 개인용 컴퓨터 수요의 본격화'),
+            dict(y=1983, t='삼성 도쿄 선언', tip='삼성의 메모리 사업 진출 선언 · 같은 해 64K DRAM 개발'),
+            dict(y=1985, t='플라자 합의', tip='G5의 달러 약세 유도 합의 · 엔화 강세로 전환'),
+            dict(y=1986, t='미·일 반도체 협정', tip='미·일 반도체 협정 체결 · 1991년 갱신'),
+            dict(y=1987, t='TSMC 설립', key=1, tip='첫 순수 파운드리 · 설계와 제조의 분리'),
+            dict(y=2001, t='닷컴 붕괴', key=1, tip=f'세계 반도체 매출 약 {abs(dotcom_drop):.0f}% 감소'),
+            dict(y=2007, t='iPhone', tip='스마트폰 시대의 시작 (2007.01 발표)'),
+            dict(y=2008, t='금융위기 · 제로금리', tip='글로벌 금융위기 · 2008.12 연준 제로금리 진입'),
+            dict(y=2012, t='Elpida 파산', key=1, tip='일본 DRAM 업체 Elpida 회생절차 신청 · 2013년 Micron이 인수'),
+            dict(y=2017, t='ADI–Linear', key=1, tip='2017.03 ADI의 Linear 인수 완료'),
+            dict(y=2022, t='대중 수출통제', tip='미국 상무부의 대중국 첨단 반도체·장비 수출통제 (2022.10)'),
+            dict(y=2026, t='매출 2배', key=1, tip='2026 상반기 세계 반도체 매출이 전년동기 대비 약 2배')],
+    ff=[[round(int(d[:4]) + (int(d[5:7]) - .5) / 12, 3), round(v, 2)] for d, v in FF],
+    ffNotes=[dict(y=1981.46, v=19.1, t='1981.06 19.1%', dx=8, dy=4, anchor='start'),
+             dict(y=2012, v=.14, t='제로금리', dy=-8),
+             dict(y=2026.8, v=FF[-1][1], t=f'{FF[-1][1]:.1f}%', anchor='end', dx=-4, dy=-8)],
+    macro=[dict(a=1947, b=1991, name='냉전 · 정부 조달', tip='미·소 군비 경쟁과 우주 개발|정부 조달이 초기 반도체 수요의 위험을 줄임'),
+           dict(a=1979.6, b=1985.7, row=1, name='볼커 고금리 · 강달러', short='볼커 고금리',
+                tip='1979.10 긴축 전환 → 1981.06 FF 월평균 19.1%|달러 강세로 미국 제조업의 수출·투자 부담 확대'),
+           dict(a=1991, b=2008, name='세계화 · 팹 투자 확대', tip='냉전 종식 이후 교역·분업 확대|미세공정이 발전할수록 팹 투자비 급증'),
+           dict(a=2008.9, b=2015.95, name='QE · 제로금리', tip='2008.12–2015.12 사실상 제로금리|낮은 자본비용이 M&A와 설비투자를 뒷받침'),
+           dict(a=2022, b=2027, name='금리 · 보조금 · 전력', short='금리·전력',
+                tip='금리 재상승 · 각국 보조금 · 수출통제|전력·계통 접속·인허가가 투자 시점을 좌우')],
+    structure=[dict(a=1947, b=1987, soft=1, name='IDM 수직통합', tip='설계와 제조를 한 회사 안에서 수행'),
+               dict(a=1987, b=2027, name='팹리스 · 파운드리 분업', tip='1987 TSMC 설립 이후 설계와 제조의 분리|1990년대 이후 본격 확산'),
+               dict(a=1981, b=1992, row=1, soft=1, name='일본 메모리 강세', tip='1980년대 일본 업체가 DRAM 시장을 주도|1990 공급업체 Top 10 중 6곳이 일본'),
+               dict(a=2013, b=2027, row=1, name='메모리 Big 3', tip='삼성 · SK hynix · Micron의 DRAM 과점|2013 Micron의 Elpida 인수 이후')])
+assert len(TL['eras']) == len(ERAS)
+
+LAYERS = [('leaders', '기업 · 산업 구조'), ('demand', '수요 · 매출'), ('events', '주요 사건'), ('macro', '금리 · 거시 환경')]
+add('industry-map', 2, '반도체 80년을 한 시간축에: 수요 · 거시환경 · 사건 · 기업',
+    '가운데 시대 축 위는 산업 안쪽(기업·수요·매출), 아래는 바깥 환경(사건·금리·구조) · 시대를 누르면 세부 설명',
+    '<div class="pills">'
+    + ''.join(f'<label><input type="checkbox" data-layer="{k}" checked> {v}</label>' for k, v in LAYERS)
+    + '</div><div id="timeline" data-h="500" style="min-height:500px"></div>',
+    '시대 구분은 수요 중심의 분석 틀이다. 실제 전환은 서로 겹친다.',
+    ['chm', 'transistor', 'kilby', 'intel_4004', 'ranking_history', 'samsung_history', 'plaza', 'japan', 'tsmc_foundry', 'wsts',
+     'wsts_q2_2026', 'apple_iphone', 'fed_history', 'fred_ff', 'elpida_failure', 'linear_close', 'bis_2022'],
+    method='세계 반도체 매출은 WSTS 연간 청구액($bn), 2026년은 1–8월 누계. 금리는 연방기금 실효금리 월평균. '
+           '수요의 물결과 시대 구분의 시작·끝은 설명을 위한 대략의 범위이며 통계적 경계가 아님. 조사 기준 2026-11-08.')
+
+# ── 태동기: 발명에서 오늘의 칩까지 ──
+STRIP = [('transistor', '1947', '트랜지스터', '전류를 증폭·전환하는 최초의 반도체 소자', ''),
+         ('ic-replica', '1958', '집적회로', '여러 소자를 한 칩에 (사진은 복제품)', ''),
+         ('intel-4004', '1971', '마이크로프로세서', 'Intel 4004 · 연산 장치를 칩 하나에', ''),
+         ('dram-256k-nec', '1980s', 'D램', 'NEC 256K D램 · 일본 메모리의 전성기', 'later'),
+         ('wafer-300mm', '2000s', '300mm 웨이퍼', '12인치 웨이퍼 · 대형 팹의 시대', 'later'),
+         ('soc-apple-a4', '2010', '모바일 SoC', 'Apple A4 · 스마트폰의 두뇌', 'later'),
+         ('ai-nvidia-b200', '2025', 'AI 가속기', 'NVIDIA HGX B200 · GPU 8개 AI 서버 보드', 'later')]
+n_now = sum(1 for s in STRIP if not s[4])
+add('era0-invention', 2, '태동기: 먼저 위험을 떠안은 고객은 국가였다', '1947–1970s · 발명에서 양산으로, 그리고 오늘의 칩까지',
+    f'<div class="strip-h"><span class="on" style="flex:{n_now}">태동기 · 이 장의 주제</span>'
+    f'<span style="flex:{len(STRIP) - n_now}">그 이후의 발전 → 현재</span></div>'
+    '<div class="strip" style="--ph:178px">' + ''.join(frame(i, y, t, p, cls=c) for i, y, t, p, c in STRIP) + '</div>'
+    '<div class="inv-bottom">' + frame('apollo11', '1969', '아폴로 11호 발사', ph=168, cls='wide')
+    + '<div class="col" style="justify-content:space-between;gap:12px"><span class="kicker">누가 초기 위험을 떠안았나</span>'
+    + flow([('정부 연구 · 조달', '불확실한 초기 수요를 보완'), ('반복 생산', '수율 학습 · 단가 하락'), ('민간 시장', '계산기 · 컴퓨터로 확대')])
+    + '<div class="band"><em>첫 고객</em><b>아폴로 유도컴퓨터</b><span>1965년까지 IC의 최대 수요처 · 약 20만 개를 개당 $20–30에 구매 — '
+      '이후 미니트맨 미사일이 그 자리를 이었다</span></div></div></div>',
+    '정부는 초기 기술의 고객이자 위험 분담자였다.',
+    ['transistor', 'kilby', 'intel_4004', 'chm'] + ['img_' + s[0] for s in STRIP] + ['img_apollo11'])
+
+# ── 태동기: 미·소 군비 경쟁 ──
+MIL = HIS['milex']['rows']
+mil_y = [r[0] for r in MIL]
+assert (mil_y[0], mil_y[-1]) == (1947, 1980)
+CHARTS['milex'] = dict(
+    title='미국 · 소련 군사비 1947–1980', cap='군사비 지출 (명목 $bn)', labels=[str(y) for y in mil_y], pre='$', suf='bn', dec=0, fs=13,
+    x={'ticks': [mil_y.index(y) for y in (1950, 1960, 1970, 1980)]}, y={'step': 50, 'max': 220, 'pre': '$'},
+    series=[dict(name='미국', values=[r[1] for r in MIL], color=C[0], w=3, end=True),
+            dict(name='소련 (추정)', values=[r[2] for r in MIL], color=C[1], end=True)],
+    marks=[dict(i=mil_y.index(1950), label='1950 한국전쟁', y=14), dict(i=mil_y.index(1957), label='1957 스푸트니크', y=14),
+           dict(i=mil_y.index(1965), label='1965 베트남전 확전', y=14), dict(i=mil_y.index(1969), label='1969 아폴로 11호', y=34)])
+add('era0-capital', 2, '정부 수요가 기술의 초기 자본비용을 낮췄다', '미·소 냉전의 군비 경쟁 → 조달 수요 → 연구개발·생산능력 축적',
+    '<div class="split"><div class="col">' + slot('milex')
+    + '<p class="note">Correlates of War · National Material Capabilities v6.0 · 명목 달러. 소련은 추정치로, 환산 방법에 따라 수준·순위가 '
+      '달라진다 — 절대 수준보다 양측이 함께 늘어난 추세를 볼 것. 반도체 구매액이 아닌 거시적 배경.</p></div>'
+    '<div class="col center text"><span class="kicker">첫 번째 대량 고객</span><div class="big amber tn">20만 개</div>'
+    '<p>아폴로 유도컴퓨터가 구매한 IC · 개당 <b>$20–30</b><br>1965년까지 IC의 <b>최대 수요처</b></p>'
+    '<h2 class="mt20">수요 위험의 완화</h2><p>원가보상형 개발 계약<br>우주·군수의 초기 대량 발주<br>신뢰성 요구와 학습 효과</p>'
+    '<p class="sm">“정부가 모든 손실을 보장했다”는 의미는 아님. 기술·생산 위험은 여전히 기업에 남음.</p></div></div>',
+    '수익이 아직 불확실한 단계에서는 “누가 첫 고객인가”가 중요했다.',
+    ['cow_nmc', 'chm', 'hist_korea', 'hist_sputnik', 'hist_vietnam', 'img_apollo11'],
+    method='군사비는 Correlates of War NMC v6.0의 명목 달러(당해연도) 값. 소련 값은 루블 지출을 달러로 환산한 추정치여서 '
+           '출처마다 크게 다름. 두 선의 교차 시점을 근거로 삼지 않음. 조사 기준 2026-11-08.')
+
+# ── 제1기: 미국의 고금리 · 강달러 ──
+BOJ = []
+for row in csv.reader((P / 'boj_discount.csv').read_text(encoding='utf-8').splitlines()):
+    if row and re.match(r'^\d{4}\.\d{2}\.\d{2}$', row[0]):
+        BOJ.append((row[0].replace('.', '-'), float(row[1])))
+
+
+def boj_at(month):
+    """그 달 말에 적용되던 일본 공정할인율."""
+    return next(v for d, v in reversed(BOJ) if d <= month + '-31')
+
+
+FFD = dict(FF)
+GS10 = {d[:7]: v for d, v in M['GS10']}
+r80 = [d for d, _ in FF if '1977-01' <= d <= '1992-12']       # 1979.10 표시선 왼쪽에 라벨이 들어갈 자리를 둔다
+at80 = {d: i for i, d in enumerate(r80)}
+M80 = HIS['macro80']
+ff_peak_m, ff_peak = max(((d, FFD[d]) for d in r80), key=lambda t: t[1])
+rate_gap = r1(Decimal(str(ff_peak)) - Decimal(str(boj_at(ff_peak_m))))
+usd_a, usd_b = M80['dollar_index']['1980-09'], M80['dollar_index']['peak']['value']
+usd_rise = (usd_b / usd_a - 1) * 100
+deficit83 = abs(M80['deficit_omb_pct_gdp']['1983'])           # OMB Historical Table 1.2, 회계연도
+assert (M80['dollar_index']['rise_from'], M80['dollar_index']['peak']['month']) == ('1980-09', '1985-03')
+assert f'{usd_rise:.0f}' == '54' and f'{deficit83:.1f}' == '5.9' and f'{abs(M80["deficit_pct_gdp"]["1983"]):.1f}' == '5.7'
+assert ff_peak_m == '1981-06' == M80['fedfunds_peak']['month'] and str(rate_gap) == '12.9'
+assert M80['gs10_peak']['month'] == '1981-09' and GS10['1981-09'] == M80['gs10_peak']['pct']
+yr_ticks80 = {at80[f'{y}-01']: str(y) for y in range(1978, 1993, 2)}
+CHARTS['rates80'] = dict(
+    title='미국과 일본의 정책금리 1977–1992', cap='정책금리 (%)', labels=[d.replace('-', '.') for d in r80], suf='%', dec=2, fs=13,
+    y={'min': 0, 'max': 22, 'step': 5}, x={'ticks': list(yr_ticks80), 'map': yr_ticks80},
+    series=[dict(name='미국 연방기금 실효금리 (월평균)', values=[FFD[d] for d in r80], color=C[0], w=2.5,
+                 pts=[at80[ff_peak_m]], ptText={at80[ff_peak_m]: f'1981.06 · {ff_peak:.1f}%'}, end=f'미국 {FFD[r80[-1]]:.2f}%'),
+            dict(name='일본 공정할인율', values=[boj_at(d) for d in r80], type='step', color=C[1], end=f'일본 {boj_at(r80[-1]):.2f}%')],
+    marks=[dict(i=at80['1979-10'], label='1979.10 볼커 긴축', anchor='end', y=14),
+           dict(i=at80['1985-09'], label='1985.09 플라자 합의', y=14)])
+add('era1-rates', 2, '제1기: 같은 투자에도 자금의 가격은 달랐다', '1980–1990s 초 · PC 확산과 미·일 경쟁',
+    '<div class="rows"><div><span class="kicker">왜 미국은 고금리 · 강달러였나</span>'
+    + steps([('1973 · 1979 오일쇼크', f'두 차례 유가 급등<br>물가상승률 <b>{M80["cpi_yoy_peak"]["pct"]:.1f}%</b> (1980.03)'),
+             ('1979.10 볼커의 긴축', f'통화량 억제로 전환<br>FF 월평균 <b>{ff_peak:.1f}%</b> (1981.06)'),
+             ('1981–83 긴축 + 재정 확대', f'재정적자 GDP의 {deficit83:.1f}% (FY1983)<br>10년물 <b>{M80["gs10_peak"]["pct"]:.1f}%</b> (1981.09)'),
+             ('1980–85 강달러', f'고금리 → 달러 자산으로 자본 유입<br>달러지수 <b>+{usd_rise:.0f}%</b> (1980.09–85.03)'),
+             ('1985.09 플라자 합의', f'G5, 달러 약세 유도에 합의<br>엔/달러 <b>{M80["usdjpy"]["1985-09"]:.0f} → '
+                               f'{M80["usdjpy"]["1987-12"]:.0f}엔</b> (1987.12)')], 'sm mt8')
+    + '</div><div class="split grow auto"><div class="col">' + slot('rates80')
+    + '<p class="note">미국: 연방기금 실효금리 월평균 · 일본: 공정할인율(월말 적용 기준). 정의가 다른 두 지표이며 기업의 실제 조달금리가 아님.</p></div>'
+    '<div class="col center text"><span class="kicker">1981.06 · 미·일 정책금리 격차</span>'
+    f'<div class="big amber tn">{rate_gap}%p</div><p>미국 FF {ff_peak:.2f}% − 일본 공정할인율 {boj_at(ff_peak_m):.2f}%</p>'
+    '<p><b>미국</b> 고금리·강달러 → 투자·수출 부담<br><b>일본</b> 은행 금융·낮은 금리 → 설비 경쟁</p>'
+    '<p class="sm">일본의 부상은 금리만의 결과가 아님 — 수율·품질·고객 기반·산업정책이 함께 작용.</p></div></div></div>',
+    '낮은 자금조달 비용은 오래 걸리는 설비투자에서 경쟁력이 된다.',
+    ['fred_ff', 'boj', 'japan', 'fh_oil73', 'fh_oil79', 'fh_inflation', 'fred_cpi', 'fh_volcker', 'fh_recession', 'feds_2016062',
+     'omb_hist', 'fred_10', 'fred_twex', 'g5_plaza', 'plaza', 'fred_exjpus'],
+    method='물가상승률은 CPI-U 전년동월비, 금리와 엔/달러는 월평균. 달러지수는 연준 무역가중 지수(주요 통화)의 1980.09 → 1985.03(정점) '
+           f'상승률({usd_a:.1f} → {usd_b:.1f})이며, 달러는 플라자 합의(1985.09) 이전에 이미 정점을 지났다. '
+           '재정적자는 OMB Historical Table 1.2(FRED 계열은 5.7%). 조사 기준 2026-11-08.')
+
+# ── 제1기: 일본의 부상, 한국의 진입 ──
+RANK90 = D['ranking']['snapshots'][0]
+COUNTRY = {'NEC': '일본', 'Toshiba': '일본', 'Hitachi': '일본', 'Fujitsu': '일본', 'Mitsubishi': '일본', 'Matsushita': '일본',
+           'Motorola': '미국', 'Intel': '미국', 'Texas Instruments': '미국', 'Philips': '유럽'}
+CCOL = {'미국': C[0], '일본': C[1], '유럽': C[2]}
+top10 = RANK90['rows'][:10]
+n_jp = sum(COUNTRY[r['name']] == '일본' for r in top10)
+assert RANK90['year'] == 1990 and len(top10) == 10 and n_jp == 6
+rank_max = max(r['revenue'] for r in top10)
+add('era1-leaders', 2, '일본의 부상, 한국의 진입', '1990 반도체 공급업체 매출 순위 · 파운드리 제외',
+    '<div class="split s50"><div class="col"><span class="kicker">1990 반도체 공급업체 매출 Top 10 · $bn</span>'
+    f'<div class="medium" style="margin:6px 0 14px">Top 10 중 <span class="amber">{n_jp}곳</span>이 일본</div>'
+    '<div class="hb tall" style="--hbn:190px">'
+    + ''.join(f'<div class="hb-row"><span><span class="rk">{r["rank"]}</span>{r["name"]}</span><div class="hb-track">'
+              f'<i style="width:{r["revenue"] / rank_max * 100:.1f}%;background:{CCOL[COUNTRY[r["name"]]]}"></i></div>'
+              f'<b>{r["revenue"]:.2f}</b></div>' for r in top10)
+    + '</div>' + legend([('sq', CCOL[k], k) for k in ('일본', '미국', '유럽')], 'mt14')
+    + '<p class="note">미국 3곳(Motorola · Intel · TI)은 CPU 등 비메모리에서 자리를 지켰다 — Intel은 1985년 DRAM 철수 발표. '
+      'Gartner 집계 기준 대표 연도 순위.</p></div>'
+    '<article class="panel"><div class="sidepic" style="grid-template-columns:1fr 290px;align-items:center">'
+    '<div><div class="kicker">1983 · 도쿄 선언</div><h3 style="font-size:30px;margin:10px 0 0">삼성의 DRAM 진입</h3></div>'
+    + frame('dram-1m-samsung', '1990년경 · 삼성 1M D램', '', ph=116)
+    + '</div><div class="vtl lg">'
+    '<div><b>1983.02</b>도쿄 선언 — 메모리 사업 진출</div><div><b>1983.12</b>64K DRAM 개발 (세계 3번째)</div>'
+    '<div><b>1984.05</b>기흥 1라인 준공</div><div class="hi"><b>1992</b>64Mb DRAM 개발 · DRAM 출하 1위</div>'
+    '<div class="hi"><b>1993</b>메모리 반도체 1위</div></div>'
+    '<div class="pquote"><span>후발주자에게 필요했던 것은 기술과 함께</span><b>“손실을 견딜 시간”</b>'
+    '<span>그룹 차원의 자본 지원과 장기 의사결정</span></div>'
+    '</article></div>',
+    '미국의 퇴장이 아니라 경쟁 분야의 재편이었다. CPU와 메모리의 길이 갈렸다.',
+    ['ranking_history', 'samsung_history', 'hist_intel_dram', 'img_dram-1m-samsung'],
+    tables=[dict(title='1990 반도체 공급업체 매출 Top 10', head=['순위', '기업', '국가·지역', '매출 ($bn)'],
+                 rows=[[str(r['rank']), r['name'], COUNTRY[r['name']], f'{r["revenue"]:.3f}'] for r in top10])])
+
+# ── 제2기: 수직 통합에서 분업으로 ──
+def lk(em, b, span):
+    return f'<div class="lk"><em>{em}</em><b>{b}</b><span>{span}</span></div>'
+
+
+add('era2-split', 2, '제2기: 한 회사가 모든 투자를 감당하기 어려워졌다', '1990s 중반–2000s · 인터넷·PC 확산과 수직적 분업',
+    '<div class="rows" style="gap:18px"><div class="vsplit grow">'
+    '<span></span><span class="h">설계</span><span class="h">웨이퍼 제조</span><span class="h">패키징 · 테스트</span>'
+    '<div class="rl">통합 모델<b>IDM</b></div>'
+    '<div class="one"><b>Intel · Samsung · TI</b><span>설계부터 제조·패키징까지 한 회사 안에서 — 모든 투자를 혼자 감당</span></div>'
+    '<div class="rl now">수직 분업<b>전문 기업</b></div><div class="chain">'
+    + lk('제품 설계 · 판매', '팹리스', 'NVIDIA · Qualcomm') + lk('위탁 생산', '파운드리', 'TSMC · UMC')
+    + lk('조립 · 검사 외주', 'OSAT', 'ASE · Amkor')
+    + '</div><div class="rl">공통 기반<b>공급 기업</b></div>'
+    '<div class="base"><b>IP · EDA</b>Arm · Synopsys · Cadence</div>'
+    '<div class="base"><b>장비</b>ASML · Applied Materials · Lam · Tokyo Electron</div>'
+    '<div class="base"><b>소재</b>신에츠 · SUMCO</div></div>'
+    '<div class="grid g2 auto">'
+    + panel('팹리스의 이득', '공장 없이 설계에 집중', cls='sm',
+            post=tags(['거대한 팹 투자 없이', 'R&amp;D에 자본 집중', '고정비 부담 축소'], cls='lg'))
+    + panel('파운드리의 이득', '여러 고객의 수요를 묶는다', cls='sm',
+            post=tags(['여러 고객사의 물량을 한 공장에', '가동률 확보', '설비투자 회수'], cls='lg'))
+    + '</div></div>',
+    '팹리스는 공장 부담을 덜고, 파운드리는 여러 고객의 수요를 묶었다.', ['tsmc_foundry', 'sia_ecosystem'])
+
+# ── 제2기: 위험은 사라지지 않고 옮겨갔다 ──
+dot_y = list(range(1996, 2005))
+CHARTS['dotcom'] = dict(
+    title='세계 반도체 매출 1996–2004', type='bar', labels=[str(y) for y in dot_y], pre='$', suf='bn', dec=0, fs=13,
+    y={'step': 50, 'max': 250, 'pre': '$'},
+    series=[dict(name='세계 반도체 매출', values=[round(WY[y], 1) for y in dot_y],
+                 hi=[dot_y.index(2000), dot_y.index(2001)], pts=[dot_y.index(2000), dot_y.index(2001)])])
+add('era2-finance', 2, '분업은 위험을 없애지 않았다. 위치를 바꿨다', 'TSMC는 1987년 출발 · 1990s 이후 전문화가 본격 확산',
+    '<div class="split s50"><div class="rows" style="gap:12px">'
+    # 위: 한 회사 안의 두 위험 → 아래: 두 회사로 나뉜 위험. 같은 꼬리표가 아래 카드의 제목으로 내려간다
+    '<div class="idm"><div class="idm-h"><em>통합 · IDM</em><b>두 위험을 한 회사가</b></div>'
+    '<div class="risk2"><span>R&amp;D · 제품 위험</span><i>+</i><span>CAPEX · 가동률 위험</span></div></div>'
+    '<div class="splitmark arrows"><i>↓</i><span><b>분업 이후</b> · 위험은 나뉘어 옮겨갔다</span><i>↓</i></div>'
+    '<div class="grid g2 grow auto linked">'
+    + panel('설계 기업 · 팹리스', 'R&amp;D · 제품 위험', '공장 대신 설계 인력·IP에 투자',
+            post='<div class="pfoot lg">공정·공급자 의존성은 증가</div>')
+    + panel('제조 기업 · 파운드리', 'CAPEX · 가동률 위험', '고가의 팹을 여러 고객과 공유',
+            post='<div class="pfoot lg">고정비 회수는 가동률에 달림</div>')
+    + '</div><div class="band"><em>새로운 위험</em><b>상호 의존</b><span>팹리스는 공급 능력에,<br>파운드리는 고객 수요에 묶인다</span></div></div>'
+    + card('2001 · 닷컴 붕괴', '세계 반도체 매출 $bn', slot('dotcom')
+           + f'<div class="cardstat"><div class="medium tn amber">{fmt(dotcom_drop, 0)}%</div>'
+             f'<p><b>2000 ${WY[2000]:.0f}bn → 2001 ${WY[2001]:.0f}bn</b><br>인터넷의 장기 성장과 단기 과잉투자는 동시에 가능했다.</p></div>')
+    + '</div>',
+    '자본 효율성의 개선이 산업 전체의 경기순환을 없애지는 못했다.', ['tsmc_foundry', 'sia_ecosystem', 'wsts'])
+
+# ── 제3기: 메모리 재편 ──
+y0619 = list(range(2006, 2020))
+CHARTS['wsts0619'] = dict(
+    title='세계 반도체 매출 2006–2019', type='bar', labels=[str(y) for y in y0619], pre='$', suf='bn', dec=0, fs=13,
+    y={'step': 100, 'max': 520, 'pre': '$'},
+    series=[dict(name='세계 반도체 매출', values=[round(WY[y], 1) for y in y0619],
+                 pts=[y0619.index(y) for y in (2009, 2018, 2019)])],
+    bands=[dict(a=y0619.index(2008), b=y0619.index(2009), label='금융위기'),
+           dict(a=y0619.index(2017), b=y0619.index(2018), label='메모리 슈퍼사이클')],
+    notes=[dict(i=y0619.index(2012), v=WY[2012], text='2012 Elpida 회생절차', dy=-16, anchor='middle', strong=True)])
+add('era3-consolidation', 2, '제3기: 저금리 속에서도 탈락은 있었다', '2010s · 모바일·클라우드 수요와 메모리의 재편',
+    '<div class="rows">'
+    + steps([('2008–09', '금융위기 · 메모리 가격 급락'), ('2012', 'Elpida 회생절차 · SK의 하이닉스 인수'),
+             ('2013', 'Micron의 Elpida 인수 → DRAM Big 3'), ('2017–19', '메모리 슈퍼사이클 → 조정')])
+    + '<div class="split s55 grow auto">'
+    + card('세계 반도체 매출 2006–2019', '$bn', slot('wsts0619'),
+           'WSTS 연간 청구액. 2017–18년의 호황과 2019년의 조정에는 메모리 가격의 영향이 컸다.')
+    + '<div class="choice"><div class="choice-h"><span>무엇이 갈랐나</span><span style="text-align:right">결과</span></div>'
+    + choice_row('Elpida', MUTE, '일본', '가격 급락 · 엔고 · 만기 집중 — 차환 부담이 겹쳤다', '2012 회생절차', '2013 Micron이 인수', True)
+    + choice_row('Samsung', C[0], '한국', '다각화된 사업과 투자 여력 — 불황에도 투자 지속', '생존', 'DRAM Big 3')
+    + choice_row('SK hynix', C[1], '한국', '2012 SK그룹 편입(약 3.4조원) — 자본 기반 확보', '생존', 'DRAM Big 3')
+    + '</div></div></div>',
+    '치킨게임은 기술력과 유동성, 그리고 회복까지 남은 시간의 경쟁이다.',
+    ['elpida_failure', 'elpida_acquisition', 'elpida_causes', 'hynix_lineage', 'fed_crisis', 'ranking_2017', 'wsts'])
+
+
+# ── 제3기: 자산의 시간과 부채의 시간 ──
+def maturity_svg():
+    """개념도. 위는 투자 회수(자산)의 시간, 아래는 지급 일정(부채)의 시간. 곡선 좌표는 직접 정한 값."""
+    Z, XM, Y_PLAN = 180, 400, 262      # 0 선 · 만기 시점 · 그때 계획 곡선의 높이
+    plan = 'M70,180 C120,180 160,290 230,310 C300,330 430,250 520,180 C580,134 680,94 770,82'
+    late = 'M230,310 C320,342 460,320 580,260 C640,230 670,195 700,180 C725,168 750,156 770,150'
+    s = [T(0, 14, f'자산의 시간 · 누적 현금흐름 <tspan fill="{INK3}" font-weight="400">(개념도 · 실제 수치 아님)</tspan>', 13, INK2, weight=700),
+         f'<line x1="492" x2="512" y1="10" y2="10" stroke="{C[0]}" stroke-width="3"/>', T(518, 14, '계획한 회수 경로', 12.5, INK2),
+         f'<line x1="630" x2="650" y1="10" y2="10" stroke="{C[1]}" stroke-width="2.5" stroke-dasharray="6 4"/>',
+         T(656, 14, '가격 하락 시 회수 지연', 12.5, INK2),
+         f'<line x1="50" x2="780" y1="{Z}" y2="{Z}" stroke="#9db4c6" stroke-width="1.5"/>',
+         T(40, Z + 5, '0', 13, INK2, 'end', 700), T(40, 112, '+', 17, INK3, 'end'), T(40, 292, '−', 17, INK3, 'end')]
+    for x, y0, lab in ((70, Z, '투자 결정'), (230, 310, '양산 시작'), (520, Z, '계획한 회수'), (700, Z, '지연된 회수')):
+        s.append(f'<line x1="{x}" x2="{x}" y1="{y0}" y2="352" stroke="{AXIS}" stroke-dasharray="2 4"/>')
+        s.append(T(x, 370, lab, 13, INK2, 'middle'))
+    s.append(f'<path d="{late}" fill="none" stroke="{C[1]}" stroke-width="2.5" stroke-dasharray="7 6" stroke-linecap="round"/>')
+    s.append(f'<path d="{plan}" fill="none" stroke="{C[0]}" stroke-width="3" stroke-linecap="round"/>')
+    for x, y, c in ((70, Z, C[0]), (230, 310, C[0]), (520, Z, C[0]), (700, Z, C[1])):
+        s.append(f'<circle cx="{x}" cy="{y}" r="5" fill="{c}" stroke="{SURF}" stroke-width="2"/>')
+    # 만기: 아래 지급 일정에서 올라와 계획 곡선과 만난다
+    s.append(f'<line x1="{XM}" x2="{XM}" y1="40" y2="428" stroke="{RED}" stroke-width="1.5" stroke-dasharray="5 5"/>')
+    s.append(T(XM, 32, '부채 만기', 14, INK, 'middle', 700))
+    s.append(f'<line x1="{XM}" x2="{XM}" y1="{Z}" y2="{Y_PLAN}" stroke="{RED}" stroke-width="5" stroke-linecap="round"/>')
+    for y in (Z, Y_PLAN):
+        s.append(f'<circle cx="{XM}" cy="{y}" r="5.5" fill="{RED}" stroke="{SURF}" stroke-width="2"/>')
+    s.append(T(XM - 14, 216, '만기 시점의 미회수 투자', 14.5, INK, 'end', 700, 'halo'))
+    s.append(T(XM - 14, 236, '→ 차환이 필요하다', 13.5, INK2, 'end', cls='halo'))
+    # 부채의 시간
+    s.append(T(0, 416, '부채의 시간 · 정해진 지급 일정', 13, INK2, weight=700))
+    s.append(f'<line x1="70" x2="{XM}" y1="440" y2="440" stroke="{AXIS}" stroke-width="2"/>')
+    s.append(f'<line x1="{XM}" x2="780" y1="440" y2="440" stroke="{AXIS}" stroke-width="2" stroke-dasharray="3 6"/>')
+    s.append(f'<circle cx="70" cy="440" r="5" fill="{INK3}" stroke="{SURF}" stroke-width="2"/>')
+    s.append(T(70, 464, '차입', 12.5, INK3, 'middle'))
+    for x in range(120, 361, 48):
+        s.append(f'<circle cx="{x}" cy="440" r="4.5" fill="{SURF}" stroke="{INK3}" stroke-width="2"/>')
+    s.append(T(240, 464, '이자 지급', 12.5, INK3, 'middle'))
+    s.append(f'<path d="M{XM},428 L{XM + 12},440 L{XM},452 L{XM - 12},440 Z" fill="{RED}" stroke="{SURF}" stroke-width="2"/>')
+    s.append(T(XM, 470, '원금 만기', 13.5, INK, 'middle', 700))
+    s.append(T(600, 464, '차환하지 못하면 유동성 위기', 12.5, INK3, 'middle'))
+    return ('<svg viewBox="0 0 798 476" style="display:block;width:100%;height:auto" role="img" '
+            'aria-label="자산의 회수 기간과 부채 만기의 불일치 개념도">' + ''.join(s) + '</svg>')
+
+
+add('era3-maturity', 2, '공장은 장기 자산, 만기는 먼저 돌아온다', '엘피다에서 배울 점: 총차입보다 현금흐름과 만기 구조',
+    '<div class="split"><div class="col center">' + maturity_svg() + '</div><div class="rows">'
+    + panel('자산의 시간', '설비 → 양산 → 회수', '수년의 투자·수율 학습<br>가격 하락 시 회수기간 연장<br>매각도 쉽지 않은 특수 자산', 'grow',
+            post='<div class="pfoot lg">회수 시점은 시장이 정한다</div>')
+    + panel('부채의 시간', '이자 → 원금 → 차환', '고정된 지급 일정<br>시장 경색 시 차환 실패<br>장기채도 만기가 오면 유동성 위험', 'grow',
+            post='<div class="pfoot lg">만기 시점은 계약이 정한다</div>')
+    + '</div></div>',
+    '“차입이 많은 회사부터 탈락”은 법칙이 아니다. 현금·만기·마진·지원 여력을 함께 봐야 한다.',
+    ['elpida_failure', 'elpida_causes', 'elpida_bonds'],
+    method='왼쪽 그림은 설명을 위한 개념도이며 특정 기업의 실제 현금흐름이 아님. 조사 기준 2026-11-08.')
+
+# ── 제4기: AI — 투자하는 쪽과 매출을 얻는 쪽 ──
+BT = Q['bigtech']
+QS = [r['q'] for r in BT['Microsoft']]
+SKH, SAM = Q['skhynix'], Q['samsung']
+assert len(QS) == 15 and (QS[0], QS[-1]) == ('2023Q1', '2026Q3'), QS
+assert all([r['q'] for r in rows] == QS for rows in list(BT.values()) + [SKH, SAM])
+qlab = [q[2:4] + q[4:] for q in QS]                    # 23Q1 … 26Q3
+QT = [i for i, q in enumerate(QS) if q.endswith('Q1')] + [len(QS) - 1]
+
+
+def q4(key):
+    return [round(sum(BT[n][i][key] for n in BT), 1) for i in range(len(QS))]
+
+
+ocf4, capex4 = q4('ocf'), q4('capex')
+fcf4_last = sum(BT[n][-1]['fcf'] for n in BT)
+over = [i for i in range(len(QS)) if capex4[i] > ocf4[i]]
+assert over == [len(QS) - 1], 'CAPEX가 영업현금흐름을 넘은 분기는 2026Q3 하나'
+skh_rev = [r['revenue'] for r in SKH]
+CHARTS['aiBuyers'] = dict(
+    title='빅테크 4사 합계 · 영업현금흐름과 CAPEX', labels=qlab, pre='$', suf='bn', dec=1, fs=13,
+    x={'ticks': QT}, y={'step': 50, 'max': 225, 'pre': '$', 'dec': 0},
+    series=[dict(name='영업현금흐름', values=ocf4, color=C[0], w=2.5, end=f'영업CF ${ocf4[-1]:.1f}bn'),
+            dict(name='CAPEX (설비투자)', values=capex4, color=C[1], w=3, end=f'CAPEX ${capex4[-1]:.1f}bn')],
+    notes=[dict(i=len(QS) - 1, v=capex4[-1], text='CAPEX > 영업CF', dx=-10, dy=-10, anchor='end', strong=True)])
+CHARTS['aiSupplier'] = dict(
+    title='SK hynix 분기 매출', type='bar', labels=qlab, suf='조', dec=1, fs=13, x={'ticks': QT},
+    y={'step': 25, 'max': 120, 'dec': 0},
+    series=[dict(name='SK hynix 매출', values=[round(v, 1) for v in skh_rev], color=C[1], pts=[0, len(QS) - 1])])
+
+
+def kpi(value, cls, text):
+    return f'<div class="kpi"><b class="tn {cls}">{value}</b><span>{text}</span></div>'
+
+
+add('era4-ai', 2, '제4기: 투자는 구매자가, 매출은 공급자가', '2023Q1–2026Q3 분기 추이 · AI 수요가 GPU에서 HBM·DRAM·NAND로 확산',
+    '<div class="grid g2">'
+    + card('구매자 · 빅테크 4사 합계', '분기 · $bn',
+           kpi(f'CAPEX {capex4[-1] / capex4[0]:.1f}배', 'amber', f'2023Q1 ${capex4[0]:.1f}bn → 2026Q3 ${capex4[-1]:.1f}bn')
+           + slot('aiBuyers'),
+           f'Microsoft · Alphabet · Amazon · Meta 분기 현금흐름표 합계. 조사 기간 중 CAPEX가 영업현금흐름을 처음 넘어섰다 — '
+           f'2026Q3 4사 합계 FCF −${abs(fcf4_last):.1f}bn.')
+    + card('공급자 · SK hynix 분기 매출', '조원',
+           kpi(f'매출 {skh_rev[-1] / skh_rev[0]:.1f}배', 'green', f'2023Q1 {skh_rev[0]:.1f}조 → 2026Q3 {skh_rev[-1]:.1f}조원')
+           + slot('aiSupplier'),
+           '연결 매출, 원화(조원). 달러 금액인 왼쪽 차트와 축·단위가 다르다 — 크기가 아니라 방향을 비교.')
+    + '</div>',
+    '산업의 호황을 이해하려면, 투자하는 쪽의 장부도 봐야 한다.',
+    [f'sec_q_{n}' for n in BT] + ['skh_q', 'audit_6_0'],
+    method='빅테크 수치는 SEC 분기 보고서의 현금흐름표(영업활동 현금흐름 · 유형자산 취득)를 역년 분기로 맞춘 값. '
+           'Microsoft는 6월 결산이어서 회계 분기를 역년 분기에 대응시킴. FCF = 영업현금흐름 − CAPEX. 조사 기준 2026-11-08.')
+
+
+# ── PART 2 정리 ──
+def lesson(num, kicker, question, viz, text, foot):
+    """질문 카드. 가운데 그림 칸이 남는 높이를 차지한다."""
+    return (f'<article class="panel"><div class="num">{num}</div><div class="kicker">{kicker}</div><h3>{question}</h3>'
+            f'<div class="lviz">{viz}</div><p>{text}</p><div class="pfoot">{foot}</div></article>')
+
+
+add('industry-lessons', 2, '반도체의 역사는 네 가지 질문으로 남는다', '리니어의 질문을 산업 전체로 확장',
+    '<div class="rows"><div class="grid g4 lessons grow auto">'
+    + lesson('01', '수요', '성장의 중심은<br>어디인가',
+             '<div class="stair"><span>PC · Intel</span><span>메모리 · 삼성</span><span>AI · NVIDIA</span></div>',
+             '수요의 중심이 옮겨갈 때마다<br>선두 기업이 바뀌었다.', '아날로그는 필수지만,<br>리니어의 성장률은 제한됐다')
+    + lesson('02', '가격', '매출 증가는<br>물량인가 가격인가',
+             '<div class="formula">매출<i>=</i>물량<i>×</i><span class="amber">가격</span></div>',
+             '메모리는 가격(ASP)의 변화가<br>이익과 순위를 크게 흔든다.', '높은 마진이 얼마나<br>지속될지 검증할 것')
+    + lesson('03', '자본', '회복까지<br>버틸 수 있는가',
+             '<div class="runway"><div>버틸 수 있는 시간<i style="width:56%"></i></div>'
+             '<div>회복까지 걸리는 시간<i class="need" style="width:100%"></i></div></div>',
+             '현금·만기·투자 유연성이<br>생존을 가른다.', '불황에서의 생존이<br>다음 기회를 만든다')
+    + lesson('04', '정책', '자본비용을<br>누가 바꾸는가', tags(['금리', '보조금', '수출통제', '전력 · 인허가'], '', 'g2x'),
+             '금리·보조금·수출통제·인허가가<br>투자의 속도를 정한다.', '기술 밖의 조건이<br>투자 회수를 좌우한다')
+    + '</div><div class="band"><em>PART 3</em><b>같은 질문을 2026년에</b>'
+      '<span>AI 호황의 구매자와 공급자에게 수요 · 가격 · 자본 · 정책의 네 질문을 다시 던진다</span></div></div>',
+    '필수 기술이라는 사실과, 가장 빠르게 성장한다는 사실은 다르다.',
+    ['ranking_history', 'linear_10k_2016', 'elpida_failure', 'fed_history'])
+
+# ═════════════════════════ PART 3 · AI 시대 마주한 재무적 이슈들 ═════════════════════════
+ISSUES = ['투자 경쟁과 현금흐름', '금리 재상승', '순환 거래 구조', '정치 · 규제', '현금 배분']
+divider(3, 'AI 시대 마주한<br>재무적 이슈들',
+        '<p class="dv-desc">수요가 폭발할수록 더 중요한 질문.<br>누가 지불하고, 누가 위험을 떠안고, 현금을 어디에 쓸 것인가.</p>'
+        '<div class="issues">' + ''.join(f'<span><b>{"①②③④⑤"[i]}</b>{t}</span>' for i, t in enumerate(ISSUES)) + '</div>')
+
+# ── 2026: 분기 매출 ──
+WQ = Q['wsts']['quarters']
+SIA3 = Q['wsts']['sia_reported_2026Q3']
+HY = Q['wsts']['half_years']
+wq = {w['q']: w['usd_bn'] for w in WQ}
+h1_26, h1_25 = wq['2026Q1'] + wq['2026Q2'], wq['2025Q1'] + wq['2025Q2']
+h1_yoy = (h1_26 / h1_25 - 1) * 100
+assert abs(h1_26 - HY['h1_2026_usd_bn']) < .01 and abs(h1_25 - HY['h1_2025_usd_bn']) < .01 and fmt(h1_yoy, 0) == '108'
+wq_q = [w['q'] for w in WQ] + ['2026Q3']
+wq_v = [round(w['usd_bn'], 1) for w in WQ] + [SIA3['usd_bn']]
+assert (wq_q[0], wq_q[-2], len(wq_q)) == ('2022Q1', '2026Q2', 19)
+LIGHT = '#8fbdf3'
+wi = wq_q.index
+CHARTS['wstsQ'] = dict(
+    title='세계 반도체 분기 매출 2022Q1–2026Q3', type='bar', labels=[q[2:4] + q[4:] for q in wq_q], tipLabels=wq_q,
+    pre='$', suf='bn', dec=0, fs=13, y={'step': 100, 'max': 570, 'pre': '$'},
+    x={'ticks': [wi(f'{y}Q1') for y in range(2022, 2027)] + [len(wq_q) - 1]},
+    series=[dict(name='세계 반도체 매출', values=wq_v, colors=[MUTE if q < '2026' else C[0] for q in wq_q[:-1]] + [LIGHT],
+                 pts=[wi('2023Q1'), wi('2025Q2'), wi('2026Q2'), len(wq_q) - 1])],
+    bands=[dict(a=wi('2026Q1'), b=len(wq_q) - 1, label='2026')],
+    legendItems=[dict(c=MUTE, t='2022–2025', bar=True), dict(c=C[0], t='2026 상반기 · WSTS 통계표(8월판)', bar=True),
+                 dict(c=LIGHT, t='2026 3분기 · SIA 발표 (집계 시점 다름)', bar=True)])
+add('market-2026', 3, '2026년, 산업 매출이 1년 만에 두 배가 됐다', '세계 반도체 분기 매출 2022Q1–2026Q3 · 상반기는 실제, 연간은 아직 전망',
+    '<div class="split"><div class="col">' + slot('wstsQ')
+    + '<p class="note">WSTS Historical Billings Report(2026.08판)의 월별 실적을 분기로 합산. 2026년 3분기는 SIA가 11월에 발표한 수치로, '
+      '집계 시점이 달라 앞 분기와 이어서 계산하지 않는다.</p></div>'
+    '<div class="col center text"><span class="kicker">2026 상반기 · 전년동기 대비</span>'
+    f'<div class="big green tn">+{h1_yoy:.0f}%</div>'
+    f'<p>${h1_25:.0f}bn → <b>${h1_26:.0f}bn</b> <span class="badge">WSTS 통계표 8월판</span></p>'
+    '<p class="sm">8월 6일 보도자료의 첫 집계는 $702bn · +102%</p>'
+    '<div class="medium tn mt20">$1.655tn</div>'
+    '<p>2026 연간 전망 · 전년 대비 +108% <span class="badge">연간 확정 실적 아님</span></p>'
+    f'<p class="sm">3분기 ${SIA3["usd_bn"]}bn은 SIA 발표치 · 전분기 대비 +{SIA3["qoq_pct_vs_2026Q2"]}%</p></div></div>',
+    'AI 물량 확대와 메모리 가격 상승이 함께 만든 호황이다.', ['wsts_hbr', 'wsts_q2_2026', 'sia_q3_2026', 'audit_0_0'],
+    method='분기 매출은 WSTS 통계표(2026.08판)의 월별 청구액 합계. 상반기 증가율은 2026 1–2분기 합계 ÷ 2025 1–2분기 합계로 직접 계산. '
+           '연간 전망은 WSTS 2026.08 전망. 조사 기준 2026-11-08.')
+
+# ── ① 투자 경쟁과 현금흐름 ──
+GUIDE = F['capexGuidance2026']
+ENT = dict(zip(F['companies'], C))           # Microsoft 파랑 · Alphabet 주황 · Amazon 청록 · Meta 노랑
+assert list(F['companies']) == ['Microsoft', 'Alphabet', 'Amazon', 'Meta']
+assert [sum(GUIDE[n][i] for n in F['companies']) for i in (0, 1)] == GUIDE['total'] == [720, 740]
+g_max = max(GUIDE[n][1] for n in F['companies'])
+
+
+def guide_row(n):
+    """회사 이름·금액 한 줄, 그 아래에 막대. 가이던스가 범위면 넘는 부분을 옅게 잇는다."""
+    lo, hi = GUIDE[n]
+    val = f'${hi}' if lo == hi else f'${lo}–{hi}'
+    bars = f'<i style="width:{lo / g_max * 100:.1f}%;background:{ENT[n]}"></i>'
+    if lo != hi:
+        bars += f'<i style="width:{(hi - lo) / g_max * 100:.1f}%;background:{ENT[n]}"></i>'
+    return (f'<div class="gr"><div class="gr-h"><span>{n}</span><b>{val}<small>bn</small></b></div>'
+            f'<div class="hb-track{" rng" if lo != hi else ""}">{bars}</div></div>')
+
+
+add('buyer-cash', 3, '① 투자 경쟁이 현금흐름을 압박한다', '2026 CAPEX 가이던스 합계 $720–740bn · 집행 실적과 구별',
+    '<div class="g3b">'
+    + card('빅테크 4사 · FCF', '$bn', '<div id="financialOverview" class="grow"></div>',
+           'FY21–25 + 2026.09 TTM(최근 12개월). Microsoft는 6월 결산, 나머지는 12월 결산.')
+    + card('2026 CAPEX 가이던스', '$bn',
+           '<div class="col center grow">'
+           f'<div class="capex-hero">${GUIDE["total"][0]}–{GUIDE["total"][1]}bn</div><div class="capex-cap">4사 합계 · 회사 가이던스</div>'
+           '<div class="guide">'
+           + ''.join(guide_row(n) for n in sorted(F['companies'], key=lambda n: -GUIDE[n][1]))
+           + '</div></div><p class="note">옅은 부분은 가이던스 범위. 회계연도와 CAPEX 정의가 회사마다 달라 '
+             '같은 기준의 실적 합산이 아니다.</p>')
+    + card('Meta · 장기차입 조달액', '$bn', '<div id="debtChart" class="grow"></div>',
+           '현금흐름표의 조달액. 차입 잔액·순증액과 다르다. 회사마다 포함 범위가 달라 Meta 사례로 한정.')
+    + '</div>',
+    '모두 적자는 아니다. Amazon은 TTM 적자, 다른 3사는 양수지만 투자 부담은 확대됐다.',
+    ['fin_Microsoft', 'fin_Alphabet', 'fin_Amazon', 'fin_Meta', 'audit_1_0', 'audit_1_1', 'audit_1_2', 'audit_1_3', 'audit_2_0'],
+    tables=[dict(title='2026 CAPEX 가이던스 ($bn)', head=['기업', '하단', '상단'],
+                 rows=[[n, str(GUIDE[n][0]), str(GUIDE[n][1])] for n in F['companies']] + [['합계'] + [str(v) for v in GUIDE['total']]])])
+
+add('buyer-dashboard', 3, '매출의 성장보다, 현금의 내구성을 확인한다', '기업 선택 → 여덟 가지 지표를 같은 화면에서 비교',
+    '<div class="dash-top"><label for="companySelect">기업</label><select id="companySelect">'
+    + ''.join(f'<option>{n}</option>' for n in F['companies'])
+    + '</select></div><div class="dashboard" id="dashboard"></div><p class="note" id="dashNote"></p>',
+    '같은 AI 투자 경쟁이어도 기존 사업의 현금창출력과 재무구조는 다르다.',
+    ['fin_Microsoft', 'fin_Alphabet', 'fin_Amazon', 'fin_Meta'])
+
+
+def chk_row(name, question, items):
+    """점검표 한 줄: 왼쪽에 '힘'과 질문, 오른쪽에 지표 카드."""
+    cards = ''.join(f'<div class="ck"><span class="n">{n}</span><div><strong>{h}</strong><span>{t}</span><em>{e}</em></div></div>'
+                    for n, h, t, e in items)
+    return (f'<div class="ckrow"><div class="ckhead"><b>{name}</b><span>{question}</span></div>'
+            f'<div class="ckitems">{cards}</div></div>')
+
+
+add('buyer-checklist', 3, '빅테크 재무 건전성: 일곱 가지 체크', '엘피다를 현재에 적용하되, 사업 모델의 차이를 인정한다',
+    '<div class="cklist">'
+    + chk_row('벌어들이는 힘', '투자를 회수하고 있는가', [
+        ('①', '매출 / CAPEX', '클라우드 성장 vs 투자 증가', '투자 회수 속도'),
+        ('②', 'FCF', '영업CF − 현금 CAPEX · 금융리스 원금은 별도 확인', '자체 조달 여력')])
+    + chk_row('버티는 힘', '불황과 금리를 견디는가', [
+        ('③', '이자보상', '영업이익 / 이자비용', '금리 상승 흡수력'),
+        ('④', '순부채 · 현금', '현금성 자산과 총차입을 함께', '유동성 완충력'),
+        ('⑤', '만기 구조', '향후 1–3년의 만기 집중', '차환 위험')])
+    + chk_row('조절하는 힘', '하강기에 속도를 늦출 수 있는가', [
+        ('⑥', '계약 · 고객', '수주잔고 · 선급금 · 고객 집중', '수익의 질'),
+        ('⑦', '투자 유연성', '취소 가능한 CAPEX · 전력 계약', '하강 시 조절 여력')])
+    + '</div>',
+    '기술력이 있어도 현금이 먼저 소진될 수 있다. 그러나 높은 차입만으로 탈락을 단정할 수 없다.',
+    ['elpida_failure', 'fin_Microsoft', 'fin_Amazon'])
+
+# ── ② 금리 재상승 ──
+rn = [d for d, _ in FF if '2022-01' <= d <= '2026-10']
+atn = {d: i for i, d in enumerate(rn)}
+assert rn[-1] == '2026-10' and len(rn) == 58 and all(d in GS10 for d in rn)
+yr_ticks_now = {atn[f'{y}-01']: str(y) for y in range(2022, 2027)}
+CHARTS['ratesNow'] = dict(
+    title='미국 금리 2022–2026', cap='금리 (%, 월평균)', labels=[d.replace('-', '.') for d in rn], suf='%', dec=2, fs=13,
+    y={'min': 0, 'max': 6, 'step': 1, 'dec': 0}, x={'ticks': list(yr_ticks_now), 'map': yr_ticks_now},
+    series=[dict(name='미국 10년물 국채', values=[GS10[d] for d in rn], color=C[1], w=3, end=f'10년물 {GS10[rn[-1]]:.2f}%'),
+            dict(name='연방기금 실효금리', values=[FFD[d] for d in rn], color=C[0], end=f'FF {FFD[rn[-1]]:.2f}%')],
+    marks=[dict(i=atn['2026-09'], label='2026.09 인상', anchor='end', y=14)])
+add('rates-2026', 3, '② 금리의 재상승은 회수기간을 더 무겁게 만든다', '이란 전쟁·에너지 물가와 견조한 수요가 겹친 2026년',
+    '<div class="split"><div class="col">' + slot('ratesNow')
+    + '<p class="note">시장금리는 10년 만기 국채 수익률의 월평균. 기업의 조달금리 = 국채금리 + 신용스프레드 등.</p></div>'
+    '<div class="col center text"><span class="kicker">연준 목표범위 · 2026.10</span><div class="big amber tn">3.75–4.00%</div>'
+    '<p>9월 25bp 인상 → 10월 동결</p>'
+    f'<p>10년물 국채 <b>{GS10[rn[-1]]:.2f}%</b> · 2026.10 월평균</p>'
+    '<p class="mt20">당장 빅테크의 지급능력 붕괴보다<br><b>신규 투자 수익률 · 차환비용</b>의 변화에 주목</p></div></div>',
+    '1980년대의 교훈은 반복될 수 있다. 다만 금리 격차가 곧 기술 격차는 아니다.',
+    ['fred_10', 'fred_ff', 'fed_2026', 'audit_3_0', 'audit_3_1', 'audit_3_2'])
+
+def pair(yr, title, home, rival, cls=''):
+    """한 시대의 맞수. 미국은 파랑, 추격하는 쪽은 주황으로 통일한다."""
+    def side(color, who, what):
+        return f'<div class="side" style="border-left-color:{color}"><em>{who}</em><b>{what}</b></div>'
+    return (f'<div class="pair {cls}"><div class="pair-h"><span class="yr">{yr}</span><b>{title}</b></div>'
+            f'<div class="pair-b">{side(C[0], *home)}<span class="vsx">vs</span>{side(C[1], *rival)}</div></div>')
+
+
+def plist(items):
+    return '<div class="plist">' + ''.join(f'<div>{t}</div>' for t in items) + '</div>'
+
+
+add('rates-china', 3, '중국의 낮은 자본비용은 추격의 충분조건인가?', '미·일의 역사와 미·중의 현재 · 유사한 금융 조건, 다른 제약',
+    '<div class="rows"><div class="analogy">'
+    + pair('1980s', '미국 ↔ 일본', ('미국', '고금리'), ('일본', '저금리 · 은행 금융'))
+    + '<i>→</i>'
+    + pair('2020s', '미국 ↔ 중국', ('미국', '금리 재상승'), ('중국', '정책금융 · 보조금'), 'now')
+    + '</div><div class="grid g3 grow auto">'
+    + panel('공통점', '긴 회수기간을 견디는 자본',
+            post=plist(['저금리 · 정책금융 · 정부 지원이<br>설비와 전력망의 투자 부담을 완화', '미국의 지연은 상대적 기회'])
+            + '<div class="pfoot lg">낮은 자본비용은 추격의 발판</div>')
+    + panel('차이점', '자금만으로 풀리지 않는 병목',
+            post=plist(['첨단 장비 · 공정 · HBM 접근', '수율 · 소프트웨어 · 고객 생태계', '달러 자본시장과 내부 현금흐름'])
+            + '<div class="pfoot lg">그러나 충분조건은 아니다</div>')
+    + panel('판단', '조건부 추격 시나리오', cls='key',
+            post='<div class="plist"><div>미국의 투자 지연</div><i>+</i><div>중국의 칩 · 전력 · 모델 효율 개선</div><i>↓</i>'
+                 '<div class="res"><b>일부 영역</b>의 격차 축소</div></div>'
+                 '<div class="pfoot lg">전면 대체가 아닌, 부분 추격</div>')
+    + '</div></div>',
+    '중국의 추격 가능성은 있다. “저금리이므로 미국을 대체한다”는 결론은 성립하지 않는다.',
+    ['ai_index', 'japan', 'audit_3_0'])
+
+
+# ── ③ 순환 거래 구조 ──
+def cycle_svg(uid, left, right, final, money, sales, label):
+    """왼쪽 공급자 ↔ 오른쪽 고객. 위 호 = 자금, 아래 호 = 매출, 오른쪽 끝 = 거래망 밖의 최종 고객."""
+    def node(x, w, name, role, outside=False):
+        look = f'fill="none" stroke="{GREEN}" stroke-dasharray="5 5"' if outside else 'fill="#0c2033" stroke="#2d5f7c"'
+        box = f'<rect x="{x}" y="116" width="{w}" height="96" rx="12" stroke-width="1.5" {look}/>'
+        return (box + T(x + w / 2, 160, name, 17 if outside else 24, INK, 'middle', 700)
+                + T(x + w / 2, 186, role, 13.5 if outside else 14.5, INK2, 'middle'))
+
+    def head(k, c):
+        return (f'<marker id="{uid}{k}" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">'
+                f'<path d="M0,0 L10,5 L0,10 Z" fill="{c}"/></marker>')
+
+    return (f'<svg viewBox="0 0 605 326" role="img" aria-label="{label}"><defs>{head("m", AMBER)}{head("s", CYAN)}{head("f", GREEN)}</defs>'
+            + node(0, 180, *left) + node(284, 180, *right) + node(492, 113, *final, outside=True)
+            + f'<path d="M90,116 C90,32 374,32 374,111" fill="none" stroke="{AMBER}" stroke-width="3" marker-end="url(#{uid}m)"/>'
+            + f'<circle cx="{232 - tw(money, 15) / 2 - 12:.0f}" cy="25" r="5" fill="{AMBER}"/>' + T(232, 30, money, 15, INK, 'middle', 700)
+            + f'<path d="M374,212 C374,296 90,296 90,217" fill="none" stroke="{CYAN}" stroke-width="3" marker-end="url(#{uid}s)"/>'
+            + f'<circle cx="{232 - tw(sales, 15) / 2 - 12:.0f}" cy="307" r="5" fill="{CYAN}"/>' + T(232, 312, sales, 15, INK, 'middle', 700)
+            + f'<path d="M490,164 L468,164" fill="none" stroke="{GREEN}" stroke-width="3" marker-end="url(#{uid}f)"/>'
+            + '</svg>')
+
+
+def cycle_panel(kicker, title, svg, note):
+    return (f'<article class="panel"><div class="kicker">{kicker}</div><h3>{title}</h3><div class="cycle">{svg}</div>'
+            f'<div class="note" style="margin-top:auto">{note}</div></article>')
+
+
+add('circular-flow', 3, '③ 공급자·고객·투자자가 겹치기 시작했다', '자금의 순환과 최종 외부 수요를 분리해서 본다',
+    '<div class="rows" style="gap:12px">'
+    + legend([('dot', AMBER, '자금 (투자 · 대출)'), ('dot', CYAN, '매출 (구매 · 상환)'), ('ring', GREEN, '거래망 밖에서 들어오는 현금')])
+    + '<div class="grid g2 grow auto">'
+    + cycle_panel('AI · 2025.09 발표 구조', 'NVIDIA ↔ OpenAI',
+                  cycle_svg('ca', ('NVIDIA', '공급자 · 투자자'), ('OpenAI', '고객 · 투자 수혜자'), ('최종 고객', '구독 · API 매출'),
+                            '단계적 지분 투자 구상', 'GPU·시스템 구매 · 컴퓨트 수요', 'NVIDIA와 OpenAI 사이의 자금·매출 순환'),
+                  '최대 $100bn 의향서 사례이며 전액 집행된 현금이라는 뜻이 아니다. 클라우드·AI 랩의 지분투자와 컴퓨트 약정도 유사한 연결.')
+    + cycle_panel('통신 · 1990s 말–2000', 'Lucent ↔ 통신사업자',
+                  cycle_svg('cb', ('Lucent', '장비 공급자 · 대출자'), ('통신사업자', '고객 · 차입자'), ('최종 고객', '통신 요금'),
+                            '고객 대출 · 지급보증', '통신장비 매출 · 원리금 상환', 'Lucent와 통신사업자 사이의 자금·매출 순환'),
+                  '고객 금융이 장비 수주를 지원했다. 고객의 부실은 대출 손실과 매출 감소로 동시에 전이됐다.')
+    + '</div></div>',
+    '외부 고객이 내는 현금이 충분하지 않으면, 연결된 위험이 함께 커진다.', ['nv_openai', 'lucent'])
+
+BFLY = [('자금의 성격', '대출 · 보증 · 고객금융', '지분투자 + 구매 · 클라우드 약정'),
+        ('공통 위험', '과잉투자 · 고객 지급능력', '독립 수요보다 투자금에 의존'),
+        ('손실의 경로', '대손 · 보증 지급 · 매출 감소', '지분 평가손실 · 계약 축소 · 매출 감소'),
+        ('다른 점', '주로 네트워크 용량 경쟁', '학습 · 추론 · 플랫폼, GPU의 빠른 노후화'),
+        ('확인할 것', '회수가능액 · 담보 · 대출 만기', '최종 고객 현금 · 매출 인식 · 취소 조건')]
+add('circular-compare', 3, '닮은 것은 자금 연결, 다른 것은 손실의 경로', '순환 구조 자체가 가공매출이나 부정회계를 의미하지는 않는다',
+    '<div class="col center" style="height:100%"><div class="bfly">'
+    '<div class="bh l"><small>과거 · 1990s 말</small><b>통신장비 벤더 파이낸싱</b></div><div class="bh m"></div>'
+    '<div class="bh r"><small>현재 · 2025–26</small><b>AI 투자 · 구매 연결</b></div>'
+    + ''.join(f'<div class="c l{k}">{a}</div><div class="c m{k}">{m}</div><div class="c{k}">{b}</div>'
+              for i, (m, a, b) in enumerate(BFLY) for k in [' key' if i == len(BFLY) - 1 else ''])
+    + '</div></div>',
+    '같은 현금이 거래망을 돌아도, 거래를 유지시키는 힘은 최종 고객의 지불 의사다.', ['nv_openai', 'lucent'])
+
+# ── ④ 정치 · 규제 ──
+BALLOT_YES, BALLOT_ALL = 31, 35              # Data Center Ballot · 2026.11.06 집계
+add('politics', 3, '④ 선거는 투자 총량보다 입지와 시간을 바꾼다', '2026 중간선거 결과와 데이터센터의 지역 정치',
+    '<div class="rows" style="gap:18px">'
+    # 위: 전국 선거 — 작게. 선거 결과와 법률 시행 사이에는 시간이 있다
+    '<div class="elect"><div><span class="kicker">선거 결과 · AP</span>'
+    + steps([('2026.11 중간선거', '민주당, 상·하원 다수 확보'), ('2027.01', '새 의회 출범'), ('그 이후', '입법 · 시행은 별개의 과정')], 'mt8')
+    + '</div><div class="neq"><span>선거 승리</span><i>≠</i><span>법률 시행</span></div></div>'
+    # 아래: 지역 주민투표 — 크게
+    '<div class="split s55 grow auto"><article class="panel key ballot"><div class="kicker">지역 주민투표</div>'
+    '<h3>데이터센터 제한 찬성</h3><div class="ballot-b">'
+    f'<div class="hero tn">{BALLOT_YES}<small>/ {BALLOT_ALL}건</small></div><div><div class="dots">'
+    + '<i class="on"></i>' * BALLOT_YES + '<i></i>' * (BALLOT_ALL - BALLOT_YES)
+    + f'</div><div class="dotlegend"><b><i class="on"></i>제한 찬성 {BALLOT_YES}건<i></i>그 외 {BALLOT_ALL - BALLOT_YES}건</b><br>'
+      '구속력 있는 안건 · 11월 6일 집계 · 인증 전 결과 포함</div></div></div>'
+    '<div class="pfoot lg">전국 일괄 금지로 해석할 수 없다</div></article>'
+    '<div class="col center text cause"><span class="kicker">왜 지역에서 막히는가</span><h2>비용이 지역으로 돌아왔다</h2>'
+    + tags(['전기요금', '물 사용', '송전망', '소음', '토지'], '', 'lg')
+    + '<div class="downarrow">↓</div><div class="result">인허가 지연 · 입지 이동</div>'
+    '<p class="sm">데이터센터 반대는 양당 지역 모두에서 나타난다.<br>모든 규제를 한 정당의 정책으로 묶을 수 없다.</p></div></div></div>',
+    '규제는 투자 회수 시점과 비용을 바꾼다. 국가 간 경쟁은 투자의 지속 압력으로 남는다.', ['midterms', 'dc_ballot', 'audit_4_0'])
+
+AI_US, AI_CN = 1503, 1464                    # Stanford AI Index 2026 · 2026.03 Arena 최고 모델 점수
+add('china-race', 3, '속도를 늦추는 비용도 정치적이다', '2026.03 최고 AI 모델 비교 · Stanford AI Index 2026',
+    '<div class="rows" style="gap:14px"><div class="duel grow">'
+    f'<div class="dz"><span class="who"><i style="background:{C[0]}"></i>미국 최고 모델<small>Arena 점수</small></span><b class="tn">{AI_US:,}</b>'
+    f'<div class="dbar"><i style="width:100%;background:{C[0]}"></i></div></div>'
+    '<div class="gapbox"><span class="kicker">미·중 최고 모델의 격차</span>'
+    f'<div class="big amber tn">{AI_US - AI_CN}점</div><p>Arena 점수 차이 · 2026.03</p></div>'
+    f'<div class="dz"><span class="who"><i style="background:{C[1]}"></i>중국 최고 모델<small>Arena 점수</small></span><b class="tn">{AI_CN:,}</b>'
+    f'<div class="dbar"><i style="width:{AI_CN / AI_US * 100:.1f}%;background:{C[1]}"></i></div></div></div>'
+    '<div class="note" style="margin:0">점수 차를 성능의 비율로 해석하지 않는다. 단일 벤치마크·단일 시점이며, 칩 제조능력이나 국가 경쟁력 순위가 아니다.</div>'
+    '<div class="insight lg">격차가 좁을수록, 한쪽이 <b>투자 속도를 늦추는 선택</b>은 정치적으로도 어려워진다.</div>'
+    + flow([('미국의 인프라 지연', '전력 · 인허가 · 자금 비용'), ('중국의 효율 · 전력 확장', '칩 · 모델 효율 개선'), ('상대적 경쟁력 압박', '투자를 늦추기 어려운 이유')],
+           ['+', '→'], 'lg', key=2)
+    + '</div>',
+    '해석: 투자 사이클을 완전히 꺾기는 어렵지만, 개별 사업의 수익성까지 보장되지는 않는다.', ['ai_index', 'dc_ballot'])
+
+# ── ⑤ 현금 배분 ──
+sam_op, skh_op = [r['op'] for r in SAM], [r['op'] for r in SKH]
+CHARTS['supplierOP'] = dict(
+    title='삼성전자 · SK hynix 분기 영업이익', cap='분기 영업이익 (조원)', labels=qlab, suf='조', dec=1, fs=13,
+    x={'ticks': QT}, y={'step': 25, 'max': 120, 'dec': 0},
+    series=[dict(name='삼성전자', values=sam_op, color=C[0], w=2.5, end=True),
+            dict(name='SK hynix', values=skh_op, color=C[1], w=2.5, end=True)])
+
+
+def alloc(name, color, rows, foot):
+    body = ''.join(f'<span>{k}<span class="tag{" act" if tag == "실제" else ""}">{tag}</span></span><b>{v}<small>조원</small></b>'
+                   for k, tag, v in rows)
+    return (f'<article class="panel"><h3><i style="background:{color}"></i>{name}</h3><div class="kv">{body}'
+            f'<span class="full">{foot}</span></div></article>')
+
+
+add('cash-allocation', 3, '⑤ 막대한 현금, 어디에 배분할 것인가?', '리니어의 질문이 2026년의 삼성·SK hynix로 돌아왔다',
+    '<div class="split"><div class="col">' + slot('supplierOP')
+    + '<p class="note">연결 분기 영업이익, 조원. 회사 규모와 사업 구성이 다르며, 영업이익은 현금흐름과 다르다.</p></div><div class="alloc">'
+    + alloc('삼성전자', C[0], [('2026 CAPEX', '전망', '84.4'), ('2026 주주환원', '예상', '90–110')],
+            'DS 부문 CAPEX 76.8조 · 환원 중 확정·집행 35조, 최종 금액은 2027.01 이사회 결정')
+    + alloc('SK hynix', C[1], [('3분기 말 순현금', '실제', '98.7'), ('2026 주주환원', '계획', '약 100')],
+            '현금 114.5조 − 차입 15.8조 · 용인 1기 가동으로 2027년 투자 크게 증가 예상')
+    + '</div></div>',
+    '성장의 투자와 주주환원, 다음 불황을 위한 현금은 같은 재원에서 나온다.',
+    ['sam_q', 'skh_q', 'C01', 'C02', 'audit_5_0', 'audit_5_1', 'audit_6_0'])
+
+LTA_CUSTOMERS, LTA_SHARE = 14, 50            # 출처 audit_7_0 · SK hynix LTA 14개 고객 · 2027–28 생산능력의 50% 이상
+add('contracts', 3, '장기계약은 보이는 물량을 늘린다. 위험을 없애지는 않는다', 'LTA · 투자·환원을 결정하기 전에 계약의 질을 확인',
+    '<div class="split s55">'
+    # 왼쪽: 늘어나는 것 — 보이는 물량 (크게)
+    '<div class="col"><div class="colh">늘어나는 것 <b>보이는 물량</b></div>'
+    '<article class="panel grow lta"><div class="kicker">물량 · SK hynix의 장기공급계약(LTA)</div><h3>얼마나 보장되는가</h3>'
+    '<div class="lta-body">'
+    f'<div class="lrow"><div class="hero tn">{LTA_CUSTOMERS}<small>개 고객</small></div>'
+    '<div><div class="custs">' + '<i></i>' * LTA_CUSTOMERS + '</div><p>LTA를 체결한 고객 수</p></div></div>'
+    f'<div class="lrow"><div class="hero tn">{LTA_SHARE}<small>% 이상</small></div>'
+    f'<div><div class="meter lgm"><i style="width:{LTA_SHARE}%"></i><u style="width:{100 - LTA_SHARE}%"></u></div>'
+    '<div class="meter-l"><span>0</span><span>100%</span></div><p>2027–28 생산능력 중 LTA 비중</p></div></div>'
+    '</div><div class="pfoot lg">공급 계획의 가시성은 개선</div></article></div>'
+    # 오른쪽: 남는 것 — 가격과 신용의 위험
+    '<div class="col"><div class="colh rest">남는 것 <b>가격 · 신용의 위험</b></div><div class="rows grow">'
+    + panel('가격', '얼마나 지켜지는가',
+            '합의한 가격 범위 안에서<br>시장 상황을 반영하는 메커니즘', 'grow', post='<div class="pfoot">가격 재협상의 가능성은 남는다</div>')
+    + panel('신용 · 자본배분', '누가 끝까지 지불하는가',
+            '고객의 지급능력 · 보증 · 선급금<br>투자 집행의 단계화<br>환원 후에도 불황 완충력 유지', 'key grow2',
+            post='<div class="pfoot">계약의 질을 먼저 확인한다</div>')
+    + '</div></div></div>',
+    '장기계약은 과거에도 존재했다. 현재는 규모·기간·고객 집중과 위험 배분이 핵심이다.', ['audit_7_0', 'audit_6_0', 'C02'])
+
+# ── 마무리 ──
+CLOSE = [('수요자 재무', 'Elpida · 만기와 유동성', '빅테크 CAPEX · FCF', '회복까지 버틸 현금'),
+         ('자본비용', '미·일 금리와 투자', '고금리 · 중국 추격', '수익률 > 자본비용'),
+         ('거래 구조', '통신 벤더 금융', 'AI 투자·구매의 연결', '독립된 최종 수요'),
+         ('정책 · 경쟁', '정부 조달 · 무역 협정', '전력 규제 · AI 경쟁', '입지 · 비용 · 시점'),
+         ('현금 배분', 'Linear · 환원과 매각', '공급자 호황 · LTA', '재투자 · 환원 · 완충력')]
+add('closing', 3, '과거의 질문은 다른 모습으로 돌아온다', '기술이 기회를 만든다. 자본배분의 선택이 기업의 다음 장을 결정한다.',
+    '<div class="rows" style="gap:26px;justify-content:center"><div class="closing"><span></span>'
+    + ''.join(f'<div class="hd"><small>0{i + 1}</small>{c[0]}</div>' for i, c in enumerate(CLOSE))
+    + '<div class="rl">과거</div>' + ''.join(f'<div class="c">{c[1]}</div>' for c in CLOSE)
+    + '<div class="rl">현재</div>' + ''.join(f'<div class="c">{c[2]}</div>' for c in CLOSE)
+    + '<div class="rl r3">확인할 것</div>' + ''.join(f'<div class="c rule">{c[3]}</div>' for c in CLOSE)
+    + '</div><div class="quote">“얼마를 벌었나” 다음에는<br>'
+      '<span class="green">“누가 지불하고, 어디에 다시 쓸 것인가”</span>를 묻는다.</div></div>',
+    '리니어는 사라졌지만, 리니어가 마주했던 재무적 선택은 끝나지 않았다.')
+
+# ═════════════════════════ 묶기 · 점검 · 쓰기 ═════════════════════════
+# 대시보드가 읽는 항목만 남긴다 (v3.js 의 dashboard · financialOverview)
+FY_END = {'June 30': '6월 말', 'December 31': '12월 말'}
+FIN_KEYS = ('year', 'label', 'revenue', 'revenueGrowth', 'netIncome', 'operatingMargin', 'capex', 'fcf', 'interestCoverage', 'debtRatio')
+FIN = {'companies': {n: {
+    'fiscalYearEnd': FY_END[c['fiscalYearEnd']],
+    'annual': [{k: r.get(k) for k in FIN_KEYS} for r in c['annual']],
+    'ttm2026': {k: c['latestTTM'].get(k) for k in FIN_KEYS},
+    'chartSeries': [{k: r.get(k) for k in ('year', 'label', 'debtIssuance')} for r in c['chartSeries']],
+} for n, c in F['companies'].items()}}
+
+# 점검: 하나라도 걸리면 파일을 쓰지 않는다
+ids = [s['id'] for s in SLIDES]
+assert len(ids) == len(set(ids)), '장표 id 가 겹친다'
+problems = []
 for s in SLIDES:
- for key in ['transistor','ic','apollo']:s['html']=s['html'].replace('{{PHOTO:'+key+'}}',photo(key))
-CSS=(P/'v3.css').read_text(encoding='utf-8-sig');JS=(P/'v3.js').read_text(encoding='utf-8-sig')
-script='\n'.join('const '+k+'='+json.dumps(v,ensure_ascii=False).replace('</','<\\/')+';' for k,v in dict(SLIDES=SLIDES,CHARTS=CHARTS,SOURCES=SOURCES,PARTS=PARTS,ERAS=ERAS,FIN=F,SECTOR=SECTOR).items())
-page='<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>기업재무_발표자료_12조 | 리니어는 왜 사라졌나?</title><style>'+CSS+'</style></head><body><header class="top"><div class="brand"><b>12</b> SEMICONDUCTOR</div><nav aria-label="파트 이동">'+''.join(f'<button data-part="{i}">PART {i} · {PARTS[i]}</button>' for i in [1,2,3])+'</nav><a href="기업재무_반도체산업.html" target="_blank">반도체 산업 아카이브 ↗</a></header><main class="viewport"><div class="stage" id="stage"></div></main><footer class="control"><button id="prev" aria-label="이전 장표">←</button><span id="position" aria-live="polite"></span><button id="next" aria-label="다음 장표">→</button><div class="progress"><i id="progress"></i></div><button id="toc">목차 T</button><button id="sources">출처 S</button><span id="clock" class="optional">00:00</span><button id="timer" class="optional">타이머 시작</button><button id="full">전체화면 F</button></footer><dialog id="modal" aria-labelledby="modalTitle"><button id="close" class="close" aria-label="닫기">닫기 ×</button><h2 id="modalTitle"></h2><div id="modalBody"></div></dialog><script>'+script+'</script><script>'+JS+'</script></body></html>'
-(P/'기업재무_발표자료_12조.html').write_text(page,encoding='utf-8');(P/'index.html').write_text(page,encoding='utf-8');(P/'v3_deck_content.json').write_text(json.dumps(dict(slides=SLIDES,charts=CHARTS,eras=ERAS),ensure_ascii=False,indent=2),encoding='utf-8')
+    problems += [f'{s["id"]}: 출처 목록에 없는 키 {k}' for k in s['sources'] if k not in SOURCES]
+    problems += [f'{s["id"]}: 정의되지 않은 차트 {c}' for c in re.findall(r'data-(?:chart|linear)="([^"]+)"', s['html']) if c not in CHARTS]
+    problems += [f'{s["id"]}: 없는 이미지 {f}' for f in re.findall(r'src="(assets/[^"]+)"', s['html']) if not (P / f).is_file()]
+    if '????' in s['html'] + s['title'] + s['sub'] + s['take']:
+        problems.append(f'{s["id"]}: 깨진 글자')
+assert not problems, '\n'.join(problems)
+used = set(re.findall(r'data-(?:chart|linear)="([^"]+)"', ''.join(s['html'] for s in SLIDES)))
+assert used == set(CHARTS), f'쓰이지 않는 차트: {sorted(set(CHARTS) - used)}'
+for s in SLIDES:
+    if tw(re.sub(r'<[^>]+>', '', s['take']), 22) > 1289:
+        print(f'  ! 결론 문장이 두 줄로 넘어갈 수 있음: {s["id"]}')
+
+
+def embed_images(html):
+    """사진을 data URI 로 바꿔 HTML 한 파일만으로 열리게 한다."""
+    def uri(m):
+        f = P / m.group(1)
+        return f'src="data:{mimetypes.guess_type(f.name)[0]};base64,{base64.b64encode(f.read_bytes()).decode()}"'
+    return re.sub(r'src="(assets/v3/deck/[^"]+)"', uri, html)
+
+
+CSS = (P / 'v3.css').read_text(encoding='utf-8-sig')
+JS = (P / 'v3.js').read_text(encoding='utf-8-sig')
+consts = dict(SLIDES=[dict(s, html=embed_images(s['html'])) for s in SLIDES], CHARTS=CHARTS, SOURCES=SOURCES, PARTS=PARTS,
+              ERAS=ERAS, FIN=FIN, SECTOR=SECTOR, TL=TL)
+script = '\n'.join(f'const {k}=' + json.dumps(v, ensure_ascii=False).replace('</', '<\\/') + ';' for k, v in consts.items())
+PEN_COLORS = [('#ffd84d', '노랑'), ('#ff5d6c', '빨강'), ('#37ccff', '하늘'), ('#ffffff', '흰색')]
+page = (
+    '<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">'
+    '<title>기업재무_발표자료_12조 | 리니어는 왜 사라졌나?</title><style>' + CSS + '</style></head><body>'
+    '<header class="top"><div class="brand"><b>12</b> SEMICONDUCTOR</div><nav aria-label="파트 이동">'
+    + ''.join(f'<button data-part="{i}">PART {i} · {PARTS[i]}</button>' for i in (1, 2, 3))
+    + '</nav><a href="기업재무_반도체산업.html" target="_blank">반도체 산업 아카이브 ↗</a></header>'
+    '<main class="viewport"><div class="stage" id="stage"><div id="slideHost"></div>'
+    '<svg id="ink" viewBox="0 0 1440 810" aria-hidden="true"></svg><div id="tip" class="tip" hidden></div></div></main>'
+    '<footer class="control"><button id="toc">목차<kbd>T</kbd></button><button id="sources">출처<kbd>S</kbd></button>'
+    '<button id="pen" aria-pressed="false" title="화면에 선을 그어 강조합니다. 장표를 넘기면 지워지고 저장되지 않습니다.">✎ 펜<kbd>D</kbd></button>'
+    '<span class="pentools" id="penTools" hidden>'
+    + ''.join(f'<button class="sw" data-ink-color="{c}" style="background:{c}" aria-label="{n}" title="{n}"></button>' for c, n in PEN_COLORS)
+    + '<button data-ink-tool="pen">선</button><button data-ink-tool="hl">형광펜</button>'
+    '<button id="inkUndo">되돌리기<kbd>Z</kbd></button><button id="inkClear">모두 지우기<kbd>X</kbd></button></span>'
+    '<div class="progress"><i id="progress"></i></div><span id="clock" class="optional">00:00</span>'
+    '<button id="timer" class="optional">타이머 시작</button><button id="full">전체화면<kbd>F</kbd></button>'
+    '<div class="navgroup"><button id="prev" aria-label="이전 장표">←</button><span id="position" aria-live="polite"></span>'
+    '<button id="next" aria-label="다음 장표">→</button></div></footer>'
+    '<dialog id="modal" aria-labelledby="modalTitle"><button id="close" class="close" aria-label="닫기">닫기 ×</button>'
+    '<h2 id="modalTitle"></h2><div id="modalBody"></div></dialog>'
+    '<script>' + script + '</script><script>' + JS + '</script></body></html>')
+assert '????' not in re.sub(r'data:image/[^"]+', '', page)
+
+for name in ('기업재무_발표자료_12조.html', 'index.html'):
+    (P / name).write_text(page, encoding='utf-8')
+(P / 'v3_deck_content.json').write_text(
+    json.dumps(dict(slides=SLIDES, charts=CHARTS, eras=ERAS), ensure_ascii=False, indent=2), encoding='utf-8')
 print(f'Built {len(SLIDES)} slides; {len(CHARTS)} charts; {len(page):,} characters')

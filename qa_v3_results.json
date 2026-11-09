@@ -1,10 +1,10 @@
 {
-  "slides": 35,
-  "checks": 105,
-  "sectorCombinations": 66,
+  "slides": 34,
+  "checks": 83,
+  "sectorCombinations": 44,
   "companies": 4,
   "consoleErrors": [],
-  "visualLayout": "not verified: Windows browser URL safety check stopped Computer Use",
+  "visualLayout": "not checked by this script: jsdom has no layout engine. See README for the browser screenshot review.",
   "study": {
     "sections": 39,
     "terms": 67,

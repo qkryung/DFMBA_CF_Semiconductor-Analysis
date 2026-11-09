@@ -1,0 +1,102 @@
+[
+  {
+    "id": "transistor",
+    "path": "assets/v3/deck/transistor.jpg",
+    "caption": "1947년 점접촉 트랜지스터 전시물",
+    "credit": "Windell Oskay / Wikimedia Commons",
+    "source": "https://commons.wikimedia.org/wiki/File:The_First_Transistor_ever_made,_built_in_1947_-_Bell_Labs.jpg",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+    "changes": "Wikimedia thumbnail (960x720) resized to 900x675 and re-encoded as JPEG (quality 82); no crop or retouching"
+  },
+  {
+    "id": "ic-replica",
+    "path": "assets/v3/deck/ic-replica.jpg",
+    "caption": "잭 킬비의 1958년 집적회로 복제품",
+    "credit": "Florian Schäffer / Wikimedia Commons",
+    "source": "https://commons.wikimedia.org/wiki/File:Replica_IC.png",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "changes": "Wikimedia PNG thumbnail (960x657) resized to 900x616 and converted from PNG to JPEG (quality 82); original background kept (source has no transparency); no crop or retouching"
+  },
+  {
+    "id": "intel-4004",
+    "path": "assets/v3/deck/intel-4004.jpg",
+    "caption": "인텔 4004 — 최초의 상용 마이크로프로세서 (1971년 출시)",
+    "credit": "Thomas Nguyen / Wikimedia Commons",
+    "source": "https://commons.wikimedia.org/wiki/File:Intel_C4004.jpg",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "changes": "Wikimedia thumbnail (1280x853) resized to 900x600 and re-encoded as JPEG (quality 82); no crop or retouching"
+  },
+  {
+    "id": "dram-256k-nec",
+    "path": "assets/v3/deck/dram-256k-nec.jpg",
+    "caption": "NEC 256K D램 μPD41256 (1987년 제조, 일본)",
+    "credit": "Mister rf / Wikimedia Commons",
+    "source": "https://commons.wikimedia.org/wiki/File:D41256C-15.jpg",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "changes": "Wikimedia thumbnail (1280x1054) resized to 900x741 and re-encoded as JPEG (quality 82); no crop or retouching"
+  },
+  {
+    "id": "wafer-300mm",
+    "path": "assets/v3/deck/wafer-300mm.jpg",
+    "caption": "회로가 형성된 300mm(12인치) 실리콘 웨이퍼 (2011년 게시 사진)",
+    "credit": "Peellden / Wikimedia Commons",
+    "source": "https://commons.wikimedia.org/wiki/File:12-inch_silicon_wafer.jpg",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "changes": "Wikimedia thumbnail (1280x1280) resized to 900x900 and re-encoded as JPEG (quality 80); no crop or retouching"
+  },
+  {
+    "id": "soc-apple-a4",
+    "path": "assets/v3/deck/soc-apple-a4.jpg",
+    "caption": "애플 A4 모바일 SoC — 아이폰 4 메인보드 (2010년)",
+    "credit": "Raimond Spekking / Wikimedia Commons",
+    "source": "https://commons.wikimedia.org/wiki/File:IPhone_4,_model_A1332_-_mainboard_-_A4-7796.jpg",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "changes": "Wikimedia thumbnail (1280x1280) resized to 720x720 and re-encoded as JPEG (quality 70); no crop or retouching"
+  },
+  {
+    "id": "ai-nvidia-b200",
+    "path": "assets/v3/deck/ai-nvidia-b200.jpg",
+    "caption": "엔비디아 HGX B200 — 블랙웰 GPU 8개를 탑재한 AI 서버 보드 (2025년 촬영)",
+    "credit": "Pokiiri / Wikimedia Commons",
+    "source": "https://commons.wikimedia.org/wiki/File:Nvidia_DGX-B200-HGX.jpg",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "changes": "Wikimedia thumbnail (1280x1299) resized to 887x900 and re-encoded as JPEG (quality 60); no crop or retouching"
+  },
+  {
+    "id": "apollo11",
+    "path": "assets/v3/deck/apollo11.jpg",
+    "caption": "아폴로 11호 발사, 1969.7.16",
+    "credit": "NASA / The Planetary Society",
+    "source": "https://www.planetary.org/space-images/apollo-11-liftoff-from-pad",
+    "license": "NASA public domain imagery",
+    "licenseUrl": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+    "changes": "Original file (3000x2409) resized to 900x723 and re-encoded as JPEG (quality 82); no crop or retouching"
+  },
+  {
+    "id": "ibm-pc",
+    "path": "assets/v3/deck/ibm-pc.jpg",
+    "caption": "IBM PC 5150 전시물 (1981년 출시 모델)",
+    "credit": "Jordiferrer / Wikimedia Commons",
+    "source": "https://commons.wikimedia.org/wiki/File:IBM_PC-5150.JPG",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "changes": "Wikimedia thumbnail (960x720) resized to 900x675 and re-encoded as JPEG (quality 82); no crop or retouching"
+  },
+  {
+    "id": "dram-1m-samsung",
+    "path": "assets/v3/deck/dram-1m-samsung.jpg",
+    "caption": "삼성 1M D램 KM44C256BP-8 (1990년경 제조, 한국)",
+    "credit": "Drahtlos / Wikimedia Commons",
+    "source": "https://commons.wikimedia.org/wiki/File:Samsung_KM44C256BP-8.jpg",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "changes": "Wikimedia thumbnail (1280x510) resized to 900x359 and re-encoded as JPEG (quality 82); no crop or retouching"
+  }
+]

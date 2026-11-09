@@ -9,17 +9,31 @@ for(let i=0;i<count;i++){
  ev(`goto(${i})`);assert(d.querySelector('.slide'));assert(!d.querySelector('#stage').textContent.match(/NaN|undefined|\?\?\?\?/),`invalid content ${i}`);
  ev(`SLIDES[${i}].sources.forEach(id=>{if(!SOURCES[id])throw new Error('missing source '+id)})`);checks++;
 }
+const click=e=>e.dispatchEvent(new w.MouseEvent('click',{bubbles:true,cancelable:true}));
+// 빅테크 대시보드: 기업을 바꿔도 지표 타일 8개가 모두 그려진다
 ev("goto(SLIDES.findIndex(s=>s.id==='buyer-dashboard'))");
-for(const c of ev('Object.keys(FIN.companies)')){let e=d.querySelector('#companySelect');e.value=c;e.dispatchEvent(new w.Event('change'));assert.equal(d.querySelectorAll('#dashboard svg').length,4);assert(!d.querySelector('#dashboard').innerHTML.includes('NaN'));d.querySelector('#dashTable').click();assert(d.querySelector('#modal').open);d.querySelector('#modal').close();checks++}
+const companies=ev('Object.keys(FIN.companies)');
+for(const c of companies){let e=d.querySelector('#companySelect');e.value=c;e.dispatchEvent(new w.Event('change'));assert.equal(d.querySelectorAll('#dashboard .tile').length,8);assert.equal(d.querySelectorAll('#dashboard .tile-c svg').length,8);assert(!d.querySelector('#dashboard').innerHTML.match(/NaN|undefined/));checks++}
+// 섹터 순위(미국 Fortune 500 · 2000/2010/2020/2026): 11개 섹터 버튼과 자동 순환
 ev("goto(SLIDES.findIndex(s=>s.id==='sector-ranking'))");
-for(let i=0;i<11;i++){let s=d.querySelector('#sectorSelect');s.value=i;s.dispatchEvent(new w.Event('change'));for(let y=0;y<6;y++){d.querySelector(`[data-year="${y}"]`).click();assert(!d.querySelector('#rankRows').innerHTML.includes('NaN'));checks++}}
-d.querySelector('#sectorMethod').click();assert(d.querySelector('#modalBody').textContent.includes('Fortune'));d.querySelector('#modal').close();
-ev("goto(SLIDES.findIndex(s=>s.id==='industry-map'))");assert.equal(d.querySelectorAll('[data-detail]').length,20);d.querySelector('[data-detail]').click();assert(d.querySelector('#modal').open);d.querySelector('#modal').close();let layer=d.querySelector('[data-layer]');layer.checked=false;layer.dispatchEvent(new w.Event('change'));assert.equal(d.querySelectorAll('[data-detail]').length,15);
+const pills=[...d.querySelectorAll('#sectorPills [data-sector]')],years=ev('SECTOR.years.length');assert.equal(pills.length,11);assert.equal(years,4);
+for(const p of pills){p.click();assert(p.classList.contains('active'));assert.equal(d.querySelectorAll('#bump svg').length,1);assert(!(d.querySelector('#bump').innerHTML+d.querySelector('#sectorStat').innerHTML).match(/NaN|undefined/));checks+=years}
+d.querySelector('#sectorPlay').click();assert(ev('!!playTimer'));d.querySelector('#sectorPlay').click();assert(ev('!playTimer'));
+// 시간축 지도: 시대 팝업과 레이어 끄기
+ev("goto(SLIDES.findIndex(s=>s.id==='industry-map'))");assert.equal(d.querySelectorAll('[data-era]').length,ev('ERAS.length'));click(d.querySelector('[data-era]'));assert(d.querySelector('#modal').open);d.querySelector('#modal').close();
+let layers=d.querySelectorAll('[data-layer]');assert.equal(layers.length,4);assert.equal(d.querySelectorAll('#timeline .lane.off').length,0);layers[0].checked=false;layers[0].dispatchEvent(new w.Event('change'));assert(d.querySelectorAll('#timeline .lane.off').length>0);
 ev("goto(SLIDES.findIndex(s=>s.id==='life-cycle'))");d.querySelector('#lifeToggle').click();assert.equal(d.querySelector('#lifeToggle').getAttribute('aria-pressed'),'false');
+// Linear 매출 성장률 보기: 0% 눈금이 있어야 역성장을 읽을 수 있다
+ev("goto(SLIDES.findIndex(s=>s.id==='linear-cash'))");d.querySelector('.pills [data-linear="linearGrowth"]').click();assert([...d.querySelectorAll('#linearChart svg text')].some(t=>t.textContent==='0%'),'growth chart needs a 0% tick');
+// 펜: 켜고, 한 획 긋고, 장표를 넘기면 지워진다 (저장하지 않음)
+const pe=(t,x,y)=>d.querySelector('#ink').dispatchEvent(new w.MouseEvent(t,{bubbles:true,cancelable:true,clientX:x,clientY:y,button:0}));
+d.querySelector('#pen').click();assert(d.body.classList.contains('drawing'));pe('pointerdown',10,10);pe('pointermove',60,40);pe('pointerup',60,40);assert.equal(d.querySelectorAll('#ink path').length,1);
+d.querySelector('#next').click();assert.equal(d.querySelectorAll('#ink path').length,0,'ink must be cleared on slide change');d.querySelector('#pen').click();assert(!d.body.classList.contains('drawing'));checks++;
 ev('goto(0)');d.querySelector('#next').click();assert.equal(ev('index'),1);d.querySelector('#toc').click();assert.equal(d.querySelectorAll('.toc-grid button').length,count);d.querySelector('#modal').close();
+ev("goto(SLIDES.findIndex(s=>s.id==='era4-ai'))");d.querySelector('#sources').click();assert(d.querySelector('#modal').open);assert(d.querySelectorAll('#modalBody .source a').length>0);assert(d.querySelectorAll('#modalBody table').length>0);d.querySelector('#modal').close();
 w.dispatchEvent(new w.Event('beforeprint'));assert.equal(d.querySelectorAll('.slide').length,count);assert(!d.querySelector('#stage').textContent.includes('NaN'));w.dispatchEvent(new w.Event('afterprint'));assert.equal(d.querySelectorAll('.slide').length,1);
 assert.equal(errors.length,0,errors.join('\n'));
-const result={slides:count,checks,sectorCombinations:66,companies:4,consoleErrors:errors,visualLayout:'not verified: Windows browser URL safety check stopped Computer Use'};
+const result={slides:count,checks,sectorCombinations:pills.length*years,companies:companies.length,consoleErrors:errors,visualLayout:'not checked by this script: jsdom has no layout engine. See README for the browser screenshot review.'};
 fs.writeFileSync(path.join(__dirname,'qa_v3_results.json'),JSON.stringify(result,null,2));console.log(result);w.close();
 const studyHtml=fs.readFileSync(path.join(__dirname,'기업재무_반도체산업.html'),'utf8');
 const sv=new VirtualConsole(),se=[];sv.on('jsdomError',e=>se.push(e.message));
