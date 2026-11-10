@@ -6,6 +6,8 @@
 const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>Array.from(r.querySelectorAll(s));
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const mn=s=>String(s).replace(/-/g,'−');
+/* 제목에서 태그(<br> · 참고 표시의 <span>)를 걷어낸 한 줄 글자 */
+const plain=s=>String(s??'').replace(/<[^>]+>/g,' ').replace(/\s+/g,' ').trim();
 /* d = 최대 소수 자릿수, m = 최소 소수 자릿수(같은 값을 주면 자릿수가 고정된다) */
 function num(n,d=1,m=0){return n==null||!Number.isFinite(+n)?'N/A':mn(Number(n).toLocaleString('en-US',{minimumFractionDigits:Math.min(m,d),maximumFractionDigits:d}))}
 /* 차트 색: dataviz 검증 팔레트(어두운 바탕 #081421 기준 통과). 글자는 항상 잉크 토큰, 색은 마크에만 쓴다. */
@@ -116,7 +118,7 @@ document.addEventListener('pointerleave',tipOff);
 
 /* ───────── 장표 렌더 · 이동 ───────── */
 function view(s,i){const bare=s.kind==='cover'||s.kind==='divider';
-  return `<section class="slide ${s.kind||''}" aria-label="${i+1}. ${esc(String(s.title).replace(/<[^>]+>/g,' '))}" data-id="${s.id}" data-part="${s.part}">`
+  return `<section class="slide ${s.kind||''}${s.ref?' ref':''}" aria-label="${i+1}. ${esc(plain(s.title))}" data-id="${s.id}" data-part="${s.part}">`
     +(bare?'':`<header class="shead"><div class="eyebrow">${esc(s.part===0?'12조 · 기업재무':'PART '+s.part+' · '+PARTS[s.part])}</div><h1>${s.title}</h1>${s.sub?`<p class="sub">${s.sub}</p>`:''}</header>`)
     +`<div class="body">${s.html}</div>`
     +(s.take?`<div class="take"><p>${s.take}</p></div>`:'')
@@ -140,9 +142,9 @@ function dataTables(i){if(i!==index)return '';
   const all=fromPlots.concat(SLIDES[i].tables||[]);if(!all.length)return '';
   return `<h3 class="dt-h">차트 데이터</h3>`+all.map(t=>`<details class="dt"><summary>${esc(t.title||'표')}</summary><div class="dt-wrap"><table class="table mini"><tr>${t.head.map(h=>`<th>${esc(h)}</th>`).join('')}</tr>${t.rows.map(r=>`<tr>${r.map(c=>`<td>${esc(c)}</td>`).join('')}</tr>`).join('')}</table></div></details>`).join('')}
 function sources(i=index){const s=SLIDES[i];
-  modal('근거 · '+String(s.title).replace(/<[^>]+>/g,' '),(s.sources||[]).map(id=>{const x=SOURCES[id];return x?`<div class="source"><a href="${esc(x.url||'#')}" target="_blank" rel="noopener">${esc(x.title)} ↗</a><p>${esc(x.publisher||'')} ${esc(x.published||'')}<br>${esc(x.note||'')}</p></div>`:''}).join('')
+  modal('근거 · '+plain(s.title),(s.sources||[]).map(id=>{const x=SOURCES[id];return x?`<div class="source"><a href="${esc(x.url||'#')}" target="_blank" rel="noopener">${esc(x.title)} ↗</a><p>${esc(x.publisher||'')} ${esc(x.published||'')}<br>${esc(x.note||'')}</p></div>`:''}).join('')
     +`<p class="method">${s.method||'금액 단위·실제치와 전망은 해당 차트에 표시. 조사 기준 2026-11-08.'}</p>`+dataTables(i))}
-function toc(){modal('전체 흐름',[0,1,2,3].map(p=>{const list=SLIDES.map((s,i)=>[s,i]).filter(([s])=>s.part===p);return list.length?`<div class="toc-part"><h3>${p?'PART '+p+' · ':''}${esc(PARTS[p])}</h3><div class="toc-grid">${list.map(([s,i])=>`<button data-jump="${i}" class="${i===index?'active':''}"><span>${String(i+1).padStart(2,'0')}</span>${esc(String(s.title).replace(/<[^>]+>/g,' '))}</button>`).join('')}</div></div>`:''}).join(''))}
+function toc(){modal('전체 흐름',[0,1,2,3].map(p=>{const list=SLIDES.map((s,i)=>[s,i]).filter(([s])=>s.part===p);return list.length?`<div class="toc-part"><h3>${p?'PART '+p+' · ':''}${esc(PARTS[p])}</h3><div class="toc-grid">${list.map(([s,i])=>`<button data-jump="${i}" class="${i===index?'active':''}${s.ref?' ref':''}"><span>${String(i+1).padStart(2,'0')}</span>${esc(plain(s.title))}</button>`).join('')}</div></div>`:''}).join(''))}
 
 /* ───────── 장표별 인터랙션 ───────── */
 function mountSpecial(){

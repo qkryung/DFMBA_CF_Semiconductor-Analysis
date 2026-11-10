@@ -1,7 +1,7 @@
 const fs=require('fs'),path=require('path'),assert=require('assert');
 const {JSDOM,VirtualConsole}=require(path.join(process.env.TEMP,'codex-html-qa/node_modules/jsdom'));
 let errors=[];const vc=new VirtualConsole();vc.on('jsdomError',e=>errors.push(e.message));
-const page=fs.readFileSync(path.join(__dirname,'기업재무_발표자료_12조_v2.html'),'utf8');
+const page=fs.readFileSync(path.join(__dirname,'기업재무_발표자료_12조_v3.html'),'utf8');
 const dom=new JSDOM(page,{runScripts:'dangerously',url:'http://localhost/',pretendToBeVisual:true,virtualConsole:vc,beforeParse(w){w.HTMLDialogElement.prototype.showModal=function(){this.open=true};w.HTMLDialogElement.prototype.close=function(){this.open=false;this.dispatchEvent(new w.Event('close'))}}});
 const w=dom.window,d=w.document,ev=s=>w.eval(s);
 let count=ev('SLIDES.length'),checks=0;
@@ -11,11 +11,23 @@ for(let i=0;i<count;i++){
  ev(`SLIDES[${i}].sources.forEach(id=>{if(!SOURCES[id])throw new Error('missing source '+id)})`);checks++;
 }
 const click=e=>e.dispatchEvent(new w.MouseEvent('click',{bubbles:true,cancelable:true}));
-// 장표 구성: v2는 28장. 합치거나 뺀 장표의 id는 남아 있지 않고, 뺀 '순환 거래' 주제는 목차(간지) · 마무리 표에도 없다
-assert.equal(count,28);const ids=ev('SLIDES.map(s=>s.id)');for(const gone of ['era0-capital','buyer-checklist','rates-china','life-cycle','circular-flow','circular-compare'])assert(!ids.includes(gone),gone+' should be gone');
-ev("goto(SLIDES.findIndex(s=>s.id==='part3'))");assert.equal(d.querySelectorAll('.issues span').length,4);assert(!d.querySelector('.issues').textContent.includes('순환'));
-ev("goto(SLIDES.findIndex(s=>s.id==='closing'))");assert.equal(d.querySelectorAll('.closing .hd').length,4);assert(!d.querySelector('.closing').textContent.includes('거래 구조'));
-assert(ev("SLIDES.find(s=>s.id==='linear-context').take").includes('좋은 회사도 사라질 수 있다'));checks+=3;
+// 장표 구성: v3는 26장. 합치거나 뺀 장표의 id는 남아 있지 않다 (v3에서 ② 금리 · ③ 정치·규제의 세 장을 us-china 한 장으로 합침)
+assert.equal(count,26);const ids=ev('SLIDES.map(s=>s.id)');for(const gone of ['era0-capital','buyer-checklist','rates-china','life-cycle','circular-flow','circular-compare','rates-2026','politics','china-race'])assert(!ids.includes(gone),gone+' should be gone');
+// PART 3 은 이슈 세 개: 간지의 목록 · 번호가 붙은 장표 제목(①②③) · 마무리 표의 열이 모두 셋
+ev("goto(SLIDES.findIndex(s=>s.id==='part3'))");assert.equal(d.querySelectorAll('.issues span').length,3);assert(!d.querySelector('.issues').textContent.match(/순환|④/));
+assert.deepEqual(ev("SLIDES.filter(s=>/^[①-⑨]/.test(s.title)).map(s=>s.title[0]+s.id)"),['①buyer-cash','②us-china','③cash-allocation']);
+ev("goto(SLIDES.findIndex(s=>s.id==='closing'))");assert.equal(d.querySelectorAll('.closing .hd').length,3);assert(!d.querySelector('.closing').textContent.includes('거래 구조'));
+assert(ev("SLIDES.find(s=>s.id==='linear-context').take").includes('좋은 회사도 사라질 수 있다'));checks+=4;
+// 참고 장표: 5 · 7쪽의 제목이 (참고)로 시작하고 목차에서도 표시된다. 다른 장표에는 붙지 않는다
+assert.deepEqual(ev('SLIDES.map((s,i)=>s.ref?i+1:0).filter(Boolean)'),[5,7]);
+for(const [n,id] of [[5,'linear-deal'],[7,'sector-ranking']]){ev(`goto(${n-1})`);assert.equal(d.querySelector('.slide').dataset.id,id);assert(d.querySelector('.shead h1').textContent.startsWith('(참고) '));assert(d.querySelector('.slide').classList.contains('ref'))}
+assert.equal(ev("SLIDES.filter(s=>!s.ref&&String(s.title).includes('참고')).length"),0);
+d.querySelector('#toc').click();assert.deepEqual([...d.querySelectorAll('.toc-grid button.ref')].map(b=>b.textContent.slice(0,6)),['05(참고)','07(참고)']);d.querySelector('#modal').close();checks+=2;
+// 발표 흐름에 맞춘 틀: 표지의 핵심 메시지 · PART 2 간지와 정리 장표의 두 축 · ③ 장표의 리니어 되짚기
+ev('goto(0)');assert(d.querySelector('.cover .lede').textContent.includes('산업과 거시 환경의 변화'));
+ev("goto(SLIDES.findIndex(s=>s.id==='part2'))");assert.deepEqual([...d.querySelectorAll('.axrow b')].map(b=>b.textContent),['수요의 이동','거시 환경 · 자본력']);
+ev("goto(SLIDES.findIndex(s=>s.id==='industry-lessons'))");assert.deepEqual([...d.querySelectorAll('.axes .axis b')].map(b=>b.textContent),['수요의 이동','거시 환경 · 자본력']);assert.equal(d.querySelectorAll('.lessons .panel').length,4);
+ev("goto(SLIDES.findIndex(s=>s.id==='cash-allocation'))");assert(d.querySelector('.recall').textContent.includes('$0.21 → $1.24'));assert.equal(d.querySelectorAll('.alloc .panel').length,2);checks+=4;
 // 대시보드: 10개사(빅테크 4사 + 추가 6사). 기업을 바꿔도 지표 타일 8개가 같은 분기 축(2023Q1–2026Q3, 15개 분기)에 그려진다.
 // 타일 묶음: 위 4개(테두리 없음) · CAPEX/FCF(key) · 이자보상배율/부채비율(debt). 공시되지 않은 분기는 비고, 큰 숫자는 회사의 최근 공시 분기 값
 ev("goto(SLIDES.findIndex(s=>s.id==='buyer-dashboard'))");
@@ -37,10 +49,13 @@ const pills=[...d.querySelectorAll('#sectorPills [data-sector]')],years=ev('SECT
 assert.equal(d.querySelector('#sectorPills .active span').textContent,'IT');
 for(const p of pills){p.click();assert(p.classList.contains('active'));assert.equal(d.querySelectorAll('#bump svg').length,1);assert.equal(d.querySelectorAll('#bump g.cell').length,10*years);assert(d.querySelector('#sectorChain').textContent.length>0);assert(!(d.querySelector('#bump').innerHTML+d.querySelector('#sectorStat').innerHTML).match(/NaN|undefined/));checks+=years}
 d.querySelector('#sectorPlay').click();assert(ev('!!playTimer'));d.querySelector('#sectorPlay').click();assert(ev('!playTimer'));
-// 합친 장표: 사진 띠 + 군사비 차트 / 거시환경(원인) → 1990 순위(결과) + 덧붙임 / 금리 차트 + 미·일 ↔ 미·중
+// 합친 장표: 사진 띠 + 군사비 차트 / 거시환경(원인) → 1990 순위(결과) + 덧붙임 / ② 미·중 (1980s 미·일과 같은 틀 두 줄 + 다른 점 · 같은 점)
 ev("goto(SLIDES.findIndex(s=>s.id==='era0-invention'))");assert.equal(d.querySelectorAll('.strip .frame img').length,7);assert(d.querySelector('[data-chart="milex"] svg'));
 ev("goto(SLIDES.findIndex(s=>s.id==='era1-leaders'))");assert.equal(d.querySelectorAll('.mside').length,2);assert.equal(d.querySelectorAll('.hb.c10 .hb-row').length,10);assert.equal(d.querySelectorAll('.segbar i').length,3);assert(d.querySelector('.band.aside').textContent.includes('삼성'));
-ev("goto(SLIDES.findIndex(s=>s.id==='rates-2026'))");assert(d.querySelector('[data-chart="ratesNow"] svg'));assert.equal(d.querySelectorAll('.analogy .pair').length,2);assert(d.querySelector('.verdict'));checks+=3;
+ev("goto(SLIDES.findIndex(s=>s.id==='us-china'))");assert.deepEqual([...d.querySelectorAll('.replay .rrow')].map(r=>r.className.replace('rrow ','')+':'+r.querySelector('.yr').textContent),['past:1980s','now:2020s']);
+assert.deepEqual([...d.querySelectorAll('.rside-h em')].map(e=>e.textContent),['미국','일본','미국','중국']);assert.deepEqual([...d.querySelectorAll('.rgap b')].map(e=>e.textContent),['12.9%p','2.5%p']);
+assert.equal(d.querySelectorAll('.replay .panel').length,2);assert(d.querySelector('.replay').textContent.includes('31/35건'));assert(d.querySelector('.replay').textContent.includes('39점'));assert(!ev('"ratesNow" in CHARTS'));
+d.querySelector('#sources').click();assert.equal(d.querySelectorAll('#modalBody table').length,3);assert(d.querySelector('#modalBody').textContent.includes('AsianBondsOnline'));d.querySelector('#modal').close();checks+=3;
 // 시간축 지도: 시대 팝업과 레이어 끄기
 ev("goto(SLIDES.findIndex(s=>s.id==='industry-map'))");assert.equal(d.querySelectorAll('[data-era]').length,ev('ERAS.length'));click(d.querySelector('[data-era]'));assert(d.querySelector('#modal').open);d.querySelector('#modal').close();
 let layers=d.querySelectorAll('[data-layer]');assert.equal(layers.length,4);assert.equal(d.querySelectorAll('#timeline .lane.off').length,0);layers[0].checked=false;layers[0].dispatchEvent(new w.Event('change'));assert(d.querySelectorAll('#timeline .lane.off').length>0);

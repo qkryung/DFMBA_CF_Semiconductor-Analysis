@@ -5,24 +5,26 @@
       "part": 0,
       "title": "리니어는 왜 사라졌나?",
       "sub": "",
-      "html": "<div class=\"cover-main\"><div class=\"eyebrow\">KAIST DFMBA · 기업재무 · 12조</div><h1>리니어는 왜<br><span class=\"green\">사라졌나?</span></h1><div class=\"parts\"><button data-goto=\"part1\"><b>PART 1</b>케이스 이후의 Linear Technology</button><button data-goto=\"part2\"><b>PART 2</b>반도체 산업의 변천</button><button data-goto=\"part3\"><b>PART 3</b>AI 시대 마주한 재무적 이슈들</button></div></div><div class=\"cover-art\"><svg viewBox=\"0 0 540 430\" role=\"img\" aria-label=\"반도체 칩 개념도\"><defs><radialGradient id=\"cvGlow\"><stop offset=\"0\" stop-color=\"#1479b8\" stop-opacity=\".42\"/><stop offset=\"1\" stop-color=\"#1479b8\" stop-opacity=\"0\"/></radialGradient><linearGradient id=\"cvDie\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\"><stop offset=\"0\" stop-color=\"#1f7fb3\"/><stop offset=\"1\" stop-color=\"#12456a\"/></linearGradient></defs><ellipse cx=\"270\" cy=\"222\" rx=\"262\" ry=\"170\" fill=\"url(#cvGlow)\"/><polygon points=\"270.0,82.8 510.8,208.0 270.0,333.2 29.2,208.0\" fill=\"none\" stroke=\"#1a5373\" stroke-width=\"1\" stroke-linejoin=\"round\" stroke-dasharray=\"3 7\"/><polygon points=\"270.0,69.4 536.6,208.0 270.0,346.6 3.4,208.0\" fill=\"none\" stroke=\"#1a5373\" stroke-width=\"1\" stroke-linejoin=\"round\" stroke-dasharray=\"3 7\"/><polygon points=\"231.5,91.6 246.5,99.4 234.5,105.7 219.5,97.9\" fill=\"#2a88ad\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"308.5,91.6 320.5,97.9 305.5,105.7 293.5,99.4\" fill=\"#1f6f90\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"205.5,105.1 220.5,112.9 208.5,119.2 193.5,111.4\" fill=\"#2a88ad\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"334.5,105.1 346.5,111.4 331.5,119.2 319.5,112.9\" fill=\"#1f6f90\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"179.5,118.7 194.5,126.5 182.5,132.7 167.5,124.9\" fill=\"#2a88ad\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"360.5,118.7 372.5,124.9 357.5,132.7 345.5,126.5\" fill=\"#1f6f90\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"153.5,132.2 168.5,140.0 156.5,146.2 141.5,138.4\" fill=\"#2a88ad\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"386.5,132.2 398.5,138.4 383.5,146.2 371.5,140.0\" fill=\"#1f6f90\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"127.5,145.7 142.5,153.5 130.5,159.7 115.5,151.9\" fill=\"#2a88ad\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"412.5,145.7 424.5,151.9 409.5,159.7 397.5,153.5\" fill=\"#1f6f90\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"101.5,159.2 116.5,167.0 104.5,173.3 89.5,165.5\" fill=\"#2a88ad\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"438.5,159.2 450.5,165.5 435.5,173.3 423.5,167.0\" fill=\"#1f6f90\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"75.5,172.7 90.5,180.5 78.5,186.8 63.5,179.0\" fill=\"#2a88ad\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"464.5,172.7 476.5,179.0 461.5,186.8 449.5,180.5\" fill=\"#1f6f90\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"55.0,190.0 270.0,301.8 270.0,319.8 55.0,208.0\" fill=\"#071f33\" stroke=\"#1d5f85\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"270.0,301.8 485.0,190.0 485.0,208.0 270.0,319.8\" fill=\"#05182a\" stroke=\"#1d5f85\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"270.0,78.2 485.0,190.0 270.0,301.8 55.0,190.0\" fill=\"#0a2c47\" stroke=\"#37ccff\" stroke-width=\"2\" stroke-linejoin=\"round\"/><polyline points=\"158.0,202.5 126.5,218.9\" fill=\"none\" stroke=\"#37ccff\" stroke-opacity=\".55\" stroke-width=\"1.5\"/><circle cx=\"126.5\" cy=\"218.9\" r=\"2.4\" fill=\"#7bebff\"/><polyline points=\"382.0,202.5 413.5,218.9\" fill=\"none\" stroke=\"#37ccff\" stroke-opacity=\".55\" stroke-width=\"1.5\"/><circle cx=\"413.5\" cy=\"218.9\" r=\"2.4\" fill=\"#7bebff\"/><polyline points=\"294.0,131.8 325.5,115.4\" fill=\"none\" stroke=\"#37ccff\" stroke-opacity=\".55\" stroke-width=\"1.5\"/><circle cx=\"325.5\" cy=\"115.4\" r=\"2.4\" fill=\"#7bebff\"/><polyline points=\"246.0,131.8 214.5,115.4\" fill=\"none\" stroke=\"#37ccff\" stroke-opacity=\".55\" stroke-width=\"1.5\"/><circle cx=\"214.5\" cy=\"115.4\" r=\"2.4\" fill=\"#7bebff\"/><polyline points=\"180.0,213.9 148.5,230.3\" fill=\"none\" stroke=\"#37ccff\" stroke-opacity=\".55\" stroke-width=\"1.5\"/><circle cx=\"148.5\" cy=\"230.3\" r=\"2.4\" fill=\"#7bebff\"/><polyline points=\"360.0,213.9 391.5,230.3\" fill=\"none\" stroke=\"#37ccff\" stroke-opacity=\".55\" stroke-width=\"1.5\"/><circle cx=\"391.5\" cy=\"230.3\" r=\"2.4\" fill=\"#7bebff\"/><polyline points=\"316.0,143.2 347.5,126.8\" fill=\"none\" stroke=\"#37ccff\" stroke-opacity=\".55\" stroke-width=\"1.5\"/><circle cx=\"347.5\" cy=\"126.8\" r=\"2.4\" fill=\"#7bebff\"/><polyline points=\"224.0,143.2 192.5,126.8\" fill=\"none\" stroke=\"#37ccff\" stroke-opacity=\".55\" stroke-width=\"1.5\"/><circle cx=\"192.5\" cy=\"126.8\" r=\"2.4\" fill=\"#7bebff\"/><polyline points=\"202.0,225.4 170.5,241.7\" fill=\"none\" stroke=\"#37ccff\" stroke-opacity=\".55\" stroke-width=\"1.5\"/><circle cx=\"170.5\" cy=\"241.7\" r=\"2.4\" fill=\"#7bebff\"/><polyline points=\"338.0,225.4 369.5,241.7\" fill=\"none\" stroke=\"#37ccff\" stroke-opacity=\".55\" stroke-width=\"1.5\"/><circle cx=\"369.5\" cy=\"241.7\" r=\"2.4\" fill=\"#7bebff\"/><polyline points=\"338.0,154.6 369.5,138.3\" fill=\"none\" stroke=\"#37ccff\" stroke-opacity=\".55\" stroke-width=\"1.5\"/><circle cx=\"369.5\" cy=\"138.3\" r=\"2.4\" fill=\"#7bebff\"/><polyline points=\"202.0,154.6 170.5,138.3\" fill=\"none\" stroke=\"#37ccff\" stroke-opacity=\".55\" stroke-width=\"1.5\"/><circle cx=\"170.5\" cy=\"138.3\" r=\"2.4\" fill=\"#7bebff\"/><polyline points=\"224.0,236.8 192.5,253.2\" fill=\"none\" stroke=\"#37ccff\" stroke-opacity=\".55\" stroke-width=\"1.5\"/><circle cx=\"192.5\" cy=\"253.2\" r=\"2.4\" fill=\"#7bebff\"/><polyline points=\"316.0,236.8 347.5,253.2\" fill=\"none\" stroke=\"#37ccff\" stroke-opacity=\".55\" stroke-width=\"1.5\"/><circle cx=\"347.5\" cy=\"253.2\" r=\"2.4\" fill=\"#7bebff\"/><polyline points=\"360.0,166.1 391.5,149.7\" fill=\"none\" stroke=\"#37ccff\" stroke-opacity=\".55\" stroke-width=\"1.5\"/><circle cx=\"391.5\" cy=\"149.7\" r=\"2.4\" fill=\"#7bebff\"/><polyline points=\"180.0,166.1 148.5,149.7\" fill=\"none\" stroke=\"#37ccff\" stroke-opacity=\".55\" stroke-width=\"1.5\"/><circle cx=\"148.5\" cy=\"149.7\" r=\"2.4\" fill=\"#7bebff\"/><polyline points=\"246.0,248.2 214.5,264.6\" fill=\"none\" stroke=\"#37ccff\" stroke-opacity=\".55\" stroke-width=\"1.5\"/><circle cx=\"214.5\" cy=\"264.6\" r=\"2.4\" fill=\"#7bebff\"/><polyline points=\"294.0,248.2 325.5,264.6\" fill=\"none\" stroke=\"#37ccff\" stroke-opacity=\".55\" stroke-width=\"1.5\"/><circle cx=\"325.5\" cy=\"264.6\" r=\"2.4\" fill=\"#7bebff\"/><polyline points=\"382.0,177.5 413.5,161.1\" fill=\"none\" stroke=\"#37ccff\" stroke-opacity=\".55\" stroke-width=\"1.5\"/><circle cx=\"413.5\" cy=\"161.1\" r=\"2.4\" fill=\"#7bebff\"/><polyline points=\"158.0,177.5 126.5,161.1\" fill=\"none\" stroke=\"#37ccff\" stroke-opacity=\".55\" stroke-width=\"1.5\"/><circle cx=\"126.5\" cy=\"161.1\" r=\"2.4\" fill=\"#7bebff\"/><polygon points=\"63.5,219.0 75.5,225.3 75.5,239.3 63.5,233.0\" fill=\"#2a88ad\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"78.5,211.2 90.5,217.5 75.5,225.3 63.5,219.0\" fill=\"#7bebff\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"476.5,219.0 464.5,225.3 464.5,239.3 476.5,233.0\" fill=\"#1f6f90\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"461.5,211.2 449.5,217.5 464.5,225.3 476.5,219.0\" fill=\"#5fd0ee\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"89.5,232.5 101.5,238.8 101.5,252.8 89.5,246.5\" fill=\"#2a88ad\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"104.5,224.7 116.5,231.0 101.5,238.8 89.5,232.5\" fill=\"#7bebff\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"450.5,232.5 438.5,238.8 438.5,252.8 450.5,246.5\" fill=\"#1f6f90\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"435.5,224.7 423.5,231.0 438.5,238.8 450.5,232.5\" fill=\"#5fd0ee\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"115.5,246.1 127.5,252.3 127.5,266.3 115.5,260.1\" fill=\"#2a88ad\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"130.5,238.3 142.5,244.5 127.5,252.3 115.5,246.1\" fill=\"#7bebff\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"424.5,246.1 412.5,252.3 412.5,266.3 424.5,260.1\" fill=\"#1f6f90\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"409.5,238.3 397.5,244.5 412.5,252.3 424.5,246.1\" fill=\"#5fd0ee\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"141.5,259.6 153.5,265.8 153.5,279.8 141.5,273.6\" fill=\"#2a88ad\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"156.5,251.8 168.5,258.0 153.5,265.8 141.5,259.6\" fill=\"#7bebff\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"398.5,259.6 386.5,265.8 386.5,279.8 398.5,273.6\" fill=\"#1f6f90\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"383.5,251.8 371.5,258.0 386.5,265.8 398.5,259.6\" fill=\"#5fd0ee\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"167.5,273.1 179.5,279.3 179.5,293.3 167.5,287.1\" fill=\"#2a88ad\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"182.5,265.3 194.5,271.5 179.5,279.3 167.5,273.1\" fill=\"#7bebff\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"372.5,273.1 360.5,279.3 360.5,293.3 372.5,287.1\" fill=\"#1f6f90\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"357.5,265.3 345.5,271.5 360.5,279.3 372.5,273.1\" fill=\"#5fd0ee\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"193.5,286.6 205.5,292.9 205.5,306.9 193.5,300.6\" fill=\"#2a88ad\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"208.5,278.8 220.5,285.1 205.5,292.9 193.5,286.6\" fill=\"#7bebff\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"346.5,286.6 334.5,292.9 334.5,306.9 346.5,300.6\" fill=\"#1f6f90\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"331.5,278.8 319.5,285.1 334.5,292.9 346.5,286.6\" fill=\"#5fd0ee\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"219.5,300.1 231.5,306.4 231.5,320.4 219.5,314.1\" fill=\"#2a88ad\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"234.5,292.3 246.5,298.6 231.5,306.4 219.5,300.1\" fill=\"#7bebff\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"320.5,300.1 308.5,306.4 308.5,320.4 320.5,314.1\" fill=\"#1f6f90\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"305.5,292.3 293.5,298.6 308.5,306.4 320.5,300.1\" fill=\"#5fd0ee\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"134.0,168.0 270.0,238.7 270.0,260.7 134.0,190.0\" fill=\"#0d3a5b\" stroke=\"#2e9fd0\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"270.0,238.7 406.0,168.0 406.0,190.0 270.0,260.7\" fill=\"#0a2e4a\" stroke=\"#2e9fd0\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"270.0,97.3 406.0,168.0 270.0,238.7 134.0,168.0\" fill=\"url(#cvDie)\" stroke=\"#7bebff\" stroke-width=\"2\" stroke-linejoin=\"round\"/><polygon points=\"270.0,113.9 374.0,168.0 270.0,222.1 166.0,168.0\" fill=\"none\" stroke=\"#7bebff\" stroke-width=\"1\" stroke-linejoin=\"round\" stroke-opacity=\".45\"/><text x=\"270\" y=\"176\" fill=\"#fff\" text-anchor=\"middle\" font-size=\"24\" font-weight=\"800\" letter-spacing=\"1\">LINEAR → AI</text><text x=\"270\" y=\"420\" fill=\"#5e99bd\" text-anchor=\"middle\" font-size=\"15\" letter-spacing=\"5\">DEMAND × CAPITAL × TIME</text></svg></div><div class=\"team\"><div class=\"team-label\">TEAM 12<small>가나다순</small></div><div class=\"member\"><b>김태현</b><span>DFMBA · 20269117</span></div><div class=\"member\"><b>박민영</b><span>DFMBA · 20269159</span></div><div class=\"member\"><b>박상준</b><span>DFMBA · 20269162</span></div><div class=\"member\"><b>안상현</b><span>DFMBA · 20269234</span></div><div class=\"member\"><b>채재희</b><span>DFMBA · 20269423</span></div><div class=\"member\"><b>하진관</b><span>DFMBA · 20269450</span></div></div>",
+      "html": "<div class=\"cover-main\"><div class=\"eyebrow\">KAIST DFMBA · 기업재무 · 12조</div><h1>리니어는 왜<br><span class=\"green\">사라졌나?</span></h1><p class=\"lede\">기업의 성패를 결정짓는 핵심 요인은 <b>산업과 거시 환경의 변화</b>다.</p><div class=\"parts\"><button data-goto=\"part1\"><b>PART 1</b>케이스 이후의 Linear Technology</button><button data-goto=\"part2\"><b>PART 2</b>반도체 산업의 변천</button><button data-goto=\"part3\"><b>PART 3</b>AI 시대가 마주한 세 가지 재무적 이슈</button></div></div><div class=\"cover-art\"><svg viewBox=\"0 0 540 430\" role=\"img\" aria-label=\"반도체 칩 개념도\"><defs><radialGradient id=\"cvGlow\"><stop offset=\"0\" stop-color=\"#1479b8\" stop-opacity=\".42\"/><stop offset=\"1\" stop-color=\"#1479b8\" stop-opacity=\"0\"/></radialGradient><linearGradient id=\"cvDie\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\"><stop offset=\"0\" stop-color=\"#1f7fb3\"/><stop offset=\"1\" stop-color=\"#12456a\"/></linearGradient></defs><ellipse cx=\"270\" cy=\"222\" rx=\"262\" ry=\"170\" fill=\"url(#cvGlow)\"/><polygon points=\"270.0,82.8 510.8,208.0 270.0,333.2 29.2,208.0\" fill=\"none\" stroke=\"#1a5373\" stroke-width=\"1\" stroke-linejoin=\"round\" stroke-dasharray=\"3 7\"/><polygon points=\"270.0,69.4 536.6,208.0 270.0,346.6 3.4,208.0\" fill=\"none\" stroke=\"#1a5373\" stroke-width=\"1\" stroke-linejoin=\"round\" stroke-dasharray=\"3 7\"/><polygon points=\"231.5,91.6 246.5,99.4 234.5,105.7 219.5,97.9\" fill=\"#2a88ad\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"308.5,91.6 320.5,97.9 305.5,105.7 293.5,99.4\" fill=\"#1f6f90\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"205.5,105.1 220.5,112.9 208.5,119.2 193.5,111.4\" fill=\"#2a88ad\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"334.5,105.1 346.5,111.4 331.5,119.2 319.5,112.9\" fill=\"#1f6f90\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"179.5,118.7 194.5,126.5 182.5,132.7 167.5,124.9\" fill=\"#2a88ad\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"360.5,118.7 372.5,124.9 357.5,132.7 345.5,126.5\" fill=\"#1f6f90\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"153.5,132.2 168.5,140.0 156.5,146.2 141.5,138.4\" fill=\"#2a88ad\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"386.5,132.2 398.5,138.4 383.5,146.2 371.5,140.0\" fill=\"#1f6f90\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"127.5,145.7 142.5,153.5 130.5,159.7 115.5,151.9\" fill=\"#2a88ad\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"412.5,145.7 424.5,151.9 409.5,159.7 397.5,153.5\" fill=\"#1f6f90\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"101.5,159.2 116.5,167.0 104.5,173.3 89.5,165.5\" fill=\"#2a88ad\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"438.5,159.2 450.5,165.5 435.5,173.3 423.5,167.0\" fill=\"#1f6f90\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"75.5,172.7 90.5,180.5 78.5,186.8 63.5,179.0\" fill=\"#2a88ad\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"464.5,172.7 476.5,179.0 461.5,186.8 449.5,180.5\" fill=\"#1f6f90\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"55.0,190.0 270.0,301.8 270.0,319.8 55.0,208.0\" fill=\"#071f33\" stroke=\"#1d5f85\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"270.0,301.8 485.0,190.0 485.0,208.0 270.0,319.8\" fill=\"#05182a\" stroke=\"#1d5f85\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"270.0,78.2 485.0,190.0 270.0,301.8 55.0,190.0\" fill=\"#0a2c47\" stroke=\"#37ccff\" stroke-width=\"2\" stroke-linejoin=\"round\"/><polyline points=\"158.0,202.5 126.5,218.9\" fill=\"none\" stroke=\"#37ccff\" stroke-opacity=\".55\" stroke-width=\"1.5\"/><circle cx=\"126.5\" cy=\"218.9\" r=\"2.4\" fill=\"#7bebff\"/><polyline points=\"382.0,202.5 413.5,218.9\" fill=\"none\" stroke=\"#37ccff\" stroke-opacity=\".55\" stroke-width=\"1.5\"/><circle cx=\"413.5\" cy=\"218.9\" r=\"2.4\" fill=\"#7bebff\"/><polyline points=\"294.0,131.8 325.5,115.4\" fill=\"none\" stroke=\"#37ccff\" stroke-opacity=\".55\" stroke-width=\"1.5\"/><circle cx=\"325.5\" cy=\"115.4\" r=\"2.4\" fill=\"#7bebff\"/><polyline points=\"246.0,131.8 214.5,115.4\" fill=\"none\" stroke=\"#37ccff\" stroke-opacity=\".55\" stroke-width=\"1.5\"/><circle cx=\"214.5\" cy=\"115.4\" r=\"2.4\" fill=\"#7bebff\"/><polyline points=\"180.0,213.9 148.5,230.3\" fill=\"none\" stroke=\"#37ccff\" stroke-opacity=\".55\" stroke-width=\"1.5\"/><circle cx=\"148.5\" cy=\"230.3\" r=\"2.4\" fill=\"#7bebff\"/><polyline points=\"360.0,213.9 391.5,230.3\" fill=\"none\" stroke=\"#37ccff\" stroke-opacity=\".55\" stroke-width=\"1.5\"/><circle cx=\"391.5\" cy=\"230.3\" r=\"2.4\" fill=\"#7bebff\"/><polyline points=\"316.0,143.2 347.5,126.8\" fill=\"none\" stroke=\"#37ccff\" stroke-opacity=\".55\" stroke-width=\"1.5\"/><circle cx=\"347.5\" cy=\"126.8\" r=\"2.4\" fill=\"#7bebff\"/><polyline points=\"224.0,143.2 192.5,126.8\" fill=\"none\" stroke=\"#37ccff\" stroke-opacity=\".55\" stroke-width=\"1.5\"/><circle cx=\"192.5\" cy=\"126.8\" r=\"2.4\" fill=\"#7bebff\"/><polyline points=\"202.0,225.4 170.5,241.7\" fill=\"none\" stroke=\"#37ccff\" stroke-opacity=\".55\" stroke-width=\"1.5\"/><circle cx=\"170.5\" cy=\"241.7\" r=\"2.4\" fill=\"#7bebff\"/><polyline points=\"338.0,225.4 369.5,241.7\" fill=\"none\" stroke=\"#37ccff\" stroke-opacity=\".55\" stroke-width=\"1.5\"/><circle cx=\"369.5\" cy=\"241.7\" r=\"2.4\" fill=\"#7bebff\"/><polyline points=\"338.0,154.6 369.5,138.3\" fill=\"none\" stroke=\"#37ccff\" stroke-opacity=\".55\" stroke-width=\"1.5\"/><circle cx=\"369.5\" cy=\"138.3\" r=\"2.4\" fill=\"#7bebff\"/><polyline points=\"202.0,154.6 170.5,138.3\" fill=\"none\" stroke=\"#37ccff\" stroke-opacity=\".55\" stroke-width=\"1.5\"/><circle cx=\"170.5\" cy=\"138.3\" r=\"2.4\" fill=\"#7bebff\"/><polyline points=\"224.0,236.8 192.5,253.2\" fill=\"none\" stroke=\"#37ccff\" stroke-opacity=\".55\" stroke-width=\"1.5\"/><circle cx=\"192.5\" cy=\"253.2\" r=\"2.4\" fill=\"#7bebff\"/><polyline points=\"316.0,236.8 347.5,253.2\" fill=\"none\" stroke=\"#37ccff\" stroke-opacity=\".55\" stroke-width=\"1.5\"/><circle cx=\"347.5\" cy=\"253.2\" r=\"2.4\" fill=\"#7bebff\"/><polyline points=\"360.0,166.1 391.5,149.7\" fill=\"none\" stroke=\"#37ccff\" stroke-opacity=\".55\" stroke-width=\"1.5\"/><circle cx=\"391.5\" cy=\"149.7\" r=\"2.4\" fill=\"#7bebff\"/><polyline points=\"180.0,166.1 148.5,149.7\" fill=\"none\" stroke=\"#37ccff\" stroke-opacity=\".55\" stroke-width=\"1.5\"/><circle cx=\"148.5\" cy=\"149.7\" r=\"2.4\" fill=\"#7bebff\"/><polyline points=\"246.0,248.2 214.5,264.6\" fill=\"none\" stroke=\"#37ccff\" stroke-opacity=\".55\" stroke-width=\"1.5\"/><circle cx=\"214.5\" cy=\"264.6\" r=\"2.4\" fill=\"#7bebff\"/><polyline points=\"294.0,248.2 325.5,264.6\" fill=\"none\" stroke=\"#37ccff\" stroke-opacity=\".55\" stroke-width=\"1.5\"/><circle cx=\"325.5\" cy=\"264.6\" r=\"2.4\" fill=\"#7bebff\"/><polyline points=\"382.0,177.5 413.5,161.1\" fill=\"none\" stroke=\"#37ccff\" stroke-opacity=\".55\" stroke-width=\"1.5\"/><circle cx=\"413.5\" cy=\"161.1\" r=\"2.4\" fill=\"#7bebff\"/><polyline points=\"158.0,177.5 126.5,161.1\" fill=\"none\" stroke=\"#37ccff\" stroke-opacity=\".55\" stroke-width=\"1.5\"/><circle cx=\"126.5\" cy=\"161.1\" r=\"2.4\" fill=\"#7bebff\"/><polygon points=\"63.5,219.0 75.5,225.3 75.5,239.3 63.5,233.0\" fill=\"#2a88ad\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"78.5,211.2 90.5,217.5 75.5,225.3 63.5,219.0\" fill=\"#7bebff\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"476.5,219.0 464.5,225.3 464.5,239.3 476.5,233.0\" fill=\"#1f6f90\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"461.5,211.2 449.5,217.5 464.5,225.3 476.5,219.0\" fill=\"#5fd0ee\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"89.5,232.5 101.5,238.8 101.5,252.8 89.5,246.5\" fill=\"#2a88ad\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"104.5,224.7 116.5,231.0 101.5,238.8 89.5,232.5\" fill=\"#7bebff\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"450.5,232.5 438.5,238.8 438.5,252.8 450.5,246.5\" fill=\"#1f6f90\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"435.5,224.7 423.5,231.0 438.5,238.8 450.5,232.5\" fill=\"#5fd0ee\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"115.5,246.1 127.5,252.3 127.5,266.3 115.5,260.1\" fill=\"#2a88ad\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"130.5,238.3 142.5,244.5 127.5,252.3 115.5,246.1\" fill=\"#7bebff\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"424.5,246.1 412.5,252.3 412.5,266.3 424.5,260.1\" fill=\"#1f6f90\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"409.5,238.3 397.5,244.5 412.5,252.3 424.5,246.1\" fill=\"#5fd0ee\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"141.5,259.6 153.5,265.8 153.5,279.8 141.5,273.6\" fill=\"#2a88ad\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"156.5,251.8 168.5,258.0 153.5,265.8 141.5,259.6\" fill=\"#7bebff\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"398.5,259.6 386.5,265.8 386.5,279.8 398.5,273.6\" fill=\"#1f6f90\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"383.5,251.8 371.5,258.0 386.5,265.8 398.5,259.6\" fill=\"#5fd0ee\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"167.5,273.1 179.5,279.3 179.5,293.3 167.5,287.1\" fill=\"#2a88ad\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"182.5,265.3 194.5,271.5 179.5,279.3 167.5,273.1\" fill=\"#7bebff\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"372.5,273.1 360.5,279.3 360.5,293.3 372.5,287.1\" fill=\"#1f6f90\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"357.5,265.3 345.5,271.5 360.5,279.3 372.5,273.1\" fill=\"#5fd0ee\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"193.5,286.6 205.5,292.9 205.5,306.9 193.5,300.6\" fill=\"#2a88ad\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"208.5,278.8 220.5,285.1 205.5,292.9 193.5,286.6\" fill=\"#7bebff\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"346.5,286.6 334.5,292.9 334.5,306.9 346.5,300.6\" fill=\"#1f6f90\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"331.5,278.8 319.5,285.1 334.5,292.9 346.5,286.6\" fill=\"#5fd0ee\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"219.5,300.1 231.5,306.4 231.5,320.4 219.5,314.1\" fill=\"#2a88ad\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"234.5,292.3 246.5,298.6 231.5,306.4 219.5,300.1\" fill=\"#7bebff\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"320.5,300.1 308.5,306.4 308.5,320.4 320.5,314.1\" fill=\"#1f6f90\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"305.5,292.3 293.5,298.6 308.5,306.4 320.5,300.1\" fill=\"#5fd0ee\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"134.0,168.0 270.0,238.7 270.0,260.7 134.0,190.0\" fill=\"#0d3a5b\" stroke=\"#2e9fd0\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"270.0,238.7 406.0,168.0 406.0,190.0 270.0,260.7\" fill=\"#0a2e4a\" stroke=\"#2e9fd0\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"270.0,97.3 406.0,168.0 270.0,238.7 134.0,168.0\" fill=\"url(#cvDie)\" stroke=\"#7bebff\" stroke-width=\"2\" stroke-linejoin=\"round\"/><polygon points=\"270.0,113.9 374.0,168.0 270.0,222.1 166.0,168.0\" fill=\"none\" stroke=\"#7bebff\" stroke-width=\"1\" stroke-linejoin=\"round\" stroke-opacity=\".45\"/><text x=\"270\" y=\"176\" fill=\"#fff\" text-anchor=\"middle\" font-size=\"24\" font-weight=\"800\" letter-spacing=\"1\">LINEAR → AI</text><text x=\"270\" y=\"420\" fill=\"#5e99bd\" text-anchor=\"middle\" font-size=\"15\" letter-spacing=\"5\">DEMAND × CAPITAL × TIME</text></svg></div><div class=\"team\"><div class=\"team-label\">TEAM 12<small>가나다순</small></div><div class=\"member\"><b>김태현</b><span>DFMBA · 20269117</span></div><div class=\"member\"><b>박민영</b><span>DFMBA · 20269159</span></div><div class=\"member\"><b>박상준</b><span>DFMBA · 20269162</span></div><div class=\"member\"><b>안상현</b><span>DFMBA · 20269234</span></div><div class=\"member\"><b>채재희</b><span>DFMBA · 20269423</span></div><div class=\"member\"><b>하진관</b><span>DFMBA · 20269450</span></div></div>",
       "take": "",
       "sources": [],
       "kind": "cover",
       "method": "",
-      "tables": []
+      "tables": [],
+      "ref": false
     },
     {
       "id": "part1",
       "part": 1,
       "title": "케이스 이후의<br>Linear Technology",
       "sub": "",
-      "html": "<div class=\"number\">01</div><div><div class=\"eyebrow\">PART 1</div><h1>케이스 이후의<br>Linear Technology</h1><div class=\"qrow\"><span><span class=\"qy\">2003</span>년의 질문은</span><span class=\"q\">“현금을 어떻게 나눌까”</span></div><div class=\"qrow now\"><span><span class=\"qy\">2016</span>년의 질문은</span><span class=\"q\">“어디에서 더 큰 가치를 만들까”</span></div></div><div class=\"roadmap\"><div class=\"on\"><b>PART 1</b>케이스 이후의 Linear Technology</div><div class=\"\"><b>PART 2</b>반도체 산업의 변천</div><div class=\"\"><b>PART 3</b>AI 시대 마주한 재무적 이슈들</div></div>",
+      "html": "<div class=\"number\">01</div><div><div class=\"eyebrow\">PART 1</div><h1>케이스 이후의<br>Linear Technology</h1><div class=\"qrow\"><span><span class=\"qy\">2003</span>년의 질문은</span><span class=\"q\">“현금을 어떻게 나눌까”</span></div><div class=\"qrow now\"><span><span class=\"qy\">오늘</span>의 질문은</span><span class=\"q\">“그 우량 기업은 왜 사라졌나”</span></div></div><div class=\"roadmap\"><div class=\"on\"><b>PART 1</b>케이스 이후의 Linear Technology</div><div class=\"\"><b>PART 2</b>반도체 산업의 변천</div><div class=\"\"><b>PART 3</b>AI 시대가 마주한 세 가지 재무적 이슈</div></div>",
       "take": "",
       "sources": [],
       "kind": "divider",
       "method": "",
-      "tables": []
+      "tables": [],
+      "ref": false
     },
     {
       "id": "linear-cash",
@@ -37,15 +39,16 @@
       ],
       "kind": "",
       "method": "",
-      "tables": []
+      "tables": [],
+      "ref": false
     },
     {
       "id": "linear-peers",
       "part": 1,
       "title": "성장 둔화는 공통이었다. 대응은 달랐다",
       "sub": "아날로그 4사 매출 지수 (FY2011=100) · 기업별 회계연도 · 인수 효과 포함",
-      "html": "<div class=\"split s55\"><div class=\"col\"><div data-chart=\"peersIdx\" data-h=\"392\" style=\"min-height:392px\"></div><div class=\"cagr\"><div><span><i style=\"background:#3987e5\"></i>Linear</span><b>−0.8%</b></div><div><span><i style=\"background:#d95926\"></i>Maxim</span><b>−2.4%</b></div><div><span><i style=\"background:#199e70\"></i>TI</span><b>−0.5%</b></div><div><span><i style=\"background:#c98500\"></i>ADI</span><b>+2.7%</b></div></div><p class=\"note\">FY2011→2016 매출 연평균 성장률 · 기업별 회계연도. ADI에는 Hittite 인수(2014) 효과가 포함돼 유기적 성장률 비교는 아님.</p></div><div class=\"choice\"><div class=\"choice-h\"><span>성장 둔화에 대한 대응</span><span style=\"text-align:right\">그 이후</span></div><div class=\"choice-row gone\"><div><div class=\"nm\"><i style=\"background:#3987e5\"></i>Linear<span class=\"tag\">집중</span></div><p>고성능 아날로그 한 우물 · 영업이익률 44.5%</p></div><div class=\"out\"><b>2017 ADI에 편입</b>독립 상장 종료</div></div><div class=\"choice-row gone\"><div><div class=\"nm\"><i style=\"background:#d95926\"></i>Maxim<span class=\"tag\">집중</span></div><p>혼합신호·전력관리 중심의 독자 노선</p></div><div class=\"out\"><b>2021 ADI에 편입</b>독립 상장 종료</div></div><div class=\"choice-row\"><div><div class=\"nm\"><i style=\"background:#199e70\"></i>TI<span class=\"tag\">규모</span></div><p>제품군·자체 제조 확대 · 2011 National 인수</p></div><div class=\"out\"><b>독립 유지</b>아날로그 1위</div></div><div class=\"choice-row\"><div><div class=\"nm\"><i style=\"background:#c98500\"></i>ADI<span class=\"tag\">인수</span></div><p>Hittite(2014) → Linear(2017) → Maxim(2021)</p></div><div class=\"out\"><b>인수 주체</b>2025 아날로그 2위</div></div><div class=\"insight\"><b>집중</b>을 택한 두 회사는 ADI에 편입됐고,<br><b>규모·인수</b>를 택한 두 회사는 독립을 지켰다.<small>순위: IC Insights(2015) · GMI(2025 추정)</small></div></div></div>",
-      "take": "성장 둔화는 모두에게 왔다. 갈린 것은 그 다음의 선택 — 집중, 규모, 인수 — 이었다.",
+      "html": "<div class=\"split s55\"><div class=\"col\"><div data-chart=\"peersIdx\" data-h=\"392\" style=\"min-height:392px\"></div><div class=\"cagr\"><div><span><i style=\"background:#3987e5\"></i>Linear</span><b>−0.8%</b></div><div><span><i style=\"background:#d95926\"></i>Maxim</span><b>−2.4%</b></div><div><span><i style=\"background:#199e70\"></i>TI</span><b>−0.5%</b></div><div><span><i style=\"background:#c98500\"></i>ADI</span><b>+2.7%</b></div></div><p class=\"note\">FY2011→2016 매출 연평균 성장률 · 기업별 회계연도. ADI에는 Hittite 인수(2014) 효과가 포함돼 유기적 성장률 비교는 아님.</p></div><div class=\"choice\"><div class=\"choice-h\"><span>성장 둔화에 대한 대응</span><span style=\"text-align:right\">그 이후</span></div><div class=\"choice-row gone\"><div><div class=\"nm\"><i style=\"background:#3987e5\"></i>Linear<span class=\"tag\">집중</span></div><p>고성능 아날로그 한 우물 · 영업이익률 44.5%</p></div><div class=\"out\"><b>2017 ADI에 편입</b>독립 상장 종료</div></div><div class=\"choice-row gone\"><div><div class=\"nm\"><i style=\"background:#d95926\"></i>Maxim<span class=\"tag\">집중</span></div><p>혼합신호·전력관리 중심의 독자 노선</p></div><div class=\"out\"><b>2021 ADI에 편입</b>독립 상장 종료</div></div><div class=\"choice-row\"><div><div class=\"nm\"><i style=\"background:#199e70\"></i>TI<span class=\"tag\">확장</span></div><p>제품군·자체 제조 확대 · 2011 National 인수</p></div><div class=\"out\"><b>독립 유지</b>아날로그 1위</div></div><div class=\"choice-row\"><div><div class=\"nm\"><i style=\"background:#c98500\"></i>ADI<span class=\"tag\">확장</span></div><p>Hittite(2014) → Linear(2017) → Maxim(2021)</p></div><div class=\"out\"><b>인수 주체</b>2025 아날로그 2위</div></div><div class=\"insight\"><b>집중</b>을 택한 두 회사는 ADI에 편입됐고,<br><b>확장</b>(규모 · 인수)을 택한 두 회사는 독립을 지켰다.<small>순위: IC Insights(2015) · GMI(2025 추정)</small></div></div></div>",
+      "take": "성장 둔화는 모두에게 왔다. 갈린 것은 그 다음의 선택 — 집중이냐, 확장이냐였다.",
       "sources": [
         "linear_10k_2016",
         "peer_TI",
@@ -59,12 +62,13 @@
       ],
       "kind": "",
       "method": "",
-      "tables": []
+      "tables": [],
+      "ref": false
     },
     {
       "id": "linear-deal",
       "part": 1,
-      "title": "독자 성장의 가치 vs 지금의 프리미엄",
+      "title": "<span class=\"ref\">(참고)</span> 독자 성장의 가치 vs 지금의 프리미엄",
       "sub": "2015.08 첫 제안은 거절 → 2016.07 $60.05에 합의 · 처음부터 매각을 택한 것은 아니었다",
       "html": "<div class=\"split s55\"><div class=\"col\"><div class=\"khead\"><span class=\"kicker\">협상 흐름 · 주당 제안가 ($)</span><div class=\"legend inline \"><span><i class=\"ln\" style=\"background:#c98500;border-color:#c98500\"></i>ADI 제안가</span><span><i class=\"dot\" style=\"background:#566b7e;border-color:#566b7e\"></i>제3자 제안</span><span><i class=\"ring\" style=\"background:#a8bbcb;border-color:#a8bbcb\"></i>발표 전 종가</span></div></div><svg width=\"709\" height=\"438\" viewBox=\"0 0 709 438\" role=\"img\" aria-label=\"2015년 8월 첫 제안부터 2016년 7월 계약까지 주당 제안가의 변화\"><line x1=\"52\" x2=\"701\" y1=\"386.8\" y2=\"386.8\" stroke=\"#142536\"/><text x=\"46\" y=\"390.8\" fill=\"#7f97aa\" font-size=\"12\" text-anchor=\"end\" class=\"tn\">$45</text><line x1=\"52\" x2=\"701\" y1=\"280.8\" y2=\"280.8\" stroke=\"#142536\"/><text x=\"46\" y=\"284.8\" fill=\"#7f97aa\" font-size=\"12\" text-anchor=\"end\" class=\"tn\">$50</text><line x1=\"52\" x2=\"701\" y1=\"174.8\" y2=\"174.8\" stroke=\"#142536\"/><text x=\"46\" y=\"178.8\" fill=\"#7f97aa\" font-size=\"12\" text-anchor=\"end\" class=\"tn\">$55</text><line x1=\"52\" x2=\"701\" y1=\"68.8\" y2=\"68.8\" stroke=\"#142536\"/><text x=\"46\" y=\"72.8\" fill=\"#7f97aa\" font-size=\"12\" text-anchor=\"end\" class=\"tn\">$60</text><path d=\"M52,408H255M271,408H701\" stroke=\"#33495d\" fill=\"none\"/><path d=\"M256,414l6,-12M264,414l6,-12\" stroke=\"#7f97aa\" stroke-width=\"1.5\" fill=\"none\"/><text x=\"100\" y=\"430\" fill=\"#7f97aa\" font-size=\"12\" text-anchor=\"middle\" class=\"tn\">2015.08</text><text x=\"196\" y=\"430\" fill=\"#7f97aa\" font-size=\"12\" text-anchor=\"middle\" class=\"tn\">2015.09</text><text x=\"330\" y=\"430\" fill=\"#7f97aa\" font-size=\"12\" text-anchor=\"middle\" class=\"tn\">2016.04</text><text x=\"428\" y=\"430\" fill=\"#7f97aa\" font-size=\"12\" text-anchor=\"middle\" class=\"tn\">2016.05</text><text x=\"528\" y=\"430\" fill=\"#7f97aa\" font-size=\"12\" text-anchor=\"middle\" class=\"tn\">2016.06</text><text x=\"640\" y=\"430\" fill=\"#7f97aa\" font-size=\"12\" text-anchor=\"middle\" class=\"tn\">2016.07</text><path d=\"M100,249.0H196\" fill=\"none\" stroke=\"#c98500\" stroke-width=\"3\" stroke-linecap=\"round\"/><path d=\"M204,249.0H330\" fill=\"none\" stroke=\"#7f97aa\" stroke-width=\"2\" stroke-dasharray=\"3 6\"/><path d=\"M330,249.0V111.2H528V68.8H640V67.7\" fill=\"none\" stroke=\"#c98500\" stroke-width=\"3\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><line x1=\"640\" x2=\"640\" y1=\"303.2\" y2=\"87.7\" stroke=\"#39e2b0\" stroke-width=\"3\"/><polygon points=\"640,76.7 633,89.7 647,89.7\" fill=\"#39e2b0\"/><circle cx=\"640\" cy=\"313.2\" r=\"6\" fill=\"#07121f\" stroke=\"#a8bbcb\" stroke-width=\"2\"/><circle cx=\"100\" cy=\"249.0\" r=\"6\" fill=\"#c98500\" stroke=\"#07121f\" stroke-width=\"2\"/><circle cx=\"330\" cy=\"111.2\" r=\"6\" fill=\"#c98500\" stroke=\"#07121f\" stroke-width=\"2\"/><circle cx=\"528\" cy=\"68.8\" r=\"6\" fill=\"#c98500\" stroke=\"#07121f\" stroke-width=\"2\"/><circle cx=\"428\" cy=\"196.0\" r=\"6\" fill=\"#566b7e\" stroke=\"#07121f\" stroke-width=\"2\"/><circle cx=\"640\" cy=\"67.7\" r=\"7.5\" fill=\"#39e2b0\" stroke=\"#07121f\" stroke-width=\"2\"/><circle cx=\"196\" cy=\"249.0\" r=\"11\" fill=\"#07121f\"/><path d=\"M189,242.0l14,14M203,242.0l-14,14\" stroke=\"#ff8298\" stroke-width=\"3\" stroke-linecap=\"round\"/><text x=\"100\" y=\"221.0\" fill=\"#edf7ff\" font-size=\"16\" text-anchor=\"middle\" font-weight=\"800\" class=\"halo tn\">$51.50</text><text x=\"100\" y=\"237.0\" fill=\"#a8bbcb\" font-size=\"11.5\" text-anchor=\"middle\" class=\"halo\">주식 75% · 현금 25%</text><text x=\"196\" y=\"274.0\" fill=\"#edf7ff\" font-size=\"13\" text-anchor=\"middle\" font-weight=\"700\" class=\"halo\">이사회 거절</text><text x=\"196\" y=\"291.0\" fill=\"#a8bbcb\" font-size=\"11.5\" text-anchor=\"middle\" class=\"halo\">“상당히 저평가”</text><text x=\"267\" y=\"240.0\" fill=\"#7f97aa\" font-size=\"11\" text-anchor=\"middle\" class=\"halo\">2016.03까지 접촉 없음</text><text x=\"342\" y=\"135.2\" fill=\"#edf7ff\" font-size=\"16\" font-weight=\"800\" class=\"halo tn\">$58.00</text><text x=\"342\" y=\"151.2\" fill=\"#a8bbcb\" font-size=\"11.5\" class=\"halo\">현금 75% · 주식 25%</text><text x=\"428\" y=\"219.0\" fill=\"#edf7ff\" font-size=\"13\" text-anchor=\"middle\" font-weight=\"700\" class=\"halo\">$54.00 · 제3자</text><text x=\"428\" y=\"235.0\" fill=\"#a8bbcb\" font-size=\"11.5\" text-anchor=\"middle\" class=\"halo\">전액 현금 제안</text><text x=\"528\" y=\"40.8\" fill=\"#edf7ff\" font-size=\"16\" text-anchor=\"middle\" font-weight=\"800\" class=\"halo tn\">$60.00</text><text x=\"528\" y=\"56.8\" fill=\"#a8bbcb\" font-size=\"11.5\" text-anchor=\"middle\" class=\"halo\">‘best and final’</text><text x=\"640\" y=\"29.700000000000003\" fill=\"#edf7ff\" font-size=\"21\" text-anchor=\"middle\" font-weight=\"900\" class=\"halo tn\">$60.05</text><text x=\"640\" y=\"48.7\" fill=\"#a8bbcb\" font-size=\"11.5\" text-anchor=\"middle\" class=\"halo\">7/26 계약 체결</text><text x=\"626\" y=\"192.45\" fill=\"#edf7ff\" font-size=\"25\" text-anchor=\"end\" font-weight=\"900\" class=\"halo tn\">+24%</text><text x=\"626\" y=\"210.45\" fill=\"#a8bbcb\" font-size=\"12.5\" text-anchor=\"end\" class=\"halo\">프리미엄</text><text x=\"626\" y=\"317.7\" text-anchor=\"end\" font-size=\"12.5\" fill=\"#a8bbcb\" class=\"halo\">7/25 종가 <tspan fill=\"#edf7ff\" font-weight=\"700\">$48.47</tspan></text><circle cx=\"100\" cy=\"249.0\" r=\"17\" fill=\"transparent\" data-tip=\"2015.08.14 · ADI 첫 제안 $51.50|비구속 제안. 당시 주가 대비 약 25% 프리미엄, 대가의 약 75%가 ADI 주식\"/><circle cx=\"196\" cy=\"249.0\" r=\"17\" fill=\"transparent\" data-tip=\"2015.09.04 · Linear 이사회 거절|“상당히 저평가”, 주식 비중·ADI 주주 승인 필요 등을 이유로 거절(9/14 통보). 독자 전략이 더 큰 장기 가치를 낼 수 있다고 판단\"/><circle cx=\"330\" cy=\"111.2\" r=\"17\" fill=\"transparent\" data-tip=\"2016.04.05 · ADI 재제안 $58.00|재제안. 현금 약 75%·주식 25%, ADI 주주 승인 불필요(신주 19.9% 이내)\"/><circle cx=\"428\" cy=\"196.0\" r=\"17\" fill=\"transparent\" data-tip=\"2016.05.18 · 제3자(Company A) $54.00|제3자(동종업계 경쟁사)의 전액 현금 제안\"/><circle cx=\"528\" cy=\"68.8\" r=\"17\" fill=\"transparent\" data-tip=\"2016.06.22 · ADI 최종 제안 $60.00|best and final. 현금 약 77%·주식 23%, 4/5 제안 대비 총액 약 $500M 증액\"/><circle cx=\"640\" cy=\"67.7\" r=\"17\" fill=\"transparent\" data-tip=\"2016.07.26 · 합병계약 $60.05|Linear 이사회 승인 후 합병계약 체결·발표(보도자료: 양사 이사회 만장일치 승인). 주당 현금 $46 + ADI 0.2321주, 7/25 ADI 종가 $60.53 기준 $60.05\"/><circle cx=\"640\" cy=\"313.2\" r=\"17\" fill=\"transparent\" data-tip=\"2016.07.25 · 발표 전 종가 $48.47|합의 가격은 종가 대비 +24%|30일 평균 대비 +28% · 60일 평균 대비 +29%\"/></svg><div class=\"dealend\"><em>결말</em><span><b>2017.03.10 인수 완료</b> → Linear, 독립 상장회사로서의 역사 종료</span></div><p class=\"note\">Linear DEFM14A(2016.09) “Background of the Merger”. 가로축은 사건 순서 · 점에 마우스를 올리면 세부 내용.</p></div><div class=\"deal-right\"><span class=\"kicker\">가치 범위 · 주당 ($) — Linear 측 재무자문사(Qatalyst)의 분석</span><svg width=\"581\" height=\"278\" viewBox=\"0 0 581 278\" role=\"img\" aria-label=\"재무자문사의 다섯 가지 주당 가치 범위와 발표 전 종가, ADI 제안가 비교\"><line x1=\"238.0\" x2=\"238.0\" y1=\"24\" y2=\"256\" stroke=\"#142536\"/><text x=\"238.0\" y=\"272\" fill=\"#7f97aa\" font-size=\"12\" text-anchor=\"middle\" class=\"tn\">$40</text><line x1=\"322.0\" x2=\"322.0\" y1=\"24\" y2=\"256\" stroke=\"#142536\"/><text x=\"322.0\" y=\"272\" fill=\"#7f97aa\" font-size=\"12\" text-anchor=\"middle\" class=\"tn\">$50</text><line x1=\"406.0\" x2=\"406.0\" y1=\"24\" y2=\"256\" stroke=\"#142536\"/><text x=\"406.0\" y=\"272\" fill=\"#7f97aa\" font-size=\"12\" text-anchor=\"middle\" class=\"tn\">$60</text><line x1=\"490.0\" x2=\"490.0\" y1=\"24\" y2=\"256\" stroke=\"#142536\"/><text x=\"490.0\" y=\"272\" fill=\"#7f97aa\" font-size=\"12\" text-anchor=\"middle\" class=\"tn\">$70</text><text x=\"0\" y=\"45\" fill=\"#edf7ff\" font-size=\"13.5\" font-weight=\"700\">동종 상장사 P/E</text><text x=\"0\" y=\"61\" fill=\"#7f97aa\" font-size=\"11.5\">애널리스트 전망 · 17–23배</text><rect x=\"223.6\" y=\"39\" width=\"113.4\" height=\"18\" rx=\"4\" fill=\"#566b7e\"/><line x1=\"280.3\" x2=\"280.3\" y1=\"35\" y2=\"61\" stroke=\"#edf7ff\" stroke-width=\"2\"/><text x=\"581\" y=\"52\" fill=\"#a8bbcb\" font-size=\"11.5\" text-anchor=\"end\" class=\"tn\">$38.28 – $51.79</text><text x=\"0\" y=\"91\" fill=\"#edf7ff\" font-size=\"13.5\" font-weight=\"700\">동종 상장사 P/E</text><text x=\"0\" y=\"107\" fill=\"#7f97aa\" font-size=\"11.5\">경영진 계획 · 17–23배</text><rect x=\"247.4\" y=\"85\" width=\"121.9\" height=\"18\" rx=\"4\" fill=\"#566b7e\"/><line x1=\"308.4\" x2=\"308.4\" y1=\"81\" y2=\"107\" stroke=\"#edf7ff\" stroke-width=\"2\"/><text x=\"581\" y=\"98\" fill=\"#a8bbcb\" font-size=\"11.5\" text-anchor=\"end\" class=\"tn\">$41.12 – $55.63</text><text x=\"0\" y=\"137\" fill=\"#edf7ff\" font-size=\"13.5\" font-weight=\"700\">유사 거래 · 매출 배수</text><text x=\"0\" y=\"153\" fill=\"#7f97aa\" font-size=\"11.5\">향후 12개월 매출 · 6.5–8.5배</text><rect x=\"279.1\" y=\"131\" width=\"101.8\" height=\"18\" rx=\"4\" fill=\"#566b7e\"/><line x1=\"330.0\" x2=\"330.0\" y1=\"127\" y2=\"153\" stroke=\"#edf7ff\" stroke-width=\"2\"/><text x=\"581\" y=\"144\" fill=\"#a8bbcb\" font-size=\"11.5\" text-anchor=\"end\" class=\"tn\">$44.89 – $57.01</text><text x=\"0\" y=\"183\" fill=\"#edf7ff\" font-size=\"13.5\" font-weight=\"700\">유사 거래 · P/E</text><text x=\"0\" y=\"199\" fill=\"#7f97aa\" font-size=\"11.5\">향후 12개월 이익 · 19–29배</text><rect x=\"280.8\" y=\"177\" width=\"199.5\" height=\"18\" rx=\"4\" fill=\"#566b7e\"/><line x1=\"380.5\" x2=\"380.5\" y1=\"173\" y2=\"199\" stroke=\"#edf7ff\" stroke-width=\"2\"/><text x=\"581\" y=\"190\" fill=\"#a8bbcb\" font-size=\"11.5\" text-anchor=\"end\" class=\"tn\">$45.10 – $68.84</text><text x=\"0\" y=\"229\" fill=\"#edf7ff\" font-size=\"13.5\" font-weight=\"700\">DCF · 현금흐름 할인</text><text x=\"0\" y=\"245\" fill=\"#7f97aa\" font-size=\"11.5\">경영진 계획 · 할인율 8–10%</text><rect x=\"334.7\" y=\"223\" width=\"130.0\" height=\"18\" rx=\"4\" fill=\"#3987e5\"/><line x1=\"399.7\" x2=\"399.7\" y1=\"219\" y2=\"245\" stroke=\"#edf7ff\" stroke-width=\"2\"/><text x=\"581\" y=\"236\" fill=\"#edf7ff\" font-size=\"11.5\" text-anchor=\"end\" font-weight=\"700\" class=\"tn\">$51.51 – $66.99</text><line x1=\"309.1\" x2=\"309.1\" y1=\"20\" y2=\"256\" stroke=\"#a8bbcb\" stroke-width=\"1.5\" stroke-dasharray=\"4 4\"/><line x1=\"406.4\" x2=\"406.4\" y1=\"20\" y2=\"256\" stroke=\"#39e2b0\" stroke-width=\"2.5\"/><text x=\"303.1\" y=\"13\" fill=\"#a8bbcb\" font-size=\"12\" text-anchor=\"end\" class=\"tn\">7/25 종가 $48.47</text><text x=\"412.4\" y=\"13\" fill=\"#edf7ff\" font-size=\"13.5\" font-weight=\"800\" class=\"tn\">ADI 제안 $60.05</text><line x1=\"1\" x2=\"1\" y1=\"262\" y2=\"274\" stroke=\"#edf7ff\" stroke-width=\"2\"/><text x=\"8\" y=\"272\" fill=\"#7f97aa\" font-size=\"11.5\">범위의 중간값</text><rect x=\"0\" y=\"25\" width=\"581\" height=\"46\" fill=\"transparent\" data-tip=\"동종 상장사 P/E · $38.28–51.79|17–23x · CY2017E, 애널리스트 전망|중간값 $45.03\"/><rect x=\"0\" y=\"71\" width=\"581\" height=\"46\" fill=\"transparent\" data-tip=\"동종 상장사 P/E · $41.12–55.63|17–23x · CY2017E, 경영진 계획|중간값 $48.38\"/><rect x=\"0\" y=\"117\" width=\"581\" height=\"46\" fill=\"transparent\" data-tip=\"유사 거래 매출 배수 · $44.89–57.01|6.5–8.5x · 향후 12개월 매출(애널리스트 전망)|중간값 $50.95\"/><rect x=\"0\" y=\"163\" width=\"581\" height=\"46\" fill=\"transparent\" data-tip=\"유사 거래 P/E · $45.10–68.84|19–29x · 향후 12개월 이익(애널리스트 전망)|중간값 $56.97\"/><rect x=\"0\" y=\"209\" width=\"581\" height=\"46\" fill=\"transparent\" data-tip=\"DCF · $51.51–66.99|경영진 계획 · 할인율 8–10% · 말기 배수 16–21x NOPAT|중간값 $59.25\"/></svg><div class=\"vs lt\"><div><span class=\"k\">독자 성장의 가치 · DCF 중간값</span><div class=\"v\">$59.25<small class=\"rng\">범위 $51.51–66.99</small></div><p>전제: 경영진 계획 매출 연 +7.7%<br>직전 5년 실적은 연 <b>−0.8%</b></p></div><span class=\"sign\">&lt;</span><div class=\"win\"><span class=\"k\">지금의 프리미엄</span><div class=\"v\">$60.05<small class=\"rng\">7/25 종가 $48.47 대비 +24%</small></div><p>대가의 약 77%가 현금 = 확정 가치<br>지난 15년 어느 종가보다 높은 가격</p></div></div><p class=\"note\" style=\"margin-top:0\">제안가는 다섯 평가 범위 중 세 개의 상단을 넘고, 나머지 둘(DCF · 유사 거래 P/E)에서도 중간값보다 높다. 이사회가 명시한 위험: 독립을 유지하면 주가가 합병 대가 이상으로 거래되지 못할 수 있다 — “단기에도, 장기간에도, 혹은 영영”.</p></div></div>",
       "take": "독자 성장의 기대가치보다 지금 확정되는 프리미엄이 컸다 — 인수는 실패가 아니라 가치 실현 방식의 선택이었다.",
@@ -172,13 +176,14 @@
             ]
           ]
         }
-      ]
+      ],
+      "ref": true
     },
     {
       "id": "linear-context",
       "part": 1,
       "title": "왜 팔렸나: 세 가지 시대 배경",
-      "sub": "고수익 기업도 산업 구조의 변화에서는 자유롭지 않다",
+      "sub": "배당이라는 선택이 틀려서가 아니다 — 시대의 흐름(통합 수요 + 초저금리 M&amp;A)이 독자 생존을 허용하지 않았다",
       "html": "<div class=\"ctx\"><article class=\"panel\"><div class=\"kicker\">01 · 수요</div><h3>고객은 통합 솔루션을 원했다</h3><div class=\"viz\"><svg width=\"388\" height=\"280\" viewBox=\"0 0 388 280\" role=\"img\" aria-label=\"신호 체인 네 블록과 전원 관리, ADI 단독 8십억 달러에서 Linear를 더하면 14십억 달러로 넓어지는 대응 시장\"><text x=\"0\" y=\"12\" fill=\"#7f97aa\" font-size=\"11.5\">물리 세계의 신호 → 디지털 처리 → 연결</text><line x1=\"44\" x2=\"44\" y1=\"77\" y2=\"114\" stroke=\"#3987e5\" stroke-width=\"1.5\" stroke-dasharray=\"3 3\"/><rect x=\"0.5\" y=\"22.5\" width=\"87\" height=\"54\" rx=\"6\" fill=\"#0c1c2c\" stroke=\"#2b4a62\"/><text x=\"44\" y=\"46\" fill=\"#edf7ff\" font-size=\"13.5\" text-anchor=\"middle\" font-weight=\"700\">센서</text><text x=\"44\" y=\"63.5\" fill=\"#a8bbcb\" font-size=\"10.5\" text-anchor=\"middle\">온도 · 압력 · 전류</text><line x1=\"144\" x2=\"144\" y1=\"77\" y2=\"114\" stroke=\"#3987e5\" stroke-width=\"1.5\" stroke-dasharray=\"3 3\"/><rect x=\"100.5\" y=\"22.5\" width=\"87\" height=\"54\" rx=\"6\" fill=\"rgba(201,133,0,.2)\" stroke=\"#c98500\"/><text x=\"144\" y=\"46\" fill=\"#edf7ff\" font-size=\"13.5\" text-anchor=\"middle\" font-weight=\"700\">증폭 · 변환</text><text x=\"144\" y=\"63.5\" fill=\"#a8bbcb\" font-size=\"10.5\" text-anchor=\"middle\">증폭기 · 컨버터</text><path d=\"M90,49.5h7m-3,-3l3,3l-3,3\" fill=\"none\" stroke=\"#7f97aa\" stroke-width=\"1.25\"/><line x1=\"244\" x2=\"244\" y1=\"77\" y2=\"114\" stroke=\"#3987e5\" stroke-width=\"1.5\" stroke-dasharray=\"3 3\"/><rect x=\"200.5\" y=\"22.5\" width=\"87\" height=\"54\" rx=\"6\" fill=\"#0c1c2c\" stroke=\"#2b4a62\"/><text x=\"244\" y=\"46\" fill=\"#edf7ff\" font-size=\"13.5\" text-anchor=\"middle\" font-weight=\"700\">프로세서</text><text x=\"244\" y=\"63.5\" fill=\"#a8bbcb\" font-size=\"10.5\" text-anchor=\"middle\">MCU · FPGA</text><path d=\"M190,49.5h7m-3,-3l3,3l-3,3\" fill=\"none\" stroke=\"#7f97aa\" stroke-width=\"1.25\"/><line x1=\"344\" x2=\"344\" y1=\"77\" y2=\"114\" stroke=\"#3987e5\" stroke-width=\"1.5\" stroke-dasharray=\"3 3\"/><rect x=\"300.5\" y=\"22.5\" width=\"87\" height=\"54\" rx=\"6\" fill=\"rgba(201,133,0,.2)\" stroke=\"#c98500\"/><text x=\"344\" y=\"46\" fill=\"#edf7ff\" font-size=\"13.5\" text-anchor=\"middle\" font-weight=\"700\">통신 · RF</text><text x=\"344\" y=\"63.5\" fill=\"#a8bbcb\" font-size=\"10.5\" text-anchor=\"middle\">RF · 인터페이스</text><path d=\"M290,49.5h7m-3,-3l3,3l-3,3\" fill=\"none\" stroke=\"#7f97aa\" stroke-width=\"1.25\"/><rect x=\".5\" y=\"114.5\" width=\"387\" height=\"38\" rx=\"6\" fill=\"rgba(57,135,229,.22)\" stroke=\"#3987e5\"/><text x=\"194.0\" y=\"138.5\" fill=\"#edf7ff\" font-size=\"14\" text-anchor=\"middle\" font-weight=\"700\">전원 관리 — 모든 블록에 전력을 공급</text><rect x=\"0\" y=\"166\" width=\"10\" height=\"10\" rx=\"2\" fill=\"#c98500\"/><text x=\"15\" y=\"175\" fill=\"#a8bbcb\" font-size=\"12\">ADI의 강점: 컨버터·증폭기·RF</text><rect x=\"204\" y=\"166\" width=\"10\" height=\"10\" rx=\"2\" fill=\"#3987e5\"/><text x=\"219\" y=\"175\" fill=\"#a8bbcb\" font-size=\"12\">Linear의 강점: 전원 관리</text><text x=\"0\" y=\"206\" fill=\"#7f97aa\" font-size=\"11.5\">대응 가능 시장(TAM) · 2015 · 산업 · 통신 인프라 · 자동차</text><text x=\"0\" y=\"233\" fill=\"#a8bbcb\" font-size=\"12.5\">ADI 단독</text><rect x=\"90\" y=\"218\" width=\"144\" height=\"20\" rx=\"3\" fill=\"#c98500\"/><text x=\"240\" y=\"233\" fill=\"#edf7ff\" font-size=\"12.5\" font-weight=\"700\" class=\"tn\">$8bn</text><text x=\"0\" y=\"265\" fill=\"#edf7ff\" font-size=\"12\" font-weight=\"700\">ADI + Linear</text><rect x=\"90\" y=\"250\" width=\"144\" height=\"20\" rx=\"3\" fill=\"#c98500\"/><rect x=\"236\" y=\"250\" width=\"106\" height=\"20\" rx=\"3\" fill=\"#3987e5\"/><text x=\"289\" y=\"264.5\" fill=\"#fff\" font-size=\"11\" text-anchor=\"middle\" font-weight=\"700\">+ 전원 관리 $6bn</text><text x=\"348\" y=\"265\" fill=\"#edf7ff\" font-size=\"12.5\" font-weight=\"800\" class=\"tn\">$14bn</text></svg></div><p>자동차 전장·산업 자동화·통신 인프라처럼 <b>시스템이 복잡해질수록</b> 신호 처리·전력·연결이 한 설계 안에서 맞물려야 한다. 고객사는 자체 아날로그 설계 역량을 줄이면서 검증된 조합을 <b>한 파트너</b>에게 맡기려 했다.</p><div class=\"note\">ADI CEO Roche: “고객은 더 많은 시스템 수준의 솔루션을 요구한다” · TAM $8bn → $14bn은 인수 발표 자료(2016.07) · Linear 매출의 59%가 전원 관리(FY2015)</div></article><article class=\"panel\"><div class=\"kicker\">02 · 자본</div><h3>초저금리가 M&amp;A를 뒷받침했다</h3><div class=\"viz\"><div data-chart=\"ff2000\" data-h=\"280\" style=\"min-height:280px\"></div></div><p>2008.12–2015.12 <b>제로금리 7년</b>, 계약 직전 미 10년물 국채금리는 <b>당시 사상 최저 1.37%</b>(2016.07). 인수자의 차입 조달 여건이 좋아졌고, 현금창출 자산의 가치도 높아졌다.</p><div class=\"note\">ADI 조달 계획: 신규 장기부채 약 $7.3bn + 신주 약 5,800만 주 + 보유 현금 (인수 발표문)</div></article><article class=\"panel\"><div class=\"kicker\">03 · 규모</div><h3>포트폴리오의 폭이 중요해졌다</h3><div class=\"viz\"><div data-chart=\"mna\" data-h=\"280\" style=\"min-height:280px\"></div></div><p>2015–16년 반도체 M&amp;A 발표액은 직전 5년 평균의 <b>약 8배</b>. 아날로그 1위 TI의 점유율이 <b>18%</b>일 때 Linear는 <b>3%</b>(8위) — 제품·고객·판매망의 폭이 경쟁 조건이 됐다.</p><div class=\"note\">IC Insights · 발표액 기준 · 점유율은 2015 아날로그 IC 시장($47.0bn) 기준</div></article></div>",
       "take": "리니어는 마지막까지 좋은 회사였다. 환경이 바뀌면, 좋은 회사도 사라질 수 있다.",
       "sources": [
@@ -229,12 +234,13 @@
             ]
           ]
         }
-      ]
+      ],
+      "ref": false
     },
     {
       "id": "sector-ranking",
       "part": 1,
-      "title": "1위가 바뀌지 않는 산업, 1위가 바뀌는 산업",
+      "title": "<span class=\"ref\">(참고)</span> 1위가 바뀌지 않는 산업, 1위가 바뀌는 산업",
       "sub": "미국 Fortune 500 · 10개 섹터 매출 Top 10 · 1995 → 2025 · 5년 간격",
       "html": "<div class=\"sector\"><div class=\"sector-nav\"><div class=\"sector-h\"><span>섹터</span><span>1위 교체</span></div><div id=\"sectorPills\"></div><button id=\"sectorPlay\">▶ 산업 순환</button><p class=\"sector-hint\">7개 시점에서 매출 1위<br>기업이 바뀐 횟수</p></div><div class=\"col\"><div id=\"bump\" data-h=\"454\" style=\"min-height:454px\"></div><div id=\"sectorStat\"></div><p class=\"note\" id=\"sectorScope\"></p></div></div>",
       "take": "필수소비재 · 에너지의 1위는 30년간 그대로다. IT의 1위는 IBM → HP → Apple — 산업의 중심이 이동하면 선두도 바뀐다.",
@@ -1401,19 +1407,21 @@
             ]
           ]
         }
-      ]
+      ],
+      "ref": true
     },
     {
       "id": "part2",
       "part": 2,
       "title": "반도체 산업의 변천",
       "sub": "",
-      "html": "<div class=\"number\">02</div><div><div class=\"eyebrow\">PART 2</div><h1>반도체 산업의 변천</h1><p class=\"dv-desc\">기술 목록보다 <strong>수요의 이동</strong><br>누가 투자를 감당했고, 누가 불황을 버텼는가.</p></div><div class=\"roadmap\"><div class=\"\"><b>PART 1</b>케이스 이후의 Linear Technology</div><div class=\"on\"><b>PART 2</b>반도체 산업의 변천</div><div class=\"\"><b>PART 3</b>AI 시대 마주한 재무적 이슈들</div></div>",
+      "html": "<div class=\"number\">02</div><div><div class=\"eyebrow\">PART 2</div><h1>반도체 산업의 변천</h1><p class=\"dv-desc\">기술 스펙이 아니라 <strong>두 개의 축</strong>으로 읽는다.</p><div class=\"axrow\"><em>축 1</em><b>수요의 이동</b><span>무엇이 주도 기업을 바꿨는가</span></div><div class=\"axrow\"><em>축 2</em><b>거시 환경 · 자본력</b><span>누가 투자를 감당하고, 불황을 버텼는가</span></div></div><div class=\"roadmap\"><div class=\"\"><b>PART 1</b>케이스 이후의 Linear Technology</div><div class=\"on\"><b>PART 2</b>반도체 산업의 변천</div><div class=\"\"><b>PART 3</b>AI 시대가 마주한 세 가지 재무적 이슈</div></div>",
       "take": "",
       "sources": [],
       "kind": "divider",
       "method": "",
-      "tables": []
+      "tables": [],
+      "ref": false
     },
     {
       "id": "industry-map",
@@ -1443,7 +1451,8 @@
       ],
       "kind": "",
       "method": "세계 반도체 매출은 WSTS 연간 청구액($bn), 2026년은 1–8월 누계. 금리는 연방기금 실효금리 월평균. 수요의 물결과 시대 구분의 시작·끝은 설명을 위한 대략의 범위이며 통계적 경계가 아님. 조사 기준 2026-11-08.",
-      "tables": []
+      "tables": [],
+      "ref": false
     },
     {
       "id": "era0-invention",
@@ -1472,7 +1481,8 @@
       ],
       "kind": "",
       "method": "군사비는 Correlates of War NMC v6.0의 명목 달러(당해연도) 값. 소련 값은 루블 지출을 달러로 환산한 추정치여서 출처마다 크게 다름. 두 선의 교차 시점을 근거로 삼지 않음. 조사 기준 2026-11-08.",
-      "tables": []
+      "tables": [],
+      "ref": false
     },
     {
       "id": "era1-rates",
@@ -1501,7 +1511,8 @@
       ],
       "kind": "",
       "method": "물가상승률은 CPI-U 전년동월비, 금리와 엔/달러는 월평균. 달러지수는 연준 무역가중 지수(주요 통화)의 1980.09 → 1985.03(정점) 상승률(93.2 → 143.9)이며, 달러는 플라자 합의(1985.09) 이전에 이미 정점을 지났다. 재정적자는 OMB Historical Table 1.2(FRED 계열은 5.7%). 조사 기준 2026-11-08.",
-      "tables": []
+      "tables": [],
+      "ref": false
     },
     {
       "id": "era1-leaders",
@@ -1618,7 +1629,8 @@
             ]
           ]
         }
-      ]
+      ],
+      "ref": false
     },
     {
       "id": "era2-split",
@@ -1633,7 +1645,8 @@
       ],
       "kind": "",
       "method": "",
-      "tables": []
+      "tables": [],
+      "ref": false
     },
     {
       "id": "era2-finance",
@@ -1649,7 +1662,8 @@
       ],
       "kind": "",
       "method": "",
-      "tables": []
+      "tables": [],
+      "ref": false
     },
     {
       "id": "era3-consolidation",
@@ -1669,7 +1683,8 @@
       ],
       "kind": "",
       "method": "",
-      "tables": []
+      "tables": [],
+      "ref": false
     },
     {
       "id": "era3-maturity",
@@ -1685,7 +1700,8 @@
       ],
       "kind": "",
       "method": "왼쪽 그림은 설명을 위한 개념도이며 특정 기업의 실제 현금흐름이 아님. 조사 기준 2026-11-08.",
-      "tables": []
+      "tables": [],
+      "ref": false
     },
     {
       "id": "era4-ai",
@@ -1704,15 +1720,16 @@
       ],
       "kind": "",
       "method": "빅테크 수치는 SEC 분기 보고서의 현금흐름표(영업활동 현금흐름 · 유형자산 취득)를 역년 분기로 맞춘 값. Microsoft는 6월 결산이어서 회계 분기를 역년 분기에 대응시킴. FCF = 영업현금흐름 − CAPEX. 조사 기준 2026-11-08.",
-      "tables": []
+      "tables": [],
+      "ref": false
     },
     {
       "id": "industry-lessons",
       "part": 2,
-      "title": "반도체의 역사는 네 가지 질문으로 남는다",
-      "sub": "리니어의 질문을 산업 전체로 확장",
-      "html": "<div class=\"rows\"><div class=\"grid g4 lessons grow auto\"><article class=\"panel\"><div class=\"num\">01</div><div class=\"kicker\">수요</div><h3>성장의 중심은<br>어디인가</h3><div class=\"lviz\"><div class=\"stair\"><span>PC · Intel</span><span>메모리 · 삼성</span><span>AI · NVIDIA</span></div></div><p>수요의 중심이 옮겨갈 때마다<br>선두 기업이 바뀌었다.</p><div class=\"pfoot\">아날로그는 필수지만,<br>리니어의 성장률은 제한됐다</div></article><article class=\"panel\"><div class=\"num\">02</div><div class=\"kicker\">가격</div><h3>매출 증가는<br>물량인가 가격인가</h3><div class=\"lviz\"><div class=\"formula\">매출<i>=</i>물량<i>×</i><span class=\"amber\">가격</span></div></div><p>메모리는 가격(ASP)의 변화가<br>이익과 순위를 크게 흔든다.</p><div class=\"pfoot\">높은 마진이 얼마나<br>지속될지 검증할 것</div></article><article class=\"panel\"><div class=\"num\">03</div><div class=\"kicker\">자본</div><h3>회복까지<br>버틸 수 있는가</h3><div class=\"lviz\"><div class=\"runway\"><div>버틸 수 있는 시간<i style=\"width:56%\"></i></div><div>회복까지 걸리는 시간<i class=\"need\" style=\"width:100%\"></i></div></div></div><p>현금·만기·투자 유연성이<br>생존을 가른다.</p><div class=\"pfoot\">불황에서의 생존이<br>다음 기회를 만든다</div></article><article class=\"panel\"><div class=\"num\">04</div><div class=\"kicker\">정책</div><h3>자본비용을<br>누가 바꾸는가</h3><div class=\"lviz\"><div class=\"tags g2x\"><span>금리</span><span>보조금</span><span>수출통제</span><span>전력 · 인허가</span></div></div><p>금리·보조금·수출통제·인허가가<br>투자의 속도를 정한다.</p><div class=\"pfoot\">기술 밖의 조건이<br>투자 회수를 좌우한다</div></article></div><div class=\"band\"><em>PART 3</em><b>같은 질문을 2026년에</b><span>AI 호황의 구매자와 공급자에게 수요 · 가격 · 자본 · 정책의 네 질문을 다시 던진다</span></div></div>",
-      "take": "필수 기술이라는 사실과, 가장 빠르게 성장한다는 사실은 다르다.",
+      "title": "반도체의 역사는 두 개의 축으로 읽힌다",
+      "sub": "수요의 이동 × 거시 환경 · 자본력 — 네 가지 질문으로 점검한다",
+      "html": "<div class=\"rows\"><div class=\"axes\"><div class=\"axis\"><em>축 1</em><b>수요의 이동</b><span>주도 기업을 바꾼다</span></div><div class=\"axis\"><em>축 2</em><b>거시 환경 · 자본력</b><span>사이클을 버티는 힘</span></div></div><div class=\"grid g4 lessons grow auto\"><article class=\"panel\"><div class=\"lhead\"><span class=\"num\">01</span><span class=\"kicker\">수요</span></div><h3>성장의 중심은<br>어디인가</h3><div class=\"lviz\"><div class=\"stair\"><span>PC · Intel</span><span>메모리 · 삼성</span><span>AI · NVIDIA</span></div></div><p>수요의 중심이 옮겨갈 때마다<br>선두 기업이 바뀌었다.</p><div class=\"pfoot\">아날로그는 필수지만,<br>리니어의 성장률은 제한됐다</div></article><article class=\"panel\"><div class=\"lhead\"><span class=\"num\">02</span><span class=\"kicker\">가격</span></div><h3>매출 증가는<br>물량인가 가격인가</h3><div class=\"lviz\"><div class=\"formula\">매출<i>=</i>물량<i>×</i><span class=\"amber\">가격</span></div></div><p>메모리는 가격(ASP)의 변화가<br>이익과 순위를 크게 흔든다.</p><div class=\"pfoot\">높은 마진이 얼마나<br>지속될지 검증할 것</div></article><article class=\"panel\"><div class=\"lhead\"><span class=\"num\">03</span><span class=\"kicker\">자본</span></div><h3>회복까지<br>버틸 수 있는가</h3><div class=\"lviz\"><div class=\"runway\"><div>버틸 수 있는 시간<i style=\"width:56%\"></i></div><div>회복까지 걸리는 시간<i class=\"need\" style=\"width:100%\"></i></div></div></div><p>현금·만기·투자 유연성이<br>생존을 가른다.</p><div class=\"pfoot\">불황에서의 생존이<br>다음 기회를 만든다</div></article><article class=\"panel\"><div class=\"lhead\"><span class=\"num\">04</span><span class=\"kicker\">정책</span></div><h3>자본비용을<br>누가 바꾸는가</h3><div class=\"lviz\"><div class=\"tags g2x\"><span>금리</span><span>보조금</span><span>수출통제</span><span>전력 · 인허가</span></div></div><p>금리·보조금·수출통제·인허가가<br>투자의 속도를 정한다.</p><div class=\"pfoot\">기술 밖의 조건이<br>투자 회수를 좌우한다</div></article></div><div class=\"band\"><em>PART 3</em><b>같은 틀을 2026년에</b><span>AI 시대의 세 가지 이슈 — ① 빅테크 CAPEX 치킨게임 · ② 미·중 패권 경쟁과 거시 환경 · ③ 반도체 기업의 현금 배분</span></div></div>",
+      "take": "수요의 이동이 주도 기업을 바꾸고, 사이클을 버티는 힘은 금리 · 보조금 등 자본력에서 나온다.",
       "sources": [
         "ranking_history",
         "linear_10k_2016",
@@ -1721,19 +1738,21 @@
       ],
       "kind": "",
       "method": "",
-      "tables": []
+      "tables": [],
+      "ref": false
     },
     {
       "id": "part3",
       "part": 3,
-      "title": "AI 시대 마주한<br>재무적 이슈들",
+      "title": "AI 시대가 마주한<br>세 가지 재무적 이슈",
       "sub": "",
-      "html": "<div class=\"number\">03</div><div><div class=\"eyebrow\">PART 3</div><h1>AI 시대 마주한<br>재무적 이슈들</h1><p class=\"dv-desc\">수요가 폭발할수록 더 중요한 질문.<br>누가 지불하고, 누가 위험을 떠안고, 현금을 어디에 쓸 것인가.</p><div class=\"issues\"><span><b>①</b>투자 경쟁과 현금흐름</span><span><b>②</b>금리 재상승</span><span><b>③</b>정치 · 규제</span><span><b>④</b>현금 배분</span></div></div><div class=\"roadmap\"><div class=\"\"><b>PART 1</b>케이스 이후의 Linear Technology</div><div class=\"\"><b>PART 2</b>반도체 산업의 변천</div><div class=\"on\"><b>PART 3</b>AI 시대 마주한 재무적 이슈들</div></div>",
+      "html": "<div class=\"number\">03</div><div><div class=\"eyebrow\">PART 3</div><h1>AI 시대가 마주한<br>세 가지 재무적 이슈</h1><p class=\"dv-desc\">수요가 폭발할수록 더 중요한 질문.<br>누가 끝까지 버티고, 누가 추격하며, 현금을 어디에 쓸 것인가.</p><div class=\"issues\"><span><b>①</b>빅테크 CAPEX 치킨게임</span><span><b>②</b>미·중 패권 경쟁과 거시 환경</span><span><b>③</b>반도체 기업의 현금 배분</span></div></div><div class=\"roadmap\"><div class=\"\"><b>PART 1</b>케이스 이후의 Linear Technology</div><div class=\"\"><b>PART 2</b>반도체 산업의 변천</div><div class=\"on\"><b>PART 3</b>AI 시대가 마주한 세 가지 재무적 이슈</div></div>",
       "take": "",
       "sources": [],
       "kind": "divider",
       "method": "",
-      "tables": []
+      "tables": [],
+      "ref": false
     },
     {
       "id": "market-2026",
@@ -1750,12 +1769,13 @@
       ],
       "kind": "",
       "method": "분기 매출은 WSTS 통계표(2026.08판)의 월별 청구액 합계. 상반기 증가율은 2026 1–2분기 합계 ÷ 2025 1–2분기 합계로 직접 계산. 연간 전망은 WSTS 2026.08 전망. 조사 기준 2026-11-08.",
-      "tables": []
+      "tables": [],
+      "ref": false
     },
     {
       "id": "buyer-cash",
       "part": 3,
-      "title": "① 투자 경쟁이 현금흐름을 압박한다",
+      "title": "① CAPEX 치킨게임: 투자 경쟁이 현금흐름을 압박한다",
       "sub": "2026 CAPEX 가이던스 합계 $720–740bn · 집행 실적과 구별",
       "html": "<div class=\"g3b\"><div class=\"chartcard \"><h3>빅테크 4사 · FCF<small>$bn</small></h3><div id=\"financialOverview\" class=\"grow\"></div><p class=\"note\">FY21–25 + 2026.09 TTM(최근 12개월). Microsoft는 6월 결산, 나머지는 12월 결산.</p></div><div class=\"chartcard \"><h3>2026 CAPEX 가이던스<small>$bn</small></h3><div class=\"col center grow\"><div class=\"capex-hero\">$720–740bn</div><div class=\"capex-cap\">4사 합계 · 회사 가이던스</div><div class=\"guide\"><div class=\"gr\"><div class=\"gr-h\"><span>Amazon</span><b>$220<small>bn</small></b></div><div class=\"hb-track\"><i style=\"width:100.0%;background:#199e70\"></i></div></div><div class=\"gr\"><div class=\"gr-h\"><span>Alphabet</span><b>$195–205<small>bn</small></b></div><div class=\"hb-track rng\"><i style=\"width:88.6%;background:#d95926\"></i><i style=\"width:4.5%;background:#d95926\"></i></div></div><div class=\"gr\"><div class=\"gr-h\"><span>Microsoft</span><b>$170<small>bn</small></b></div><div class=\"hb-track\"><i style=\"width:77.3%;background:#3987e5\"></i></div></div><div class=\"gr\"><div class=\"gr-h\"><span>Meta</span><b>$135–145<small>bn</small></b></div><div class=\"hb-track rng\"><i style=\"width:61.4%;background:#c98500\"></i><i style=\"width:4.5%;background:#c98500\"></i></div></div></div></div><p class=\"note\">옅은 부분은 가이던스 범위. 회계연도와 CAPEX 정의가 회사마다 달라 같은 기준의 실적 합산이 아니다.</p></div><div class=\"chartcard \"><h3>Meta · 장기차입 조달액<small>$bn</small></h3><div id=\"debtChart\" class=\"grow\"></div><p class=\"note\">현금흐름표의 조달액. 차입 잔액·순증액과 다르다. 회사마다 포함 범위가 달라 Meta 사례로 한정.</p></div></div>",
       "take": "모두 적자는 아니다. Amazon은 TTM 적자, 다른 3사는 양수지만 투자 부담은 확대됐다.",
@@ -1808,15 +1828,16 @@
             ]
           ]
         }
-      ]
+      ],
+      "ref": false
     },
     {
       "id": "buyer-dashboard",
       "part": 3,
       "title": "매출의 성장보다, 현금의 내구성을 확인한다",
-      "sub": "기업 선택(10개사) → 여덟 가지 지표의 분기 추이 · 2023Q1–2026Q3",
+      "sub": "하이퍼스케일러 · 네오클라우드 등 10개사 → 여덟 가지 지표의 분기 추이 · 2023Q1–2026Q3",
       "html": "<div class=\"dash-top\"><label for=\"companySelect\">기업</label><select id=\"companySelect\"><option>Microsoft</option><option>Alphabet</option><option>Amazon</option><option>Meta</option><option>Oracle</option><option>Apple</option><option>Tesla</option><option>CoreWeave</option><option>Nebius</option><option>SpaceX</option></select><div class=\"dash-legend\"><span><i></i>① 버는 힘 · 차입 여력</span><span class=\"k2\"><i></i>② 투자 부담 · FCF</span><span class=\"k3\"><i></i>③ 부채 부담 · 기업별 차이</span></div></div><div class=\"dashboard\" id=\"dashboard\"></div><p class=\"note\" id=\"dashNote\"></p>",
-      "take": "같은 AI 투자 경쟁이어도 기존 사업의 현금창출력과 재무구조는 다르다.",
+      "take": "치킨게임에서 끝까지 버티는 힘은 기존 사업의 현금창출력과 재무구조에서 갈린다.",
       "sources": [
         "sec_qf_Microsoft",
         "sec_qf_Alphabet",
@@ -1831,67 +1852,135 @@
       ],
       "kind": "",
       "method": "SEC XBRL(companyfacts)에 태그된 값을 역년 분기로 맞춤(Nebius는 회사 분기 실적 발표문, SpaceX의 상장 전 기간은 투자설명서 — 뒤의 회사별 설명 참조). 손익 · 현금흐름 항목은 3개월 공시값을 우선 쓰고, 없으면 회계연도 누계의 차감으로 구함(회계 4분기 = 연간 − 9개월 누계). 재무상태 항목은 분기 말 잔액. 정정 공시가 있으면 가장 최근 제출분을 사용하며, 공시된 값으로 구할 수 없는 분기는 비워 두고 추정 · 보간하지 않음. 매출 성장률 = 전년 동기 대비 · 영업이익률 = 영업이익 ÷ 매출 · FCF = 영업CF − 현금 CAPEX(금융리스 원금 미차감) · 이자보상배율 = 분기 영업이익 ÷ 영업외 이자비용 · 부채비율 = 총부채 ÷ 자본(분기 말). 자본은 자산 − 총부채로, 비지배지분과 상장 전 상환전환우선주 등 임시자본(temporary equity)을 포함하며 0 이하이면 부채비율을 비움. Microsoft는 6월 결산이어서 회계 분기를 역년 분기에 대응시킴. Amazon · Oracle은 총부채가 태그되지 않아 자산 − 자본으로 구함. Meta의 분기 이자비용은 차입금 이자(InterestExpenseDebt, 금융리스 이자 제외) 기준이며, 2024Q1 · Q2는 두 분기 합산치만 태그되어 있어 이자보상배율을 비움. Oracle은 5월 결산으로 2 · 5 · 8 · 11월 말에 끝나는 회계 분기를 역년 1–4분기에 대응시켰고(예: 2026Q3 = 2026.06–08), 2023Q1은 자본이 음수여서 부채비율을 비움. Apple은 9월 결산(분기 말은 3 · 6 · 9 · 12월 마지막 토요일 무렵)이며, FY2024부터 이자비용을 따로 공시하지 않아 이자보상배율은 2023Q3까지. Tesla의 순이익은 보통주주 귀속분. CoreWeave는 2025.03 상장으로 2023년은 연간 값만 공시되어 분기를 비웠고, 총자산 · 총부채는 2024Q4부터 태그됨. 이자비용은 손익계산서의 순이자비용(Interest expense, net)이며, 2026Q3 실적은 조사일까지 발표되지 않음. Nebius는 분기 XBRL이 없어(연차보고서만 태그) 회사 분기 실적 발표문의 요약 재무제표에서 읽음: 계속사업 기준이며 2024Q1–2025Q1은 이후 발표문이 Toloka를 제외해 다시 제시한 값, 영업현금흐름은 계속사업분, CAPEX는 유형 · 무형자산 취득액. 2023년 분기와 2024.03 재무상태는 옛 Yandex N.V. 기준이어서 비웠고, 이자비용은 2025Q2부터 계상됨. 2025Q2 · 2026Q1의 순이익에는 투자지분 평가이익(각 $597.4M · $780.6M)이 들어 있음. 2025Q3 이후는 감사 전 발표치(감사를 거친 2025년 연간 영업손실은 분기 합계보다 $15.5M 큼)이며, 2026Q3는 2026.11.12 발표 예정. SpaceX는 2026.06 상장으로, 10-Q(2026Q2 · Q3)에 태그된 값에 회사 IR 사이트의 투자설명서(Form 424B4)를 더해 2025Q1부터 구성함: 1분기와 2025년 연간은 투자설명서, 2025Q4 = 연간 − 9개월 누계, 2분기 현금흐름 = 상반기 − 1분기. 모든 기간은 xAI · X를 소급 합산한 기준. 2024년 분기 값과 2025년 1–3분기 말 재무상태표는 공시되지 않아 비움. 조사 기준: 기존 4사 2026-11-09, 추가 6사 2026-11-10.",
-      "tables": []
+      "tables": [],
+      "ref": false
     },
     {
-      "id": "rates-2026",
+      "id": "us-china",
       "part": 3,
-      "title": "② 금리의 재상승은 회수기간을 더 무겁게 만든다",
-      "sub": "이란 전쟁·에너지 물가와 견조한 수요가 겹친 2026년 · 미·일의 역사로 미·중의 현재를 본다",
-      "html": "<div class=\"split s42\"><div class=\"col\"><span class=\"kicker\">연준 목표범위 · 2026.10</span><div class=\"big amber\">3.75–4.00%</div><p class=\"rate-sub\">9월 25bp 인상 → 10월 동결 · 10년물 국채 <b>5.13%</b> <small>(2026.10 월평균)</small></p><div data-chart=\"ratesNow\" class=\"grow\"></div><p class=\"note\">시장금리는 10년 만기 국채 수익률의 월평균. 기업의 조달금리 = 국채금리 + 신용스프레드 등.</p><div class=\"insight mt8\">당장의 지급능력보다 <b>신규 투자 수익률 · 차환비용</b>의 변화에 주목</div></div><div class=\"col chase\"><div><span class=\"kicker\">1980년대의 질문을 다시 · 미·일의 역사와 미·중의 현재</span><h2>낮은 자본비용은 추격의 충분조건인가?</h2></div><div class=\"analogy\"><div class=\"pair \"><div class=\"pair-h\"><span class=\"yr\">1980s</span><b>미국 ↔ 일본</b></div><div class=\"pair-b\"><div class=\"side\" style=\"border-left-color:#3987e5\"><em>미국</em><b>고금리</b></div><span class=\"vsx\">vs</span><div class=\"side\" style=\"border-left-color:#d95926\"><em>일본</em><b>저금리 · 은행 금융</b></div></div></div><i>↓</i><div class=\"pair now\"><div class=\"pair-h\"><span class=\"yr\">2020s</span><b>미국 ↔ 중국</b></div><div class=\"pair-b\"><div class=\"side\" style=\"border-left-color:#3987e5\"><em>미국</em><b>금리 재상승</b></div><span class=\"vsx\">vs</span><div class=\"side\" style=\"border-left-color:#d95926\"><em>중국</em><b>정책금융 · 보조금</b></div></div></div></div><div class=\"grid g2 gap14 grow auto\"><article class=\"panel sm\"><div class=\"kicker\">공통점</div><h3>긴 회수기간을 견디는 자본</h3><div class=\"plist\"><div>저금리 · 정책금융 · 정부 지원이<br>설비 · 전력망의 투자 부담을 완화</div><div>미국의 지연은 상대적 기회</div></div><div class=\"pfoot\">낮은 자본비용은 추격의 발판</div></article><article class=\"panel sm\"><div class=\"kicker\">차이점</div><h3>자금만으로 풀리지 않는 병목</h3><div class=\"plist\"><div>첨단 장비 · 공정 · HBM 접근</div><div>수율 · 소프트웨어 · 고객 생태계</div><div>달러 자본시장과 내부 현금흐름</div></div><div class=\"pfoot\">그러나 충분조건은 아니다</div></article></div><div class=\"verdict\"><em>판단</em><b>전면 대체가 아닌, 부분 추격</b><span>미국의 투자 지연 + 중국의 칩 · 전력 · 모델 효율 개선 → <b>일부 영역</b>의 격차 축소</span></div></div></div>",
-      "take": "1980년대의 교훈은 반복될 수 있다. 다만 금리 격차가 곧 기술 격차는 아니다.",
+      "title": "② 미·중 패권 경쟁과 거시 환경: 1980년대 미·일 구도의 재현",
+      "sub": "고금리 · 민간 주도의 미국 vs 저금리 · 정부 주도의 중국 — 미·일의 역사로 미·중의 현재를 본다",
+      "html": "<div class=\"replay\"><div class=\"rrow past\"><div class=\"rrow-h\"><span class=\"yr\">1980s</span><b>미국 ↔ 일본</b></div><div class=\"rside\" style=\"border-left-color:#3987e5\"><div class=\"rside-h\"><em>미국</em><b>고금리 · 강달러</b></div><div class=\"rside-n\"><div><b class=\"tn\">19.1%</b><span>FF 금리 · 1981.06</span></div></div></div><div class=\"rgap\"><span>정책금리 격차</span><b class=\"tn\">12.9%p</b></div><div class=\"rside\" style=\"border-left-color:#d95926\"><div class=\"rside-h\"><em>일본</em><b>저금리 · 은행 금융</b></div><div class=\"rside-n\"><div><b class=\"tn\">6.25%</b><span>공정할인율 · 1981.06</span></div></div></div><div class=\"rout\"><em>결과 · 1990 반도체 매출</em><b>Top 10 중 6곳이 일본</b><span>메모리(DRAM) 주도권 이동</span></div></div><div class=\"rlink\"><i>↓</i>같은 구도 · 40여 년 뒤</div><div class=\"rrow now\"><div class=\"rrow-h\"><span class=\"yr\">2020s</span><b>미국 ↔ 중국</b></div><div class=\"rside\" style=\"border-left-color:#3987e5\"><div class=\"rside-h\"><em>미국</em><b>고금리 · 민간 주도</b></div><div class=\"rside-n\"><div><b class=\"tn\">3.88%</b><span>FF 금리 · 2026.10</span></div><div><b class=\"tn\">4.86%</b><span>10년물 국채 · 2026.11.06</span></div></div><p><b>민간 자금</b> · 빅테크 CAPEX 가이던스 $720–740bn</p></div><div class=\"rgap\"><span>정책금리 격차</span><b class=\"tn\">2.5%p</b></div><div class=\"rside\" style=\"border-left-color:#d95926\"><div class=\"rside-h\"><em>중국</em><b>저금리 · 정부 주도</b></div><div class=\"rside-n\"><div><b class=\"tn\">1.40%</b><span>7일물 역레포 · 2026.10</span></div><div><b class=\"tn\">1.57%</b><span>10년물 국채 · 2026.11.09</span></div></div><p><b>정부 자금</b> · 국가 반도체 기금 3기 3,440억 위안</p></div><div class=\"rout\"><em>2020s · 진행 중</em><b>이번에도 주도권이<br>넘어갈까?</b></div></div><p class=\"note\">FF = 연방기금 실효금리 월평균(목표범위 3.75–4.00%) · 중국 정책금리 = 인민은행 7일물 역레포 · 1년 LPR(대출 기준금리) 3.0%, 17개월째 동결 · 명목금리이며 실제 자본비용 격차와 같지 않다.</p><div class=\"grid g2 gap14 grow auto\"><article class=\"panel sm\"><div class=\"kicker\">1980년대와 다른 점 · 당장은 뒤집히기 어렵다</div><h3>자금만으로 풀리지 않는 병목</h3><div class=\"plist\"><div>첨단 장비 · HBM 접근(미국의 수출통제) · 수율 · 고객 생태계</div><div>달러 자본시장과 빅테크의 내부 현금흐름</div><div>금리 격차도 그때보다 작다 — <b>12.9%p → 2.5%p</b></div></div><div class=\"pfoot\">낮은 자본비용은 추격의 충분조건이 아니다</div></article><article class=\"panel sm\"><div class=\"kicker\">1980년대와 같은 점 · 길어지면 격차는 좁혀진다</div><h3>긴 회수기간을 견디는 자본</h3><div class=\"plist\"><div>저금리 · 정책금융이 설비 · 전력망의 투자 부담을 완화</div><div>미국의 지연은 상대적 기회 — 데이터센터 제한 주민투표 <b>31/35건</b> 찬성</div><div>최고 AI 모델의 격차는 이미 <b>39점</b> — Arena 1,503 vs 1,464</div></div><div class=\"pfoot\">저금리 · 정부 지원이 길어질수록 추격의 발판이 된다</div></article></div></div>",
+      "take": "당장 패권이 뒤집히기는 어렵다. 그러나 저금리 · 정부 지원이 길어지면 격차는 좁혀질 수 있다.",
       "sources": [
-        "fred_10",
         "fred_ff",
         "fed_2026",
         "audit_3_0",
         "audit_3_1",
         "audit_3_2",
-        "ai_index",
-        "japan"
-      ],
-      "kind": "",
-      "method": "",
-      "tables": []
-    },
-    {
-      "id": "politics",
-      "part": 3,
-      "title": "③ 선거는 투자 총량보다 입지와 시간을 바꾼다",
-      "sub": "2026 중간선거 결과와 데이터센터의 지역 정치",
-      "html": "<div class=\"rows\" style=\"gap:18px\"><div class=\"elect\"><div><span class=\"kicker\">선거 결과 · AP</span><div class=\"steps mt8\"><div class=\"step\"><b>2026.11 중간선거</b><span>민주당, 상·하원 다수 확보</span></div><div class=\"step\"><b>2027.01</b><span>새 의회 출범</span></div><div class=\"step\"><b>그 이후</b><span>입법 · 시행은 별개의 과정</span></div></div></div><div class=\"neq\"><span>선거 승리</span><i>≠</i><span>법률 시행</span></div></div><div class=\"split s55 grow auto\"><article class=\"panel key ballot\"><div class=\"kicker\">지역 주민투표</div><h3>데이터센터 제한 찬성</h3><div class=\"ballot-b\"><div class=\"hero tn\">31<small>/ 35건</small></div><div><div class=\"dots\"><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i></i><i></i><i></i><i></i></div><div class=\"dotlegend\"><b><i class=\"on\"></i>제한 찬성 31건<i></i>그 외 4건</b><br>구속력 있는 안건 · 11월 6일 집계 · 인증 전 결과 포함</div></div></div><div class=\"pfoot lg\">전국 일괄 금지로 해석할 수 없다</div></article><div class=\"col center text cause\"><span class=\"kicker\">왜 지역에서 막히는가</span><h2>비용이 지역으로 돌아왔다</h2><div class=\"tags lg\"><span>전기요금</span><span>물 사용</span><span>송전망</span><span>소음</span><span>토지</span></div><div class=\"downarrow\">↓</div><div class=\"result\">인허가 지연 · 입지 이동</div><p class=\"sm\">데이터센터 반대는 양당 지역 모두에서 나타난다.<br>모든 규제를 한 정당의 정책으로 묶을 수 없다.</p></div></div></div>",
-      "take": "규제는 투자 회수 시점과 비용을 바꾼다. 국가 간 경쟁은 투자의 지속 압력으로 남는다.",
-      "sources": [
-        "midterms",
+        "fred_dgs10d",
+        "cn_adb",
+        "cn_lpr",
+        "cn_policy_shift",
+        "bigfund3",
+        "audit_1_0",
+        "audit_1_1",
+        "audit_1_2",
+        "audit_1_3",
+        "boj",
+        "japan",
+        "ranking_history",
+        "bis_2022",
         "dc_ballot",
-        "audit_4_0"
+        "midterms",
+        "audit_4_0",
+        "ai_index"
       ],
       "kind": "",
-      "method": "",
-      "tables": []
-    },
-    {
-      "id": "china-race",
-      "part": 3,
-      "title": "속도를 늦추는 비용도 정치적이다",
-      "sub": "2026.03 최고 AI 모델 비교 · Stanford AI Index 2026",
-      "html": "<div class=\"rows\" style=\"gap:14px\"><div class=\"duel grow\"><div class=\"dz\"><span class=\"who\"><i style=\"background:#3987e5\"></i>미국 최고 모델<small>Arena 점수</small></span><b class=\"tn\">1,503</b><div class=\"dbar\"><i style=\"width:100%;background:#3987e5\"></i></div></div><div class=\"gapbox\"><span class=\"kicker\">미·중 최고 모델의 격차</span><div class=\"big amber tn\">39점</div><p>Arena 점수 차이 · 2026.03</p></div><div class=\"dz\"><span class=\"who\"><i style=\"background:#d95926\"></i>중국 최고 모델<small>Arena 점수</small></span><b class=\"tn\">1,464</b><div class=\"dbar\"><i style=\"width:97.4%;background:#d95926\"></i></div></div></div><div class=\"note\" style=\"margin:0\">점수 차를 성능의 비율로 해석하지 않는다. 단일 벤치마크·단일 시점이며, 칩 제조능력이나 국가 경쟁력 순위가 아니다.</div><div class=\"insight lg\">격차가 좁을수록, 한쪽이 <b>투자 속도를 늦추는 선택</b>은 정치적으로도 어려워진다.</div><div class=\"flow lg\"><div class=\"node\"><b>미국의 인프라 지연</b><span>전력 · 인허가 · 자금 비용</span></div><span class=\"arrow\">+</span><div class=\"node\"><b>중국의 효율 · 전력 확장</b><span>칩 · 모델 효율 개선</span></div><span class=\"arrow\">→</span><div class=\"node key\"><b>상대적 경쟁력 압박</b><span>투자를 늦추기 어려운 이유</span></div></div></div>",
-      "take": "해석: 투자 사이클을 완전히 꺾기는 어렵지만, 개별 사업의 수익성까지 보장되지는 않는다.",
-      "sources": [
-        "ai_index",
-        "dc_ballot"
+      "method": "정책금리 격차는 같은 달의 미국 연방기금 실효금리 월평균에서 상대국 정책금리를 뺀 값: 1981.06 19.10% − 일본 공정할인율 6.25% = 12.9%p, 2026.10 3.88% − 인민은행 7일물 역레포 1.40% = 2.5%p. 일본 공정할인율과 중국 7일물 역레포는 정의가 다른 정책금리이며 기업의 실제 조달금리가 아님. 연준 목표범위는 2026.09.16에 25bp 올린 3.75–4.00%(10.28 동결). 10년물 국채 수익률은 미국 2026.11.06 4.86%(FRED DGS10 · 2026.10 월평균은 5.13%), 중국 2026.11.09 종가 1.573%(ADB AsianBondsOnline)로 격차 약 3.3%p — 기준일이 1영업일 다름. 중국 1년 LPR 3.0% · 5년 LPR 3.5%는 2026.10.20 고시치로 17개월 연속 동결(2차 자료). 인민은행이 2026.11 초 익일물 금리(1.25%)를 정책금리로 삼는 체계로 바꿨다는 보도가 있어, 이 장표의 중국 정책금리는 2026.10 기준으로 적음. 모두 명목금리이므로 환율 · 물가 · 신용 위험 · 자본 이동 제약을 반영한 실제 자본비용의 격차와 같지 않음. 빅테크 CAPEX는 Microsoft · Alphabet · Amazon · Meta의 2026년 회사 가이던스 합계(전망), 국가집적회로산업투자기금(반도체 기금) 3기 3,440억 위안은 2024.05 설립 당시 등록자본(1기 1,387억 · 2기 2,042억 위안)으로, 규모와 성격이 다른 자금이어서 두 금액을 직접 비교하지 않음. 주민투표는 구속력 있는 안건 35건의 2026.11.06 집계(인증 전 결과 포함)이며 전국 일괄 금지로 해석할 수 없음. Arena 점수는 단일 벤치마크 · 단일 시점(2026.03)의 값으로, 점수 차를 성능의 비율로 해석하지 않으며 칩 제조능력이나 국가 경쟁력 순위가 아님. 조사 기준: 금리 2026-11-10, 그 밖은 2026-11-08.",
+      "tables": [
+        {
+          "title": "미국과 상대국의 금리 (%)",
+          "head": [
+            "시점",
+            "지표",
+            "미국",
+            "상대국",
+            "격차 (%p)"
+          ],
+          "rows": [
+            [
+              "1981.06",
+              "정책금리: 미국 FF 월평균 · 일본 공정할인율",
+              "19.10",
+              "6.25",
+              "12.9"
+            ],
+            [
+              "2026.10",
+              "정책금리: 미국 FF 월평균 · 중국 7일물 역레포",
+              "3.88",
+              "1.40",
+              "2.5"
+            ],
+            [
+              "2026.11 초",
+              "10년물 국채: 미국 2026.11.06 · 중국 2026.11.09 종가",
+              "4.86",
+              "1.573",
+              "3.3"
+            ],
+            [
+              "2026.10.20",
+              "중국 LPR(대출 기준금리): 1년 · 5년",
+              "—",
+              "3.0 · 3.5",
+              "—"
+            ]
+          ]
+        },
+        {
+          "title": "데이터센터 제한 주민투표 (구속력 있는 안건 · 2026.11.06 집계)",
+          "head": [
+            "구분",
+            "건수"
+          ],
+          "rows": [
+            [
+              "제한 찬성",
+              "31"
+            ],
+            [
+              "그 외",
+              "4"
+            ],
+            [
+              "합계",
+              "35"
+            ]
+          ]
+        },
+        {
+          "title": "최고 AI 모델의 Arena 점수 (2026.03 · Stanford AI Index 2026)",
+          "head": [
+            "구분",
+            "점수"
+          ],
+          "rows": [
+            [
+              "미국 최고 모델",
+              "1,503"
+            ],
+            [
+              "중국 최고 모델",
+              "1,464"
+            ],
+            [
+              "차이",
+              "39"
+            ]
+          ]
+        }
       ],
-      "kind": "",
-      "method": "",
-      "tables": []
+      "ref": false
     },
     {
       "id": "cash-allocation",
       "part": 3,
-      "title": "④ 막대한 현금, 어디에 배분할 것인가?",
+      "title": "③ 막대한 현금, 어디에 배분할 것인가?",
       "sub": "리니어의 질문이 2026년의 삼성·SK hynix로 돌아왔다",
-      "html": "<div class=\"split\"><div class=\"col\"><div data-chart=\"supplierOP\" class=\"grow\"></div><p class=\"note\">연결 분기 영업이익, 조원. 회사 규모와 사업 구성이 다르며, 영업이익은 현금흐름과 다르다.</p></div><div class=\"alloc\"><article class=\"panel\"><h3><i style=\"background:#3987e5\"></i>삼성전자</h3><div class=\"kv\"><span>2026 CAPEX<span class=\"tag\">전망</span></span><b>84.4<small>조원</small></b><span>2026 주주환원<span class=\"tag\">예상</span></span><b>90–110<small>조원</small></b><span class=\"full\">DS 부문 CAPEX 76.8조 · 환원 중 확정·집행 35조, 최종 금액은 2027.01 이사회 결정</span></div></article><article class=\"panel\"><h3><i style=\"background:#d95926\"></i>SK hynix</h3><div class=\"kv\"><span>3분기 말 순현금<span class=\"tag act\">실제</span></span><b>98.7<small>조원</small></b><span>2026 주주환원<span class=\"tag\">계획</span></span><b>약 100<small>조원</small></b><span class=\"full\">현금 114.5조 − 차입 15.8조 · 용인 1기 가동으로 2027년 투자 크게 증가 예상</span></div></article></div></div>",
-      "take": "성장의 투자와 주주환원, 다음 불황을 위한 현금은 같은 재원에서 나온다.",
+      "html": "<div class=\"split\"><div class=\"col\"><div data-chart=\"supplierOP\" class=\"grow\"></div><p class=\"note\">연결 분기 영업이익, 조원. 회사 규모와 사업 구성이 다르며, 영업이익은 현금흐름과 다르다.</p></div><div class=\"alloc\"><div class=\"recall\"><em>PART 1 · 반면교사 Linear</em><span>주당배당 <b>$0.21 → $1.24</b> <small>FY03–16</small> · 매출 연 <b>−0.8%</b> <small>FY11–16</small><br>→ 2017년 ADI에 편입 · 독립 상장 종료</span></div><article class=\"panel\"><h3><i style=\"background:#3987e5\"></i>삼성전자</h3><div class=\"kv\"><span>2026 CAPEX<span class=\"tag\">전망</span></span><b>84.4<small>조원</small></b><span>2026 주주환원<span class=\"tag\">예상</span></span><b>90–110<small>조원</small></b><span class=\"full\">DS 부문 CAPEX 76.8조 · 환원 중 확정·집행 35조, 최종 금액은 2027.01 이사회 결정</span></div></article><article class=\"panel\"><h3><i style=\"background:#d95926\"></i>SK hynix</h3><div class=\"kv\"><span>3분기 말 순현금<span class=\"tag act\">실제</span></span><b>98.7<small>조원</small></b><span>2026 주주환원<span class=\"tag\">계획</span></span><b>약 100<small>조원</small></b><span class=\"full\">현금 114.5조 − 차입 15.8조 · 용인 1기 가동으로 2027년 투자 크게 증가 예상</span></div></article></div></div>",
+      "take": "환원에 묶여 성장을 놓칠 것인가, R&amp;D · M&amp;A로 다음 판을 준비할 것인가 — 리니어가 남긴 질문이다.",
       "sources": [
         "sam_q",
         "skh_q",
@@ -1899,11 +1988,15 @@
         "C02",
         "audit_5_0",
         "audit_5_1",
-        "audit_6_0"
+        "audit_6_0",
+        "linear_10k_2016",
+        "linear_10k_2007",
+        "linear_close"
       ],
       "kind": "",
       "method": "",
-      "tables": []
+      "tables": [],
+      "ref": false
     },
     {
       "id": "contracts",
@@ -1919,19 +2012,21 @@
       ],
       "kind": "",
       "method": "",
-      "tables": []
+      "tables": [],
+      "ref": false
     },
     {
       "id": "closing",
       "part": 3,
       "title": "과거의 질문은 다른 모습으로 돌아온다",
-      "sub": "기술이 기회를 만든다. 자본배분의 선택이 기업의 다음 장을 결정한다.",
-      "html": "<div class=\"rows\" style=\"gap:26px;justify-content:center\"><div class=\"closing\" style=\"--n:4\"><span></span><div class=\"hd\"><small>01</small>수요자 재무</div><div class=\"hd\"><small>02</small>자본비용</div><div class=\"hd\"><small>03</small>정책 · 경쟁</div><div class=\"hd\"><small>04</small>현금 배분</div><div class=\"rl\">과거</div><div class=\"c\">Elpida · 만기와 유동성</div><div class=\"c\">미·일 금리와 투자</div><div class=\"c\">정부 조달 · 무역 협정</div><div class=\"c\">Linear · 환원과 매각</div><div class=\"rl\">현재</div><div class=\"c\">빅테크 CAPEX · FCF</div><div class=\"c\">고금리 · 중국 추격</div><div class=\"c\">전력 규제 · AI 경쟁</div><div class=\"c\">공급자 호황 · LTA</div><div class=\"rl r3\">확인할 것</div><div class=\"c rule\">회복까지 버틸 현금</div><div class=\"c rule\">수익률 > 자본비용</div><div class=\"c rule\">입지 · 비용 · 시점</div><div class=\"c rule\">재투자 · 환원 · 완충력</div></div><div class=\"quote\">“얼마를 벌었나” 다음에는<br><span class=\"green\">“누가 지불하고, 어디에 다시 쓸 것인가”</span>를 묻는다.</div></div>",
+      "sub": "수요의 이동 × 거시 환경 · 자본력 — 반도체의 역사는 같은 틀 안에서 반복된다",
+      "html": "<div class=\"rows\" style=\"gap:26px;justify-content:center\"><div class=\"closing\" style=\"--n:3\"><span></span><div class=\"hd\"><small>이슈 ①</small>CAPEX 치킨게임</div><div class=\"hd\"><small>이슈 ②</small>미·중 경쟁과 거시 환경</div><div class=\"hd\"><small>이슈 ③</small>현금 배분</div><div class=\"rl\">과거</div><div class=\"c\">메모리 치킨게임 · Elpida</div><div class=\"c\">1980s 미·일의 금리 격차</div><div class=\"c\">Linear · 환원과 매각</div><div class=\"rl\">현재</div><div class=\"c\">빅테크 CAPEX · FCF</div><div class=\"c\">미국 고금리 · 중국 정부 지원</div><div class=\"c\">삼성 · SK hynix의 현금</div><div class=\"rl r3\">확인할 것</div><div class=\"c rule\">끝까지 버틸 자금력 · 재무 건전성</div><div class=\"c rule\">저금리 · 정부 지원의 지속 기간</div><div class=\"c rule\">재투자(R&amp;D · M&amp;A) · 환원 · 완충력</div></div><div class=\"quote\">과거의 맥락을 AI 시대에 대입하면<br><span class=\"green\">다음 의사결정의 이정표</span>가 보인다.</div></div>",
       "take": "리니어는 사라졌지만, 리니어가 마주했던 재무적 선택은 끝나지 않았다.",
       "sources": [],
       "kind": "",
       "method": "",
-      "tables": []
+      "tables": [],
+      "ref": false
     }
   ],
   "charts": {
@@ -4069,236 +4164,6 @@
           "c": "#8fbdf3",
           "t": "2026 3분기 · SIA 발표 (집계 시점 다름)",
           "bar": true
-        }
-      ]
-    },
-    "ratesNow": {
-      "title": "미국 금리 2022–2026",
-      "cap": "금리 (%, 월평균)",
-      "labels": [
-        "2022.01",
-        "2022.02",
-        "2022.03",
-        "2022.04",
-        "2022.05",
-        "2022.06",
-        "2022.07",
-        "2022.08",
-        "2022.09",
-        "2022.10",
-        "2022.11",
-        "2022.12",
-        "2023.01",
-        "2023.02",
-        "2023.03",
-        "2023.04",
-        "2023.05",
-        "2023.06",
-        "2023.07",
-        "2023.08",
-        "2023.09",
-        "2023.10",
-        "2023.11",
-        "2023.12",
-        "2024.01",
-        "2024.02",
-        "2024.03",
-        "2024.04",
-        "2024.05",
-        "2024.06",
-        "2024.07",
-        "2024.08",
-        "2024.09",
-        "2024.10",
-        "2024.11",
-        "2024.12",
-        "2025.01",
-        "2025.02",
-        "2025.03",
-        "2025.04",
-        "2025.05",
-        "2025.06",
-        "2025.07",
-        "2025.08",
-        "2025.09",
-        "2025.10",
-        "2025.11",
-        "2025.12",
-        "2026.01",
-        "2026.02",
-        "2026.03",
-        "2026.04",
-        "2026.05",
-        "2026.06",
-        "2026.07",
-        "2026.08",
-        "2026.09",
-        "2026.10"
-      ],
-      "suf": "%",
-      "dec": 2,
-      "fs": 13,
-      "y": {
-        "min": 0,
-        "max": 6,
-        "step": 1,
-        "dec": 0
-      },
-      "x": {
-        "ticks": [
-          0,
-          12,
-          24,
-          36,
-          48
-        ],
-        "map": {
-          "0": "2022",
-          "12": "2023",
-          "24": "2024",
-          "36": "2025",
-          "48": "2026"
-        }
-      },
-      "series": [
-        {
-          "name": "미국 10년물 국채",
-          "values": [
-            1.76,
-            1.93,
-            2.13,
-            2.75,
-            2.9,
-            3.14,
-            2.9,
-            2.9,
-            3.52,
-            3.98,
-            3.89,
-            3.62,
-            3.53,
-            3.75,
-            3.66,
-            3.46,
-            3.57,
-            3.75,
-            3.9,
-            4.17,
-            4.38,
-            4.8,
-            4.5,
-            4.02,
-            4.06,
-            4.21,
-            4.21,
-            4.54,
-            4.48,
-            4.31,
-            4.25,
-            3.87,
-            3.72,
-            4.1,
-            4.36,
-            4.39,
-            4.63,
-            4.45,
-            4.28,
-            4.28,
-            4.42,
-            4.38,
-            4.39,
-            4.26,
-            4.12,
-            4.06,
-            4.09,
-            4.14,
-            4.21,
-            4.13,
-            4.25,
-            4.32,
-            4.48,
-            4.47,
-            4.6,
-            4.68,
-            4.99,
-            5.13
-          ],
-          "color": "#d95926",
-          "w": 3,
-          "end": "10년물 5.13%"
-        },
-        {
-          "name": "연방기금 실효금리",
-          "values": [
-            0.08,
-            0.08,
-            0.2,
-            0.33,
-            0.77,
-            1.21,
-            1.68,
-            2.33,
-            2.56,
-            3.08,
-            3.78,
-            4.1,
-            4.33,
-            4.57,
-            4.65,
-            4.83,
-            5.06,
-            5.08,
-            5.12,
-            5.33,
-            5.33,
-            5.33,
-            5.33,
-            5.33,
-            5.33,
-            5.33,
-            5.33,
-            5.33,
-            5.33,
-            5.33,
-            5.33,
-            5.33,
-            5.13,
-            4.83,
-            4.64,
-            4.48,
-            4.33,
-            4.33,
-            4.33,
-            4.33,
-            4.33,
-            4.33,
-            4.33,
-            4.33,
-            4.22,
-            4.09,
-            3.88,
-            3.72,
-            3.64,
-            3.64,
-            3.64,
-            3.64,
-            3.63,
-            3.63,
-            3.63,
-            3.63,
-            3.75,
-            3.88
-          ],
-          "color": "#3987e5",
-          "end": "FF 3.88%"
-        }
-      ],
-      "marks": [
-        {
-          "i": 56,
-          "label": "2026.09 인상",
-          "anchor": "end",
-          "y": 14
         }
       ]
     },
