@@ -264,11 +264,6 @@ svg .halo{paint-order:stroke;stroke:#07121f;stroke-width:4px;stroke-linejoin:rou
 .sstat b small{font-size:14px;color:var(--ink2);font-weight:500}
 .bump-legend{flex-direction:column;align-items:flex-start;gap:2px;height:auto;margin:0;font-size:12px;flex-wrap:nowrap}
 #sectorScope{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:6px}
-/* life-cycle */
-#renewal{transition:opacity .3s}#renewal.off{opacity:.07}
-.toolbar{display:flex;gap:14px;align-items:center}
-.toolbar label{font-size:15px;color:var(--ink2)}
-.toolbar .note{margin:0}
 /* timeline */
 #timeline svg{display:block}
 #timeline .lane{transition:opacity .25s}
@@ -300,24 +295,31 @@ svg .halo{paint-order:stroke;stroke:#07121f;stroke-width:4px;stroke-linejoin:rou
 /* dashboard */
 .dash-top{display:flex;gap:14px;align-items:center;margin-bottom:10px}
 .dash-top label{font-size:15px;color:var(--ink2)}
+/* 타일 묶음: 테두리 없음 = 버는 힘 · key = 투자와 FCF · debt = 부채 부담 */
+.dash-legend{margin-left:auto;display:flex;gap:22px;font-size:14.5px;color:var(--ink2);font-weight:600}
+.dash-legend span{display:flex;align-items:center;gap:8px}
+.dash-legend i{width:20px;height:14px;border-radius:4px;border:2px solid var(--line2);background:#0a1727;flex:none}
+.dash-legend .k2 i{border-color:var(--acc)}
+.dash-legend .k3 i{border-color:var(--cyan)}
 .dashboard{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
 .tile{border:1px solid var(--line);border-radius:12px;background:#0a1727;padding:11px 14px 6px;min-width:0}
-.tile.key{border-color:color-mix(in srgb,var(--acc) 70%,transparent)}
+.tile.key,.tile.debt{--tc:var(--acc);border-color:color-mix(in srgb,var(--tc) 82%,transparent);box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--tc) 82%,transparent);background:linear-gradient(165deg,color-mix(in srgb,var(--tc) 9%,#0a1727),#0a1727 60%)}
+.tile.debt{--tc:var(--cyan)}
+.tile.key .tile-h span,.tile.debt .tile-h span{color:var(--tc)}
 .tile-h{display:flex;justify-content:space-between;align-items:baseline;font-size:14.5px;color:var(--ink2);font-weight:700}
 .tile-h small{font-size:11.5px;color:var(--ink3);font-weight:400}
 .tile-v{font-size:30px;font-weight:900;letter-spacing:-1px;line-height:1.2;white-space:nowrap}
 .tile-v small{font-size:14px;font-weight:500;color:var(--ink2);margin-left:3px;letter-spacing:0}
 .tile-v em{font-style:normal;font-size:11.5px;font-weight:400;color:var(--ink3);margin-left:8px;letter-spacing:0}
 .tile-c{height:138px}
-/* money cycle */
-.cycle svg{display:block;width:100%;height:auto}
+.tile-none{height:100%;display:flex;align-items:center;justify-content:center;font-size:13px;color:var(--ink3)}
 /* dots meter */
 .dots{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;width:max-content;margin:12px 0 8px}
 .dots i{width:22px;height:22px;border-radius:5px;background:#16293a;display:block}
 .dots i.on{background:var(--c1)}
 .dotlegend{font-size:13px;color:var(--ink3)}
 /* closing */
-.closing{display:grid;grid-template-columns:118px repeat(5,1fr);gap:0 12px;align-items:stretch}
+.closing{display:grid;grid-template-columns:118px repeat(var(--n,5),1fr);gap:0 12px;align-items:stretch}
 .closing .rl{font-size:13px;letter-spacing:2px;color:var(--ink3);display:flex;align-items:center;font-weight:700}
 .closing .hd{font-size:27px;font-weight:800;padding:0 0 12px;border-bottom:3px solid var(--acc);letter-spacing:-.5px}
 .closing .hd small{display:block;font-size:13px;color:var(--acc);letter-spacing:2px;font-weight:700;margin-bottom:3px}
@@ -516,19 +518,6 @@ svg .halo{paint-order:stroke;stroke:#07121f;stroke-width:4px;stroke-linejoin:rou
 .verdict b{font-size:22px;letter-spacing:-.4px;white-space:nowrap}
 .verdict span{font-size:15.5px;color:var(--ink2);line-height:1.45}
 .verdict span b{font-size:inherit;color:var(--ink);white-space:normal}
-/* 나비 비교표 */
-.bfly{display:grid;grid-template-columns:1fr 172px 1fr;column-gap:0;align-content:start}
-.bfly .bh{padding:0 6px 12px;border-bottom:3px solid var(--line2)}
-.bfly .bh small{display:block;font-size:13px;letter-spacing:2px;color:var(--ink3);font-weight:700;margin-bottom:3px}
-.bfly .bh b{font-size:27px;letter-spacing:-.4px}
-.bfly .bh.l{text-align:right}
-.bfly .bh.r{border-color:var(--acc)}.bfly .bh.r small{color:var(--acc)}
-.bfly .bh.m{border-color:transparent}
-.bfly .c{padding:24px 14px;border-bottom:1px solid var(--line);font-size:21px;line-height:1.45;color:var(--ink2);display:flex;align-items:center}
-.bfly .c.l{justify-content:flex-end;text-align:right}
-.bfly .c.m{justify-content:center;text-align:center;font-size:14.5px;letter-spacing:1.5px;color:var(--acc);font-weight:700;background:#0b1a2b}
-.bfly .c.key{color:var(--ink);font-weight:800;border-bottom:0}
-.bfly .c.m.key{background:color-mix(in srgb,var(--acc) 16%,#0b1a2b)}
 /* 현금 배분 */
 .alloc{display:grid;gap:14px;align-content:center;height:100%}
 .alloc .panel{padding:18px 22px}

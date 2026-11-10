@@ -73,11 +73,13 @@ function plot(spec,W,H){
   const endDots=[];
   S.filter(s=>s.type!=='bar').forEach(s=>{const col=s.dim?K.mute:s.color;let d='',seg=[],segs=[];
     s.values.forEach((v,i)=>{if(!Number.isFinite(v)){if(seg.length)segs.push(seg);seg=[];return}seg.push([x(i),y(v),i])});if(seg.length)segs.push(seg);
+    /* 앞뒤가 비어 혼자 남은 값은 선이 그려지지 않으므로 점으로 찍는다 */
+    const solo=new Set(segs.filter(q=>q.length===1).map(q=>q[0][2]));
     segs.forEach(q=>{q.forEach((p,k)=>{d+=k===0?`M${p[0].toFixed(1)},${p[1].toFixed(1)}`:s.type==='step'?`H${p[0].toFixed(1)}V${p[1].toFixed(1)}`:`L${p[0].toFixed(1)},${p[1].toFixed(1)}`});
       if(s.area){let a=`M${q[0][0].toFixed(1)},${yb}`;q.forEach((p,k)=>{a+=s.type==='step'&&k?`H${p[0].toFixed(1)}V${p[1].toFixed(1)}`:`L${p[0].toFixed(1)},${p[1].toFixed(1)}`});g+=`<path d="${a}L${q[q.length-1][0].toFixed(1)},${yb}Z" fill="${col}" opacity=".12"/>`}});
     g+=`<path d="${d}" fill="none" stroke="${col}" stroke-width="${s.w||2}" stroke-linejoin="round" stroke-linecap="round"${s.dash?' stroke-dasharray="6 5"':''}/>`;
     const mk=s.markers??(n<=(spec.markerMax||24));
-    s.values.forEach((v,i)=>{if(!Number.isFinite(v))return;const X=x(i),Y=y(v),want=wants(s,i);if(mk||want)g+=`<circle cx="${X}" cy="${Y}" r="${want?4.5:3.5}" fill="${col}" stroke="${K.surf}" stroke-width="2"/>`;if(want)ptLabel(s,i,X,Y,!(s.ptBelow||[]).includes(i))});
+    s.values.forEach((v,i)=>{if(!Number.isFinite(v))return;const X=x(i),Y=y(v),want=wants(s,i);if(mk||want||solo.has(i))g+=`<circle cx="${X}" cy="${Y}" r="${want?4.5:3.5}" fill="${col}" stroke="${K.surf}" stroke-width="2"/>`;if(want)ptLabel(s,i,X,Y,!(s.ptBelow||[]).includes(i))});
     const li=lastPt(s);if(s.end&&li>=0)endDots.push({s,X:x(li),Y:y(s.values[li]),col})});
   (spec.marks||[]).forEach(m=>{const X=x(m.i);g+=`<line x1="${X}" x2="${X}" y1="${T}" y2="${T+ph}" stroke="${m.color||K.ink3}" stroke-width="1.25"/>`;if(m.label)lab+=`<text x="${X+(m.anchor==='end'?-6:m.anchor==='middle'?0:6)}" y="${m.y!=null?T+m.y:T-6}" text-anchor="${m.anchor||'start'}" fill="${K.ink}" font-size="${fs}" font-weight="700" class="halo">${esc(m.label)}</text>`});
   (spec.notes||[]).forEach(o=>{const X=x(o.i)+(o.dx||0),Y=y(o.v)+(o.dy||0);lab+=`<text x="${X}" y="${Y}" text-anchor="${o.anchor||'start'}" fill="${o.strong?K.ink:K.ink2}" font-size="${o.fs||fs}" ${o.strong?'font-weight="700"':''} class="halo">${esc(o.text)}</text>`});
@@ -148,8 +150,7 @@ function mountSpecial(){
   if($('#bump'))mountSectors();
   if($('#companySelect')){$('#companySelect').value=company;$('#companySelect').onchange=e=>{company=e.target.value;dashboard()};dashboard()}
   if($('#financialOverview'))financialOverview();
-  if($('#linearChart'))setLinear(linearView);
-  if($('#lifeToggle'))$('#lifeToggle').onclick=()=>{const a=$('#renewal'),on=a.classList.toggle('off');$('#lifeToggle').setAttribute('aria-pressed',String(!on))}}
+  if($('#linearChart'))setLinear(linearView)}
 function setLinear(k){linearView=k;$$('[data-linear]').forEach(b=>b.classList.toggle('active',b.dataset.linear===k));const el=$('#linearChart');slidePlots=[];drawInto(el,CHARTS[k])}
 
 /* 시간축 인포그래픽: 가운데 시대 축을 두고 위에는 산업 안쪽(기업·수요·매출), 아래에는 바깥 환경(사건·금리·거시·구조)을 겹쳐 놓는다 */
@@ -243,22 +244,32 @@ function drawSector(){
   const chain=$('#sectorChain');for(let f=20;f>13&&chain.scrollWidth>chain.clientWidth;)chain.style.fontSize=(--f)+'px';
   $('#sectorScope').textContent=SECTOR.scope+(s.note?' · '+s.note:'')+(cols.some(c=>c.some(r=>r.gap))?' · †는 보완 자료의 값':'')}
 
-/* 빅테크 재무 타일: 역년 분기 추이. 지표마다 축을 하나씩만 쓴다 */
+/* 재무 타일: 역년 분기 추이. 지표마다 축을 하나씩만 쓴다.
+   타일은 세 묶음 — 위 4개 = 버는 힘, key = 투자와 FCF, debt = 부채 부담 (테두리 색으로 구분) */
 function dashboard(){
-  const c=FIN.companies[company],d=c.quarters,li=d.length-1,labels=d.map(x=>x.q.slice(2)),tips=d.map(x=>x.q.slice(0,4)+' '+x.q.slice(4));
+  const c=FIN.dash[company],d=c.quarters,n=d.length,labels=d.map(x=>x.q.slice(2)),tips=d.map(x=>x.q.slice(0,4)+' '+x.q.slice(4));
   const ticks=labels.map((l,i)=>l.endsWith('Q1')?i:-1).filter(i=>i>=0);
-  const specs=[['매출','revenue','$bn','bar'],['매출 성장률','revenueGrowth','%','line'],['순이익','netIncome','$bn','bar'],['영업이익률','operatingMargin','%','line'],['CAPEX','capex','$bn','bar',1],['FCF','fcf','$bn','bar',1],['이자보상배율','interestCoverage','배','line'],['부채비율','debtRatio','%','line']];
-  const val=(x,k)=>Number.isFinite(x[k])?x[k]:null,show=(v,u)=>u==='$bn'?(v<0?'−$':'$')+num(Math.abs(v),1,1):num(v,1,1);
+  const specs=[['매출','revenue','$bn','bar'],['매출 성장률','revenueGrowth','%','line'],['순이익','netIncome','$bn','bar'],['영업이익률','operatingMargin','%','line'],['CAPEX','capex','$bn','bar','key'],['FCF','fcf','$bn','bar','key'],['이자보상배율','interestCoverage','배','line','debt'],['부채비율','debtRatio','%','line','debt']];
+  const val=(x,k)=>Number.isFinite(x[k])?x[k]:null;
+  /* 회사의 최근 분기 = 매출이 공시된 마지막 분기. 상장 전이거나 아직 발표되지 않은 분기는 비어 있다 */
+  const li=d.reduce((a,x,i)=>val(x,'revenue')!=null?i:a,-1);
+  /* 지표별: 값, 값이 있는 처음(fi) · 마지막(lk) 분기, 금액 자릿수(분기 금액이 $10bn 미만인 회사는 둘째 자리까지) */
+  const T=specs.map(s=>{const v=d.map(x=>val(x,s[1])),u=s[2],has=v.map((x,i)=>x!=null?i:-1).filter(i=>i>=0),money=u==='$bn';
+    const dec=money&&Math.max(0,...has.map(i=>Math.abs(v[i])))<10?2:1;
+    return {s,v,u,unit:money?'bn':u,fi:has.length?has[0]:-1,lk:has.length?has[has.length-1]:-1,dec,show:x=>money?(x<0?'−$':'$')+num(Math.abs(x),dec,dec):num(x,1,1)}});
   slidePlots=[];
-  /* 큰 숫자는 가장 최근 분기, 옆의 작은 글씨는 첫 분기와의 비교 */
-  $('#dashboard').innerHTML=specs.map((s,k)=>{const v=d.map(x=>val(x,s[1])),last=v[li],first=v[0],u=s[2],unit=u==='$bn'?'bn':u;
-    const cmp=first==null||last==null?'':u==='$bn'&&first>0&&last>0?` · ${labels[0]}의 ${num(last/first,1,1)}배`:` · ${labels[0]} ${show(first,u)}${unit}`;
-    return `<div class="tile${s[4]?' key':''}"><div class="tile-h"><span>${s[0]}</span><small>${u}</small></div><div class="tile-v">${last==null?'N/A':show(last,u)}<small>${unit}</small><em>${labels[li]}${cmp}</em></div><div class="tile-c" data-k="${k}"></div></div>`}).join('');
-  $$('.tile-c').forEach(el=>{const s=specs[+el.dataset.k],u=s[2],line=s[3]==='line';
-    const spec={title:company+' · '+s[0]+' (분기)',labels,tipLabels:tips,type:s[3],fs:11,suf:u==='$bn'?'':u,pre:u==='$bn'?'$':'',dec:1,x:{ticks},y:{n:2,head:.18},
-      series:[{name:s[0],values:d.map(x=>val(x,s[1])),color:K.s[0],div:s[1]==='fcf',area:line,markers:false,pts:line?[li]:null,ptText:{[li]:''}}],legend:false};
+  /* 큰 숫자는 회사의 최근 분기 값, 옆의 작은 글씨는 그 지표가 처음 공시된 분기와의 비교.
+     최근 분기에 값이 없는 지표는 N/A 로 두고 마지막으로 공시된 분기를 적는다 */
+  $('#dashboard').innerHTML=T.map((t,k)=>{const {s,v,u,unit,fi,lk}=t,last=li>=0?v[li]:null,first=fi>=0?v[fi]:null,money=u==='$bn';
+    const cmp=last==null?(lk>=0?`${labels[lk]}까지 공시 · ${t.show(v[lk])}${unit}`:'공시된 분기 값 없음')
+      :labels[li]+(fi===li?'':money&&first>0&&last>0?` · ${labels[fi]}의 ${num(last/first,1,1)}배`:` · ${labels[fi]} ${t.show(first)}${unit}`);
+    return `<div class="tile${s[4]?' '+s[4]:''}"><div class="tile-h"><span>${s[0]}</span><small>${u}</small></div><div class="tile-v">${last==null?'N/A':t.show(last)+`<small>${unit}</small>`}<em>${cmp}</em></div><div class="tile-c" data-k="${k}"></div></div>`}).join('');
+  $$('.tile-c').forEach(el=>{const t=T[+el.dataset.k],s=t.s,u=t.u,line=s[3]==='line';
+    if(t.lk<0){el.innerHTML='<p class="tile-none">공시된 분기 값 없음</p>';return}
+    const spec={title:company+' · '+s[0]+' (분기)',labels,tipLabels:tips,type:s[3],fs:11,suf:u==='$bn'?'':u,pre:u==='$bn'?'$':'',dec:t.dec,x:{ticks},y:{n:2,head:.18},
+      series:[{name:s[0],values:t.v,color:K.s[0],div:s[1]==='fcf',area:line,markers:false,pts:line?[t.lk]:null,ptText:{[t.lk]:''}}],legend:false};
     el.innerHTML=plot(spec,el.clientWidth||290,+el.dataset.h||el.clientHeight||138);slidePlots.push(spec)});
-  $('#dashNote').textContent=`${company} · 역년 분기 ${d[0].q}–${d[li].q}${c.fiscalYearEnd==='6월 말'?' (6월 결산 — 회계 분기를 역년 분기에 대응)':''} · 성장률 = 전년 동기 대비 · FCF = 영업CF − CAPEX · 이자보상 = 분기 영업이익 ÷ 이자비용 · 부채비율 = 총부채 ÷ 자본(분기 말) · 순이익은 영업외손익 포함.${c.quarterNote?' '+c.quarterNote:''}`}
+  $('#dashNote').textContent=`${company} · 역년 분기 ${d[0].q}–${d[n-1].q}${c.fiscalNote?' ('+c.fiscalNote+')':''} · 성장률 = 전년 동기 대비 · FCF = 영업CF − CAPEX · 이자보상 = 분기 영업이익 ÷ 이자비용 · 부채비율 = 총부채 ÷ 자본(분기 말) · 순이익은 영업외손익 포함.${c.quarterNote?' '+c.quarterNote:''}`}
 function financialOverview(){
   const names=Object.keys(FIN.companies),labels=['FY21','FY22','FY23','FY24','FY25','26TTM'];
   const fcf={title:'빅테크 4사 FCF',labels,pre:'$',dec:1,series:names.map(n=>{const c=FIN.companies[n];return {name:n,values:c.annual.filter(x=>x.year<=2025).map(x=>x.fcf).concat((c.ttm2026||c.ttm)?.fcf??null),end:true,w:n==='Amazon'?3.5:2}})};

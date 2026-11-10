@@ -2,7 +2,8 @@
 
 data.json · research_*.json · macro_raw.json · sector_us.json 을 읽어
 SLIDES / CHARTS / SOURCES / ERAS / FIN / SECTOR / TL 상수를 만들고,
-v3.css · v3.js 와 합쳐 한 파일짜리 HTML(기업재무_발표자료_12조.html = index.html)로 내보낸다.
+v3.css · v3.js 와 합쳐 한 파일짜리 HTML(기업재무_발표자료_12조_v2.html)로 내보낸다.
+이전 판(기업재무_발표자료_12조.html = index.html, 31장)은 건드리지 않는다.
 
 장표 본문은 1440×810 무대 기준이다. 본문 영역은 대략 1326×554px
 (머리 102 + 본문 + 한 줄 요약 64 + 바닥 26)이므로 높이를 넘기지 않게 맞춘다.
@@ -28,6 +29,7 @@ F = read('research_financials.json')       # 빅테크 연간 재무 · 아날�
 M = read('macro_raw.json')                 # FEDFUNDS · GS10 월별
 Q = read('research_quarterly.json')        # 빅테크 · 삼성 · SK hynix · WSTS 분기
 QF = read('research_quarterly_fin.json')   # 빅테크 분기 손익 · 재무상태 (대시보드)
+QA = read('research_quarterly_fin_added.json')   # 대시보드에 추가한 6개사 분기 손익 · 재무상태 · 현금흐름
 HIS = read('research_history.json')        # 냉전 군사비 · 1980년대 거시 · Linear 인수 협상
 RAW_SECTOR = read('sector_us.json')        # Fortune 500 섹터별 매출 Top 10 (build_sector_us.py 가 만든다)
 ATTR = read('assets/v3/deck/attribution.json')
@@ -196,11 +198,6 @@ source('midterms', 'AP · 2026 미국 중간선거', 'https://apnews.com/article
        '2026.11.04 민주당 상·하원 다수 확보 보도. 새 의회는 2027년 출범.', 'AP')
 source('dc_ballot', 'Data Center Ballot · 지역 주민투표 집계', 'https://ballot.dcmap.us/',
        '2026.11.06 집계. 구속력 있는 35건 중 31건 제한 찬성. 인증 전 결과 포함. 정당별·전국 법률 통계 아님.', 'Data Center Ballot')
-source('nv_openai', 'NVIDIA–OpenAI · 2025.09 협력 의향서', 'https://openai.com/index/openai-nvidia-systems-partnership/',
-       '최대 $100bn 단계적 투자 의향과 10GW 구상. 해당 시점 의향서의 구조 설명이며 전액 집행을 뜻하지 않음.', 'OpenAI')
-source('lucent', 'Lucent · FY2000 10-K 고객금융',
-       'https://www.sec.gov/Archives/edgar/data/1006240/000095012300011855/y43690e10-k405.txt',
-       '고객 대출·지급보증·미집행 약정은 서로 구별해야 함.', SEC)
 source('analog_rank2025', 'GMI · 2025 아날로그 반도체 시장 추정',
        'https://www.gminsights.com/industry-analysis/analog-semiconductors-market',
        '2026.09 발행. TI 1위, ADI 2위. 시장 범위에 따라 순위와 점유율이 달라질 수 있음.', 'Global Market Insights')
@@ -230,6 +227,9 @@ for name, c in F['companies'].items():
            '분기 영업현금흐름과 CAPEX(총현금 기준). FCF=영업CF−CAPEX, 금융리스 원금은 차감하지 않음.', 'SEC')
     source('sec_qf_' + name, name + ' · SEC XBRL 분기 재무 (손익 · 재무상태 · 현금흐름)', QF['tags'][name]['source'],
            '분기 매출 · 순이익 · 영업이익 · 이자비용 · 자본 · 부채를 역년 분기로 맞춘 값. 태그와 산출 근거는 research_quarterly_fin.json.', 'SEC')
+for name in QA['order']:
+    t = QA['tags'][name]
+    source('sec_qf_' + name, name + ' · ' + t['sourceTitle'], t['source'], t['sourceNote'], t['publisher'])
 for name, c in F['peers'].items():
     source('peer_' + name, name + ' · SEC 매출 공시', c['source'], '', 'SEC')
 for i, a in enumerate(F['audit']):
@@ -670,7 +670,7 @@ add('linear-context', 1, '왜 팔렸나: 세 가지 시대 배경', '고수익 �
                 'Linear는 <b>3%</b>(8위) — 제품·고객·판매망의 폭이 경쟁 조건이 됐다.',
                 'IC Insights · 발표액 기준 · 점유율은 2015 아날로그 IC 시장($47.0bn) 기준')
     + '</div>',
-    '리니어의 기술은 ADI 안에 남았다. 사라진 것은 독립 상장회사다.',
+    '리니어는 마지막까지 좋은 회사였다. 환경이 바뀌면, 좋은 회사도 사라질 수 있다.',
     ['linear_deal', 'linear_finance', 'adi_presentation_2016', 'mckinsey_mna', 'linear_pr_sec', 'fred_ff', 'fred_dgs10',
      'fed_history', 'icinsights_mna', 'icinsights_analog2015', 'adi_10k_2017'],
     tables=[dict(title='대응 가능 시장 (ADI 인수 발표 자료, 2015 기준 $bn)', head=['구분', '컨버터', '증폭기', '인터페이스', '클럭·타이밍', '전원 관리', '합계'],
@@ -748,47 +748,6 @@ add('sector-ranking', 1, '1위가 바뀌지 않는 산업, 1위가 바뀌는 산
            '매출 증가를 성장률로 해석하면 안 됨. 조사 기준 2026-11-09.',
     tables=[sector_table(sec) for sec in SECTOR['sectors']])
 
-
-# ── 기업 생애주기: 성숙기는 선택의 시점 ──
-def lifecycle_svg():
-    W, H = 1326, 462
-    s = ['<rect x="720" y="40" width="280" height="360" fill="#fff" opacity=".04"/>']
-    for x in (250, 470, 720, 1000):
-        s.append(f'<line x1="{x}" x2="{x}" y1="40" y2="400" stroke="{AXIS}" stroke-dasharray="3 6"/>')
-    s.append(f'<path d="M60,20V400H1290M1283,395l7,5l-7,5" fill="none" stroke="{AXIS}" stroke-width="1.5"/>')
-    s.append(T(72, 28, '사업 규모 · 현금창출력 (개념)', 13, INK3))
-    stages = [(155, '스타트업', '아이디어 · 적자'), (360, '유년기', '시장 확인'), (595, '성장기', '매출 급증 · 투자 확대'),
-              (860, '성숙기', '안정적 현금 · 성장 둔화'), (1145, '쇠락', '수요 이탈')]
-    for x, name, desc in stages:
-        on = name == '성숙기'
-        s.append(T(x, 432, name, 20 if on else 17, INK if on else INK2, 'middle', 800 if on else 600))
-        s.append(T(x, 454, desc, 13.5, INK2 if on else INK3, 'middle'))
-    s.append('<path d="M70,388C170,386 230,372 300,340C400,292 470,170 600,128C680,102 760,96 840,100'
-             f'C920,104 990,128 1060,176C1130,224 1200,276 1285,300" fill="none" stroke="{CYAN}" stroke-width="5" stroke-linecap="round"/>')
-    s.append(T(1150, 326, '기존 사업만으로는 쇠락', 16, INK2, 'middle', cls='halo'))
-    # 재투자 경로: 이름표는 선 위에 둔다
-    s.append('<g id="renewal"><path d="M860,101C940,97 1010,84 1090,72C1170,60 1230,54 1285,52" fill="none" '
-             f'stroke="{GREEN}" stroke-width="4" stroke-dasharray="11 8" stroke-linecap="round"/>'
-             + T(1112, 44, 'R&amp;D · 재투자 → 재성장', 19, INK, 'middle', 800, 'halo') + '</g>')
-    # 갈림길과 성숙기 현금의 세 가지 쓰임
-    s.append(f'<line x1="860" x2="860" y1="112" y2="152" stroke="{AMBER}" stroke-width="1.5" stroke-dasharray="3 4"/>')
-    s.append(f'<circle cx="860" cy="101" r="9" fill="{SURF}" stroke="{AMBER}" stroke-width="3"/>')
-    s.append(T(846, 80, '선택의 시점', 17, AMBER, 'end', 800, 'halo'))
-    s.append(T(860, 170, '성숙기의 현금 — 세 가지 쓰임', 14, INK2, 'middle', 700))
-    for i, (name, role) in enumerate([('배당 · 자사주', '주주 환원'), ('R&amp;D · CAPEX', '내부 재투자'), ('M&amp;A', '외부 성장')]):
-        y = 182 + i * 46
-        s.append(f'<rect x="740.5" y="{y + .5}" width="239" height="36" rx="8" fill="#0c2033" stroke="#235069"/>')
-        s.append(T(756, y + 24, name, 17, INK, weight=700))
-        s.append(T(964, y + 23, role, 13.5, INK3, 'end'))
-    return (f'<svg width="{W}" height="{H}" viewBox="0 0 {W} {H}" role="img" aria-label="기업 생애주기 개념도: 스타트업, 유년기, '
-            '성장기, 성숙기, 쇠락. 성숙기에서 재투자를 하면 재성장 경로로 갈라진다">' + ''.join(s) + '</svg>')
-
-
-add('life-cycle', 1, '성숙기는 종착점이 아니라 선택의 시점', '기업 생애주기 · 설명용 개념도, 실제 기업 추정 곡선 아님',
-    '<div class="col" style="height:100%">' + lifecycle_svg()
-    + '<div class="toolbar mt8"><button id="lifeToggle" aria-pressed="true">재투자 경로 켜기 / 끄기</button>'
-      '<p class="note">성숙기의 현금 → 배당·자사주 / R&amp;D·CAPEX / M&amp;A · 재성장은 보장되지 않음</p></div></div>',
-    '순간의 재무 최적화와 장기 산업 변화에 대한 판단이 함께 필요하다.')
 
 # ═════════════════════════ PART 2 · 반도체 산업의 변천 ═════════════════════════
 divider(2, '반도체 산업의 변천',
@@ -1273,10 +1232,10 @@ add('industry-lessons', 2, '반도체의 역사는 네 가지 질문으로 남�
     ['ranking_history', 'linear_10k_2016', 'elpida_failure', 'fed_history'])
 
 # ═════════════════════════ PART 3 · AI 시대 마주한 재무적 이슈들 ═════════════════════════
-ISSUES = ['투자 경쟁과 현금흐름', '금리 재상승', '순환 거래 구조', '정치 · 규제', '현금 배분']
+ISSUES = ['투자 경쟁과 현금흐름', '금리 재상승', '정치 · 규제', '현금 배분']
 divider(3, 'AI 시대 마주한<br>재무적 이슈들',
         '<p class="dv-desc">수요가 폭발할수록 더 중요한 질문.<br>누가 지불하고, 누가 위험을 떠안고, 현금을 어디에 쓸 것인가.</p>'
-        '<div class="issues">' + ''.join(f'<span><b>{"①②③④⑤"[i]}</b>{t}</span>' for i, t in enumerate(ISSUES)) + '</div>')
+        '<div class="issues">' + ''.join(f'<span><b>{"①②③④"[i]}</b>{t}</span>' for i, t in enumerate(ISSUES)) + '</div>')
 
 # ── 2026: 분기 매출 ──
 WQ = Q['wsts']['quarters']
@@ -1353,20 +1312,90 @@ add('buyer-cash', 3, '① 투자 경쟁이 현금흐름을 압박한다', '2026 
     tables=[dict(title='2026 CAPEX 가이던스 ($bn)', head=['기업', '하단', '상단'],
                  rows=[[n, str(GUIDE[n][0]), str(GUIDE[n][1])] for n in F['companies']] + [['합계'] + [str(v) for v in GUIDE['total']]])])
 
+# 대시보드: 빅테크 4사 + 추가 6사(요청 순서). 타일은 세 묶음으로 읽는다 — 버는 힘(위 4개) · 투자와 FCF · 부채 부담
+# 회사별 유의점. FISCAL_NOTE · QNOTE 는 장표 아래 한 줄 주석에, DASH_METHOD 는 출처 창의 산식 설명에 쓴다
+FISCAL_NOTE = {
+    'Microsoft': '6월 결산 — 회계 분기를 역년 분기에 대응',
+    'Oracle': '5월 결산 — 2 · 5 · 8 · 11월에 끝나는 회계 분기를 역년 1–4분기에 대응',
+    'Apple': '9월 결산 — 회계 분기를 역년 분기에 대응',
+}
+QNOTE = {
+    'Meta': 'Meta의 분기 이자비용은 차입금 이자 기준이어서 이자보상배율이 다소 높게 나오며, 2024Q1–Q2는 분기별 수치가 태그되지 않아 비움.',
+    'Oracle': '2023Q1은 자본이 음수여서 부채비율을 비움.',
+    'Apple': '이자비용은 2023Q3까지만 공시되어 그 뒤의 이자보상배율은 비움.',
+    'CoreWeave': '2025.03 상장 — 2023년은 분기 값이 공시되지 않았고 재무상태는 2024Q4부터. 이자비용은 순이자비용 기준. '
+                 '2026Q3는 조사일(11.10)까지 미발표.',
+    'Nebius': '분기 XBRL이 없어 회사의 분기 실적 발표문 기준(계속사업, 2024Q1부터). 2025Q2 · 2026Q1의 순이익 흑자는 투자지분 평가이익 때문. '
+              '2026Q3는 11.12 발표 예정.',
+    'SpaceX': '2026.06 상장 — 10-Q와 투자설명서로 2025Q1부터 구성(xAI · X 합산 기준). 2024년 분기 값은 공시되지 않았고, '
+              '재무상태는 2024Q4 · 2025Q4 이후만.',
+}
+DASH_METHOD = {
+    'Microsoft': 'Microsoft는 6월 결산이어서 회계 분기를 역년 분기에 대응시킴.',
+    'Amazon': 'Amazon · Oracle은 총부채가 태그되지 않아 자산 − 자본으로 구함.',
+    'Meta': 'Meta의 분기 이자비용은 차입금 이자(InterestExpenseDebt, 금융리스 이자 제외) 기준이며, 2024Q1 · Q2는 두 분기 합산치만 '
+            '태그되어 있어 이자보상배율을 비움.',
+    'Oracle': 'Oracle은 5월 결산으로 2 · 5 · 8 · 11월 말에 끝나는 회계 분기를 역년 1–4분기에 대응시켰고(예: 2026Q3 = 2026.06–08), '
+              '2023Q1은 자본이 음수여서 부채비율을 비움.',
+    'Apple': 'Apple은 9월 결산(분기 말은 3 · 6 · 9 · 12월 마지막 토요일 무렵)이며, FY2024부터 이자비용을 따로 공시하지 않아 '
+             '이자보상배율은 2023Q3까지.',
+    'Tesla': 'Tesla의 순이익은 보통주주 귀속분.',
+    'CoreWeave': 'CoreWeave는 2025.03 상장으로 2023년은 연간 값만 공시되어 분기를 비웠고, 총자산 · 총부채는 2024Q4부터 태그됨. '
+                 '이자비용은 손익계산서의 순이자비용(Interest expense, net)이며, 2026Q3 실적은 조사일까지 발표되지 않음.',
+    'Nebius': 'Nebius는 분기 XBRL이 없어(연차보고서만 태그) 회사 분기 실적 발표문의 요약 재무제표에서 읽음: 계속사업 기준이며 '
+              '2024Q1–2025Q1은 이후 발표문이 Toloka를 제외해 다시 제시한 값, 영업현금흐름은 계속사업분, CAPEX는 유형 · 무형자산 취득액. '
+              '2023년 분기와 2024.03 재무상태는 옛 Yandex N.V. 기준이어서 비웠고, 이자비용은 2025Q2부터 계상됨. 2025Q2 · 2026Q1의 순이익에는 '
+              '투자지분 평가이익(각 $597.4M · $780.6M)이 들어 있음. 2025Q3 이후는 감사 전 발표치(감사를 거친 2025년 연간 영업손실은 분기 합계보다 '
+              '$15.5M 큼)이며, 2026Q3는 2026.11.12 발표 예정.',
+    'SpaceX': 'SpaceX는 2026.06 상장으로, 10-Q(2026Q2 · Q3)에 태그된 값에 회사 IR 사이트의 투자설명서(Form 424B4)를 더해 2025Q1부터 구성함: '
+              '1분기와 2025년 연간은 투자설명서, 2025Q4 = 연간 − 9개월 누계, 2분기 현금흐름 = 상반기 − 1분기. 모든 기간은 xAI · X를 소급 합산한 '
+              '기준. 2024년 분기 값과 2025년 1–3분기 말 재무상태표는 공시되지 않아 비움.',
+}
+# 추가 6사의 지표별 공시 범위 (처음, 마지막, 분기 수). 자료가 바뀌면 아래 묶기 단계의 assert 에서 걸린다
+ALL_Q = ('2023Q1', '2026Q3', 15)
+DASH_KEYS = ('revenue', 'revenueGrowth', 'netIncome', 'operatingMargin', 'capex', 'fcf', 'interestCoverage', 'debtRatio')
+
+
+def spans_of(**gaps):
+    """여덟 지표의 공시 범위. 적지 않은 지표는 15개 분기가 모두 있다."""
+    return {k: gaps.get(k, ALL_Q) for k in DASH_KEYS}
+
+
+DASH_SPANS = {
+    'Oracle': spans_of(debtRatio=('2023Q2', '2026Q3', 14)),
+    'Apple': spans_of(interestCoverage=('2023Q1', '2023Q3', 3)),
+    'Tesla': spans_of(),
+    'CoreWeave': spans_of(revenue=('2024Q1', '2026Q2', 10), revenueGrowth=('2025Q1', '2026Q2', 6), netIncome=('2024Q1', '2026Q2', 10),
+                          operatingMargin=('2024Q1', '2026Q2', 10), capex=('2024Q1', '2026Q2', 10), fcf=('2024Q1', '2026Q2', 10),
+                          interestCoverage=('2024Q1', '2026Q2', 10), debtRatio=('2024Q4', '2026Q2', 7)),
+    'Nebius': spans_of(revenue=('2024Q1', '2026Q2', 10), revenueGrowth=('2025Q1', '2026Q2', 6), netIncome=('2024Q1', '2026Q2', 10),
+                       operatingMargin=('2024Q1', '2026Q2', 10), capex=('2024Q1', '2026Q2', 10), fcf=('2024Q1', '2026Q2', 10),
+                       interestCoverage=('2025Q2', '2026Q2', 5), debtRatio=('2024Q2', '2026Q2', 9)),
+    'SpaceX': spans_of(revenue=('2025Q1', '2026Q3', 7), revenueGrowth=('2026Q1', '2026Q3', 3), netIncome=('2025Q1', '2026Q3', 7),
+                       operatingMargin=('2025Q1', '2026Q3', 7), capex=('2025Q1', '2026Q3', 7), fcf=('2025Q1', '2026Q3', 7),
+                       interestCoverage=('2025Q1', '2026Q3', 7), debtRatio=('2024Q4', '2026Q3', 5)),
+}
+ADDED = QA['order']
+DASH = list(F['companies']) + ADDED
+assert ADDED == ['Oracle', 'Apple', 'Tesla', 'CoreWeave', 'Nebius', 'SpaceX'] and len(set(DASH)) == 10, DASH
 add('buyer-dashboard', 3, '매출의 성장보다, 현금의 내구성을 확인한다',
-    f'기업 선택 → 여덟 가지 지표의 분기 추이 · {QS[0]}–{QS[-1]}',
+    f'기업 선택({len(DASH)}개사) → 여덟 가지 지표의 분기 추이 · {QS[0]}–{QS[-1]}',
     '<div class="dash-top"><label for="companySelect">기업</label><select id="companySelect">'
-    + ''.join(f'<option>{n}</option>' for n in F['companies'])
-    + '</select></div><div class="dashboard" id="dashboard"></div><p class="note" id="dashNote"></p>',
+    + ''.join(f'<option>{n}</option>' for n in DASH)
+    + '</select><div class="dash-legend"><span><i></i>① 버는 힘 · 차입 여력</span>'
+      '<span class="k2"><i></i>② 투자 부담 · FCF</span><span class="k3"><i></i>③ 부채 부담 · 기업별 차이</span></div></div>'
+      '<div class="dashboard" id="dashboard"></div><p class="note" id="dashNote"></p>',
     '같은 AI 투자 경쟁이어도 기존 사업의 현금창출력과 재무구조는 다르다.',
-    [f'sec_qf_{n}' for n in F['companies']],
-    method='SEC XBRL(companyfacts)에 태그된 값을 역년 분기로 맞춤. 손익 · 현금흐름 항목은 3개월 공시값을 우선 쓰고, 없으면 회계연도 누계의 '
+    [f'sec_qf_{n}' for n in DASH],
+    method='SEC XBRL(companyfacts)에 태그된 값을 역년 분기로 맞춤(Nebius는 회사 분기 실적 발표문, SpaceX의 상장 전 기간은 투자설명서 — '
+           '뒤의 회사별 설명 참조). 손익 · 현금흐름 항목은 3개월 공시값을 우선 쓰고, 없으면 회계연도 누계의 '
            '차감으로 구함(회계 4분기 = 연간 − 9개월 누계). 재무상태 항목은 분기 말 잔액. 정정 공시가 있으면 가장 최근 제출분을 사용하며, '
-           '태그된 값으로 구할 수 없는 분기는 비워 두고 추정 · 보간하지 않음. '
+           '공시된 값으로 구할 수 없는 분기는 비워 두고 추정 · 보간하지 않음. '
            '매출 성장률 = 전년 동기 대비 · 영업이익률 = 영업이익 ÷ 매출 · FCF = 영업CF − 현금 CAPEX(금융리스 원금 미차감) · '
-           '이자보상배율 = 분기 영업이익 ÷ 영업외 이자비용 · 부채비율 = 총부채 ÷ 자본(분기 말, Amazon의 총부채 = 자산 − 자본). '
-           'Meta의 분기 이자비용은 차입금 이자(InterestExpenseDebt, 금융리스 이자 제외) 기준이며, 2024Q1 · Q2는 두 분기 합산치만 '
-           '태그되어 있어 이자보상배율을 비움. Microsoft는 6월 결산이어서 회계 분기를 역년 분기에 대응시킴. 조사 기준 2026-11-09.')
+           '이자보상배율 = 분기 영업이익 ÷ 영업외 이자비용 · 부채비율 = 총부채 ÷ 자본(분기 말). 자본은 자산 − 총부채로, 비지배지분과 '
+           '상장 전 상환전환우선주 등 임시자본(temporary equity)을 포함하며 0 이하이면 부채비율을 비움. '
+           + ' '.join(DASH_METHOD[n] for n in DASH if n in DASH_METHOD)
+           + ' 조사 기준: 기존 4사 2026-11-09, 추가 6사 2026-11-10.')
 
 # ── ② 금리 재상승 · 미·일의 역사로 본 미·중 ──
 rn = [d for d, _ in FF if '2022-01' <= d <= '2026-10']
@@ -1420,66 +1449,9 @@ add('rates-2026', 3, '② 금리의 재상승은 회수기간을 더 무겁게 �
     ['fred_10', 'fred_ff', 'fed_2026', 'audit_3_0', 'audit_3_1', 'audit_3_2', 'ai_index', 'japan'])
 
 
-# ── ③ 순환 거래 구조 ──
-def cycle_svg(uid, left, right, final, money, sales, label):
-    """왼쪽 공급자 ↔ 오른쪽 고객. 위 호 = 자금, 아래 호 = 매출, 오른쪽 끝 = 거래망 밖의 최종 고객."""
-    def node(x, w, name, role, outside=False):
-        look = f'fill="none" stroke="{GREEN}" stroke-dasharray="5 5"' if outside else 'fill="#0c2033" stroke="#2d5f7c"'
-        box = f'<rect x="{x}" y="116" width="{w}" height="96" rx="12" stroke-width="1.5" {look}/>'
-        return (box + T(x + w / 2, 160, name, 17 if outside else 24, INK, 'middle', 700)
-                + T(x + w / 2, 186, role, 13.5 if outside else 14.5, INK2, 'middle'))
-
-    def head(k, c):
-        return (f'<marker id="{uid}{k}" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">'
-                f'<path d="M0,0 L10,5 L0,10 Z" fill="{c}"/></marker>')
-
-    return (f'<svg viewBox="0 0 605 326" role="img" aria-label="{label}"><defs>{head("m", AMBER)}{head("s", CYAN)}{head("f", GREEN)}</defs>'
-            + node(0, 180, *left) + node(284, 180, *right) + node(492, 113, *final, outside=True)
-            + f'<path d="M90,116 C90,32 374,32 374,111" fill="none" stroke="{AMBER}" stroke-width="3" marker-end="url(#{uid}m)"/>'
-            + f'<circle cx="{232 - tw(money, 15) / 2 - 12:.0f}" cy="25" r="5" fill="{AMBER}"/>' + T(232, 30, money, 15, INK, 'middle', 700)
-            + f'<path d="M374,212 C374,296 90,296 90,217" fill="none" stroke="{CYAN}" stroke-width="3" marker-end="url(#{uid}s)"/>'
-            + f'<circle cx="{232 - tw(sales, 15) / 2 - 12:.0f}" cy="307" r="5" fill="{CYAN}"/>' + T(232, 312, sales, 15, INK, 'middle', 700)
-            + f'<path d="M490,164 L468,164" fill="none" stroke="{GREEN}" stroke-width="3" marker-end="url(#{uid}f)"/>'
-            + '</svg>')
-
-
-def cycle_panel(kicker, title, svg, note):
-    return (f'<article class="panel"><div class="kicker">{kicker}</div><h3>{title}</h3><div class="cycle">{svg}</div>'
-            f'<div class="note" style="margin-top:auto">{note}</div></article>')
-
-
-add('circular-flow', 3, '③ 공급자·고객·투자자가 겹치기 시작했다', '자금의 순환과 최종 외부 수요를 분리해서 본다',
-    '<div class="rows" style="gap:12px">'
-    + legend([('dot', AMBER, '자금 (투자 · 대출)'), ('dot', CYAN, '매출 (구매 · 상환)'), ('ring', GREEN, '거래망 밖에서 들어오는 현금')])
-    + '<div class="grid g2 grow auto">'
-    + cycle_panel('AI · 2025.09 발표 구조', 'NVIDIA ↔ OpenAI',
-                  cycle_svg('ca', ('NVIDIA', '공급자 · 투자자'), ('OpenAI', '고객 · 투자 수혜자'), ('최종 고객', '구독 · API 매출'),
-                            '단계적 지분 투자 구상', 'GPU·시스템 구매 · 컴퓨트 수요', 'NVIDIA와 OpenAI 사이의 자금·매출 순환'),
-                  '최대 $100bn 의향서 사례이며 전액 집행된 현금이라는 뜻이 아니다. 클라우드·AI 랩의 지분투자와 컴퓨트 약정도 유사한 연결.')
-    + cycle_panel('통신 · 1990s 말–2000', 'Lucent ↔ 통신사업자',
-                  cycle_svg('cb', ('Lucent', '장비 공급자 · 대출자'), ('통신사업자', '고객 · 차입자'), ('최종 고객', '통신 요금'),
-                            '고객 대출 · 지급보증', '통신장비 매출 · 원리금 상환', 'Lucent와 통신사업자 사이의 자금·매출 순환'),
-                  '고객 금융이 장비 수주를 지원했다. 고객의 부실은 대출 손실과 매출 감소로 동시에 전이됐다.')
-    + '</div></div>',
-    '외부 고객이 내는 현금이 충분하지 않으면, 연결된 위험이 함께 커진다.', ['nv_openai', 'lucent'])
-
-BFLY = [('자금의 성격', '대출 · 보증 · 고객금융', '지분투자 + 구매 · 클라우드 약정'),
-        ('공통 위험', '과잉투자 · 고객 지급능력', '독립 수요보다 투자금에 의존'),
-        ('손실의 경로', '대손 · 보증 지급 · 매출 감소', '지분 평가손실 · 계약 축소 · 매출 감소'),
-        ('다른 점', '주로 네트워크 용량 경쟁', '학습 · 추론 · 플랫폼, GPU의 빠른 노후화'),
-        ('확인할 것', '회수가능액 · 담보 · 대출 만기', '최종 고객 현금 · 매출 인식 · 취소 조건')]
-add('circular-compare', 3, '닮은 것은 자금 연결, 다른 것은 손실의 경로', '순환 구조 자체가 가공매출이나 부정회계를 의미하지는 않는다',
-    '<div class="col center" style="height:100%"><div class="bfly">'
-    '<div class="bh l"><small>과거 · 1990s 말</small><b>통신장비 벤더 파이낸싱</b></div><div class="bh m"></div>'
-    '<div class="bh r"><small>현재 · 2025–26</small><b>AI 투자 · 구매 연결</b></div>'
-    + ''.join(f'<div class="c l{k}">{a}</div><div class="c m{k}">{m}</div><div class="c{k}">{b}</div>'
-              for i, (m, a, b) in enumerate(BFLY) for k in [' key' if i == len(BFLY) - 1 else ''])
-    + '</div></div>',
-    '같은 현금이 거래망을 돌아도, 거래를 유지시키는 힘은 최종 고객의 지불 의사다.', ['nv_openai', 'lucent'])
-
-# ── ④ 정치 · 규제 ──
+# ── ③ 정치 · 규제 ──
 BALLOT_YES, BALLOT_ALL = 31, 35              # Data Center Ballot · 2026.11.06 집계
-add('politics', 3, '④ 선거는 투자 총량보다 입지와 시간을 바꾼다', '2026 중간선거 결과와 데이터센터의 지역 정치',
+add('politics', 3, '③ 선거는 투자 총량보다 입지와 시간을 바꾼다', '2026 중간선거 결과와 데이터센터의 지역 정치',
     '<div class="rows" style="gap:18px">'
     # 위: 전국 선거 — 작게. 선거 결과와 법률 시행 사이에는 시간이 있다
     '<div class="elect"><div><span class="kicker">선거 결과 · AP</span>'
@@ -1515,7 +1487,7 @@ add('china-race', 3, '속도를 늦추는 비용도 정치적이다', '2026.03 �
     + '</div>',
     '해석: 투자 사이클을 완전히 꺾기는 어렵지만, 개별 사업의 수익성까지 보장되지는 않는다.', ['ai_index', 'dc_ballot'])
 
-# ── ⑤ 현금 배분 ──
+# ── ④ 현금 배분 ──
 sam_op, skh_op = [r['op'] for r in SAM], [r['op'] for r in SKH]
 CHARTS['supplierOP'] = dict(
     title='삼성전자 · SK hynix 분기 영업이익', cap='분기 영업이익 (조원)', labels=qlab, suf='조', dec=1, fs=13,
@@ -1531,7 +1503,7 @@ def alloc(name, color, rows, foot):
             f'<span class="full">{foot}</span></div></article>')
 
 
-add('cash-allocation', 3, '⑤ 막대한 현금, 어디에 배분할 것인가?', '리니어의 질문이 2026년의 삼성·SK hynix로 돌아왔다',
+add('cash-allocation', 3, '④ 막대한 현금, 어디에 배분할 것인가?', '리니어의 질문이 2026년의 삼성·SK hynix로 돌아왔다',
     '<div class="split"><div class="col">' + slot('supplierOP')
     + '<p class="note">연결 분기 영업이익, 조원. 회사 규모와 사업 구성이 다르며, 영업이익은 현금흐름과 다르다.</p></div><div class="alloc">'
     + alloc('삼성전자', C[0], [('2026 CAPEX', '전망', '84.4'), ('2026 주주환원', '예상', '90–110')],
@@ -1568,11 +1540,10 @@ add('contracts', 3, '장기계약은 보이는 물량을 늘린다. 위험을 �
 # ── 마무리 ──
 CLOSE = [('수요자 재무', 'Elpida · 만기와 유동성', '빅테크 CAPEX · FCF', '회복까지 버틸 현금'),
          ('자본비용', '미·일 금리와 투자', '고금리 · 중국 추격', '수익률 > 자본비용'),
-         ('거래 구조', '통신 벤더 금융', 'AI 투자·구매의 연결', '독립된 최종 수요'),
          ('정책 · 경쟁', '정부 조달 · 무역 협정', '전력 규제 · AI 경쟁', '입지 · 비용 · 시점'),
          ('현금 배분', 'Linear · 환원과 매각', '공급자 호황 · LTA', '재투자 · 환원 · 완충력')]
 add('closing', 3, '과거의 질문은 다른 모습으로 돌아온다', '기술이 기회를 만든다. 자본배분의 선택이 기업의 다음 장을 결정한다.',
-    '<div class="rows" style="gap:26px;justify-content:center"><div class="closing"><span></span>'
+    f'<div class="rows" style="gap:26px;justify-content:center"><div class="closing" style="--n:{len(CLOSE)}"><span></span>'
     + ''.join(f'<div class="hd"><small>0{i + 1}</small>{c[0]}</div>' for i, c in enumerate(CLOSE))
     + '<div class="rl">과거</div>' + ''.join(f'<div class="c">{c[1]}</div>' for c in CLOSE)
     + '<div class="rl">현재</div>' + ''.join(f'<div class="c">{c[2]}</div>' for c in CLOSE)
@@ -1583,30 +1554,36 @@ add('closing', 3, '과거의 질문은 다른 모습으로 돌아온다', '기�
 
 # ═════════════════════════ 묶기 · 점검 · 쓰기 ═════════════════════════
 # 대시보드가 읽는 항목만 남긴다 (v3.js 의 dashboard · financialOverview)
-FY_END = {'June 30': '6월 말', 'December 31': '12월 말'}
 FIN_KEYS = ('year', 'label', 'revenue', 'revenueGrowth', 'netIncome', 'operatingMargin', 'capex', 'fcf', 'interestCoverage', 'debtRatio')
-QKEYS = ('q', 'revenue', 'revenueGrowth', 'netIncome', 'operatingMargin', 'capex', 'fcf', 'interestCoverage', 'debtRatio')
-QNOTE = {'Meta': 'Meta의 분기 이자비용은 차입금 이자 기준이어서 이자보상배율이 다소 높게 나오며, 2024Q1–Q2는 분기별 수치가 태그되지 않아 비움.'}
+QKEYS = ('q',) + DASH_KEYS
 
 
-def fin_quarters(name):
-    """대시보드의 분기 지표. 매출 · CAPEX · FCF 는 다른 장표가 쓰는 분기 자료(Q['bigtech'])와 같아야 한다."""
-    rows = [{k: r.get(k) for k in QKEYS} for r in QF['companies'][name]]
+def dash_quarters(name):
+    """대시보드의 분기 지표. 기존 4사의 매출 · CAPEX · FCF 는 다른 장표가 쓰는 분기 자료(Q['bigtech'])와 같아야 한다."""
+    rows = [{k: r.get(k) for k in QKEYS} for r in (QF if name in BT else QA)['companies'][name]]
     assert [r['q'] for r in rows] == QS, name
-    assert all(abs(r[k] - b[k]) < 0.0015 for r, b in zip(rows, BT[name]) for k in ('revenue', 'capex', 'fcf')), name
+    if name in BT:
+        assert all(abs(r[k] - b[k]) < 0.0015 for r, b in zip(rows, BT[name]) for k in ('revenue', 'capex', 'fcf')), name
     return rows
 
 
-FIN = {'companies': {n: {
-    'fiscalYearEnd': FY_END[c['fiscalYearEnd']],
+def available(rows, k):
+    """그 지표가 공시된 분기: (처음, 마지막, 개수). 하나도 없으면 None."""
+    have = [r['q'] for r in rows if r[k] is not None]
+    return (have[0], have[-1], len(have)) if have else None
+
+
+FIN = {'companies': {n: {            # ① 투자 경쟁 장표의 연간 FCF · Meta 차입 차트
     'annual': [{k: r.get(k) for k in FIN_KEYS} for r in c['annual']],
     'ttm2026': {k: c['latestTTM'].get(k) for k in FIN_KEYS},
     'chartSeries': [{k: r.get(k) for k in ('year', 'label', 'debtIssuance')} for r in c['chartSeries']],
-    'quarters': fin_quarters(n),
-    'quarterNote': QNOTE.get(n, ''),
-} for n, c in F['companies'].items()}}
-q_null = sorted((n, r['q'], k) for n, c in FIN['companies'].items() for r in c['quarters'] for k in QKEYS if r[k] is None)
+} for n, c in F['companies'].items()},
+    'dash': {n: {'quarters': dash_quarters(n), 'fiscalNote': FISCAL_NOTE.get(n, ''), 'quarterNote': QNOTE.get(n, '')} for n in DASH}}
+q_null = sorted((n, r['q'], k) for n in BT for r in FIN['dash'][n]['quarters'] for k in QKEYS if r[k] is None)
 assert q_null == [('Meta', '2024Q1', 'interestCoverage'), ('Meta', '2024Q2', 'interestCoverage')], q_null
+# 추가 6사: 공시되지 않은 분기는 비어 있다. 자료가 바뀌면 여기서 걸리게 지표별 공시 범위를 적어 둔다
+spans = {n: {k: available(FIN['dash'][n]['quarters'], k) for k in QKEYS[1:]} for n in ADDED}
+assert spans == DASH_SPANS, ' 공시 범위가 달라졌다:' + ''.join(f' [{n}] {v!r}' for n, v in spans.items())
 
 # 점검: 하나라도 걸리면 파일을 쓰지 않는다
 ids = [s['id'] for s in SLIDES]
@@ -1642,7 +1619,7 @@ script = '\n'.join(f'const {k}=' + json.dumps(v, ensure_ascii=False).replace('</
 PEN_COLORS = [('#ffd84d', '노랑'), ('#ff5d6c', '빨강'), ('#37ccff', '하늘'), ('#ffffff', '흰색')]
 page = (
     '<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">'
-    '<title>기업재무_발표자료_12조 | 리니어는 왜 사라졌나?</title><style>' + CSS + '</style></head><body>'
+    '<title>기업재무_발표자료_12조_v2 | 리니어는 왜 사라졌나?</title><style>' + CSS + '</style></head><body>'
     '<header class="top"><div class="brand"><b>12</b> SEMICONDUCTOR</div><nav aria-label="파트 이동">'
     + ''.join(f'<button data-part="{i}">PART {i} · {PARTS[i]}</button>' for i in (1, 2, 3))
     + '</nav><a href="기업재무_반도체산업.html" target="_blank">반도체 산업 아카이브 ↗</a></header>'
@@ -1663,8 +1640,9 @@ page = (
     '<script>' + script + '</script><script>' + JS + '</script></body></html>')
 assert '????' not in re.sub(r'data:image/[^"]+', '', page)
 
-for name in ('기업재무_발표자료_12조.html', 'index.html'):
-    (P / name).write_text(page, encoding='utf-8')
+# v2 만 쓴다. 기업재무_발표자료_12조.html · index.html 은 2026-11-09 판(31장)을 그대로 둔다
+OUT = '기업재무_발표자료_12조_v2.html'
+(P / OUT).write_text(page, encoding='utf-8')
 (P / 'v3_deck_content.json').write_text(
     json.dumps(dict(slides=SLIDES, charts=CHARTS, eras=ERAS), ensure_ascii=False, indent=2), encoding='utf-8')
-print(f'Built {len(SLIDES)} slides; {len(CHARTS)} charts; {len(page):,} characters')
+print(f'Built {OUT}: {len(SLIDES)} slides; {len(CHARTS)} charts; {len(page):,} characters')

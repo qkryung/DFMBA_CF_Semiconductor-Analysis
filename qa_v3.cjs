@@ -1,7 +1,7 @@
 const fs=require('fs'),path=require('path'),assert=require('assert');
 const {JSDOM,VirtualConsole}=require(path.join(process.env.TEMP,'codex-html-qa/node_modules/jsdom'));
 let errors=[];const vc=new VirtualConsole();vc.on('jsdomError',e=>errors.push(e.message));
-const page=fs.readFileSync(path.join(__dirname,'index.html'),'utf8');
+const page=fs.readFileSync(path.join(__dirname,'기업재무_발표자료_12조_v2.html'),'utf8');
 const dom=new JSDOM(page,{runScripts:'dangerously',url:'http://localhost/',pretendToBeVisual:true,virtualConsole:vc,beforeParse(w){w.HTMLDialogElement.prototype.showModal=function(){this.open=true};w.HTMLDialogElement.prototype.close=function(){this.open=false;this.dispatchEvent(new w.Event('close'))}}});
 const w=dom.window,d=w.document,ev=s=>w.eval(s);
 let count=ev('SLIDES.length'),checks=0;
@@ -11,13 +11,26 @@ for(let i=0;i<count;i++){
  ev(`SLIDES[${i}].sources.forEach(id=>{if(!SOURCES[id])throw new Error('missing source '+id)})`);checks++;
 }
 const click=e=>e.dispatchEvent(new w.MouseEvent('click',{bubbles:true,cancelable:true}));
-// 장표 구성: 31장. 합치거나 뺀 장표의 id는 남아 있지 않다
-assert.equal(count,31);const ids=ev('SLIDES.map(s=>s.id)');for(const gone of ['era0-capital','buyer-checklist','rates-china'])assert(!ids.includes(gone),gone+' should be gone');
-// 빅테크 대시보드: 기업을 바꿔도 지표 타일 8개가 모두 분기(2023Q1–2026Q3, 15개 분기) 추이로 그려진다
+// 장표 구성: v2는 28장. 합치거나 뺀 장표의 id는 남아 있지 않고, 뺀 '순환 거래' 주제는 목차(간지) · 마무리 표에도 없다
+assert.equal(count,28);const ids=ev('SLIDES.map(s=>s.id)');for(const gone of ['era0-capital','buyer-checklist','rates-china','life-cycle','circular-flow','circular-compare'])assert(!ids.includes(gone),gone+' should be gone');
+ev("goto(SLIDES.findIndex(s=>s.id==='part3'))");assert.equal(d.querySelectorAll('.issues span').length,4);assert(!d.querySelector('.issues').textContent.includes('순환'));
+ev("goto(SLIDES.findIndex(s=>s.id==='closing'))");assert.equal(d.querySelectorAll('.closing .hd').length,4);assert(!d.querySelector('.closing').textContent.includes('거래 구조'));
+assert(ev("SLIDES.find(s=>s.id==='linear-context').take").includes('좋은 회사도 사라질 수 있다'));checks+=3;
+// 대시보드: 10개사(빅테크 4사 + 추가 6사). 기업을 바꿔도 지표 타일 8개가 같은 분기 축(2023Q1–2026Q3, 15개 분기)에 그려진다.
+// 타일 묶음: 위 4개(테두리 없음) · CAPEX/FCF(key) · 이자보상배율/부채비율(debt). 공시되지 않은 분기는 비고, 큰 숫자는 회사의 최근 공시 분기 값
 ev("goto(SLIDES.findIndex(s=>s.id==='buyer-dashboard'))");
-const companies=ev('Object.keys(FIN.companies)');
-for(const c of companies){let e=d.querySelector('#companySelect');e.value=c;e.dispatchEvent(new w.Event('change'));assert.equal(d.querySelectorAll('#dashboard .tile').length,8);assert.equal(d.querySelectorAll('#dashboard .tile-c svg').length,8);assert(!d.querySelector('#dashboard').innerHTML.match(/NaN|undefined/));
- const q=ev(`FIN.companies[${JSON.stringify(c)}].quarters.map(x=>x.q)`);assert.equal(q.length,15);assert.equal(q[0],'2023Q1');assert.equal(q[14],'2026Q3');assert(d.querySelector('#dashNote').textContent.includes('역년 분기 2023Q1–2026Q3'));assert(d.querySelector('#dashboard .tile-v em').textContent.startsWith('26Q3'));checks++}
+const companies=ev('Object.keys(FIN.dash)');assert.deepEqual(companies,['Microsoft','Alphabet','Amazon','Meta','Oracle','Apple','Tesla','CoreWeave','Nebius','SpaceX']);
+assert.deepEqual([...d.querySelectorAll('#companySelect option')].map(o=>o.textContent),companies);assert.equal(d.querySelectorAll('.dash-legend span').length,3);
+for(const c of companies){let e=d.querySelector('#companySelect');e.value=c;e.dispatchEvent(new w.Event('change'));assert.equal(d.querySelectorAll('#dashboard .tile').length,8);assert(!d.querySelector('#dashboard').innerHTML.match(/NaN|undefined|Infinity/));
+ assert.deepEqual([...d.querySelectorAll('#dashboard .tile')].map(t=>t.classList.contains('key')?'key':t.classList.contains('debt')?'debt':''),['','','','','key','key','debt','debt']);
+ assert.deepEqual([...d.querySelectorAll('#dashboard .tile.debt .tile-h span')].map(s=>s.textContent),['이자보상배율','부채비율']);
+ const rows=ev(`FIN.dash[${JSON.stringify(c)}].quarters`),q=rows.map(x=>x.q);assert.equal(q.length,15);assert.equal(q[0],'2023Q1');assert.equal(q[14],'2026Q3');assert(d.querySelector('#dashNote').textContent.includes('역년 분기 2023Q1–2026Q3'));
+ const keys=['revenue','revenueGrowth','netIncome','operatingMargin','capex','fcf','interestCoverage','debtRatio'],has=k=>rows.some(x=>Number.isFinite(x[k]));
+ assert.equal(d.querySelectorAll('#dashboard .tile-c svg').length,keys.filter(has).length);assert.equal(d.querySelectorAll('#dashboard .tile-none').length,keys.filter(k=>!has(k)).length);
+ const latest=rows.filter(x=>Number.isFinite(x.revenue)).pop();assert(latest,c+' has no reported quarter');assert(d.querySelector('#dashboard .tile-v em').textContent.startsWith(latest.q.slice(2)));
+ [...d.querySelectorAll('#dashboard .tile-v')].forEach((t,i)=>assert.equal(t.textContent.startsWith('N/A'),!Number.isFinite(latest[keys[i]]),c+' '+keys[i]));checks++}
+// 기존 4사는 15개 분기가 모두 있고(Meta 이자보상배율 2개 분기 제외), ① 투자 경쟁 장표의 연간 FCF 차트는 4사만 쓴다
+assert.deepEqual(ev('Object.keys(FIN.companies)'),companies.slice(0,4));for(const c of companies.slice(0,4))assert.equal(ev(`FIN.dash[${JSON.stringify(c)}].quarters.filter(x=>Number.isFinite(x.revenue)&&Number.isFinite(x.capex)&&Number.isFinite(x.debtRatio)).length`),15);
 // 섹터 순위(미국 Fortune 500 · 매출 연도 1995–2025, 5년 간격 7개 시점): 10개 섹터 버튼, 섹터마다 Top 10 × 7 = 70칸, 자동 순환
 ev("goto(SLIDES.findIndex(s=>s.id==='sector-ranking'))");
 const pills=[...d.querySelectorAll('#sectorPills [data-sector]')],years=ev('SECTOR.years.length');assert.equal(pills.length,10);assert.equal(years,7);assert.deepEqual(ev('SECTOR.years'),[1995,2000,2005,2010,2015,2020,2025]);
@@ -31,7 +44,6 @@ ev("goto(SLIDES.findIndex(s=>s.id==='rates-2026'))");assert(d.querySelector('[da
 // 시간축 지도: 시대 팝업과 레이어 끄기
 ev("goto(SLIDES.findIndex(s=>s.id==='industry-map'))");assert.equal(d.querySelectorAll('[data-era]').length,ev('ERAS.length'));click(d.querySelector('[data-era]'));assert(d.querySelector('#modal').open);d.querySelector('#modal').close();
 let layers=d.querySelectorAll('[data-layer]');assert.equal(layers.length,4);assert.equal(d.querySelectorAll('#timeline .lane.off').length,0);layers[0].checked=false;layers[0].dispatchEvent(new w.Event('change'));assert(d.querySelectorAll('#timeline .lane.off').length>0);
-ev("goto(SLIDES.findIndex(s=>s.id==='life-cycle'))");d.querySelector('#lifeToggle').click();assert.equal(d.querySelector('#lifeToggle').getAttribute('aria-pressed'),'false');
 // Linear 매출 성장률 보기: 0% 눈금이 있어야 역성장을 읽을 수 있다
 ev("goto(SLIDES.findIndex(s=>s.id==='linear-cash'))");d.querySelector('.pills [data-linear="linearGrowth"]').click();assert([...d.querySelectorAll('#linearChart svg text')].some(t=>t.textContent==='0%'),'growth chart needs a 0% tick');
 // 펜: 켜고, 한 획 긋고, 장표를 넘기면 지워진다 (저장하지 않음)
