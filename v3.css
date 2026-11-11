@@ -337,14 +337,18 @@ svg .halo{paint-order:stroke;stroke:#07121f;stroke-width:4px;stroke-linejoin:rou
 .tile-v em{font-style:normal;font-size:11.5px;font-weight:400;color:var(--ink3);margin-left:8px;letter-spacing:0}
 .tile-c{height:138px}
 .tile-none{height:100%;display:flex;align-items:center;justify-content:center;font-size:13px;color:var(--ink3)}
-/* closing */
+/* closing — 과거 · 현재 · 확인할 것 세 줄 아래에 조의 판단(머리말 + 덧붙임)을 초록 카드로 둔다 */
 .closing{display:grid;grid-template-columns:118px repeat(var(--n,5),1fr);gap:0 12px;align-items:stretch}
 .closing .rl{font-size:13px;letter-spacing:2px;color:var(--ink3);display:flex;align-items:center;font-weight:700}
 .closing .hd{font-size:27px;font-weight:800;padding:0 0 12px;border-bottom:3px solid var(--acc);letter-spacing:-.5px}
 .closing .hd small{display:block;font-size:13px;color:var(--acc);letter-spacing:2px;font-weight:700;margin-bottom:3px}
-.closing .c{font-size:19px;line-height:1.45;color:var(--ink2);padding:20px 0;border-bottom:1px solid var(--line)}
-.closing .c.rule{color:var(--ink);font-weight:800;font-size:21px;border-bottom:0}
+.closing .c{font-size:19px;line-height:1.45;color:var(--ink2);padding:17px 0;border-bottom:1px solid var(--line)}
+.closing .c.rule{color:var(--ink);font-weight:700}
 .closing .rl.r3{color:var(--acc)}
+.closing .rl.r4{color:var(--green);margin-top:12px}
+.closing .c.judge{margin-top:12px;padding:11px 16px 12px;border-bottom:0;border-left:4px solid var(--green);border-radius:0 10px 10px 0;background:linear-gradient(90deg,color-mix(in srgb,var(--green) 17%,transparent),transparent 92%)}
+.closing .c.judge b{display:block;font-size:22px;font-weight:800;letter-spacing:-.4px;color:#fff}
+.closing .c.judge span{display:block;font-size:18px;font-weight:500;color:var(--ink)}
 .closing+.quote{font-size:42px}
 /* 제2기: 이유 세 장과 결과 사이의 ‘그래서’ 표시 */
 .splitmark.arrows{display:grid;grid-template-columns:1fr auto 1fr;align-items:center}

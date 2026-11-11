@@ -22,6 +22,17 @@ ev("goto(SLIDES.findIndex(s=>s.id==='part3'))");assert.equal(d.querySelectorAll(
 assert.deepEqual(ev("SLIDES.filter(s=>/^[①-⑨]/.test(s.title)).map(s=>s.title[0]+s.id)"),['①buyer-cash','②us-china','③cash-allocation']);
 ev("goto(SLIDES.findIndex(s=>s.id==='closing'))");assert.equal(d.querySelectorAll('.closing .hd').length,3);assert(!d.querySelector('.closing').textContent.includes('거래 구조'));
 assert(ev("SLIDES.find(s=>s.id==='linear-context').take").includes('좋은 회사도 사라질 수 있다'));checks+=4;
+// 마무리 표(v5 보완): 과거 · 현재 · 확인할 것 아래에 ‘우리의 판단’ 한 줄 — 이슈마다 머리말 + 덧붙임. 부제는 PART 2 두 축의 머리말(수요의 이동 × 자본력)
+assert.deepEqual([...d.querySelectorAll('.closing .rl')].map(e=>e.textContent),['과거','현재','확인할 것','우리의 판단']);assert.equal(d.querySelectorAll('.closing .c').length,12);
+assert.deepEqual([...d.querySelectorAll('.closing .c.judge')].map(e=>[...e.children].map(c=>c.textContent).join(' / ')),['빅테크는 버틴다 / 위험은 네오클라우드부터','당장은 미국 우위 / 장기화되면 격차 축소','환원보다 완충력 / 다음 성장축이 먼저']);
+assert.equal(d.querySelector('.shead .sub').textContent,'수요의 이동 × 자본력 — 반도체의 역사는 같은 틀 안에서 반복된다');
+// PART 3 의 결론 문장(v5 보완): 이슈마다 조의 판단으로 끝난다 — ① 22쪽 · ② 23쪽 · ③ 24쪽. 22쪽의 근거(가장 최근 분기의 이자보상배율)는 자료에서 다시 확인한다
+const take=id=>ev(`SLIDES.find(s=>s.id===${JSON.stringify(id)}).take`);
+assert.equal(take('buyer-dashboard'),'빅테크는 본업의 현금으로 버틴다. 먼저 흔들릴 곳은 영업이익으로 이자를 감당하지 못하는 네오클라우드다.');
+assert.equal(take('cash-allocation'),'환원보다 완충력과 다음 성장축이 먼저다. 호황의 현금은 다음 불황을 버티는 힘이다.');assert(take('us-china').startsWith('당장 패권이 뒤집히기는 어렵다.'));
+const lastIC=c=>ev(`FIN.dash[${JSON.stringify(c)}].quarters.filter(x=>Number.isFinite(x.interestCoverage)).pop().interestCoverage`);
+for(const c of ['Microsoft','Alphabet','Amazon','Meta'])assert(lastIC(c)>10,c);for(const c of ['CoreWeave','Nebius'])assert(lastIC(c)<1,c);
+for(const id of ['buyer-dashboard','cash-allocation'])assert(ev(`SLIDES.find(s=>s.id===${JSON.stringify(id)}).method`).includes('결론 문장은 조의 판단'),id);checks+=7;
 // 참고 장표: 5 · 7쪽의 제목이 (참고)로 시작하고 목차에서도 표시된다. 다른 장표에는 붙지 않는다
 assert.deepEqual(ev('SLIDES.map((s,i)=>s.ref?i+1:0).filter(Boolean)'),[5,7]);
 for(const [n,id] of [[5,'linear-deal'],[7,'sector-ranking']]){ev(`goto(${n-1})`);assert.equal(d.querySelector('.slide').dataset.id,id);assert(d.querySelector('.shead h1').textContent.startsWith('(참고) '));assert(d.querySelector('.slide').classList.contains('ref'))}

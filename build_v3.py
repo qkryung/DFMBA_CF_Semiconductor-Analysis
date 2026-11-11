@@ -1868,6 +1868,22 @@ DASH_SPANS = {
 ADDED = QA['order']
 DASH = list(F['companies']) + ADDED
 assert ADDED == ['Oracle', 'Apple', 'Tesla', 'CoreWeave', 'Nebius', 'SpaceX'] and len(set(DASH)) == 10, DASH
+# 결론 문장은 조의 판단이다(v5 보완): 빅테크는 버티고, 먼저 흔들릴 곳은 네오클라우드. 근거는 가장 최근 분기의 두 지표 —
+# 빅테크 4사는 이자보상배율이 10배를 넘고 영업현금흐름이 CAPEX의 절반 이상을 대며, 네오클라우드 두 곳은 영업손실이어서
+# 이자보상배율이 1배에 못 미친다. 자료가 바뀌어 이 관계가 깨지면 여기서 걸린다
+NEO = ['CoreWeave', 'Nebius']                  # 네오클라우드: GPU 클라우드 전문 기업
+
+
+def latest_ic(name):
+    """이자보상배율이 공시된 가장 최근 분기의 지표 한 줄."""
+    return [r for r in (QF if name in BT else QA)['companies'][name] if r.get('interestCoverage') is not None][-1]
+
+
+IC_BIG = [latest_ic(n) for n in F['companies']]
+IC_NEO = [latest_ic(n) for n in NEO]
+OCF_COVER = [(r['fcf'] + r['capex']) / r['capex'] * 100 for r in IC_BIG]     # 영업현금흐름 ÷ CAPEX (%) · 영업CF = FCF + CAPEX
+assert {r['q'] for r in IC_BIG} == {QS[-1]} and min(r['interestCoverage'] for r in IC_BIG) > 10 and min(OCF_COVER) > 50, (IC_BIG, OCF_COVER)
+assert {r['q'] for r in IC_NEO} == {'2026Q2'} and all(r['interestCoverage'] < 1 and r['operatingMargin'] < 0 for r in IC_NEO), IC_NEO
 add('buyer-dashboard', 3, '매출의 성장보다, 현금의 내구성을 확인한다',
     f'하이퍼스케일러 · 네오클라우드 등 {len(DASH)}개사 → 여덟 가지 지표의 분기 추이 · {QS[0]}–{QS[-1]}',
     '<div class="dash-top"><label for="companySelect">기업</label><select id="companySelect">'
@@ -1875,7 +1891,7 @@ add('buyer-dashboard', 3, '매출의 성장보다, 현금의 내구성을 확인
     + '</select><div class="dash-legend"><span><i></i>① 버는 힘 · 차입 여력</span>'
       '<span class="k2"><i></i>② 투자 부담 · FCF</span><span class="k3"><i></i>③ 부채 부담 · 기업별 차이</span></div></div>'
       '<div class="dashboard" id="dashboard"></div><p class="note" id="dashNote"></p>',
-    '치킨게임에서 끝까지 버티는 힘은 기존 사업의 현금창출력과 재무구조에서 갈린다.',
+    '빅테크는 본업의 현금으로 버틴다. 먼저 흔들릴 곳은 영업이익으로 이자를 감당하지 못하는 네오클라우드다.',
     [f'sec_qf_{n}' for n in DASH],
     method='SEC XBRL(companyfacts)에 태그된 값을 역년 분기로 맞춤(Nebius는 회사 분기 실적 발표문, SpaceX의 상장 전 기간은 투자설명서 — '
            '뒤의 회사별 설명 참조). 손익 · 현금흐름 항목은 3개월 공시값을 우선 쓰고, 없으면 회계연도 누계의 '
@@ -1885,6 +1901,11 @@ add('buyer-dashboard', 3, '매출의 성장보다, 현금의 내구성을 확인
            '이자보상배율 = 분기 영업이익 ÷ 영업외 이자비용 · 부채비율 = 총부채 ÷ 자본(분기 말). 자본은 자산 − 총부채로, 비지배지분과 '
            '상장 전 상환전환우선주 등 임시자본(temporary equity)을 포함하며 0 이하이면 부채비율을 비움. '
            + ' '.join(DASH_METHOD[n] for n in DASH if n in DASH_METHOD)
+           + ' 결론 문장은 조의 판단이며 근거는 두 가지: 가장 최근 분기의 이자보상배율(빅테크 4사 '
+           + fmt(min(r['interestCoverage'] for r in IC_BIG)) + '–' + fmt(max(r['interestCoverage'] for r in IC_BIG)) + f'배 · {QS[-1]}, '
+           + ' · '.join(n + ' ' + fmt(r['interestCoverage']) + '배' for n, r in zip(NEO, IC_NEO))
+           + ' · 2026Q2 — 두 곳 모두 영업손실)과, 빅테크 4사의 영업현금흐름이 같은 분기 CAPEX의 '
+           + f'{min(OCF_COVER):.0f}–{max(OCF_COVER):.0f}%에 이른다는 점(영업CF = FCF + CAPEX).'
            + ' 조사 기준: 기존 4사 2026-11-09, 추가 6사 2026-11-10.')
 
 # ── ② 미·중 패권 경쟁과 거시 환경 · 1980년대 미·일 구도의 재현 ──
@@ -2009,26 +2030,35 @@ add('cash-allocation', 3, '③ 막대한 현금, 어디에 배분할 것인가?'
     '<div><b>가격</b>시장 상황에 따라 다시 정해질 수 있다</div>'
     '<div><b>신용</b>고객이 끝까지 지불할 수 있는가</div></div>'
     '<div class="pfoot">장기계약은 보이는 물량을 늘릴 뿐,<br>위험을 없애지는 않는다</div></article></div></div>',
-    '환원에 묶여 성장을 놓칠 것인가, R&amp;D · M&amp;A로 다음 판을 준비할 것인가 — 리니어가 남긴 질문이다.',
+    '환원보다 완충력과 다음 성장축이 먼저다. 호황의 현금은 다음 불황을 버티는 힘이다.',
     ['sam_q', 'skh_q', 'C01', 'C02', 'audit_5_0', 'audit_5_1', 'audit_6_0', 'audit_7_0', 'linear_10k_2016', 'linear_10k_2007', 'linear_close'],
     method='영업이익은 삼성전자 · SK hynix의 분기 실적 발표(연결, 조원). 삼성전자의 2026년 CAPEX 84.4조원(DS 부문 76.8조원)은 회사 전망, '
            '주주환원 90–110조원은 예상치로 이 가운데 확정 · 집행분이 35조원이며 최종 금액은 2027.01 이사회에서 정해짐. '
            'SK hynix의 순현금 98.7조원은 3분기 말 현금 114.5조원 − 차입 15.8조원, 주주환원 약 100조원은 회사 계획. '
            f'장기공급계약(LTA)은 SK hynix가 밝힌 {LTA_CUSTOMERS}개 고객 · 2027–28년 생산능력의 {LTA_SHARE}% 이상이며, 가격은 합의한 범위 안에서 '
            '시장 상황을 반영하는 방식이어서 재협상 가능성이 남음. 장기계약은 과거에도 있었고, 지금은 규모 · 기간 · 고객 집중과 위험 배분이 달라진 점임. '
+           '결론 문장은 조의 판단(현금 배분의 우선순위에 대한 견해)이며, 근거는 PART 2 제3기 — 만기를 버틴 기업이 살아남았다는 것 — 와 '
+           '이 장의 장기계약에 남는 가격 · 신용 위험임. 환원 자체를 부정하는 뜻이 아님. '
            '조사 기준 2026-11-08.')
 
-# ── 마무리: PART 3 의 세 이슈를 과거 → 현재 → 확인할 것으로 다시 읽는다 ──
-CLOSE = [('CAPEX 치킨게임', '메모리 치킨게임 · Elpida', '빅테크 CAPEX · FCF', '끝까지 버틸 자금력 · 재무 건전성'),
-         ('미·중 경쟁과 거시 환경', '1980s 미·일의 금리 격차', '미국 고금리 · 중국 정부 지원', '저금리 · 정부 지원의 지속 기간'),
-         ('현금 배분', 'Linear · 환원과 매각', '삼성 · SK hynix의 현금', '재투자(R&amp;D · M&amp;A) · 환원 · 완충력')]
+# ── 마무리: PART 3 의 세 이슈를 과거 → 현재 → 확인할 것 → 우리의 판단으로 다시 읽는다 ──
+# 마지막 줄(v5 보완)은 조의 판단이다: 이슈 ① · ② · ③ 장표(22 · 23 · 24쪽)의 결론 문장을 머리말 + 덧붙임 두 줄로 줄인 것.
+# 부제의 두 낱말은 PART 2 간지의 두 축(수요의 이동과 밸류체인 분업화 · 자본력과 M&A 재편)의 머리말이다
+CLOSE = [('CAPEX 치킨게임', '메모리 치킨게임 · Elpida', '빅테크 CAPEX · FCF', '끝까지 버틸 자금력 · 재무 건전성',
+          ('빅테크는 버틴다', '위험은 네오클라우드부터')),
+         ('미·중 경쟁과 거시 환경', '1980s 미·일의 금리 격차', '미국 고금리 · 중국 정부 지원', '저금리 · 정부 지원의 지속 기간',
+          ('당장은 미국 우위', '장기화되면 격차 축소')),
+         ('현금 배분', 'Linear · 환원과 매각', '삼성 · SK hynix의 현금', '재투자(R&amp;D · M&amp;A) · 환원 · 완충력',
+          ('환원보다 완충력', '다음 성장축이 먼저'))]
 assert len(CLOSE) == len(ISSUES)
-add('closing', 3, '과거의 질문은 다른 모습으로 돌아온다', '수요의 이동 × 거시 환경 · 자본력 — 반도체의 역사는 같은 틀 안에서 반복된다',
+assert AXES[0][1].startswith('수요의 이동') and AXES[1][1].startswith('자본력'), AXES
+add('closing', 3, '과거의 질문은 다른 모습으로 돌아온다', '수요의 이동 × 자본력 — 반도체의 역사는 같은 틀 안에서 반복된다',
     f'<div class="rows" style="gap:26px;justify-content:center"><div class="closing" style="--n:{len(CLOSE)}"><span></span>'
     + ''.join(f'<div class="hd"><small>이슈 {ISSUE_NO[i]}</small>{c[0]}</div>' for i, c in enumerate(CLOSE))
     + '<div class="rl">과거</div>' + ''.join(f'<div class="c">{c[1]}</div>' for c in CLOSE)
     + '<div class="rl">현재</div>' + ''.join(f'<div class="c">{c[2]}</div>' for c in CLOSE)
     + '<div class="rl r3">확인할 것</div>' + ''.join(f'<div class="c rule">{c[3]}</div>' for c in CLOSE)
+    + '<div class="rl r4">우리의 판단</div>' + ''.join(f'<div class="c judge"><b>{c[4][0]}</b><span>{c[4][1]}</span></div>' for c in CLOSE)
     + '</div><div class="quote">과거의 맥락을 AI 시대에 대입하면<br>'
       '<span class="green">다음 의사결정의 이정표</span>가 보인다.</div></div>',
     '리니어는 사라졌지만, 리니어가 마주했던 재무적 선택은 끝나지 않았다.')
