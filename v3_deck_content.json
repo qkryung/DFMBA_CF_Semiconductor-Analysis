@@ -5,7 +5,7 @@
       "part": 0,
       "title": "리니어는 왜 사라졌나?",
       "sub": "",
-      "html": "<div class=\"cover-main\"><div class=\"eyebrow\">KAIST DFMBA · 기업재무 · 12조</div><h1>리니어는 왜<br><span class=\"green\">사라졌나?</span></h1><p class=\"lede\">기업의 성패를 결정짓는 핵심 요인은 <b>산업과 거시 환경의 변화</b>다.</p><div class=\"parts\"><button data-goto=\"part1\"><b>PART 1</b>케이스 이후의 Linear Technology</button><button data-goto=\"part2\"><b>PART 2</b>반도체 산업의 변천</button><button data-goto=\"part3\"><b>PART 3</b>AI 시대가 마주한 세 가지 재무적 이슈</button></div></div><div class=\"cover-art\"><svg viewBox=\"0 0 540 430\" role=\"img\" aria-label=\"반도체 칩 개념도\"><defs><radialGradient id=\"cvGlow\"><stop offset=\"0\" stop-color=\"#1479b8\" stop-opacity=\".42\"/><stop offset=\"1\" stop-color=\"#1479b8\" stop-opacity=\"0\"/></radialGradient><linearGradient id=\"cvDie\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\"><stop offset=\"0\" stop-color=\"#1f7fb3\"/><stop offset=\"1\" stop-color=\"#12456a\"/></linearGradient></defs><ellipse cx=\"270\" cy=\"222\" rx=\"262\" ry=\"170\" fill=\"url(#cvGlow)\"/><polygon points=\"270.0,82.8 510.8,208.0 270.0,333.2 29.2,208.0\" fill=\"none\" stroke=\"#1a5373\" stroke-width=\"1\" stroke-linejoin=\"round\" stroke-dasharray=\"3 7\"/><polygon points=\"270.0,69.4 536.6,208.0 270.0,346.6 3.4,208.0\" fill=\"none\" stroke=\"#1a5373\" stroke-width=\"1\" stroke-linejoin=\"round\" stroke-dasharray=\"3 7\"/><polygon points=\"231.5,91.6 246.5,99.4 234.5,105.7 219.5,97.9\" fill=\"#2a88ad\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"308.5,91.6 320.5,97.9 305.5,105.7 293.5,99.4\" fill=\"#1f6f90\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"205.5,105.1 220.5,112.9 208.5,119.2 193.5,111.4\" fill=\"#2a88ad\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"334.5,105.1 346.5,111.4 331.5,119.2 319.5,112.9\" fill=\"#1f6f90\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"179.5,118.7 194.5,126.5 182.5,132.7 167.5,124.9\" fill=\"#2a88ad\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"360.5,118.7 372.5,124.9 357.5,132.7 345.5,126.5\" fill=\"#1f6f90\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"153.5,132.2 168.5,140.0 156.5,146.2 141.5,138.4\" fill=\"#2a88ad\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"386.5,132.2 398.5,138.4 383.5,146.2 371.5,140.0\" fill=\"#1f6f90\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"127.5,145.7 142.5,153.5 130.5,159.7 115.5,151.9\" fill=\"#2a88ad\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"412.5,145.7 424.5,151.9 409.5,159.7 397.5,153.5\" fill=\"#1f6f90\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"101.5,159.2 116.5,167.0 104.5,173.3 89.5,165.5\" fill=\"#2a88ad\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"438.5,159.2 450.5,165.5 435.5,173.3 423.5,167.0\" fill=\"#1f6f90\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"75.5,172.7 90.5,180.5 78.5,186.8 63.5,179.0\" fill=\"#2a88ad\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"464.5,172.7 476.5,179.0 461.5,186.8 449.5,180.5\" fill=\"#1f6f90\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"55.0,190.0 270.0,301.8 270.0,319.8 55.0,208.0\" fill=\"#071f33\" stroke=\"#1d5f85\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"270.0,301.8 485.0,190.0 485.0,208.0 270.0,319.8\" fill=\"#05182a\" stroke=\"#1d5f85\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"270.0,78.2 485.0,190.0 270.0,301.8 55.0,190.0\" fill=\"#0a2c47\" stroke=\"#37ccff\" stroke-width=\"2\" stroke-linejoin=\"round\"/><polyline points=\"158.0,202.5 126.5,218.9\" fill=\"none\" stroke=\"#37ccff\" stroke-opacity=\".55\" stroke-width=\"1.5\"/><circle cx=\"126.5\" cy=\"218.9\" r=\"2.4\" fill=\"#7bebff\"/><polyline points=\"382.0,202.5 413.5,218.9\" fill=\"none\" stroke=\"#37ccff\" stroke-opacity=\".55\" stroke-width=\"1.5\"/><circle cx=\"413.5\" cy=\"218.9\" r=\"2.4\" fill=\"#7bebff\"/><polyline points=\"294.0,131.8 325.5,115.4\" fill=\"none\" stroke=\"#37ccff\" stroke-opacity=\".55\" stroke-width=\"1.5\"/><circle cx=\"325.5\" cy=\"115.4\" r=\"2.4\" fill=\"#7bebff\"/><polyline points=\"246.0,131.8 214.5,115.4\" fill=\"none\" stroke=\"#37ccff\" stroke-opacity=\".55\" stroke-width=\"1.5\"/><circle cx=\"214.5\" cy=\"115.4\" r=\"2.4\" fill=\"#7bebff\"/><polyline points=\"180.0,213.9 148.5,230.3\" fill=\"none\" stroke=\"#37ccff\" stroke-opacity=\".55\" stroke-width=\"1.5\"/><circle cx=\"148.5\" cy=\"230.3\" r=\"2.4\" fill=\"#7bebff\"/><polyline points=\"360.0,213.9 391.5,230.3\" fill=\"none\" stroke=\"#37ccff\" stroke-opacity=\".55\" stroke-width=\"1.5\"/><circle cx=\"391.5\" cy=\"230.3\" r=\"2.4\" fill=\"#7bebff\"/><polyline points=\"316.0,143.2 347.5,126.8\" fill=\"none\" stroke=\"#37ccff\" stroke-opacity=\".55\" stroke-width=\"1.5\"/><circle cx=\"347.5\" cy=\"126.8\" r=\"2.4\" fill=\"#7bebff\"/><polyline points=\"224.0,143.2 192.5,126.8\" fill=\"none\" stroke=\"#37ccff\" stroke-opacity=\".55\" stroke-width=\"1.5\"/><circle cx=\"192.5\" cy=\"126.8\" r=\"2.4\" fill=\"#7bebff\"/><polyline points=\"202.0,225.4 170.5,241.7\" fill=\"none\" stroke=\"#37ccff\" stroke-opacity=\".55\" stroke-width=\"1.5\"/><circle cx=\"170.5\" cy=\"241.7\" r=\"2.4\" fill=\"#7bebff\"/><polyline points=\"338.0,225.4 369.5,241.7\" fill=\"none\" stroke=\"#37ccff\" stroke-opacity=\".55\" stroke-width=\"1.5\"/><circle cx=\"369.5\" cy=\"241.7\" r=\"2.4\" fill=\"#7bebff\"/><polyline points=\"338.0,154.6 369.5,138.3\" fill=\"none\" stroke=\"#37ccff\" stroke-opacity=\".55\" stroke-width=\"1.5\"/><circle cx=\"369.5\" cy=\"138.3\" r=\"2.4\" fill=\"#7bebff\"/><polyline points=\"202.0,154.6 170.5,138.3\" fill=\"none\" stroke=\"#37ccff\" stroke-opacity=\".55\" stroke-width=\"1.5\"/><circle cx=\"170.5\" cy=\"138.3\" r=\"2.4\" fill=\"#7bebff\"/><polyline points=\"224.0,236.8 192.5,253.2\" fill=\"none\" stroke=\"#37ccff\" stroke-opacity=\".55\" stroke-width=\"1.5\"/><circle cx=\"192.5\" cy=\"253.2\" r=\"2.4\" fill=\"#7bebff\"/><polyline points=\"316.0,236.8 347.5,253.2\" fill=\"none\" stroke=\"#37ccff\" stroke-opacity=\".55\" stroke-width=\"1.5\"/><circle cx=\"347.5\" cy=\"253.2\" r=\"2.4\" fill=\"#7bebff\"/><polyline points=\"360.0,166.1 391.5,149.7\" fill=\"none\" stroke=\"#37ccff\" stroke-opacity=\".55\" stroke-width=\"1.5\"/><circle cx=\"391.5\" cy=\"149.7\" r=\"2.4\" fill=\"#7bebff\"/><polyline points=\"180.0,166.1 148.5,149.7\" fill=\"none\" stroke=\"#37ccff\" stroke-opacity=\".55\" stroke-width=\"1.5\"/><circle cx=\"148.5\" cy=\"149.7\" r=\"2.4\" fill=\"#7bebff\"/><polyline points=\"246.0,248.2 214.5,264.6\" fill=\"none\" stroke=\"#37ccff\" stroke-opacity=\".55\" stroke-width=\"1.5\"/><circle cx=\"214.5\" cy=\"264.6\" r=\"2.4\" fill=\"#7bebff\"/><polyline points=\"294.0,248.2 325.5,264.6\" fill=\"none\" stroke=\"#37ccff\" stroke-opacity=\".55\" stroke-width=\"1.5\"/><circle cx=\"325.5\" cy=\"264.6\" r=\"2.4\" fill=\"#7bebff\"/><polyline points=\"382.0,177.5 413.5,161.1\" fill=\"none\" stroke=\"#37ccff\" stroke-opacity=\".55\" stroke-width=\"1.5\"/><circle cx=\"413.5\" cy=\"161.1\" r=\"2.4\" fill=\"#7bebff\"/><polyline points=\"158.0,177.5 126.5,161.1\" fill=\"none\" stroke=\"#37ccff\" stroke-opacity=\".55\" stroke-width=\"1.5\"/><circle cx=\"126.5\" cy=\"161.1\" r=\"2.4\" fill=\"#7bebff\"/><polygon points=\"63.5,219.0 75.5,225.3 75.5,239.3 63.5,233.0\" fill=\"#2a88ad\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"78.5,211.2 90.5,217.5 75.5,225.3 63.5,219.0\" fill=\"#7bebff\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"476.5,219.0 464.5,225.3 464.5,239.3 476.5,233.0\" fill=\"#1f6f90\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"461.5,211.2 449.5,217.5 464.5,225.3 476.5,219.0\" fill=\"#5fd0ee\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"89.5,232.5 101.5,238.8 101.5,252.8 89.5,246.5\" fill=\"#2a88ad\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"104.5,224.7 116.5,231.0 101.5,238.8 89.5,232.5\" fill=\"#7bebff\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"450.5,232.5 438.5,238.8 438.5,252.8 450.5,246.5\" fill=\"#1f6f90\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"435.5,224.7 423.5,231.0 438.5,238.8 450.5,232.5\" fill=\"#5fd0ee\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"115.5,246.1 127.5,252.3 127.5,266.3 115.5,260.1\" fill=\"#2a88ad\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"130.5,238.3 142.5,244.5 127.5,252.3 115.5,246.1\" fill=\"#7bebff\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"424.5,246.1 412.5,252.3 412.5,266.3 424.5,260.1\" fill=\"#1f6f90\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"409.5,238.3 397.5,244.5 412.5,252.3 424.5,246.1\" fill=\"#5fd0ee\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"141.5,259.6 153.5,265.8 153.5,279.8 141.5,273.6\" fill=\"#2a88ad\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"156.5,251.8 168.5,258.0 153.5,265.8 141.5,259.6\" fill=\"#7bebff\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"398.5,259.6 386.5,265.8 386.5,279.8 398.5,273.6\" fill=\"#1f6f90\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"383.5,251.8 371.5,258.0 386.5,265.8 398.5,259.6\" fill=\"#5fd0ee\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"167.5,273.1 179.5,279.3 179.5,293.3 167.5,287.1\" fill=\"#2a88ad\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"182.5,265.3 194.5,271.5 179.5,279.3 167.5,273.1\" fill=\"#7bebff\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"372.5,273.1 360.5,279.3 360.5,293.3 372.5,287.1\" fill=\"#1f6f90\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"357.5,265.3 345.5,271.5 360.5,279.3 372.5,273.1\" fill=\"#5fd0ee\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"193.5,286.6 205.5,292.9 205.5,306.9 193.5,300.6\" fill=\"#2a88ad\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"208.5,278.8 220.5,285.1 205.5,292.9 193.5,286.6\" fill=\"#7bebff\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"346.5,286.6 334.5,292.9 334.5,306.9 346.5,300.6\" fill=\"#1f6f90\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"331.5,278.8 319.5,285.1 334.5,292.9 346.5,286.6\" fill=\"#5fd0ee\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"219.5,300.1 231.5,306.4 231.5,320.4 219.5,314.1\" fill=\"#2a88ad\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"234.5,292.3 246.5,298.6 231.5,306.4 219.5,300.1\" fill=\"#7bebff\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"320.5,300.1 308.5,306.4 308.5,320.4 320.5,314.1\" fill=\"#1f6f90\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"305.5,292.3 293.5,298.6 308.5,306.4 320.5,300.1\" fill=\"#5fd0ee\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"134.0,168.0 270.0,238.7 270.0,260.7 134.0,190.0\" fill=\"#0d3a5b\" stroke=\"#2e9fd0\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"270.0,238.7 406.0,168.0 406.0,190.0 270.0,260.7\" fill=\"#0a2e4a\" stroke=\"#2e9fd0\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"270.0,97.3 406.0,168.0 270.0,238.7 134.0,168.0\" fill=\"url(#cvDie)\" stroke=\"#7bebff\" stroke-width=\"2\" stroke-linejoin=\"round\"/><polygon points=\"270.0,113.9 374.0,168.0 270.0,222.1 166.0,168.0\" fill=\"none\" stroke=\"#7bebff\" stroke-width=\"1\" stroke-linejoin=\"round\" stroke-opacity=\".45\"/><text x=\"270\" y=\"176\" fill=\"#fff\" text-anchor=\"middle\" font-size=\"24\" font-weight=\"800\" letter-spacing=\"1\">LINEAR → AI</text><text x=\"270\" y=\"420\" fill=\"#5e99bd\" text-anchor=\"middle\" font-size=\"15\" letter-spacing=\"5\">DEMAND × CAPITAL × TIME</text></svg></div><div class=\"team\"><div class=\"team-label\">TEAM 12<small>가나다순</small></div><div class=\"member\"><b>김태현</b><span>DFMBA · 20269117</span></div><div class=\"member\"><b>박민영</b><span>DFMBA · 20269159</span></div><div class=\"member\"><b>박상준</b><span>DFMBA · 20269162</span></div><div class=\"member\"><b>안상현</b><span>DFMBA · 20269234</span></div><div class=\"member\"><b>채재희</b><span>DFMBA · 20269423</span></div><div class=\"member\"><b>하진관</b><span>DFMBA · 20269450</span></div></div>",
+      "html": "<div class=\"cover-main\"><div class=\"eyebrow\">KAIST DFMBA · 기업재무 · 12조</div><h1>리니어는 왜<br><span class=\"green\">사라졌나?</span></h1><p class=\"lede\">기업의 재무적 선택은<br><b>산업과 거시 환경에 대한 이해</b>를 바탕으로 결정되어야 한다.</p><div class=\"parts\"><button data-goto=\"part1\"><b>PART 1</b>케이스 이후의 Linear Technology</button><button data-goto=\"part2\"><b>PART 2</b>반도체 산업의 변천</button><button data-goto=\"part3\"><b>PART 3</b>AI 시대가 마주한 세 가지 재무적 이슈</button></div></div><div class=\"cover-art\"><svg viewBox=\"0 0 540 430\" role=\"img\" aria-label=\"반도체 칩 개념도\"><defs><radialGradient id=\"cvGlow\"><stop offset=\"0\" stop-color=\"#1479b8\" stop-opacity=\".42\"/><stop offset=\"1\" stop-color=\"#1479b8\" stop-opacity=\"0\"/></radialGradient><linearGradient id=\"cvDie\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\"><stop offset=\"0\" stop-color=\"#1f7fb3\"/><stop offset=\"1\" stop-color=\"#12456a\"/></linearGradient></defs><ellipse cx=\"270\" cy=\"222\" rx=\"262\" ry=\"170\" fill=\"url(#cvGlow)\"/><polygon points=\"270.0,82.8 510.8,208.0 270.0,333.2 29.2,208.0\" fill=\"none\" stroke=\"#1a5373\" stroke-width=\"1\" stroke-linejoin=\"round\" stroke-dasharray=\"3 7\"/><polygon points=\"270.0,69.4 536.6,208.0 270.0,346.6 3.4,208.0\" fill=\"none\" stroke=\"#1a5373\" stroke-width=\"1\" stroke-linejoin=\"round\" stroke-dasharray=\"3 7\"/><polygon points=\"231.5,91.6 246.5,99.4 234.5,105.7 219.5,97.9\" fill=\"#2a88ad\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"308.5,91.6 320.5,97.9 305.5,105.7 293.5,99.4\" fill=\"#1f6f90\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"205.5,105.1 220.5,112.9 208.5,119.2 193.5,111.4\" fill=\"#2a88ad\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"334.5,105.1 346.5,111.4 331.5,119.2 319.5,112.9\" fill=\"#1f6f90\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"179.5,118.7 194.5,126.5 182.5,132.7 167.5,124.9\" fill=\"#2a88ad\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"360.5,118.7 372.5,124.9 357.5,132.7 345.5,126.5\" fill=\"#1f6f90\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"153.5,132.2 168.5,140.0 156.5,146.2 141.5,138.4\" fill=\"#2a88ad\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"386.5,132.2 398.5,138.4 383.5,146.2 371.5,140.0\" fill=\"#1f6f90\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"127.5,145.7 142.5,153.5 130.5,159.7 115.5,151.9\" fill=\"#2a88ad\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"412.5,145.7 424.5,151.9 409.5,159.7 397.5,153.5\" fill=\"#1f6f90\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"101.5,159.2 116.5,167.0 104.5,173.3 89.5,165.5\" fill=\"#2a88ad\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"438.5,159.2 450.5,165.5 435.5,173.3 423.5,167.0\" fill=\"#1f6f90\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"75.5,172.7 90.5,180.5 78.5,186.8 63.5,179.0\" fill=\"#2a88ad\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"464.5,172.7 476.5,179.0 461.5,186.8 449.5,180.5\" fill=\"#1f6f90\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"55.0,190.0 270.0,301.8 270.0,319.8 55.0,208.0\" fill=\"#071f33\" stroke=\"#1d5f85\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"270.0,301.8 485.0,190.0 485.0,208.0 270.0,319.8\" fill=\"#05182a\" stroke=\"#1d5f85\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"270.0,78.2 485.0,190.0 270.0,301.8 55.0,190.0\" fill=\"#0a2c47\" stroke=\"#37ccff\" stroke-width=\"2\" stroke-linejoin=\"round\"/><polyline points=\"158.0,202.5 126.5,218.9\" fill=\"none\" stroke=\"#37ccff\" stroke-opacity=\".55\" stroke-width=\"1.5\"/><circle cx=\"126.5\" cy=\"218.9\" r=\"2.4\" fill=\"#7bebff\"/><polyline points=\"382.0,202.5 413.5,218.9\" fill=\"none\" stroke=\"#37ccff\" stroke-opacity=\".55\" stroke-width=\"1.5\"/><circle cx=\"413.5\" cy=\"218.9\" r=\"2.4\" fill=\"#7bebff\"/><polyline points=\"294.0,131.8 325.5,115.4\" fill=\"none\" stroke=\"#37ccff\" stroke-opacity=\".55\" stroke-width=\"1.5\"/><circle cx=\"325.5\" cy=\"115.4\" r=\"2.4\" fill=\"#7bebff\"/><polyline points=\"246.0,131.8 214.5,115.4\" fill=\"none\" stroke=\"#37ccff\" stroke-opacity=\".55\" stroke-width=\"1.5\"/><circle cx=\"214.5\" cy=\"115.4\" r=\"2.4\" fill=\"#7bebff\"/><polyline points=\"180.0,213.9 148.5,230.3\" fill=\"none\" stroke=\"#37ccff\" stroke-opacity=\".55\" stroke-width=\"1.5\"/><circle cx=\"148.5\" cy=\"230.3\" r=\"2.4\" fill=\"#7bebff\"/><polyline points=\"360.0,213.9 391.5,230.3\" fill=\"none\" stroke=\"#37ccff\" stroke-opacity=\".55\" stroke-width=\"1.5\"/><circle cx=\"391.5\" cy=\"230.3\" r=\"2.4\" fill=\"#7bebff\"/><polyline points=\"316.0,143.2 347.5,126.8\" fill=\"none\" stroke=\"#37ccff\" stroke-opacity=\".55\" stroke-width=\"1.5\"/><circle cx=\"347.5\" cy=\"126.8\" r=\"2.4\" fill=\"#7bebff\"/><polyline points=\"224.0,143.2 192.5,126.8\" fill=\"none\" stroke=\"#37ccff\" stroke-opacity=\".55\" stroke-width=\"1.5\"/><circle cx=\"192.5\" cy=\"126.8\" r=\"2.4\" fill=\"#7bebff\"/><polyline points=\"202.0,225.4 170.5,241.7\" fill=\"none\" stroke=\"#37ccff\" stroke-opacity=\".55\" stroke-width=\"1.5\"/><circle cx=\"170.5\" cy=\"241.7\" r=\"2.4\" fill=\"#7bebff\"/><polyline points=\"338.0,225.4 369.5,241.7\" fill=\"none\" stroke=\"#37ccff\" stroke-opacity=\".55\" stroke-width=\"1.5\"/><circle cx=\"369.5\" cy=\"241.7\" r=\"2.4\" fill=\"#7bebff\"/><polyline points=\"338.0,154.6 369.5,138.3\" fill=\"none\" stroke=\"#37ccff\" stroke-opacity=\".55\" stroke-width=\"1.5\"/><circle cx=\"369.5\" cy=\"138.3\" r=\"2.4\" fill=\"#7bebff\"/><polyline points=\"202.0,154.6 170.5,138.3\" fill=\"none\" stroke=\"#37ccff\" stroke-opacity=\".55\" stroke-width=\"1.5\"/><circle cx=\"170.5\" cy=\"138.3\" r=\"2.4\" fill=\"#7bebff\"/><polyline points=\"224.0,236.8 192.5,253.2\" fill=\"none\" stroke=\"#37ccff\" stroke-opacity=\".55\" stroke-width=\"1.5\"/><circle cx=\"192.5\" cy=\"253.2\" r=\"2.4\" fill=\"#7bebff\"/><polyline points=\"316.0,236.8 347.5,253.2\" fill=\"none\" stroke=\"#37ccff\" stroke-opacity=\".55\" stroke-width=\"1.5\"/><circle cx=\"347.5\" cy=\"253.2\" r=\"2.4\" fill=\"#7bebff\"/><polyline points=\"360.0,166.1 391.5,149.7\" fill=\"none\" stroke=\"#37ccff\" stroke-opacity=\".55\" stroke-width=\"1.5\"/><circle cx=\"391.5\" cy=\"149.7\" r=\"2.4\" fill=\"#7bebff\"/><polyline points=\"180.0,166.1 148.5,149.7\" fill=\"none\" stroke=\"#37ccff\" stroke-opacity=\".55\" stroke-width=\"1.5\"/><circle cx=\"148.5\" cy=\"149.7\" r=\"2.4\" fill=\"#7bebff\"/><polyline points=\"246.0,248.2 214.5,264.6\" fill=\"none\" stroke=\"#37ccff\" stroke-opacity=\".55\" stroke-width=\"1.5\"/><circle cx=\"214.5\" cy=\"264.6\" r=\"2.4\" fill=\"#7bebff\"/><polyline points=\"294.0,248.2 325.5,264.6\" fill=\"none\" stroke=\"#37ccff\" stroke-opacity=\".55\" stroke-width=\"1.5\"/><circle cx=\"325.5\" cy=\"264.6\" r=\"2.4\" fill=\"#7bebff\"/><polyline points=\"382.0,177.5 413.5,161.1\" fill=\"none\" stroke=\"#37ccff\" stroke-opacity=\".55\" stroke-width=\"1.5\"/><circle cx=\"413.5\" cy=\"161.1\" r=\"2.4\" fill=\"#7bebff\"/><polyline points=\"158.0,177.5 126.5,161.1\" fill=\"none\" stroke=\"#37ccff\" stroke-opacity=\".55\" stroke-width=\"1.5\"/><circle cx=\"126.5\" cy=\"161.1\" r=\"2.4\" fill=\"#7bebff\"/><polygon points=\"63.5,219.0 75.5,225.3 75.5,239.3 63.5,233.0\" fill=\"#2a88ad\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"78.5,211.2 90.5,217.5 75.5,225.3 63.5,219.0\" fill=\"#7bebff\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"476.5,219.0 464.5,225.3 464.5,239.3 476.5,233.0\" fill=\"#1f6f90\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"461.5,211.2 449.5,217.5 464.5,225.3 476.5,219.0\" fill=\"#5fd0ee\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"89.5,232.5 101.5,238.8 101.5,252.8 89.5,246.5\" fill=\"#2a88ad\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"104.5,224.7 116.5,231.0 101.5,238.8 89.5,232.5\" fill=\"#7bebff\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"450.5,232.5 438.5,238.8 438.5,252.8 450.5,246.5\" fill=\"#1f6f90\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"435.5,224.7 423.5,231.0 438.5,238.8 450.5,232.5\" fill=\"#5fd0ee\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"115.5,246.1 127.5,252.3 127.5,266.3 115.5,260.1\" fill=\"#2a88ad\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"130.5,238.3 142.5,244.5 127.5,252.3 115.5,246.1\" fill=\"#7bebff\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"424.5,246.1 412.5,252.3 412.5,266.3 424.5,260.1\" fill=\"#1f6f90\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"409.5,238.3 397.5,244.5 412.5,252.3 424.5,246.1\" fill=\"#5fd0ee\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"141.5,259.6 153.5,265.8 153.5,279.8 141.5,273.6\" fill=\"#2a88ad\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"156.5,251.8 168.5,258.0 153.5,265.8 141.5,259.6\" fill=\"#7bebff\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"398.5,259.6 386.5,265.8 386.5,279.8 398.5,273.6\" fill=\"#1f6f90\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"383.5,251.8 371.5,258.0 386.5,265.8 398.5,259.6\" fill=\"#5fd0ee\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"167.5,273.1 179.5,279.3 179.5,293.3 167.5,287.1\" fill=\"#2a88ad\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"182.5,265.3 194.5,271.5 179.5,279.3 167.5,273.1\" fill=\"#7bebff\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"372.5,273.1 360.5,279.3 360.5,293.3 372.5,287.1\" fill=\"#1f6f90\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"357.5,265.3 345.5,271.5 360.5,279.3 372.5,273.1\" fill=\"#5fd0ee\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"193.5,286.6 205.5,292.9 205.5,306.9 193.5,300.6\" fill=\"#2a88ad\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"208.5,278.8 220.5,285.1 205.5,292.9 193.5,286.6\" fill=\"#7bebff\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"346.5,286.6 334.5,292.9 334.5,306.9 346.5,300.6\" fill=\"#1f6f90\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"331.5,278.8 319.5,285.1 334.5,292.9 346.5,286.6\" fill=\"#5fd0ee\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"219.5,300.1 231.5,306.4 231.5,320.4 219.5,314.1\" fill=\"#2a88ad\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"234.5,292.3 246.5,298.6 231.5,306.4 219.5,300.1\" fill=\"#7bebff\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"320.5,300.1 308.5,306.4 308.5,320.4 320.5,314.1\" fill=\"#1f6f90\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"305.5,292.3 293.5,298.6 308.5,306.4 320.5,300.1\" fill=\"#5fd0ee\" stroke=\"none\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"134.0,168.0 270.0,238.7 270.0,260.7 134.0,190.0\" fill=\"#0d3a5b\" stroke=\"#2e9fd0\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"270.0,238.7 406.0,168.0 406.0,190.0 270.0,260.7\" fill=\"#0a2e4a\" stroke=\"#2e9fd0\" stroke-width=\"1\" stroke-linejoin=\"round\"/><polygon points=\"270.0,97.3 406.0,168.0 270.0,238.7 134.0,168.0\" fill=\"url(#cvDie)\" stroke=\"#7bebff\" stroke-width=\"2\" stroke-linejoin=\"round\"/><polygon points=\"270.0,113.9 374.0,168.0 270.0,222.1 166.0,168.0\" fill=\"none\" stroke=\"#7bebff\" stroke-width=\"1\" stroke-linejoin=\"round\" stroke-opacity=\".45\"/><text x=\"270\" y=\"176\" fill=\"#fff\" text-anchor=\"middle\" font-size=\"24\" font-weight=\"800\" letter-spacing=\"1\">LINEAR → AI</text><text x=\"270\" y=\"420\" fill=\"#5e99bd\" text-anchor=\"middle\" font-size=\"15\" letter-spacing=\"5\">DEMAND × CAPITAL × TIME</text></svg></div><div class=\"team\"><div class=\"team-label\">TEAM 12<small>가나다순</small></div><div class=\"member\"><b>김태현</b><span>DFMBA · 20269117</span></div><div class=\"member\"><b>박민영</b><span>DFMBA · 20269159</span></div><div class=\"member\"><b>박상준</b><span>DFMBA · 20269162</span></div><div class=\"member\"><b>안상현</b><span>DFMBA · 20269234</span></div><div class=\"member\"><b>채재희</b><span>DFMBA · 20269423</span></div><div class=\"member\"><b>하진관</b><span>DFMBA · 20269450</span></div></div>",
       "take": "",
       "sources": [],
       "kind": "cover",
@@ -47,7 +47,7 @@
       "part": 1,
       "title": "성장 둔화는 공통이었다. 대응은 달랐다",
       "sub": "아날로그 4사 매출 지수 (FY2011=100) · 기업별 회계연도 · 인수 효과 포함",
-      "html": "<div class=\"split s55\"><div class=\"col\"><div data-chart=\"peersIdx\" data-h=\"392\" style=\"min-height:392px\"></div><div class=\"cagr\"><div><span><i style=\"background:#3987e5\"></i>Linear</span><b>−0.8%</b></div><div><span><i style=\"background:#d95926\"></i>Maxim</span><b>−2.4%</b></div><div><span><i style=\"background:#199e70\"></i>TI</span><b>−0.5%</b></div><div><span><i style=\"background:#c98500\"></i>ADI</span><b>+2.7%</b></div></div><p class=\"note\">FY2011→2016 매출 연평균 성장률 · 기업별 회계연도. ADI에는 Hittite 인수(2014) 효과가 포함돼 유기적 성장률 비교는 아님.</p></div><div class=\"choice\"><div class=\"choice-h\"><span>성장 둔화에 대한 대응</span><span style=\"text-align:right\">그 이후</span></div><div class=\"choice-row gone\"><div><div class=\"nm\"><i style=\"background:#3987e5\"></i>Linear<span class=\"tag\">집중</span></div><p>고성능 아날로그 한 우물 · 영업이익률 44.5%</p></div><div class=\"out\"><b>2017 ADI에 편입</b>독립 상장 종료</div></div><div class=\"choice-row gone\"><div><div class=\"nm\"><i style=\"background:#d95926\"></i>Maxim<span class=\"tag\">집중</span></div><p>혼합신호·전력관리 중심의 독자 노선</p></div><div class=\"out\"><b>2021 ADI에 편입</b>독립 상장 종료</div></div><div class=\"choice-row\"><div><div class=\"nm\"><i style=\"background:#199e70\"></i>TI<span class=\"tag\">확장</span></div><p>제품군·자체 제조 확대 · 2011 National 인수</p></div><div class=\"out\"><b>독립 유지</b>아날로그 1위</div></div><div class=\"choice-row\"><div><div class=\"nm\"><i style=\"background:#c98500\"></i>ADI<span class=\"tag\">확장</span></div><p>Hittite(2014) → Linear(2017) → Maxim(2021)</p></div><div class=\"out\"><b>인수 주체</b>2025 아날로그 2위</div></div><div class=\"insight\"><b>집중</b>을 택한 두 회사는 ADI에 편입됐고,<br><b>확장</b>(규모 · 인수)을 택한 두 회사는 독립을 지켰다.<small>순위: IC Insights(2015) · GMI(2025 추정)</small></div></div></div>",
+      "html": "<div class=\"split s55\"><div class=\"col\"><div data-chart=\"peersIdx\" data-h=\"392\" style=\"min-height:392px\"></div><div class=\"cagr\"><div><span><i style=\"background:#3987e5\"></i>Linear</span><b>−0.8%</b></div><div><span><i style=\"background:#d95926\"></i>Maxim</span><b>−2.4%</b></div><div><span><i style=\"background:#199e70\"></i>TI</span><b>−0.5%</b></div><div><span><i style=\"background:#c98500\"></i>ADI</span><b>+2.7%</b></div></div><p class=\"note\">FY2011→2016 매출 연평균 성장률 · 기업별 회계연도. ADI에는 Hittite 인수(2014) 효과가 포함돼 유기적 성장률 비교는 아님.</p></div><div class=\"choice p3\"><div class=\"choice-h\"><span>주력 제품군 · 성장 둔화에 대한 대응</span><span style=\"text-align:right\">그 이후</span></div><div class=\"choice-row gone\"><div><div class=\"nm\"><i style=\"background:#3987e5\"></i>Linear<span class=\"tag\">집중</span></div><div class=\"prod\"><em>주력</em>전원 관리 IC <small>매출의 59% · FY2015</small></div><p>고성능 아날로그 한 우물 · 영업이익률 44.5%</p></div><div class=\"out\"><b>2017 ADI에 편입</b>독립 상장 종료</div></div><div class=\"choice-row gone\"><div><div class=\"nm\"><i style=\"background:#d95926\"></i>Maxim<span class=\"tag\">집중</span></div><div class=\"prod\"><em>주력</em>혼합신호 · 전력 관리 IC</div><p>대형 인수 없이 독자 노선 유지</p></div><div class=\"out\"><b>2021 ADI에 편입</b>독립 상장 종료</div></div><div class=\"choice-row\"><div><div class=\"nm\"><i style=\"background:#199e70\"></i>TI<span class=\"tag\">확장</span></div><div class=\"prod\"><em>주력</em>아날로그 · 임베디드 프로세서</div><p>제품군·자체 제조 확대 · 2011 National 인수</p></div><div class=\"out\"><b>독립 유지</b>아날로그 1위</div></div><div class=\"choice-row\"><div><div class=\"nm\"><i style=\"background:#c98500\"></i>ADI<span class=\"tag\">확장</span></div><div class=\"prod\"><em>주력</em>데이터 컨버터 · 증폭기 · RF</div><p>Hittite(2014) → Linear(2017) → Maxim(2021)</p></div><div class=\"out\"><b>인수 주체</b>2025 아날로그 2위</div></div><div class=\"insight\"><b>집중</b>을 택한 두 회사는 ADI에 편입됐고,<br><b>확장</b>(규모 · 인수)을 택한 두 회사는 독립을 지켰다.<small>순위: IC Insights(2015) · GMI(2025 추정)</small></div></div></div>",
       "take": "성장 둔화는 모두에게 왔다. 갈린 것은 그 다음의 선택 — 집중이냐, 확장이냐였다.",
       "sources": [
         "linear_10k_2016",
@@ -58,10 +58,12 @@
         "MAXIM",
         "linear_close",
         "icinsights_analog2015",
-        "analog_rank2025"
+        "analog_rank2025",
+        "adi_presentation_2016",
+        "analog_technology"
       ],
       "kind": "",
-      "method": "",
+      "method": "주력 제품군은 각 회사의 연차보고서와 ADI의 인수 발표 자료(2016.07)에 나온 사업 설명을 줄여 적은 것이며 매출 구성 통계가 아님. Linear의 전원 관리 비중 59%는 ADI 인수 발표 자료의 FY2015 수치. Maxim의 인수 이력(Volterra 2013 등)은 규모가 작아 ‘대형 인수 없이’로 요약함. 조사 기준 2026-11-08 (제품군 표기는 2026-11-11).",
       "tables": [],
       "ref": false
     },
@@ -242,7 +244,7 @@
       "part": 1,
       "title": "<span class=\"ref\">(참고)</span> 1위가 바뀌지 않는 산업, 1위가 바뀌는 산업",
       "sub": "미국 Fortune 500 · 10개 섹터 매출 Top 10 · 1995 → 2025 · 5년 간격",
-      "html": "<div class=\"sector\"><div class=\"sector-nav\"><div class=\"sector-h\"><span>섹터</span><span>1위 교체</span></div><div id=\"sectorPills\"></div><button id=\"sectorPlay\">▶ 산업 순환</button><p class=\"sector-hint\">7개 시점에서 매출 1위<br>기업이 바뀐 횟수</p></div><div class=\"col\"><div id=\"bump\" data-h=\"454\" style=\"min-height:454px\"></div><div id=\"sectorStat\"></div><p class=\"note\" id=\"sectorScope\"></p></div></div>",
+      "html": "<div class=\"sector\"><div class=\"sector-nav\"><div class=\"sector-h\"><span>섹터</span><span>1위 교체</span></div><div id=\"sectorPills\"></div><button id=\"sectorPlay\">▶ 산업 순환</button><div class=\"sector-keep\" id=\"sectorKeep\"></div></div><div class=\"col\"><div id=\"bump\" data-h=\"454\" style=\"min-height:454px\"></div><div id=\"sectorStat\"></div><p class=\"note\" id=\"sectorScope\"></p></div></div>",
       "take": "필수소비재 · 에너지의 1위는 30년간 그대로다. IT의 1위는 IBM → HP → Apple — 산업의 중심이 이동하면 선두도 바뀐다.",
       "sources": [
         "fortune500_1996",
@@ -255,7 +257,7 @@
         "fortune500_gap"
       ],
       "kind": "",
-      "method": "Fortune 500 N년판은 직전 회계연도(N−1)의 매출 순위이므로 화면에는 매출 연도(1995–2025)로 표시. 5년 간격 7개 시점만 비교하므로 그 사이의 순위 변동은 반영되지 않음. 당시 Fortune 업종을 경제 섹터로 묶은 분석용 분류(공식 GICS 과거 시계열 아님). Fortune 업종만으로 섹터가 갈리지 않는 기업은 현재 섹터 기준으로 직접 지정(예: Walmart·Target·Costco = 필수소비재, McKesson·CVS = 헬스케어, Alphabet·Meta = 커뮤니케이션, Amazon = 경기소비재). 당시 주력 사업이 달랐던 기업은 당시 Fortune 업종을 따름(예: 1995년 Cigna = 금융, Ashland = 에너지). 합병은 존속 법인(인수 주체), 분할은 본업과 사명을 이어 간 쪽을 같은 기업으로 연결. 표시 이름은 당시 사명(예: Dayton Hudson → Target, Philip Morris → Altria, SBC → AT&T). Fortune 500은 미국 법인만 포함하며, 다른 상장사에 연결되는 자회사·비공개 기업은 빠진다(예: T-Mobile US, 2015년 Dell, 2025년 Walgreens). 2006년판에는 결산을 제때 내지 못한 Fannie Mae·Freddie Mac이 없다. 2000년 유틸리티 매출은 에너지 트레이딩 총액 계상으로 부풀려져 있다(Duke Energy · Reliant · UtiliCorp). 부동산 섹터는 제외(Fortune 500 편입 기업이 적어 Top 10을 만들 수 없음). Fortune 아카이브 페이지에 빠져 있던 순위 29건은 공개 데이터셋 cmusam/fortune500 (GitHub)으로 채웠고(이 가운데 Top 10에 들어간 것은 6건: 1995 BankAmerica · 2000 Aetna · 2000 Albertson's · 2000 Lowe's · 2015 Aetna · 2015 United Technologies), 2001년판에서 순위·매출이 어긋난 4건은 같은 자료로 바로잡음. 회사 전체 연결매출 기준이어서 반도체 매출·시가총액 순위와 다르며, 합병 전후로 사업 범위와 회계기준이 달라 매출 증가를 성장률로 해석하면 안 됨. 조사 기준 2026-11-09.",
+      "method": "Fortune 500 N년판은 직전 회계연도(N−1)의 매출 순위이므로 화면에는 매출 연도(1995–2025)로 표시. 5년 간격 7개 시점만 비교하므로 그 사이의 순위 변동은 반영되지 않음. 당시 Fortune 업종을 경제 섹터로 묶은 분석용 분류(공식 GICS 과거 시계열 아님). Fortune 업종만으로 섹터가 갈리지 않는 기업은 현재 섹터 기준으로 직접 지정(예: Walmart·Target·Costco = 필수소비재, McKesson·CVS = 헬스케어, Alphabet·Meta = 커뮤니케이션, Amazon = 경기소비재). 당시 주력 사업이 달랐던 기업은 당시 Fortune 업종을 따름(예: 1995년 Cigna = 금융, Ashland = 에너지). 합병은 존속 법인(인수 주체), 분할은 본업과 사명을 이어 간 쪽을 같은 기업으로 연결. 표시 이름은 당시 사명(예: Dayton Hudson → Target, Philip Morris → Altria, SBC → AT&T). Fortune 500은 미국 법인만 포함하며, 다른 상장사에 연결되는 자회사·비공개 기업은 빠진다(예: T-Mobile US, 2015년 Dell, 2025년 Walgreens). 2006년판에는 결산을 제때 내지 못한 Fannie Mae·Freddie Mac이 없다. 2000년 유틸리티 매출은 에너지 트레이딩 총액 계상으로 부풀려져 있다(Duke Energy · Reliant · UtiliCorp). 부동산 섹터는 제외(Fortune 500 편입 기업이 적어 Top 10을 만들 수 없음). Fortune 아카이브 페이지에 빠져 있던 순위 29건은 공개 데이터셋 cmusam/fortune500 (GitHub)으로 채웠고(이 가운데 Top 10에 들어간 것은 6건: 1995 BankAmerica · 2000 Aetna · 2000 Albertson's · 2000 Lowe's · 2015 Aetna · 2015 United Technologies), 2001년판에서 순위·매출이 어긋난 4건은 같은 자료로 바로잡음. 회사 전체 연결매출 기준이어서 반도체 매출·시가총액 순위와 다르며, 합병 전후로 사업 범위와 회계기준이 달라 매출 증가를 성장률로 해석하면 안 됨. 색을 칠한 ‘함께 볼 기업’은 1위가 아닌 기업 가운데 순위 변화를 따라가 보려고 고른 곳이며, 옆의 순위는 Top 10에 처음 나온 시점 → 2025년(Top 10 밖이면 권외). 조사 기준 2026-11-09.",
       "tables": [
         {
           "title": "필수소비재 · 매출 Top 10 ($bn) · †는 보완 자료의 값",
@@ -1415,7 +1417,7 @@
       "part": 2,
       "title": "반도체 산업의 변천",
       "sub": "",
-      "html": "<div class=\"number\">02</div><div><div class=\"eyebrow\">PART 2</div><h1>반도체 산업의 변천</h1><p class=\"dv-desc\">기술 스펙이 아니라 <strong>두 개의 축</strong>으로 읽는다.</p><div class=\"axrow\"><em>축 1</em><b>수요의 이동</b><span>무엇이 주도 기업을 바꿨는가</span></div><div class=\"axrow\"><em>축 2</em><b>거시 환경 · 자본력</b><span>누가 투자를 감당하고, 불황을 버텼는가</span></div></div><div class=\"roadmap\"><div class=\"\"><b>PART 1</b>케이스 이후의 Linear Technology</div><div class=\"on\"><b>PART 2</b>반도체 산업의 변천</div><div class=\"\"><b>PART 3</b>AI 시대가 마주한 세 가지 재무적 이슈</div></div>",
+      "html": "<div class=\"number\">02</div><div><div class=\"eyebrow\">PART 2</div><h1>반도체 산업의 변천</h1><p class=\"dv-desc\">기술 스펙이 아니라 <strong>두 개의 축</strong>으로 읽는다.</p><div class=\"axrow\"><em>축 1</em><b>수요의 이동과 밸류체인 분업화</b><span>IDM vs Fabless–Foundry</span></div><div class=\"axrow\"><em>축 2</em><b>자본력과 M&amp;A 재편</b><span>아날로그 · 팹리스 대형화 → AI 전용 칩 시대로의 진화</span></div></div><div class=\"roadmap\"><div class=\"\"><b>PART 1</b>케이스 이후의 Linear Technology</div><div class=\"on\"><b>PART 2</b>반도체 산업의 변천</div><div class=\"\"><b>PART 3</b>AI 시대가 마주한 세 가지 재무적 이슈</div></div>",
       "take": "",
       "sources": [],
       "kind": "divider",
@@ -1427,8 +1429,8 @@
       "id": "industry-map",
       "part": 2,
       "title": "반도체 80년을 한 시간축에: 수요 · 거시환경 · 사건 · 기업",
-      "sub": "가운데 시대 축 위는 산업 안쪽(기업·수요·매출), 아래는 바깥 환경(사건·금리·구조) · 시대를 누르면 세부 설명",
-      "html": "<div class=\"pills\"><label><input type=\"checkbox\" data-layer=\"leaders\" checked> 기업 · 산업 구조</label><label><input type=\"checkbox\" data-layer=\"demand\" checked> 수요 · 매출</label><label><input type=\"checkbox\" data-layer=\"events\" checked> 주요 사건</label><label><input type=\"checkbox\" data-layer=\"macro\" checked> 금리 · 거시 환경</label></div><div id=\"timeline\" data-h=\"506\" style=\"min-height:506px\"></div>",
+      "sub": "가운데 시대 축 위는 산업 안쪽(기업·수요·매출 · <span class=\"amber\">◆</span> 대형 M&amp;A), 아래는 바깥 환경(사건·금리·구조) · 시대를 누르면 세부 설명",
+      "html": "<div class=\"pills\"><label><input type=\"checkbox\" data-layer=\"leaders\" checked> 기업 · 산업 구조 · M&amp;A</label><label><input type=\"checkbox\" data-layer=\"demand\" checked> 수요 · 매출</label><label><input type=\"checkbox\" data-layer=\"events\" checked> 주요 사건</label><label><input type=\"checkbox\" data-layer=\"macro\" checked> 금리 · 거시 환경</label></div><div id=\"timeline\" data-h=\"506\" style=\"min-height:506px\"></div>",
       "take": "시대 구분은 수요 중심의 분석 틀이다. 실제 전환은 서로 겹친다.",
       "sources": [
         "chm",
@@ -1447,11 +1449,58 @@
         "fred_ff",
         "elpida_failure",
         "linear_close",
-        "bis_2022"
+        "bis_2022",
+        "NATIONAL",
+        "gf_history",
+        "avago_broadcom_10k",
+        "MAXIM",
+        "amd_xilinx",
+        "icinsights_mna"
       ],
       "kind": "",
-      "method": "세계 반도체 매출은 WSTS 연간 청구액($bn), 2026년은 1–8월 누계. 금리는 연방기금 실효금리 월평균. 수요의 물결과 시대 구분의 시작·끝은 설명을 위한 대략의 범위이며 통계적 경계가 아님. 조사 기준 2026-11-08.",
-      "tables": [],
+      "method": "세계 반도체 매출은 WSTS 연간 청구액($bn), 2026년은 1–8월 누계. 금리는 연방기금 실효금리 월평균. 수요의 물결과 시대 구분의 시작·끝은 설명을 위한 대략의 범위이며 통계적 경계가 아님. 시대 축 위의 마름모(◆)는 뒤의 ‘M&amp;A 재편’ 장표에서 다루는 대형 M&amp;A 가운데 완료된 거래 여섯 건의 완료 연도이며 전수 목록이 아님. 조사 기준 2026-11-08 (M&amp;A 표시는 2026-11-11).",
+      "tables": [
+        {
+          "title": "시대 축 위의 대형 M&A (◆)",
+          "head": [
+            "연도",
+            "거래",
+            "내용"
+          ],
+          "rows": [
+            [
+              "2011",
+              "TI–National",
+              "TI의 National Semiconductor 인수 완료 (2011.09) · 아날로그 대형화 — 제품군과 제조 기반 통합"
+            ],
+            [
+              "2015",
+              "IBM 제조사업 → GlobalFoundries",
+              "IBM이 반도체 제조사업을 GlobalFoundries에 넘김 · 파운드리 전문화 — IDM의 제조 분리"
+            ],
+            [
+              "2016",
+              "Avago–Broadcom",
+              "Avago와 Broadcom의 결합 완료 · Broadcom 이름 사용 · 팹리스 통합 — 통신 · 네트워킹 IP의 대형화"
+            ],
+            [
+              "2017",
+              "ADI–Linear",
+              "ADI의 Linear Technology 인수 완료 (2017.03) · 아날로그 대형화 — 신호 체인 + 전원 관리"
+            ],
+            [
+              "2021",
+              "ADI–Maxim",
+              "ADI의 Maxim Integrated 인수 완료 · 아날로그 대형화의 연장"
+            ],
+            [
+              "2022",
+              "AMD–Xilinx",
+              "AMD의 Xilinx 인수 완료 (2022.02) · 풀스택 로직 결합 — CPU + GPU + FPGA"
+            ]
+          ]
+        }
+      ],
       "ref": false
     },
     {
@@ -1636,71 +1685,435 @@
       "id": "era2-split",
       "part": 2,
       "title": "제2기: 한 회사가 모든 투자를 감당하기 어려워졌다",
-      "sub": "1990s 중반–2000s · 인터넷·PC 확산과 수직적 분업",
-      "html": "<div class=\"rows\" style=\"gap:18px\"><div class=\"vsplit grow\"><span></span><span class=\"h\">설계</span><span class=\"h\">웨이퍼 제조</span><span class=\"h\">패키징 · 테스트</span><div class=\"rl\">통합 모델<b>IDM</b></div><div class=\"one\"><b>Intel · Samsung · TI</b><span>설계부터 제조·패키징까지 한 회사 안에서 — 모든 투자를 혼자 감당</span></div><div class=\"rl now\">수직 분업<b>전문 기업</b></div><div class=\"chain\"><div class=\"lk\"><em>제품 설계 · 판매</em><b>팹리스</b><span>NVIDIA · Qualcomm</span></div><div class=\"lk\"><em>위탁 생산</em><b>파운드리</b><span>TSMC · UMC</span></div><div class=\"lk\"><em>조립 · 검사 외주</em><b>OSAT</b><span>ASE · Amkor</span></div></div><div class=\"rl\">공통 기반<b>공급 기업</b></div><div class=\"base\"><b>IP · EDA</b>Arm · Synopsys · Cadence</div><div class=\"base\"><b>장비</b>ASML · Applied Materials · Lam · Tokyo Electron</div><div class=\"base\"><b>소재</b>신에츠 · SUMCO</div></div><div class=\"grid g2 auto\"><article class=\"panel sm\"><div class=\"kicker\">팹리스의 이득</div><h3>공장 없이 설계에 집중</h3><div class=\"tags lg\"><span>거대한 팹 투자 없이</span><i>→</i><span>R&amp;D에 자본 집중</span><i>→</i><span>고정비 부담 축소</span></div></article><article class=\"panel sm\"><div class=\"kicker\">파운드리의 이득</div><h3>여러 고객의 수요를 묶는다</h3><div class=\"tags lg\"><span>여러 고객사의 물량을 한 공장에</span><i>→</i><span>가동률 확보</span><i>→</i><span>설비투자 회수</span></div></article></div></div>",
+      "sub": "1990s 중반–2000s · 인터넷·PC 확산 — 설계와 제조가 갈라진 세 가지 이유",
+      "html": "<div class=\"rows gap12\"><div class=\"grid g3 auto\"><article class=\"panel why\"><div class=\"kicker\">이유 ① · 투자비</div><h3>공장 하나의 값이 치솟았다</h3><div class=\"whyn\"><b class=\"tn\">~$20bn</b><span>오늘날 선단 팹 한 곳의<br>건설비 (최대)</span></div><p>미세공정이 발전할수록 공장 · 장비 · 공정 개발비가 급증 — 선단 로직을 만드는 회사는 이제 <b>세 곳</b>뿐</p></article><article class=\"panel why\"><div class=\"kicker\">이유 ② · 새 사업 모델</div><h3>제조만 하는 회사가 나왔다</h3><div class=\"whyn\"><b class=\"tn\">1987</b><span>TSMC 설립<br>첫 전용 파운드리</span></div><p>자체 칩을 팔지 않아 <b>고객과 경쟁하지 않는다</b> → 공장 없이도 칩 회사를 세울 수 있게 됐다 (NVIDIA 1993)</p></article><article class=\"panel why\"><div class=\"kicker\">이유 ③ · 수요 변동</div><h3>불황에는 공장이 짐이 됐다</h3><div class=\"whyn\"><b class=\"tn\">−32%</b><span>2001 세계 반도체 매출<br>$204bn → $139bn</span></div><p>수요가 꺼져도 설비의 고정비는 남는다 → 여러 고객의 물량을 한 공장에 모아 <b>가동률 위험을 나눈다</b></p></article></div><div class=\"splitmark arrows\"><i>↓</i><span><b>그래서</b> · 설계와 제조가 갈라졌다</span><i>↓</i></div><div class=\"split s70 grow auto\"><div class=\"vsplit duo\"><div class=\"rl\">이전 · 통합<b>IDM</b></div><div class=\"one\"><b>Intel · Samsung · TI</b><span>설계 · 제조 · 패키징을 한 회사가 — 모든 투자를 혼자 감당</span></div><div class=\"rl now\">이후 · 분업<b>전문 기업</b></div><div class=\"chain\"><div class=\"lk\"><em>제품 설계 · 판매</em><b>팹리스</b><span>공장 없이 설계에<br>자본을 집중</span></div><div class=\"lk\"><em>위탁 생산</em><b>파운드리</b><span>여러 고객의 물량으로<br>가동률을 확보</span></div><div class=\"lk\"><em>조립 · 검사 외주</em><b>OSAT</b><span>후공정을<br>전문 기업에</span></div></div></div><div class=\"fshare\"><span class=\"kicker\">그 결과 · 팹리스의 몫</span><div class=\"fx tn\">약 2.5배</div><div class=\"fbars\"><div class=\"\"><b class=\"tn\">13%</b><i style=\"height:47px\"></i><span>2002</span></div><div class=\"now\"><b class=\"tn\">32.8%</b><i style=\"height:118px\"></i><span>2020</span></div></div><p class=\"note\">세계 IC 매출에서 팹리스 · 시스템 IC 기업이 차지한 몫 · IC Insights</p></div></div></div>",
       "take": "팹리스는 공장 부담을 덜고, 파운드리는 여러 고객의 수요를 묶었다.",
       "sources": [
         "tsmc_foundry",
+        "hoover_triangle",
+        "NVIDIA_HISTORY",
+        "wsts",
+        "icinsights_fabless2020",
         "sia_ecosystem"
       ],
       "kind": "",
-      "method": "",
-      "tables": [],
-      "ref": false
-    },
-    {
-      "id": "era2-finance",
-      "part": 2,
-      "title": "분업은 위험을 없애지 않았다. 위치를 바꿨다",
-      "sub": "TSMC는 1987년 출발 · 1990s 이후 전문화가 본격 확산",
-      "html": "<div class=\"split s50\"><div class=\"rows\" style=\"gap:12px\"><div class=\"idm\"><div class=\"idm-h\"><em>통합 · IDM</em><b>두 위험을 한 회사가</b></div><div class=\"risk2\"><span>R&amp;D · 제품 위험</span><i>+</i><span>CAPEX · 가동률 위험</span></div></div><div class=\"splitmark arrows\"><i>↓</i><span><b>분업 이후</b> · 위험은 나뉘어 옮겨갔다</span><i>↓</i></div><div class=\"grid g2 grow auto linked\"><article class=\"panel \"><div class=\"kicker\">설계 기업 · 팹리스</div><h3>R&amp;D · 제품 위험</h3><p>공장 대신 설계 인력·IP에 투자</p><div class=\"pfoot lg\">공정·공급자 의존성은 증가</div></article><article class=\"panel \"><div class=\"kicker\">제조 기업 · 파운드리</div><h3>CAPEX · 가동률 위험</h3><p>고가의 팹을 여러 고객과 공유</p><div class=\"pfoot lg\">고정비 회수는 가동률에 달림</div></article></div><div class=\"band\"><em>새로운 위험</em><b>상호 의존</b><span>팹리스는 공급 능력에,<br>파운드리는 고객 수요에 묶인다</span></div></div><div class=\"chartcard \"><h3>2001 · 닷컴 붕괴<small>세계 반도체 매출 $bn</small></h3><div data-chart=\"dotcom\" class=\"grow\"></div><div class=\"cardstat\"><div class=\"medium tn amber\">−32%</div><p><b>2000 $204bn → 2001 $139bn</b><br>인터넷의 장기 성장과 단기 과잉투자는 동시에 가능했다.</p></div></div></div>",
-      "take": "자본 효율성의 개선이 산업 전체의 경기순환을 없애지는 못했다.",
-      "sources": [
-        "tsmc_foundry",
-        "sia_ecosystem",
-        "wsts"
+      "method": "선단 팹 건설비 최대 약 $20bn과 선단 로직 제조사 세 곳(Intel · Samsung · TSMC)은 Wong & Plummer(2023)의 서술로, 제2기 당시가 아닌 오늘날의 값이며 투자비가 계속 늘어 온 방향을 보이기 위해 인용함. TSMC는 1987년 설립된 첫 전용 파운드리로, 회사 설명에 따르면 이 사업 모델이 IC 설계 회사를 세우는 문턱을 크게 낮춤. 2001년 감소율은 WSTS 연간 청구액으로 직접 계산. 팹리스의 몫은 IC Insights가 집계한 세계 IC 매출 대비 팹리스 · 시스템 IC 기업의 비중(2002년 13% → 2020년 32.8%)이며, 메모리가 호황인 해에는 낮아짐. 세 가지 이유는 분업의 배경을 설명하는 정리이며 각 요인의 기여도를 잰 것이 아님. 조사 기준 2026-11-11.",
+      "tables": [
+        {
+          "title": "분업이 깊어진 이유 · 근거 수치",
+          "head": [
+            "구분",
+            "수치",
+            "출처"
+          ],
+          "rows": [
+            [
+              "이유 ① 투자비",
+              "선단 팹 건설비 최대 약 $20bn · 선단 로직의 주요 제조사 3곳",
+              "Wong & Plummer (2023)"
+            ],
+            [
+              "이유 ② 새 사업 모델",
+              "1987 TSMC 설립(첫 전용 파운드리) · 1993 NVIDIA 설립",
+              "TSMC · NVIDIA"
+            ],
+            [
+              "이유 ③ 수요 변동",
+              "2000년 $204.4bn → 2001년 $139.0bn (−32.0%)",
+              "WSTS"
+            ],
+            [
+              "결과 · 팹리스의 몫",
+              "2002년 13% → 2019년 29.9% → 2020년 32.8% (세계 IC 매출 기준)",
+              "IC Insights"
+            ]
+          ]
+        }
       ],
-      "kind": "",
-      "method": "",
-      "tables": [],
       "ref": false
     },
     {
       "id": "era3-consolidation",
       "part": 2,
-      "title": "제3기: 저금리 속에서도 탈락은 있었다",
-      "sub": "2010s · 모바일·클라우드 수요와 메모리의 재편",
-      "html": "<div class=\"rows\"><div class=\"steps \"><div class=\"step\"><b>2008–09</b><span>금융위기 · 메모리 가격 급락</span></div><div class=\"step\"><b>2012</b><span>Elpida 회생절차 · SK의 하이닉스 인수</span></div><div class=\"step\"><b>2013</b><span>Micron의 Elpida 인수 → DRAM Big 3</span></div><div class=\"step\"><b>2017–19</b><span>메모리 슈퍼사이클 → 조정</span></div></div><div class=\"split s55 grow auto\"><div class=\"chartcard \"><h3>세계 반도체 매출 2006–2019<small>$bn</small></h3><div data-chart=\"wsts0619\" class=\"grow\"></div><p class=\"note\">WSTS 연간 청구액. 2017–18년의 호황과 2019년의 조정에는 메모리 가격의 영향이 컸다.</p></div><div class=\"choice\"><div class=\"choice-h\"><span>무엇이 갈랐나</span><span style=\"text-align:right\">결과</span></div><div class=\"choice-row gone\"><div><div class=\"nm\"><i style=\"background:#566b7e\"></i>Elpida<span class=\"tag\">일본</span></div><p>가격 급락 · 엔고 · 만기 집중 — 차환 부담이 겹쳤다</p></div><div class=\"out\"><b>2012 회생절차</b>2013 Micron이 인수</div></div><div class=\"choice-row\"><div><div class=\"nm\"><i style=\"background:#3987e5\"></i>Samsung<span class=\"tag\">한국</span></div><p>다각화된 사업과 투자 여력 — 불황에도 투자 지속</p></div><div class=\"out\"><b>생존</b>DRAM Big 3</div></div><div class=\"choice-row\"><div><div class=\"nm\"><i style=\"background:#d95926\"></i>SK hynix<span class=\"tag\">한국</span></div><p>2012 SK그룹 편입(약 3.4조원) — 자본 기반 확보</p></div><div class=\"out\"><b>생존</b>DRAM Big 3</div></div></div></div></div>",
-      "take": "치킨게임은 기술력과 유동성, 그리고 회복까지 남은 시간의 경쟁이다.",
+      "title": "제3기: 가격 급락은 공통이었다. 버틴 기업이 더 강해졌다",
+      "sub": "2007–2013 · 메모리 증설 경쟁과 금융위기 → 탈락과 인수 → DRAM Big 3",
+      "html": "<div class=\"rows\"><div class=\"steps sm\"><div class=\"step\"><b>2006–07 · 증설 경쟁</b><span>공급 과잉 — 2007년 4분기부터<br><b>현금원가 아래</b>로 판매</span></div><div class=\"step\"><b>2008 · 금융위기</b><span>수요 급감 — DRAM 가격 <b>약 −75%</b><br>업계 손실 $8bn 이상 (1–3분기)</span></div><div class=\"step\"><b>2009 · 2012 · 탈락</b><span>Qimonda 파산 (2009.01)<br>Elpida 회생절차 (2012.02)</span></div><div class=\"step\"><b>2012–13 · 인수</b><span>SK의 하이닉스 인수 · Micron의<br>Elpida 인수 → <b>DRAM Big 3</b></span></div><div class=\"step\"><b>2017–18 · 보상</b><span>메모리 슈퍼사이클<br>세계 매출 <b>$469bn</b> (2018)</span></div></div><div class=\"split s55 grow auto\"><div class=\"col\"><span class=\"kicker\">왜 탈락했나 · 공장은 장기 자산, 만기는 먼저 돌아온다</span><div class=\"fitsvg\"><svg viewBox=\"0 0 798 476\" role=\"img\" aria-label=\"자산의 회수 기간과 부채 만기의 불일치 개념도\"><text x=\"0\" y=\"14\" fill=\"#a8bbcb\" font-size=\"13\" font-weight=\"700\">자산의 시간 · 누적 현금흐름 <tspan fill=\"#7f97aa\" font-weight=\"400\">(개념도 · 실제 수치 아님)</tspan></text><line x1=\"492\" x2=\"512\" y1=\"10\" y2=\"10\" stroke=\"#3987e5\" stroke-width=\"3\"/><text x=\"518\" y=\"14\" fill=\"#a8bbcb\" font-size=\"12.5\">계획한 회수 경로</text><line x1=\"630\" x2=\"650\" y1=\"10\" y2=\"10\" stroke=\"#d95926\" stroke-width=\"2.5\" stroke-dasharray=\"6 4\"/><text x=\"656\" y=\"14\" fill=\"#a8bbcb\" font-size=\"12.5\">가격 하락 시 회수 지연</text><line x1=\"50\" x2=\"780\" y1=\"180\" y2=\"180\" stroke=\"#9db4c6\" stroke-width=\"1.5\"/><text x=\"40\" y=\"185\" fill=\"#a8bbcb\" font-size=\"13\" text-anchor=\"end\" font-weight=\"700\">0</text><text x=\"40\" y=\"112\" fill=\"#7f97aa\" font-size=\"17\" text-anchor=\"end\">+</text><text x=\"40\" y=\"292\" fill=\"#7f97aa\" font-size=\"17\" text-anchor=\"end\">−</text><line x1=\"70\" x2=\"70\" y1=\"180\" y2=\"352\" stroke=\"#33495d\" stroke-dasharray=\"2 4\"/><text x=\"70\" y=\"370\" fill=\"#a8bbcb\" font-size=\"13\" text-anchor=\"middle\">투자 결정</text><line x1=\"230\" x2=\"230\" y1=\"310\" y2=\"352\" stroke=\"#33495d\" stroke-dasharray=\"2 4\"/><text x=\"230\" y=\"370\" fill=\"#a8bbcb\" font-size=\"13\" text-anchor=\"middle\">양산 시작</text><line x1=\"520\" x2=\"520\" y1=\"180\" y2=\"352\" stroke=\"#33495d\" stroke-dasharray=\"2 4\"/><text x=\"520\" y=\"370\" fill=\"#a8bbcb\" font-size=\"13\" text-anchor=\"middle\">계획한 회수</text><line x1=\"700\" x2=\"700\" y1=\"180\" y2=\"352\" stroke=\"#33495d\" stroke-dasharray=\"2 4\"/><text x=\"700\" y=\"370\" fill=\"#a8bbcb\" font-size=\"13\" text-anchor=\"middle\">지연된 회수</text><path d=\"M230,310 C320,342 460,320 580,260 C640,230 670,195 700,180 C725,168 750,156 770,150\" fill=\"none\" stroke=\"#d95926\" stroke-width=\"2.5\" stroke-dasharray=\"7 6\" stroke-linecap=\"round\"/><path d=\"M70,180 C120,180 160,290 230,310 C300,330 430,250 520,180 C580,134 680,94 770,82\" fill=\"none\" stroke=\"#3987e5\" stroke-width=\"3\" stroke-linecap=\"round\"/><circle cx=\"70\" cy=\"180\" r=\"5\" fill=\"#3987e5\" stroke=\"#07121f\" stroke-width=\"2\"/><circle cx=\"230\" cy=\"310\" r=\"5\" fill=\"#3987e5\" stroke=\"#07121f\" stroke-width=\"2\"/><circle cx=\"520\" cy=\"180\" r=\"5\" fill=\"#3987e5\" stroke=\"#07121f\" stroke-width=\"2\"/><circle cx=\"700\" cy=\"180\" r=\"5\" fill=\"#d95926\" stroke=\"#07121f\" stroke-width=\"2\"/><line x1=\"400\" x2=\"400\" y1=\"40\" y2=\"428\" stroke=\"#ff8298\" stroke-width=\"1.5\" stroke-dasharray=\"5 5\"/><text x=\"400\" y=\"32\" fill=\"#edf7ff\" font-size=\"14\" text-anchor=\"middle\" font-weight=\"700\">부채 만기</text><line x1=\"400\" x2=\"400\" y1=\"180\" y2=\"262\" stroke=\"#ff8298\" stroke-width=\"5\" stroke-linecap=\"round\"/><circle cx=\"400\" cy=\"180\" r=\"5.5\" fill=\"#ff8298\" stroke=\"#07121f\" stroke-width=\"2\"/><circle cx=\"400\" cy=\"262\" r=\"5.5\" fill=\"#ff8298\" stroke=\"#07121f\" stroke-width=\"2\"/><text x=\"386\" y=\"216\" fill=\"#edf7ff\" font-size=\"14.5\" text-anchor=\"end\" font-weight=\"700\" class=\"halo\">만기 시점의 미회수 투자</text><text x=\"386\" y=\"236\" fill=\"#a8bbcb\" font-size=\"13.5\" text-anchor=\"end\" class=\"halo\">→ 차환이 필요하다</text><text x=\"0\" y=\"416\" fill=\"#a8bbcb\" font-size=\"13\" font-weight=\"700\">부채의 시간 · 정해진 지급 일정</text><line x1=\"70\" x2=\"400\" y1=\"440\" y2=\"440\" stroke=\"#33495d\" stroke-width=\"2\"/><line x1=\"400\" x2=\"780\" y1=\"440\" y2=\"440\" stroke=\"#33495d\" stroke-width=\"2\" stroke-dasharray=\"3 6\"/><circle cx=\"70\" cy=\"440\" r=\"5\" fill=\"#7f97aa\" stroke=\"#07121f\" stroke-width=\"2\"/><text x=\"70\" y=\"464\" fill=\"#7f97aa\" font-size=\"12.5\" text-anchor=\"middle\">차입</text><circle cx=\"120\" cy=\"440\" r=\"4.5\" fill=\"#07121f\" stroke=\"#7f97aa\" stroke-width=\"2\"/><circle cx=\"168\" cy=\"440\" r=\"4.5\" fill=\"#07121f\" stroke=\"#7f97aa\" stroke-width=\"2\"/><circle cx=\"216\" cy=\"440\" r=\"4.5\" fill=\"#07121f\" stroke=\"#7f97aa\" stroke-width=\"2\"/><circle cx=\"264\" cy=\"440\" r=\"4.5\" fill=\"#07121f\" stroke=\"#7f97aa\" stroke-width=\"2\"/><circle cx=\"312\" cy=\"440\" r=\"4.5\" fill=\"#07121f\" stroke=\"#7f97aa\" stroke-width=\"2\"/><circle cx=\"360\" cy=\"440\" r=\"4.5\" fill=\"#07121f\" stroke=\"#7f97aa\" stroke-width=\"2\"/><text x=\"240\" y=\"464\" fill=\"#7f97aa\" font-size=\"12.5\" text-anchor=\"middle\">이자 지급</text><path d=\"M400,428 L412,440 L400,452 L388,440 Z\" fill=\"#ff8298\" stroke=\"#07121f\" stroke-width=\"2\"/><text x=\"400\" y=\"470\" fill=\"#edf7ff\" font-size=\"13.5\" text-anchor=\"middle\" font-weight=\"700\">원금 만기</text><text x=\"600\" y=\"464\" fill=\"#7f97aa\" font-size=\"12.5\" text-anchor=\"middle\">차환하지 못하면 유동성 위기</text></svg></div></div><div class=\"choice tight\"><div class=\"choice-h\"><span>누가 떨어지고, 누가 남았나</span><span style=\"text-align:right\">결과</span></div><div class=\"choice-row gone\"><div><div class=\"nm\"><i style=\"background:#566b7e\"></i>Qimonda<span class=\"tag\">독일</span></div><p>공정 전환이 늦은 채 가격 급락을 맞았다</p></div><div class=\"out\"><b>2009 파산</b></div></div><div class=\"choice-row gone\"><div><div class=\"nm\"><i style=\"background:#566b7e\"></i>Elpida<span class=\"tag\">일본</span></div><p>기술은 대등 — 엔고 · 만기가 닥친 단기 차입</p></div><div class=\"out\"><b>2012 회생절차</b>2013 Micron이 인수</div></div><div class=\"choice-row\"><div><div class=\"nm\"><i style=\"background:#3987e5\"></i>Samsung<span class=\"tag\">한국</span></div><p>다각화된 사업과 투자 여력 — 불황에도 투자 지속</p></div><div class=\"out\"><b>생존</b>DRAM Big 3</div></div><div class=\"choice-row\"><div><div class=\"nm\"><i style=\"background:#d95926\"></i>SK hynix<span class=\"tag\">한국</span></div><p>2012 SK그룹 편입(약 3.4조원) — 자본 기반 확보</p></div><div class=\"out\"><b>생존</b>DRAM Big 3</div></div><div class=\"choice-row\"><div><div class=\"nm\"><i style=\"background:#199e70\"></i>Micron<span class=\"tag\">미국</span></div><p>Elpida를 인수해 규모 확보</p></div><div class=\"out\"><b>생존 · 인수자</b>DRAM Big 3</div></div></div></div></div>",
+      "take": "탈락을 가른 것은 기술만이 아니었다. 만기를 버틴 기업이 탈락한 기업을 인수하며 더 강해졌다.",
       "sources": [
+        "trendforce_dram2008",
+        "isuppli_dram2008",
+        "trendforce_elpida2012",
         "elpida_failure",
-        "elpida_acquisition",
         "elpida_causes",
+        "elpida_bonds",
+        "elpida_acquisition",
+        "qimonda",
         "hynix_lineage",
         "fed_crisis",
         "ranking_2017",
         "wsts"
       ],
       "kind": "",
-      "method": "",
-      "tables": [],
+      "method": "왼쪽 그림은 설명을 위한 개념도이며 특정 기업의 실제 현금흐름이 아님. DRAM 가격 약 −75%는 DRAMeXchange가 집계한 2008년 1Gb(667MHz) 현물가 $2.29 → $0.58, 업계 손실 $8bn 이상은 2008년 1–3분기 합계(TrendForce). “현금원가 아래 판매”는 iSuppli(2009.02)의 분석으로, 가격 하락은 금융위기 전인 2007년의 공급 과잉에서 시작됐고 금융위기가 수요를 줄여 깊어짐. Elpida는 이 첫 불황을 넘겼으나 2011–12년의 가격 재하락과 엔고 속에 만기가 닥친 차입을 넘지 못함(TrendForce 2012.02 · Elpida 공시). “차입이 많은 회사부터 탈락”은 법칙이 아니며 현금 · 만기 · 원가 · 지원 여력이 함께 작용함. 세계 매출은 WSTS 연간 청구액. 조사 기준 2026-11-08 (DRAM 가격 · 탈락 경위는 2026-11-11).",
+      "tables": [
+        {
+          "title": "메모리 재편 일지",
+          "head": [
+            "시기",
+            "사건",
+            "근거"
+          ],
+          "rows": [
+            [
+              "2007년 4분기~",
+              "DRAM 업체들이 현금원가 아래로 판매 (공급 과잉)",
+              "iSuppli (2009.02)"
+            ],
+            [
+              "2008",
+              "DRAM 가격 약 −75% ($2.29 → $0.58) · 1–3분기 업계 손실 $8bn 이상 · 감산으로 생산능력 약 20% 감소",
+              "TrendForce (2009.01)"
+            ],
+            [
+              "2009.01",
+              "Qimonda 파산 신청",
+              "iSuppli (2009.02) · Infineon 연차보고서"
+            ],
+            [
+              "2012.02",
+              "Elpida 회생절차 신청 — 기술은 뒤지지 않았으나 만기가 닥친 단기 차입 · 부채비율 70%",
+              "Elpida 공시 · TrendForce (2012.02)"
+            ],
+            [
+              "2012",
+              "SK그룹의 하이닉스 인수",
+              "SK hynix"
+            ],
+            [
+              "2013.07",
+              "Micron의 Elpida 인수 완료 → DRAM Big 3",
+              "Micron Form 8-K"
+            ],
+            [
+              "2017–18",
+              "메모리 슈퍼사이클 · 세계 반도체 매출 2018년 $468.8bn",
+              "WSTS"
+            ]
+          ]
+        }
+      ],
       "ref": false
     },
     {
-      "id": "era3-maturity",
+      "id": "semicon-valuechain",
       "part": 2,
-      "title": "공장은 장기 자산, 만기는 먼저 돌아온다",
-      "sub": "엘피다에서 배울 점: 총차입보다 현금흐름과 만기 구조",
-      "html": "<div class=\"split\"><div class=\"col center\"><svg viewBox=\"0 0 798 476\" style=\"display:block;width:100%;height:auto\" role=\"img\" aria-label=\"자산의 회수 기간과 부채 만기의 불일치 개념도\"><text x=\"0\" y=\"14\" fill=\"#a8bbcb\" font-size=\"13\" font-weight=\"700\">자산의 시간 · 누적 현금흐름 <tspan fill=\"#7f97aa\" font-weight=\"400\">(개념도 · 실제 수치 아님)</tspan></text><line x1=\"492\" x2=\"512\" y1=\"10\" y2=\"10\" stroke=\"#3987e5\" stroke-width=\"3\"/><text x=\"518\" y=\"14\" fill=\"#a8bbcb\" font-size=\"12.5\">계획한 회수 경로</text><line x1=\"630\" x2=\"650\" y1=\"10\" y2=\"10\" stroke=\"#d95926\" stroke-width=\"2.5\" stroke-dasharray=\"6 4\"/><text x=\"656\" y=\"14\" fill=\"#a8bbcb\" font-size=\"12.5\">가격 하락 시 회수 지연</text><line x1=\"50\" x2=\"780\" y1=\"180\" y2=\"180\" stroke=\"#9db4c6\" stroke-width=\"1.5\"/><text x=\"40\" y=\"185\" fill=\"#a8bbcb\" font-size=\"13\" text-anchor=\"end\" font-weight=\"700\">0</text><text x=\"40\" y=\"112\" fill=\"#7f97aa\" font-size=\"17\" text-anchor=\"end\">+</text><text x=\"40\" y=\"292\" fill=\"#7f97aa\" font-size=\"17\" text-anchor=\"end\">−</text><line x1=\"70\" x2=\"70\" y1=\"180\" y2=\"352\" stroke=\"#33495d\" stroke-dasharray=\"2 4\"/><text x=\"70\" y=\"370\" fill=\"#a8bbcb\" font-size=\"13\" text-anchor=\"middle\">투자 결정</text><line x1=\"230\" x2=\"230\" y1=\"310\" y2=\"352\" stroke=\"#33495d\" stroke-dasharray=\"2 4\"/><text x=\"230\" y=\"370\" fill=\"#a8bbcb\" font-size=\"13\" text-anchor=\"middle\">양산 시작</text><line x1=\"520\" x2=\"520\" y1=\"180\" y2=\"352\" stroke=\"#33495d\" stroke-dasharray=\"2 4\"/><text x=\"520\" y=\"370\" fill=\"#a8bbcb\" font-size=\"13\" text-anchor=\"middle\">계획한 회수</text><line x1=\"700\" x2=\"700\" y1=\"180\" y2=\"352\" stroke=\"#33495d\" stroke-dasharray=\"2 4\"/><text x=\"700\" y=\"370\" fill=\"#a8bbcb\" font-size=\"13\" text-anchor=\"middle\">지연된 회수</text><path d=\"M230,310 C320,342 460,320 580,260 C640,230 670,195 700,180 C725,168 750,156 770,150\" fill=\"none\" stroke=\"#d95926\" stroke-width=\"2.5\" stroke-dasharray=\"7 6\" stroke-linecap=\"round\"/><path d=\"M70,180 C120,180 160,290 230,310 C300,330 430,250 520,180 C580,134 680,94 770,82\" fill=\"none\" stroke=\"#3987e5\" stroke-width=\"3\" stroke-linecap=\"round\"/><circle cx=\"70\" cy=\"180\" r=\"5\" fill=\"#3987e5\" stroke=\"#07121f\" stroke-width=\"2\"/><circle cx=\"230\" cy=\"310\" r=\"5\" fill=\"#3987e5\" stroke=\"#07121f\" stroke-width=\"2\"/><circle cx=\"520\" cy=\"180\" r=\"5\" fill=\"#3987e5\" stroke=\"#07121f\" stroke-width=\"2\"/><circle cx=\"700\" cy=\"180\" r=\"5\" fill=\"#d95926\" stroke=\"#07121f\" stroke-width=\"2\"/><line x1=\"400\" x2=\"400\" y1=\"40\" y2=\"428\" stroke=\"#ff8298\" stroke-width=\"1.5\" stroke-dasharray=\"5 5\"/><text x=\"400\" y=\"32\" fill=\"#edf7ff\" font-size=\"14\" text-anchor=\"middle\" font-weight=\"700\">부채 만기</text><line x1=\"400\" x2=\"400\" y1=\"180\" y2=\"262\" stroke=\"#ff8298\" stroke-width=\"5\" stroke-linecap=\"round\"/><circle cx=\"400\" cy=\"180\" r=\"5.5\" fill=\"#ff8298\" stroke=\"#07121f\" stroke-width=\"2\"/><circle cx=\"400\" cy=\"262\" r=\"5.5\" fill=\"#ff8298\" stroke=\"#07121f\" stroke-width=\"2\"/><text x=\"386\" y=\"216\" fill=\"#edf7ff\" font-size=\"14.5\" text-anchor=\"end\" font-weight=\"700\" class=\"halo\">만기 시점의 미회수 투자</text><text x=\"386\" y=\"236\" fill=\"#a8bbcb\" font-size=\"13.5\" text-anchor=\"end\" class=\"halo\">→ 차환이 필요하다</text><text x=\"0\" y=\"416\" fill=\"#a8bbcb\" font-size=\"13\" font-weight=\"700\">부채의 시간 · 정해진 지급 일정</text><line x1=\"70\" x2=\"400\" y1=\"440\" y2=\"440\" stroke=\"#33495d\" stroke-width=\"2\"/><line x1=\"400\" x2=\"780\" y1=\"440\" y2=\"440\" stroke=\"#33495d\" stroke-width=\"2\" stroke-dasharray=\"3 6\"/><circle cx=\"70\" cy=\"440\" r=\"5\" fill=\"#7f97aa\" stroke=\"#07121f\" stroke-width=\"2\"/><text x=\"70\" y=\"464\" fill=\"#7f97aa\" font-size=\"12.5\" text-anchor=\"middle\">차입</text><circle cx=\"120\" cy=\"440\" r=\"4.5\" fill=\"#07121f\" stroke=\"#7f97aa\" stroke-width=\"2\"/><circle cx=\"168\" cy=\"440\" r=\"4.5\" fill=\"#07121f\" stroke=\"#7f97aa\" stroke-width=\"2\"/><circle cx=\"216\" cy=\"440\" r=\"4.5\" fill=\"#07121f\" stroke=\"#7f97aa\" stroke-width=\"2\"/><circle cx=\"264\" cy=\"440\" r=\"4.5\" fill=\"#07121f\" stroke=\"#7f97aa\" stroke-width=\"2\"/><circle cx=\"312\" cy=\"440\" r=\"4.5\" fill=\"#07121f\" stroke=\"#7f97aa\" stroke-width=\"2\"/><circle cx=\"360\" cy=\"440\" r=\"4.5\" fill=\"#07121f\" stroke=\"#7f97aa\" stroke-width=\"2\"/><text x=\"240\" y=\"464\" fill=\"#7f97aa\" font-size=\"12.5\" text-anchor=\"middle\">이자 지급</text><path d=\"M400,428 L412,440 L400,452 L388,440 Z\" fill=\"#ff8298\" stroke=\"#07121f\" stroke-width=\"2\"/><text x=\"400\" y=\"470\" fill=\"#edf7ff\" font-size=\"13.5\" text-anchor=\"middle\" font-weight=\"700\">원금 만기</text><text x=\"600\" y=\"464\" fill=\"#7f97aa\" font-size=\"12.5\" text-anchor=\"middle\">차환하지 못하면 유동성 위기</text></svg></div><div class=\"rows\"><article class=\"panel grow\"><div class=\"kicker\">자산의 시간</div><h3>설비 → 양산 → 회수</h3><p>수년의 투자·수율 학습<br>가격 하락 시 회수기간 연장<br>매각도 쉽지 않은 특수 자산</p><div class=\"pfoot lg\">회수 시점은 시장이 정한다</div></article><article class=\"panel grow\"><div class=\"kicker\">부채의 시간</div><h3>이자 → 원금 → 차환</h3><p>고정된 지급 일정<br>시장 경색 시 차환 실패<br>장기채도 만기가 오면 유동성 위험</p><div class=\"pfoot lg\">만기 시점은 계약이 정한다</div></article></div></div>",
-      "take": "“차입이 많은 회사부터 탈락”은 법칙이 아니다. 현금·만기·마진·지원 여력을 함께 봐야 한다.",
+      "title": "반도체 밸류체인과 제품군: 누가 어디서 무엇을 만드는가?",
+      "sub": "분업(제2기)과 재편(제3기)이 만든 오늘의 지도 — <b class=\"vk\">가로 · 밸류체인 단계</b> × <b class=\"pk\">세로 · 제품군</b>",
+      "html": "<div class=\"rows\" style=\"gap:8px\"><div class=\"vsplit vmap\"><span class=\"axk\"><b>밸류체인 →</b><b>제품군 ↓</b></span><div class=\"hband\"><span class=\"h\">IP · EDA</span><span class=\"h\">설계</span><span class=\"h\">웨이퍼 제조</span><span class=\"h\">패키징 · 테스트</span></div><span class=\"hw\">제품 특성 → 구조</span><div class=\"ip\"><div><em>설계 자산 · IP</em><b>Arm</b></div><div><em>설계 도구 · EDA</em><b>Synopsys</b><b>Cadence</b></div><p>모든 칩 설계의<br>공통 기반</p></div><div class=\"rl\" style=\"grid-row:2;--rc:#3987e5\"><em>수직 분업</em><b>로직 · AI</b><small>CPU · GPU · AP<br>AI 가속기</small></div><div class=\"lg\" style=\"grid-row:2;--rc:#3987e5\"><div class=\"chain\"><div class=\"lk\" data-tip=\"팹리스 · 설계와 판매만|웨이퍼 제조는 파운드리에 위탁 (AMD 첨단 제품: TSMC)|클라우드 기업의 AI 전용 칩(Google TPU · AWS Trainium)도 같은 방식\"><em>설계 · 판매</em><b>팹리스</b><span>NVIDIA · AMD<br>Qualcomm · Apple</span></div><div class=\"lk\" data-tip=\"파운드리 · 고객이 설계한 칩을 제조|TSMC는 제조와 첨단 패키징(CoWoS)을 함께 제공|삼성전자는 메모리(IDM)와 파운드리를 함께 운영\"><em>위탁 생산</em><b>파운드리</b><span>TSMC · 삼성 파운드리</span><i class=\"choke\"><em>병목</em>선단 공정 생산 집중</i></div><div class=\"lk\" data-tip=\"OSAT · 칩을 연결 · 보호 · 검사|후공정 전부가 OSAT에 맡겨지는 것은 아님|GPU와 HBM을 잇는 첨단 패키징은 파운드리 · IDM도 수행\"><em>패키징 · 검사 외주</em><b>OSAT</b><span>ASE · Amkor · JCET</span><small>첨단 패키징은 TSMC도</small></div></div><div class=\"one sm\" data-tip=\"Intel · 로직의 IDM|CPU를 직접 설계 · 제조|자체 팹과 외부 위탁을 함께 사용\"><b>Intel</b><span>IDM — 로직에서도 설계 · 제조를 한 회사에서 (자체 팹 + 일부 위탁)</span></div></div><div class=\"why\" style=\"grid-row:2;--rc:#3987e5\">미세공정일수록 팹 투자 급증<b>→ 설계와 제조를 나눈다</b></div><div class=\"rl\" style=\"grid-row:3;--rc:#d55181\"><em>통합 · IDM</em><b>메모리</b><small>DRAM · HBM · NAND</small></div><div class=\"one\" style=\"grid-row:3;--rc:#d55181\" data-tip=\"메모리 · IDM|메모리 기업이 직접 설계 · 제조|HBM은 DRAM을 쌓아 AI 가속기에 데이터를 빠르게 전달|하단 로직 다이 · 첨단 패키징은 외부(TSMC 등)와 협업\"><div class=\"who\"><b>삼성전자 · SK hynix · Micron</b><span>DRAM · NAND를 직접 설계 · 제조</span><i class=\"choke\"><em>병목</em>HBM · AI 가속기에 붙는 적층 DRAM</i></div><div class=\"inh\"><em>세 단계를 한 회사 안에서</em><div class=\"tags \"><span>설계</span><i>→</i><span>제조</span><i>→</i><span>패키징 · 테스트</span></div></div></div><div class=\"why\" style=\"grid-row:3;--rc:#d55181\">표준 제품 · 대량 생산<b>→ 공정 · 수율이 경쟁력</b></div><div class=\"rl\" style=\"grid-row:4;--rc:#199e70\"><em>통합 · IDM</em><b>아날로그 · 전력</b><small>신호 변환 · 전력 관리</small></div><div class=\"one\" style=\"grid-row:4;--rc:#199e70\" data-tip=\"아날로그 · 전력 · IDM|신호 변환 · 증폭, 전압 · 전류 관리|자체 제조와 외부 위탁을 조합|ADI는 Linear(2017) · Maxim(2021)을 인수\"><div class=\"who\"><b>TI · ADI · Infineon</b><span>신호 변환 · 증폭 · 전력 관리 칩을 설계 · 제조</span></div><div class=\"inh\"><em>자체 제조 + 외부 위탁을 조합</em><div class=\"tags \"><span>설계</span><i>→</i><span>제조</span><i>→</i><span>패키징 · 테스트</span></div></div></div><div class=\"why\" style=\"grid-row:4;--rc:#199e70\">다품종 · 긴 제품 수명<b>→ 설계 노하우 = 고마진</b><small>Linear 영업이익률 44.5% (FY2016)</small></div><div class=\"rl\" style=\"grid-row:5;--rc:#566b7e\"><em>공통 기반</em><b>장비 · 소재</b></div><div class=\"eq\" style=\"grid-row:5;--rc:#566b7e\"><div class=\"base\" data-tip=\"ASML · 노광 장비|EUV 노광장비는 ASML만 공급|선단 공정의 가장 미세한 층을 찍는 장비\"><b>노광 장비</b>ASML <i class=\"choke\"><em>병목</em>EUV 노광장비 유일 공급</i></div><div class=\"base\"><b>공정 · 검사 장비</b>Applied · Lam · Tokyo Electron · KLA</div><div class=\"base\"><b>웨이퍼 · 소재</b>신에츠 · SUMCO</div></div><div class=\"why\" style=\"grid-row:5;--rc:#566b7e\">대체하기 어려운 공정 기술<b>→ 소수가 병목을 쥔다</b></div></div><p class=\"note\" style=\"margin-top:0\">대표 기업 예시이며 전체 목록이 아님 · 한 회사가 여러 역할을 맡기도 한다 — 삼성전자: 메모리 + 파운드리, TSMC: 제조 + 첨단 패키징 · ‘병목’ = 대체 공급자가 거의 없는 단계 · 줄의 색 = 제품군 · 칸에 마우스를 올리면 설명</p></div>",
+      "take": "제품 특성에 따라 밸류체인 구조가 다르다. 로직은 분업(Fabless–Foundry), 메모리 · 아날로그는 생산 · 설계 노하우가 핵심이다.",
       "sources": [
-        "elpida_failure",
-        "elpida_causes",
-        "elpida_bonds"
+        "sia_ecosystem",
+        "sia_chain",
+        "tsmc_foundry",
+        "cowos",
+        "micron_hbm",
+        "analog_technology",
+        "asml_euv",
+        "amd_10k_2025",
+        "google_tpu",
+        "aws_trainium",
+        "linear_10k_2016",
+        "linear_close",
+        "MAXIM"
       ],
       "kind": "",
-      "method": "왼쪽 그림은 설명을 위한 개념도이며 특정 기업의 실제 현금흐름이 아님. 조사 기준 2026-11-08.",
-      "tables": [],
+      "method": "대표 기업을 예로 든 구조도이며 전체 목록이나 점유율 통계가 아님. 제품 공급사(설계 · 판매)와 실제 제조사를 구분함. 한 회사가 여러 역할을 맡을 수 있음(삼성전자: 메모리 + 파운드리, TSMC: 제조 + 첨단 패키징, Intel: 자체 제조 + 위탁). ‘병목’은 대체 공급자가 거의 없는 단계를 가리키는 설명용 표시: EUV 노광장비는 ASML만 공급하고, 선단 공정 위탁 생산은 TSMC에 집중돼 있으며, HBM은 메모리 3사가 공급함. ‘제품 특성 → 구조’ 칸은 구조를 설명하는 정성적 요약. Linear 영업이익률 44.5%는 FY2016 Form 10-K. 기업과 역할 구분은 팀 조사 자료 「반도체 산업 주요 분야별 역사와 기업 계보 2026」(2026.11.10 기준)을 따름. 조사 기준 2026-11-11.",
+      "tables": [
+        {
+          "title": "제품별 공급 기업과 제조 방식",
+          "head": [
+            "종류",
+            "역할",
+            "설계 · 공급 기업",
+            "제조 방식"
+          ],
+          "rows": [
+            [
+              "CPU",
+              "명령 실행 · 범용 연산",
+              "Intel · AMD",
+              "Intel: 자체 + 위탁 / AMD 첨단 제품: TSMC"
+            ],
+            [
+              "GPU",
+              "병렬 계산 · AI 학습 · 추론",
+              "NVIDIA · AMD",
+              "대표 첨단 제품은 TSMC 제조"
+            ],
+            [
+              "AI 전용 칩",
+              "특정 AI 작업의 효율적인 처리",
+              "Google TPU · AWS Trainium",
+              "자체 설계와 외부 제조 · 패키징 협업"
+            ],
+            [
+              "일반 DRAM",
+              "작업 중 데이터 저장 · 접근",
+              "삼성전자 · SK hynix · Micron 등",
+              "메모리 기업이 직접 설계 · 제조"
+            ],
+            [
+              "HBM",
+              "AI 가속기에 대량의 데이터를 빠르게 전달",
+              "SK hynix · 삼성전자 · Micron",
+              "DRAM 적층, 베이스 다이 등 외부 협업"
+            ],
+            [
+              "NAND",
+              "전원이 꺼져도 데이터 보관",
+              "삼성전자 · SK hynix · Micron · Kioxia · Sandisk 등",
+              "자체 또는 공동 생산시설 활용"
+            ],
+            [
+              "아날로그 · 전력관리",
+              "신호 변환 · 증폭, 전압 · 전류 관리",
+              "TI · ADI(Linear · Maxim 인수) 등",
+              "자체 제조와 외부 위탁을 조합"
+            ]
+          ]
+        },
+        {
+          "title": "공급망에서 맡는 역할",
+          "head": [
+            "구분",
+            "담당 업무",
+            "대표 기업"
+          ],
+          "rows": [
+            [
+              "IP · EDA",
+              "회로 자산 · 설계 도구",
+              "Arm · Synopsys · Cadence"
+            ],
+            [
+              "팹리스",
+              "칩 설계 · 판매, 제조 위탁",
+              "NVIDIA · AMD · Qualcomm"
+            ],
+            [
+              "파운드리",
+              "고객 설계에 따른 제조",
+              "TSMC · 삼성전자 파운드리"
+            ],
+            [
+              "IDM",
+              "자사 제품 설계 · 제조",
+              "삼성전자 · SK hynix · Micron · Intel · TI"
+            ],
+            [
+              "패키징 · 검사",
+              "칩 연결 · 보호 · 검사",
+              "ASE · Amkor · JCET / 첨단 패키징: TSMC 등"
+            ],
+            [
+              "장비",
+              "노광 · 식각 · 증착 · 검사",
+              "ASML · Applied · Lam · Tokyo Electron · KLA · Advantest"
+            ],
+            [
+              "소재 · 기판",
+              "웨이퍼 · 공정 소재 · 기판",
+              "SUMCO · Shin-Etsu · Entegris · IBIDEN · Unimicron 등"
+            ]
+          ]
+        }
+      ],
+      "ref": false
+    },
+    {
+      "id": "semicon-mna-history",
+      "part": 2,
+      "title": "거대 M&A가 만든 반도체 제국: 밸류체인과 제품군의 재편",
+      "sub": "재편은 메모리만이 아니었다 — 독자 생존 대신 인수합병으로 규모의 경제를 완성한 4대 축",
+      "html": "<div class=\"mna\"><div class=\"mna-ax\"><span class=\"kicker\">재편의 네 갈래</span><svg width=\"834\" height=\"30\" viewBox=\"0 0 834 30\" role=\"img\" aria-label=\"1999년부터 2026년까지의 시간축\"><rect x=\"524.0\" y=\"17\" width=\"50.0\" height=\"13\" fill=\"#fff\" opacity=\".05\"/><rect x=\"649.0\" y=\"17\" width=\"25.0\" height=\"13\" fill=\"#fff\" opacity=\".05\"/><text x=\"574.0\" y=\"13\" fill=\"#ffb15e\" font-size=\"11.5\" text-anchor=\"end\" font-weight=\"700\">M&amp;A 발표액 급증 · 2015–16 직전 5년 평균의 약 8배</text><text x=\"649.0\" y=\"13\" fill=\"#ffb15e\" font-size=\"11.5\" font-weight=\"700\">2020 $118bn · 당시 최대</text><line x1=\"149.0\" x2=\"149.0\" y1=\"19\" y2=\"30\" stroke=\"#33495d\"/><text x=\"154.0\" y=\"28\" fill=\"#a8bbcb\" font-size=\"12\" class=\"tn\">2000</text><line x1=\"274.0\" x2=\"274.0\" y1=\"19\" y2=\"30\" stroke=\"#33495d\"/><text x=\"279.0\" y=\"28\" fill=\"#a8bbcb\" font-size=\"12\" class=\"tn\">2005</text><line x1=\"399.0\" x2=\"399.0\" y1=\"19\" y2=\"30\" stroke=\"#33495d\"/><text x=\"404.0\" y=\"28\" fill=\"#a8bbcb\" font-size=\"12\" class=\"tn\">2010</text><line x1=\"524.0\" x2=\"524.0\" y1=\"19\" y2=\"30\" stroke=\"#33495d\"/><text x=\"529.0\" y=\"28\" fill=\"#a8bbcb\" font-size=\"12\" class=\"tn\">2015</text><line x1=\"649.0\" x2=\"649.0\" y1=\"19\" y2=\"30\" stroke=\"#33495d\"/><text x=\"654.0\" y=\"28\" fill=\"#a8bbcb\" font-size=\"12\" class=\"tn\">2020</text><line x1=\"774.0\" x2=\"774.0\" y1=\"19\" y2=\"30\" stroke=\"#33495d\"/><text x=\"779.0\" y=\"28\" fill=\"#a8bbcb\" font-size=\"12\" class=\"tn\">2025</text></svg><div class=\"legend inline \"><span><i class=\"dot\" style=\"background:#a8bbcb;border-color:#a8bbcb\"></i>인수 완료</span><span><i class=\"dia\" style=\"background:#a8bbcb;border-color:#a8bbcb\"></i>분리 · 재편</span><span><i class=\"x\" style=\"background:#ff8298;border-color:#ff8298\"></i>무산</span></div></div><div class=\"mrow\"><div class=\"mrow-h\"><em>01 · 제품군 · 아날로그</em><b>아날로그 대형화</b><span>전문기업을 편입해 제품군의 폭을 넓힌다</span></div><svg width=\"834\" height=\"108\" viewBox=\"0 0 834 108\" role=\"img\" aria-label=\"아날로그 대형화: ADI · TI의 주요 거래를 연도순으로 놓은 계보\"><rect x=\"524.0\" y=\"0\" width=\"50.0\" height=\"108\" fill=\"#fff\" opacity=\".05\"/><rect x=\"649.0\" y=\"0\" width=\"25.0\" height=\"108\" fill=\"#fff\" opacity=\".05\"/><line x1=\"149.0\" x2=\"149.0\" y1=\"0\" y2=\"108\" stroke=\"#142536\"/><line x1=\"274.0\" x2=\"274.0\" y1=\"0\" y2=\"108\" stroke=\"#142536\"/><line x1=\"399.0\" x2=\"399.0\" y1=\"0\" y2=\"108\" stroke=\"#142536\"/><line x1=\"524.0\" x2=\"524.0\" y1=\"0\" y2=\"108\" stroke=\"#142536\"/><line x1=\"649.0\" x2=\"649.0\" y1=\"0\" y2=\"108\" stroke=\"#142536\"/><line x1=\"774.0\" x2=\"774.0\" y1=\"0\" y2=\"108\" stroke=\"#142536\"/><rect x=\"0\" y=\"33\" width=\"10\" height=\"10\" rx=\"2\" fill=\"#c98500\"/><text x=\"17\" y=\"43\" fill=\"#edf7ff\" font-size=\"15\" font-weight=\"800\">ADI</text><path d=\"M124,38H816\" fill=\"none\" stroke=\"#c98500\" stroke-width=\"3.5\" stroke-linecap=\"round\"/><polygon points=\"824,38 814,32 814,44\" fill=\"#c98500\"/><line x1=\"511.5\" x2=\"511.5\" y1=\"28\" y2=\"33\" stroke=\"#c98500\" stroke-width=\"1.5\"/><rect x=\"475.5\" y=\"8\" width=\"72\" height=\"20\" rx=\"10\" fill=\"#0c2033\" stroke=\"#2b4a62\"/><text x=\"511.5\" y=\"22.5\" fill=\"#edf7ff\" font-size=\"13\" text-anchor=\"middle\" font-weight=\"700\">Hittite</text><circle cx=\"511.5\" cy=\"38\" r=\"5.5\" fill=\"#c98500\" stroke=\"#07121f\" stroke-width=\"2\"/><text x=\"511.5\" y=\"54\" fill=\"#7f97aa\" font-size=\"11\" text-anchor=\"middle\" class=\"tn\">2014</text><line x1=\"586.5\" x2=\"586.5\" y1=\"28\" y2=\"33\" stroke=\"#c98500\" stroke-width=\"1.5\"/><rect x=\"553.0\" y=\"8\" width=\"67\" height=\"20\" rx=\"10\" fill=\"rgba(57,226,176,.18)\" stroke=\"#39e2b0\"/><text x=\"586.5\" y=\"22.5\" fill=\"#edf7ff\" font-size=\"13\" text-anchor=\"middle\" font-weight=\"700\">Linear</text><circle cx=\"586.5\" cy=\"38\" r=\"5.5\" fill=\"#c98500\" stroke=\"#07121f\" stroke-width=\"2\"/><text x=\"586.5\" y=\"54\" fill=\"#7f97aa\" font-size=\"11\" text-anchor=\"middle\" class=\"tn\">2017</text><line x1=\"686.5\" x2=\"686.5\" y1=\"28\" y2=\"33\" stroke=\"#c98500\" stroke-width=\"1.5\"/><rect x=\"656.5\" y=\"8\" width=\"60\" height=\"20\" rx=\"10\" fill=\"#0c2033\" stroke=\"#2b4a62\"/><text x=\"686.5\" y=\"22.5\" fill=\"#edf7ff\" font-size=\"13\" text-anchor=\"middle\" font-weight=\"700\">Maxim</text><circle cx=\"686.5\" cy=\"38\" r=\"5.5\" fill=\"#c98500\" stroke=\"#07121f\" stroke-width=\"2\"/><text x=\"686.5\" y=\"54\" fill=\"#7f97aa\" font-size=\"11\" text-anchor=\"middle\" class=\"tn\">2021</text><rect x=\"0\" y=\"85\" width=\"10\" height=\"10\" rx=\"2\" fill=\"#199e70\"/><text x=\"17\" y=\"95\" fill=\"#edf7ff\" font-size=\"15\" font-weight=\"800\">TI</text><path d=\"M124,90H816\" fill=\"none\" stroke=\"#199e70\" stroke-width=\"3.5\" stroke-linecap=\"round\"/><polygon points=\"824,90 814,84 814,96\" fill=\"#199e70\"/><line x1=\"161.5\" x2=\"161.5\" y1=\"80\" y2=\"85\" stroke=\"#199e70\" stroke-width=\"1.5\"/><rect x=\"117.5\" y=\"60\" width=\"104\" height=\"20\" rx=\"10\" fill=\"#0c2033\" stroke=\"#2b4a62\"/><text x=\"169.5\" y=\"74.5\" fill=\"#edf7ff\" font-size=\"13\" text-anchor=\"middle\" font-weight=\"700\">Burr-Brown</text><circle cx=\"161.5\" cy=\"90\" r=\"5.5\" fill=\"#199e70\" stroke=\"#07121f\" stroke-width=\"2\"/><text x=\"161.5\" y=\"106\" fill=\"#7f97aa\" font-size=\"11\" text-anchor=\"middle\" class=\"tn\">2000</text><line x1=\"436.5\" x2=\"436.5\" y1=\"80\" y2=\"85\" stroke=\"#199e70\" stroke-width=\"1.5\"/><rect x=\"396.5\" y=\"60\" width=\"80\" height=\"20\" rx=\"10\" fill=\"#0c2033\" stroke=\"#2b4a62\"/><text x=\"436.5\" y=\"74.5\" fill=\"#edf7ff\" font-size=\"13\" text-anchor=\"middle\" font-weight=\"700\">National</text><circle cx=\"436.5\" cy=\"90\" r=\"5.5\" fill=\"#199e70\" stroke=\"#07121f\" stroke-width=\"2\"/><text x=\"436.5\" y=\"106\" fill=\"#7f97aa\" font-size=\"11\" text-anchor=\"middle\" class=\"tn\">2011</text><rect x=\"475.5\" y=\"7\" width=\"72\" height=\"50\" fill=\"transparent\" data-tip=\"2014 · ADI ← Hittite Microwave|RF · 마이크로파 제품군\"/><rect x=\"553.0\" y=\"7\" width=\"67\" height=\"50\" fill=\"transparent\" data-tip=\"2017.03 · ADI ← Linear Technology|전원 관리 제품군 · 지분가치 약 $14.8bn|PART 1의 Linear — 독립 상장 종료\"/><rect x=\"656.5\" y=\"7\" width=\"60\" height=\"50\" fill=\"transparent\" data-tip=\"2021 · ADI ← Maxim Integrated|전력 관리 · 혼합신호 제품군|2020.07 발표 · 약 $21bn\"/><rect x=\"117.5\" y=\"59\" width=\"104\" height=\"50\" fill=\"transparent\" data-tip=\"2000 · TI ← Burr-Brown|정밀 아날로그 · 데이터 변환\"/><rect x=\"396.5\" y=\"59\" width=\"80\" height=\"50\" fill=\"transparent\" data-tip=\"2011.09 · TI ← National Semiconductor|아날로그 제품군 · 제조 기반\"/></svg><div class=\"mrow-out\"><b>신호 체인 + 전원 관리<br>풀스택</b><span>2025 아날로그 1위 TI · 2위 ADI</span></div></div><div class=\"mrow\"><div class=\"mrow-h\"><em>02 · 제품군 · 통신</em><b>팹리스 통합</b><span>설계 자산(IP)과 고객을 한데 합친다</span></div><svg width=\"834\" height=\"108\" viewBox=\"0 0 834 108\" role=\"img\" aria-label=\"팹리스 통합: Broadcom · Qualcomm의 주요 거래를 연도순으로 놓은 계보\"><rect x=\"524.0\" y=\"0\" width=\"50.0\" height=\"108\" fill=\"#fff\" opacity=\".05\"/><rect x=\"649.0\" y=\"0\" width=\"25.0\" height=\"108\" fill=\"#fff\" opacity=\".05\"/><line x1=\"149.0\" x2=\"149.0\" y1=\"0\" y2=\"108\" stroke=\"#142536\"/><line x1=\"274.0\" x2=\"274.0\" y1=\"0\" y2=\"108\" stroke=\"#142536\"/><line x1=\"399.0\" x2=\"399.0\" y1=\"0\" y2=\"108\" stroke=\"#142536\"/><line x1=\"524.0\" x2=\"524.0\" y1=\"0\" y2=\"108\" stroke=\"#142536\"/><line x1=\"649.0\" x2=\"649.0\" y1=\"0\" y2=\"108\" stroke=\"#142536\"/><line x1=\"774.0\" x2=\"774.0\" y1=\"0\" y2=\"108\" stroke=\"#142536\"/><rect x=\"0\" y=\"33\" width=\"10\" height=\"10\" rx=\"2\" fill=\"#e66767\"/><text x=\"17\" y=\"43\" fill=\"#edf7ff\" font-size=\"15\" font-weight=\"800\">Broadcom</text><line x1=\"124\" x2=\"286.5\" y1=\"38\" y2=\"38\" stroke=\"#e66767\" stroke-width=\"2\" stroke-dasharray=\"3 5\" opacity=\".75\"/><text x=\"193.2\" y=\"30\" fill=\"#7f97aa\" font-size=\"11.5\" text-anchor=\"middle\">HP → Agilent</text><path d=\"M286.5,38H816\" fill=\"none\" stroke=\"#e66767\" stroke-width=\"3.5\" stroke-linecap=\"round\"/><polygon points=\"824,38 814,32 814,44\" fill=\"#e66767\"/><line x1=\"286.5\" x2=\"286.5\" y1=\"28\" y2=\"33\" stroke=\"#e66767\" stroke-width=\"1.5\"/><rect x=\"251.0\" y=\"8\" width=\"95\" height=\"20\" rx=\"10\" fill=\"#0c2033\" stroke=\"#2b4a62\" stroke-dasharray=\"4 3\"/><text x=\"298.5\" y=\"22.5\" fill=\"#edf7ff\" font-size=\"13\" text-anchor=\"middle\" font-weight=\"700\">Avago 출범</text><path d=\"M286.5,31l7,7l-7,7l-7,-7Z\" fill=\"#07121f\" stroke=\"#e66767\" stroke-width=\"2.5\"/><text x=\"286.5\" y=\"54\" fill=\"#7f97aa\" font-size=\"11\" text-anchor=\"middle\" class=\"tn\">2005</text><line x1=\"561.5\" x2=\"561.5\" y1=\"28\" y2=\"33\" stroke=\"#e66767\" stroke-width=\"1.5\"/><rect x=\"518.0\" y=\"8\" width=\"87\" height=\"20\" rx=\"10\" fill=\"#0c2033\" stroke=\"#2b4a62\"/><text x=\"561.5\" y=\"22.5\" fill=\"#edf7ff\" font-size=\"13\" text-anchor=\"middle\" font-weight=\"700\">Broadcom</text><circle cx=\"561.5\" cy=\"38\" r=\"5.5\" fill=\"#e66767\" stroke=\"#07121f\" stroke-width=\"2\"/><text x=\"561.5\" y=\"54\" fill=\"#7f97aa\" font-size=\"11\" text-anchor=\"middle\" class=\"tn\">2016</text><rect x=\"0\" y=\"85\" width=\"10\" height=\"10\" rx=\"2\" fill=\"#9085e9\"/><text x=\"17\" y=\"95\" fill=\"#edf7ff\" font-size=\"15\" font-weight=\"800\">Qualcomm</text><path d=\"M124,90H816\" fill=\"none\" stroke=\"#9085e9\" stroke-width=\"3.5\" stroke-linecap=\"round\"/><polygon points=\"824,90 814,84 814,96\" fill=\"#9085e9\"/><circle cx=\"611.5\" cy=\"90\" r=\"9\" fill=\"#07121f\"/><path d=\"M606.0,84.5l11,11M617.0,84.5l-11,11\" stroke=\"#ff8298\" stroke-width=\"3\" stroke-linecap=\"round\"/><text x=\"622.5\" y=\"81\" fill=\"#ff8298\" font-size=\"12.5\" font-weight=\"700\" class=\"halo\">NXP 인수 무산</text><text x=\"611.5\" y=\"106\" fill=\"#7f97aa\" font-size=\"11\" text-anchor=\"middle\" class=\"tn\">2016–18</text><rect x=\"251.0\" y=\"7\" width=\"95\" height=\"50\" fill=\"transparent\" data-tip=\"2005 · Avago 출범|HP 반도체 사업 → 1999 Agilent → 2005 Avago로 분리\"/><rect x=\"518.0\" y=\"7\" width=\"87\" height=\"50\" fill=\"transparent\" data-tip=\"2016 · Avago + Broadcom|결합 뒤 Broadcom 이름을 사용|네트워크 · 연결 · 맞춤형 반도체\"/><rect x=\"597.5\" y=\"66\" width=\"114\" height=\"44\" fill=\"transparent\" data-tip=\"2018.07 · Qualcomm의 NXP 인수 무산|2016.10 인수 발표|중국 당국의 승인을 받지 못한 채 계약 종료\"/></svg><div class=\"mrow-out\"><b>통신 · 네트워킹 IP의<br>거대화</b><span>대형 거래는 규제 승인이 변수</span></div></div><div class=\"mrow\"><div class=\"mrow-h\"><em>03 · 제품군 · 로직 · AI</em><b>풀스택 로직 결합</b><span>서로 다른 연산 방식을 한 회사에 묶는다</span></div><svg width=\"834\" height=\"108\" viewBox=\"0 0 834 108\" role=\"img\" aria-label=\"풀스택 로직 결합: AMD · NVIDIA의 주요 거래를 연도순으로 놓은 계보\"><rect x=\"524.0\" y=\"0\" width=\"50.0\" height=\"108\" fill=\"#fff\" opacity=\".05\"/><rect x=\"649.0\" y=\"0\" width=\"25.0\" height=\"108\" fill=\"#fff\" opacity=\".05\"/><line x1=\"149.0\" x2=\"149.0\" y1=\"0\" y2=\"108\" stroke=\"#142536\"/><line x1=\"274.0\" x2=\"274.0\" y1=\"0\" y2=\"108\" stroke=\"#142536\"/><line x1=\"399.0\" x2=\"399.0\" y1=\"0\" y2=\"108\" stroke=\"#142536\"/><line x1=\"524.0\" x2=\"524.0\" y1=\"0\" y2=\"108\" stroke=\"#142536\"/><line x1=\"649.0\" x2=\"649.0\" y1=\"0\" y2=\"108\" stroke=\"#142536\"/><line x1=\"774.0\" x2=\"774.0\" y1=\"0\" y2=\"108\" stroke=\"#142536\"/><rect x=\"0\" y=\"33\" width=\"10\" height=\"10\" rx=\"2\" fill=\"#d95926\"/><text x=\"17\" y=\"43\" fill=\"#edf7ff\" font-size=\"15\" font-weight=\"800\">AMD</text><path d=\"M124,38H816\" fill=\"none\" stroke=\"#d95926\" stroke-width=\"3.5\" stroke-linecap=\"round\"/><polygon points=\"824,38 814,32 814,44\" fill=\"#d95926\"/><line x1=\"311.5\" x2=\"311.5\" y1=\"28\" y2=\"33\" stroke=\"#d95926\" stroke-width=\"1.5\"/><rect x=\"286.0\" y=\"8\" width=\"51\" height=\"20\" rx=\"10\" fill=\"#0c2033\" stroke=\"#2b4a62\"/><text x=\"311.5\" y=\"22.5\" fill=\"#edf7ff\" font-size=\"13\" text-anchor=\"middle\" font-weight=\"700\">ATI</text><circle cx=\"311.5\" cy=\"38\" r=\"5.5\" fill=\"#d95926\" stroke=\"#07121f\" stroke-width=\"2\"/><text x=\"311.5\" y=\"54\" fill=\"#7f97aa\" font-size=\"11\" text-anchor=\"middle\" class=\"tn\">2006</text><line x1=\"711.5\" x2=\"711.5\" y1=\"28\" y2=\"33\" stroke=\"#d95926\" stroke-width=\"1.5\"/><rect x=\"681.0\" y=\"8\" width=\"61\" height=\"20\" rx=\"10\" fill=\"#0c2033\" stroke=\"#2b4a62\"/><text x=\"711.5\" y=\"22.5\" fill=\"#edf7ff\" font-size=\"13\" text-anchor=\"middle\" font-weight=\"700\">Xilinx</text><circle cx=\"711.5\" cy=\"38\" r=\"5.5\" fill=\"#d95926\" stroke=\"#07121f\" stroke-width=\"2\"/><text x=\"711.5\" y=\"54\" fill=\"#7f97aa\" font-size=\"11\" text-anchor=\"middle\" class=\"tn\">2022</text><rect x=\"0\" y=\"85\" width=\"10\" height=\"10\" rx=\"2\" fill=\"#008300\"/><text x=\"17\" y=\"95\" fill=\"#edf7ff\" font-size=\"15\" font-weight=\"800\">NVIDIA</text><path d=\"M124,90H816\" fill=\"none\" stroke=\"#008300\" stroke-width=\"3.5\" stroke-linecap=\"round\"/><polygon points=\"824,90 814,84 814,96\" fill=\"#008300\"/><line x1=\"661.5\" x2=\"661.5\" y1=\"80\" y2=\"85\" stroke=\"#008300\" stroke-width=\"1.5\"/><rect x=\"621.5\" y=\"60\" width=\"80\" height=\"20\" rx=\"10\" fill=\"#0c2033\" stroke=\"#2b4a62\"/><text x=\"661.5\" y=\"74.5\" fill=\"#edf7ff\" font-size=\"13\" text-anchor=\"middle\" font-weight=\"700\">Mellanox</text><circle cx=\"661.5\" cy=\"90\" r=\"5.5\" fill=\"#008300\" stroke=\"#07121f\" stroke-width=\"2\"/><text x=\"661.5\" y=\"106\" fill=\"#7f97aa\" font-size=\"11\" text-anchor=\"middle\" class=\"tn\">2020</text><circle cx=\"711.5\" cy=\"90\" r=\"9\" fill=\"#07121f\"/><path d=\"M706.0,84.5l11,11M717.0,84.5l-11,11\" stroke=\"#ff8298\" stroke-width=\"3\" stroke-linecap=\"round\"/><text x=\"722.5\" y=\"81\" fill=\"#ff8298\" font-size=\"12.5\" font-weight=\"700\" class=\"halo\">Arm 인수 무산</text><text x=\"711.5\" y=\"106\" fill=\"#7f97aa\" font-size=\"11\" text-anchor=\"middle\" class=\"tn\">2020–22</text><rect x=\"286.0\" y=\"7\" width=\"51\" height=\"50\" fill=\"transparent\" data-tip=\"2006.10 · AMD ← ATI|그래픽(GPU) · 약 $5.4bn\"/><rect x=\"681.0\" y=\"7\" width=\"61\" height=\"50\" fill=\"transparent\" data-tip=\"2022.02 · AMD ← Xilinx|FPGA · Adaptive SoC · 2020.10 발표 · 약 $35bn|같은 해 Pensando(DPU)도 인수\"/><rect x=\"621.5\" y=\"59\" width=\"80\" height=\"50\" fill=\"transparent\" data-tip=\"2020.04 · NVIDIA ← Mellanox|데이터센터 네트워크 · $7bn\"/><rect x=\"697.5\" y=\"66\" width=\"110\" height=\"44\" fill=\"transparent\" data-tip=\"2022.02 · NVIDIA의 Arm 인수 무산|2020.09 계약 · 약 $40bn|규제 장벽으로 종료 — Arm은 NVIDIA의 자회사가 아님\"/></svg><div class=\"mrow-out\"><b>CPU + GPU + FPGA<br>→ 데이터센터 · AI</b><span>연산에 네트워크까지 한 회사 안으로</span></div></div><div class=\"mrow\"><div class=\"mrow-h\"><em>04 · 밸류체인 · 제조</em><b>파운드리 전문화</b><span>IDM이 제조를 떼어 내거나 외부에 연다</span></div><svg width=\"834\" height=\"108\" viewBox=\"0 0 834 108\" role=\"img\" aria-label=\"파운드리 전문화: GlobalFoundries · Intel의 주요 거래를 연도순으로 놓은 계보\"><rect x=\"524.0\" y=\"0\" width=\"50.0\" height=\"108\" fill=\"#fff\" opacity=\".05\"/><rect x=\"649.0\" y=\"0\" width=\"25.0\" height=\"108\" fill=\"#fff\" opacity=\".05\"/><line x1=\"149.0\" x2=\"149.0\" y1=\"0\" y2=\"108\" stroke=\"#142536\"/><line x1=\"274.0\" x2=\"274.0\" y1=\"0\" y2=\"108\" stroke=\"#142536\"/><line x1=\"399.0\" x2=\"399.0\" y1=\"0\" y2=\"108\" stroke=\"#142536\"/><line x1=\"524.0\" x2=\"524.0\" y1=\"0\" y2=\"108\" stroke=\"#142536\"/><line x1=\"649.0\" x2=\"649.0\" y1=\"0\" y2=\"108\" stroke=\"#142536\"/><line x1=\"774.0\" x2=\"774.0\" y1=\"0\" y2=\"108\" stroke=\"#142536\"/><rect x=\"0\" y=\"33\" width=\"10\" height=\"10\" rx=\"2\" fill=\"#d55181\"/><text x=\"17\" y=\"43\" fill=\"#edf7ff\" font-size=\"15\" font-weight=\"800\">GlobalFoundries</text><path d=\"M386.5,38H816\" fill=\"none\" stroke=\"#d55181\" stroke-width=\"3.5\" stroke-linecap=\"round\"/><polygon points=\"824,38 814,32 814,44\" fill=\"#d55181\"/><path d=\"M386.5,31l7,7l-7,7l-7,-7Z\" fill=\"#07121f\" stroke=\"#d55181\" stroke-width=\"2.5\"/><text x=\"373.5\" y=\"42.5\" text-anchor=\"end\" font-size=\"12.5\" fill=\"#a8bbcb\"><tspan fill=\"#7f97aa\" class=\"tn\">2009</tspan> AMD 제조 분리</text><line x1=\"411.5\" x2=\"411.5\" y1=\"28\" y2=\"33\" stroke=\"#d55181\" stroke-width=\"1.5\"/><rect x=\"384.5\" y=\"8\" width=\"94\" height=\"20\" rx=\"10\" fill=\"#0c2033\" stroke=\"#2b4a62\"/><text x=\"431.5\" y=\"22.5\" fill=\"#edf7ff\" font-size=\"13\" text-anchor=\"middle\" font-weight=\"700\">Chartered</text><circle cx=\"411.5\" cy=\"38\" r=\"5.5\" fill=\"#d55181\" stroke=\"#07121f\" stroke-width=\"2\"/><text x=\"411.5\" y=\"54\" fill=\"#7f97aa\" font-size=\"11\" text-anchor=\"middle\" class=\"tn\">2010</text><line x1=\"536.5\" x2=\"536.5\" y1=\"28\" y2=\"33\" stroke=\"#d55181\" stroke-width=\"1.5\"/><rect x=\"481.5\" y=\"8\" width=\"110\" height=\"20\" rx=\"10\" fill=\"#0c2033\" stroke=\"#2b4a62\"/><text x=\"536.5\" y=\"22.5\" fill=\"#edf7ff\" font-size=\"13\" text-anchor=\"middle\" font-weight=\"700\">IBM 제조사업</text><circle cx=\"536.5\" cy=\"38\" r=\"5.5\" fill=\"#d55181\" stroke=\"#07121f\" stroke-width=\"2\"/><text x=\"536.5\" y=\"54\" fill=\"#7f97aa\" font-size=\"11\" text-anchor=\"middle\" class=\"tn\">2015</text><rect x=\"0\" y=\"85\" width=\"10\" height=\"10\" rx=\"2\" fill=\"#3987e5\"/><text x=\"17\" y=\"95\" fill=\"#edf7ff\" font-size=\"15\" font-weight=\"800\">Intel</text><path d=\"M124,90H816\" fill=\"none\" stroke=\"#3987e5\" stroke-width=\"3.5\" stroke-linecap=\"round\"/><polygon points=\"824,90 814,84 814,96\" fill=\"#3987e5\"/><line x1=\"686.5\" x2=\"686.5\" y1=\"80\" y2=\"85\" stroke=\"#3987e5\" stroke-width=\"1.5\"/><rect x=\"633.0\" y=\"60\" width=\"83\" height=\"20\" rx=\"10\" fill=\"#0c2033\" stroke=\"#2b4a62\" stroke-dasharray=\"4 3\"/><text x=\"674.5\" y=\"74.5\" fill=\"#edf7ff\" font-size=\"13\" text-anchor=\"middle\" font-weight=\"700\">IFS 출범</text><path d=\"M686.5,83l7,7l-7,7l-7,-7Z\" fill=\"#07121f\" stroke=\"#3987e5\" stroke-width=\"2.5\"/><text x=\"686.5\" y=\"106\" fill=\"#7f97aa\" font-size=\"11\" text-anchor=\"middle\" class=\"tn\">2021</text><line x1=\"761.5\" x2=\"761.5\" y1=\"80\" y2=\"85\" stroke=\"#3987e5\" stroke-width=\"1.5\"/><rect x=\"714.0\" y=\"60\" width=\"109\" height=\"20\" rx=\"10\" fill=\"#0c2033\" stroke=\"#2b4a62\" stroke-dasharray=\"4 3\"/><text x=\"768.5\" y=\"74.5\" fill=\"#edf7ff\" font-size=\"13\" text-anchor=\"middle\" font-weight=\"700\">자회사화 추진</text><path d=\"M761.5,83l7,7l-7,7l-7,-7Z\" fill=\"#07121f\" stroke=\"#3987e5\" stroke-width=\"2.5\"/><text x=\"761.5\" y=\"106\" fill=\"#7f97aa\" font-size=\"11\" text-anchor=\"middle\" class=\"tn\">2024</text><rect x=\"236.5\" y=\"26\" width=\"164\" height=\"24\" fill=\"transparent\" data-tip=\"2009 · GlobalFoundries 출범|AMD의 제조 부문을 분리 · Mubadala와 합작\"/><rect x=\"384.5\" y=\"7\" width=\"94\" height=\"50\" fill=\"transparent\" data-tip=\"2010 · GlobalFoundries ← Chartered|싱가포르의 파운드리\"/><rect x=\"481.5\" y=\"7\" width=\"110\" height=\"50\" fill=\"transparent\" data-tip=\"2015 · GlobalFoundries ← IBM 반도체 제조사업|팹과 지식재산 포함|IBM은 반도체 제조에서 손을 뗌\"/><rect x=\"633.0\" y=\"59\" width=\"83\" height=\"50\" fill=\"transparent\" data-tip=\"2021.03 · Intel Foundry Services 출범|IDM 2.0 — 외부 고객의 칩을 위탁 생산\"/><rect x=\"714.0\" y=\"59\" width=\"109\" height=\"50\" fill=\"transparent\" data-tip=\"2024.09 · Intel Foundry 자회사화 계획 발표|제품과 제조의 손익 분리에 이은 계획|계획 발표 기준 — 그 뒤의 진행은 확인하지 않음\"/></svg><div class=\"mrow-out\"><b>선단 공정 위탁은<br>TSMC 생태계로 집중</b><span>IDM의 제조 분리 · 외주화</span></div></div></div>",
+      "take": "오늘날의 반도체 공룡들은 M&amp;A로 밸류체인의 병목을 쥐거나 제품 포트폴리오의 폭을 넓히며 탄생했다.",
+      "sources": [
+        "linear_close",
+        "linear_pr_sec",
+        "MAXIM",
+        "peer_ADI",
+        "NATIONAL",
+        "ti_burrbrown",
+        "analog_rank2025",
+        "broadcom",
+        "avago_broadcom_10k",
+        "broadcom_lineage",
+        "qcom_nxp_term",
+        "amd_ati",
+        "amd_xilinx",
+        "amd_10k_2022",
+        "nvda_mellanox",
+        "nvda_arm_term",
+        "gf_history",
+        "intel_idm2",
+        "intel_foundry_sub",
+        "tsmc_foundry",
+        "icinsights_mna",
+        "icinsights_mna2020"
+      ],
+      "kind": "",
+      "method": "가로축은 거래가 완료된 해(무산된 거래는 종료된 해, 분리 · 재편은 출범 · 발표한 해)이며 네 줄이 같은 축을 씀. 산업 구조를 설명하는 주요 거래만 추렸고 전수 목록이 아님. 완료된 인수 · 분리와 재편(추진 포함) · 무산을 구분해 표시하며, 인수 사실이 실적 개선 효과를 뜻하지는 않음. ‘결과’ 칸은 재편의 방향을 요약한 정성적 설명. 옅은 띠는 IC Insights가 집계한 반도체 M&amp;A 발표액이 몰린 해: 2015 $107.3bn · 2016 $99.8bn(2010–14 평균 $12.6bn), 2020 $118.0bn(당시 사상 최대 · 상위 5건이 약 80%). 띠는 발표한 해, 그림의 점은 완료한 해여서 2020년에 발표된 Maxim · Xilinx 인수는 2021 · 2022년에 찍혀 있음. 아날로그 순위는 GMI의 2025년 추정. Intel Foundry의 자회사화는 2024.09 계획 발표 기준이며 그 뒤의 진행은 확인하지 않음. 파운드리의 집중은 M&amp;A만의 결과가 아니라 공정 · 수율 · 설비투자 · 고객 신뢰의 축적이 함께 작용한 것임. 거래 연도와 계보는 팀 조사 자료 「반도체 산업 주요 분야별 역사와 기업 계보 2026」(2026.11.10 기준)의 확인 링크를 따름. 조사 기준 2026-11-11.",
+      "tables": [
+        {
+          "title": "주요 거래 일지",
+          "head": [
+            "갈래",
+            "주체",
+            "연도",
+            "거래",
+            "구분",
+            "내용"
+          ],
+          "rows": [
+            [
+              "아날로그 대형화",
+              "ADI",
+              "2014",
+              "Hittite",
+              "인수 완료",
+              "RF · 마이크로파 제품군"
+            ],
+            [
+              "아날로그 대형화",
+              "ADI",
+              "2017",
+              "Linear",
+              "인수 완료",
+              "전원 관리 제품군 · 지분가치 약 $14.8bn · PART 1의 Linear — 독립 상장 종료"
+            ],
+            [
+              "아날로그 대형화",
+              "ADI",
+              "2021",
+              "Maxim",
+              "인수 완료",
+              "전력 관리 · 혼합신호 제품군 · 2020.07 발표 · 약 $21bn"
+            ],
+            [
+              "아날로그 대형화",
+              "TI",
+              "2000",
+              "Burr-Brown",
+              "인수 완료",
+              "정밀 아날로그 · 데이터 변환"
+            ],
+            [
+              "아날로그 대형화",
+              "TI",
+              "2011",
+              "National",
+              "인수 완료",
+              "아날로그 제품군 · 제조 기반"
+            ],
+            [
+              "팹리스 통합",
+              "Broadcom",
+              "2005",
+              "Avago 출범",
+              "분리 · 재편",
+              "HP 반도체 사업 → 1999 Agilent → 2005 Avago로 분리"
+            ],
+            [
+              "팹리스 통합",
+              "Broadcom",
+              "2016",
+              "Broadcom",
+              "인수 완료",
+              "결합 뒤 Broadcom 이름을 사용 · 네트워크 · 연결 · 맞춤형 반도체"
+            ],
+            [
+              "팹리스 통합",
+              "Qualcomm",
+              "2016 → 2018",
+              "NXP 인수 무산",
+              "무산",
+              "2016.10 인수 발표 · 중국 당국의 승인을 받지 못한 채 계약 종료"
+            ],
+            [
+              "풀스택 로직 결합",
+              "AMD",
+              "2006",
+              "ATI",
+              "인수 완료",
+              "그래픽(GPU) · 약 $5.4bn"
+            ],
+            [
+              "풀스택 로직 결합",
+              "AMD",
+              "2022",
+              "Xilinx",
+              "인수 완료",
+              "FPGA · Adaptive SoC · 2020.10 발표 · 약 $35bn · 같은 해 Pensando(DPU)도 인수"
+            ],
+            [
+              "풀스택 로직 결합",
+              "NVIDIA",
+              "2020",
+              "Mellanox",
+              "인수 완료",
+              "데이터센터 네트워크 · $7bn"
+            ],
+            [
+              "풀스택 로직 결합",
+              "NVIDIA",
+              "2020 → 2022",
+              "Arm 인수 무산",
+              "무산",
+              "2020.09 계약 · 약 $40bn · 규제 장벽으로 종료 — Arm은 NVIDIA의 자회사가 아님"
+            ],
+            [
+              "파운드리 전문화",
+              "GlobalFoundries",
+              "2009",
+              "AMD 제조 분리",
+              "분리 · 재편",
+              "AMD의 제조 부문을 분리 · Mubadala와 합작"
+            ],
+            [
+              "파운드리 전문화",
+              "GlobalFoundries",
+              "2010",
+              "Chartered",
+              "인수 완료",
+              "싱가포르의 파운드리"
+            ],
+            [
+              "파운드리 전문화",
+              "GlobalFoundries",
+              "2015",
+              "IBM 제조사업",
+              "인수 완료",
+              "팹과 지식재산 포함 · IBM은 반도체 제조에서 손을 뗌"
+            ],
+            [
+              "파운드리 전문화",
+              "Intel",
+              "2021",
+              "IFS 출범",
+              "분리 · 재편",
+              "IDM 2.0 — 외부 고객의 칩을 위탁 생산"
+            ],
+            [
+              "파운드리 전문화",
+              "Intel",
+              "2024",
+              "자회사화 추진",
+              "분리 · 재편",
+              "제품과 제조의 손익 분리에 이은 계획 · 계획 발표 기준 — 그 뒤의 진행은 확인하지 않음"
+            ]
+          ]
+        }
+      ],
       "ref": false
     },
     {
@@ -1727,18 +2140,227 @@
       "id": "industry-lessons",
       "part": 2,
       "title": "반도체의 역사는 두 개의 축으로 읽힌다",
-      "sub": "수요의 이동 × 거시 환경 · 자본력 — 네 가지 질문으로 점검한다",
-      "html": "<div class=\"rows\"><div class=\"axes\"><div class=\"axis\"><em>축 1</em><b>수요의 이동</b><span>주도 기업을 바꾼다</span></div><div class=\"axis\"><em>축 2</em><b>거시 환경 · 자본력</b><span>사이클을 버티는 힘</span></div></div><div class=\"grid g4 lessons grow auto\"><article class=\"panel\"><div class=\"lhead\"><span class=\"num\">01</span><span class=\"kicker\">수요</span></div><h3>성장의 중심은<br>어디인가</h3><div class=\"lviz\"><div class=\"stair\"><span>PC · Intel</span><span>메모리 · 삼성</span><span>AI · NVIDIA</span></div></div><p>수요의 중심이 옮겨갈 때마다<br>선두 기업이 바뀌었다.</p><div class=\"pfoot\">아날로그는 필수지만,<br>리니어의 성장률은 제한됐다</div></article><article class=\"panel\"><div class=\"lhead\"><span class=\"num\">02</span><span class=\"kicker\">가격</span></div><h3>매출 증가는<br>물량인가 가격인가</h3><div class=\"lviz\"><div class=\"formula\">매출<i>=</i>물량<i>×</i><span class=\"amber\">가격</span></div></div><p>메모리는 가격(ASP)의 변화가<br>이익과 순위를 크게 흔든다.</p><div class=\"pfoot\">높은 마진이 얼마나<br>지속될지 검증할 것</div></article><article class=\"panel\"><div class=\"lhead\"><span class=\"num\">03</span><span class=\"kicker\">자본</span></div><h3>회복까지<br>버틸 수 있는가</h3><div class=\"lviz\"><div class=\"runway\"><div>버틸 수 있는 시간<i style=\"width:56%\"></i></div><div>회복까지 걸리는 시간<i class=\"need\" style=\"width:100%\"></i></div></div></div><p>현금·만기·투자 유연성이<br>생존을 가른다.</p><div class=\"pfoot\">불황에서의 생존이<br>다음 기회를 만든다</div></article><article class=\"panel\"><div class=\"lhead\"><span class=\"num\">04</span><span class=\"kicker\">정책</span></div><h3>자본비용을<br>누가 바꾸는가</h3><div class=\"lviz\"><div class=\"tags g2x\"><span>금리</span><span>보조금</span><span>수출통제</span><span>전력 · 인허가</span></div></div><p>금리·보조금·수출통제·인허가가<br>투자의 속도를 정한다.</p><div class=\"pfoot\">기술 밖의 조건이<br>투자 회수를 좌우한다</div></article></div><div class=\"band\"><em>PART 3</em><b>같은 틀을 2026년에</b><span>AI 시대의 세 가지 이슈 — ① 빅테크 CAPEX 치킨게임 · ② 미·중 패권 경쟁과 거시 환경 · ③ 반도체 기업의 현금 배분</span></div></div>",
-      "take": "수요의 이동이 주도 기업을 바꾸고, 사이클을 버티는 힘은 금리 · 보조금 등 자본력에서 나온다.",
+      "sub": "수요의 이동 · 밸류체인 분업화 × 자본력 · M&amp;A 재편 — 네 가지 질문으로 점검한다",
+      "html": "<div class=\"rows\"><div class=\"axes\"><div class=\"axis\"><em>축 1</em><b>수요의 이동과 밸류체인 분업화</b><span>주도 기업과 사이클을 만든다</span></div><div class=\"axis\"><em>축 2</em><b>자본력과 M&amp;A 재편</b><span>사이클을 버티고 재편을 이끈다</span></div></div><div class=\"grid g4 lessons grow auto\"><article class=\"panel\"><div class=\"lhead\"><span class=\"num\">01</span><span class=\"kicker\">수요</span></div><h3>성장의 중심은<br>어디인가</h3><div class=\"lviz\"><div class=\"stair\"><span>PC · Intel</span><span>메모리 · 삼성</span><span>AI · NVIDIA</span></div></div><p>수요의 중심이 옮겨갈 때마다<br>선두 기업이 바뀌었다.</p><div class=\"pfoot\">아날로그는 필수지만,<br>리니어의 성장률은 제한됐다</div></article><article class=\"panel\"><div class=\"lhead\"><span class=\"num\">02</span><span class=\"kicker\">사이클</span></div><h3>왜 등락이<br>이렇게 큰가</h3><div class=\"lviz\"><svg width=\"262\" height=\"104\" viewBox=\"0 0 262 104\" role=\"img\" aria-label=\"세계 반도체 매출의 전년 대비 증감률 1987–2025년\"><rect x=\"0.8\" y=\"41.5\" width=\"5.1\" height=\"20.5\" rx=\"1\" fill=\"#3987e5\" data-tip=\"1987년|세계 반도체 매출 전년 대비 +23.4%\"/><rect x=\"7.5\" y=\"28.5\" width=\"5.1\" height=\"33.5\" rx=\"1\" fill=\"#3987e5\" data-tip=\"1988년|세계 반도체 매출 전년 대비 +38.3%\"/><rect x=\"14.2\" y=\"54.7\" width=\"5.1\" height=\"7.3\" rx=\"1\" fill=\"#3987e5\" data-tip=\"1989년|세계 반도체 매출 전년 대비 +8.4%\"/><rect x=\"21.0\" y=\"58.9\" width=\"5.1\" height=\"3.1\" rx=\"1\" fill=\"#3987e5\" data-tip=\"1990년|세계 반도체 매출 전년 대비 +3.6%\"/><rect x=\"27.7\" y=\"54.9\" width=\"5.1\" height=\"7.1\" rx=\"1\" fill=\"#3987e5\" data-tip=\"1991년|세계 반도체 매출 전년 대비 +8.1%\"/><rect x=\"34.4\" y=\"53.6\" width=\"5.1\" height=\"8.4\" rx=\"1\" fill=\"#3987e5\" data-tip=\"1992년|세계 반도체 매출 전년 대비 +9.6%\"/><rect x=\"41.1\" y=\"36.5\" width=\"5.1\" height=\"25.5\" rx=\"1\" fill=\"#3987e5\" data-tip=\"1993년|세계 반도체 매출 전년 대비 +29.1%\"/><rect x=\"47.8\" y=\"34.2\" width=\"5.1\" height=\"27.8\" rx=\"1\" fill=\"#3987e5\" data-tip=\"1994년|세계 반도체 매출 전년 대비 +31.8%\"/><rect x=\"54.5\" y=\"25.5\" width=\"5.1\" height=\"36.5\" rx=\"1\" fill=\"#3987e5\" data-tip=\"1995년|세계 반도체 매출 전년 대비 +41.7%\"/><rect x=\"61.3\" y=\"62\" width=\"5.1\" height=\"7.5\" rx=\"1\" fill=\"#e66767\" data-tip=\"1996년|세계 반도체 매출 전년 대비 −8.6%\"/><rect x=\"68.0\" y=\"58.5\" width=\"5.1\" height=\"3.5\" rx=\"1\" fill=\"#3987e5\" data-tip=\"1997년|세계 반도체 매출 전년 대비 +4.0%\"/><rect x=\"74.7\" y=\"62\" width=\"5.1\" height=\"7.4\" rx=\"1\" fill=\"#e66767\" data-tip=\"1998년|세계 반도체 매출 전년 대비 −8.4%\"/><rect x=\"81.4\" y=\"45.5\" width=\"5.1\" height=\"16.5\" rx=\"1\" fill=\"#3987e5\" data-tip=\"1999년|세계 반도체 매출 전년 대비 +18.9%\"/><rect x=\"88.1\" y=\"29.8\" width=\"5.1\" height=\"32.2\" rx=\"1\" fill=\"#3987e5\" data-tip=\"2000년|세계 반도체 매출 전년 대비 +36.8%\"/><rect x=\"94.9\" y=\"62\" width=\"5.1\" height=\"28.0\" rx=\"1\" fill=\"#e66767\" data-tip=\"2001년|세계 반도체 매출 전년 대비 −32.0%\"/><rect x=\"101.6\" y=\"60.9\" width=\"5.1\" height=\"1.1\" rx=\"1\" fill=\"#3987e5\" data-tip=\"2002년|세계 반도체 매출 전년 대비 +1.3%\"/><rect x=\"108.3\" y=\"46.0\" width=\"5.1\" height=\"16.0\" rx=\"1\" fill=\"#3987e5\" data-tip=\"2003년|세계 반도체 매출 전년 대비 +18.3%\"/><rect x=\"115.0\" y=\"37.5\" width=\"5.1\" height=\"24.5\" rx=\"1\" fill=\"#3987e5\" data-tip=\"2004년|세계 반도체 매출 전년 대비 +28.0%\"/><rect x=\"121.7\" y=\"56.1\" width=\"5.1\" height=\"5.9\" rx=\"1\" fill=\"#3987e5\" data-tip=\"2005년|세계 반도체 매출 전년 대비 +6.8%\"/><rect x=\"128.4\" y=\"54.2\" width=\"5.1\" height=\"7.8\" rx=\"1\" fill=\"#3987e5\" data-tip=\"2006년|세계 반도체 매출 전년 대비 +8.9%\"/><rect x=\"135.2\" y=\"59.2\" width=\"5.1\" height=\"2.8\" rx=\"1\" fill=\"#3987e5\" data-tip=\"2007년|세계 반도체 매출 전년 대비 +3.2%\"/><rect x=\"141.9\" y=\"62\" width=\"5.1\" height=\"2.4\" rx=\"1\" fill=\"#e66767\" data-tip=\"2008년|세계 반도체 매출 전년 대비 −2.8%\"/><rect x=\"148.6\" y=\"62\" width=\"5.1\" height=\"7.8\" rx=\"1\" fill=\"#e66767\" data-tip=\"2009년|세계 반도체 매출 전년 대비 −9.0%\"/><rect x=\"155.3\" y=\"34.2\" width=\"5.1\" height=\"27.8\" rx=\"1\" fill=\"#3987e5\" data-tip=\"2010년|세계 반도체 매출 전년 대비 +31.8%\"/><rect x=\"162.0\" y=\"61\" width=\"5.1\" height=\"1\" rx=\"1\" fill=\"#3987e5\" data-tip=\"2011년|세계 반도체 매출 전년 대비 +0.4%\"/><rect x=\"168.7\" y=\"62\" width=\"5.1\" height=\"2.3\" rx=\"1\" fill=\"#e66767\" data-tip=\"2012년|세계 반도체 매출 전년 대비 −2.7%\"/><rect x=\"175.5\" y=\"57.8\" width=\"5.1\" height=\"4.2\" rx=\"1\" fill=\"#3987e5\" data-tip=\"2013년|세계 반도체 매출 전년 대비 +4.8%\"/><rect x=\"182.2\" y=\"53.3\" width=\"5.1\" height=\"8.7\" rx=\"1\" fill=\"#3987e5\" data-tip=\"2014년|세계 반도체 매출 전년 대비 +9.9%\"/><rect x=\"188.9\" y=\"62\" width=\"5.1\" height=\"1\" rx=\"1\" fill=\"#e66767\" data-tip=\"2015년|세계 반도체 매출 전년 대비 −0.2%\"/><rect x=\"195.6\" y=\"61\" width=\"5.1\" height=\"1\" rx=\"1\" fill=\"#3987e5\" data-tip=\"2016년|세계 반도체 매출 전년 대비 +1.1%\"/><rect x=\"202.3\" y=\"43.1\" width=\"5.1\" height=\"18.9\" rx=\"1\" fill=\"#3987e5\" data-tip=\"2017년|세계 반도체 매출 전년 대비 +21.6%\"/><rect x=\"209.1\" y=\"50.0\" width=\"5.1\" height=\"12.0\" rx=\"1\" fill=\"#3987e5\" data-tip=\"2018년|세계 반도체 매출 전년 대비 +13.7%\"/><rect x=\"215.8\" y=\"62\" width=\"5.1\" height=\"10.5\" rx=\"1\" fill=\"#e66767\" data-tip=\"2019년|세계 반도체 매출 전년 대비 −12.0%\"/><rect x=\"222.5\" y=\"56.0\" width=\"5.1\" height=\"6.0\" rx=\"1\" fill=\"#3987e5\" data-tip=\"2020년|세계 반도체 매출 전년 대비 +6.8%\"/><rect x=\"229.2\" y=\"39.1\" width=\"5.1\" height=\"22.9\" rx=\"1\" fill=\"#3987e5\" data-tip=\"2021년|세계 반도체 매출 전년 대비 +26.2%\"/><rect x=\"235.9\" y=\"59.1\" width=\"5.1\" height=\"2.9\" rx=\"1\" fill=\"#3987e5\" data-tip=\"2022년|세계 반도체 매출 전년 대비 +3.3%\"/><rect x=\"242.6\" y=\"62\" width=\"5.1\" height=\"7.2\" rx=\"1\" fill=\"#e66767\" data-tip=\"2023년|세계 반도체 매출 전년 대비 −8.2%\"/><rect x=\"249.4\" y=\"44.8\" width=\"5.1\" height=\"17.2\" rx=\"1\" fill=\"#3987e5\" data-tip=\"2024년|세계 반도체 매출 전년 대비 +19.7%\"/><rect x=\"256.1\" y=\"39.1\" width=\"5.1\" height=\"22.9\" rx=\"1\" fill=\"#3987e5\" data-tip=\"2025년|세계 반도체 매출 전년 대비 +26.2%\"/><line x1=\"0\" x2=\"262\" y1=\"62\" y2=\"62\" stroke=\"#9db4c6\" stroke-width=\"1\"/><text x=\"57.1\" y=\"21.5\" fill=\"#edf7ff\" font-size=\"12\" text-anchor=\"middle\" font-weight=\"700\" class=\"tn\">1995 +42%</text><text x=\"97.4\" y=\"102.0\" fill=\"#edf7ff\" font-size=\"12\" text-anchor=\"middle\" font-weight=\"700\" class=\"tn\">2001 −32%</text><text x=\"0\" y=\"103\" fill=\"#7f97aa\" font-size=\"10.5\" class=\"tn\">1987</text><text x=\"262\" y=\"103\" fill=\"#7f97aa\" font-size=\"10.5\" text-anchor=\"end\" class=\"tn\">2025</text></svg><span class=\"lcap\">세계 반도체 매출 · 전년 대비</span></div><p>최종 수요까지 사슬이 길어<br>수요의 변화가 위로 갈수록 커진다.</p><div class=\"pfoot\">채찍효과 — 39년 가운데<br>9번의 역성장</div></article><article class=\"panel\"><div class=\"lhead\"><span class=\"num\">03</span><span class=\"kicker\">자본</span></div><h3>회복까지<br>버틸 수 있는가</h3><div class=\"lviz\"><div class=\"runway\"><div>버틸 수 있는 시간<i style=\"width:56%\"></i></div><div>회복까지 걸리는 시간<i class=\"need\" style=\"width:100%\"></i></div></div></div><p>현금·만기·투자 유연성이<br>생존을 가른다.</p><div class=\"pfoot\">버틴 기업이 탈락한 기업을<br>인수하며 재편을 이끈다</div></article><article class=\"panel\"><div class=\"lhead\"><span class=\"num\">04</span><span class=\"kicker\">정책</span></div><h3>자본비용을<br>누가 바꾸는가</h3><div class=\"lviz\"><div class=\"tags g2x\"><span>금리</span><span>보조금</span><span>수출통제</span><span>전력 · 인허가</span></div></div><p>금리·보조금·수출통제·인허가가<br>투자의 속도를 정한다.</p><div class=\"pfoot\">기술 밖의 조건이<br>투자 회수를 좌우한다</div></article></div><div class=\"band\"><em>PART 3</em><b>같은 틀을 2026년에</b><span>AI 시대의 세 가지 이슈 — ① 빅테크 CAPEX 치킨게임 · ② 미·중 패권 경쟁과 거시 환경 · ③ 반도체 기업의 현금 배분</span></div></div>",
+      "take": "수요의 이동이 주도 기업을 바꾸고, 사이클을 버틴 자본력이 M&amp;A로 산업을 재편했다.",
       "sources": [
         "ranking_history",
         "linear_10k_2016",
+        "wsts",
+        "bullwhip",
+        "hoover_triangle",
         "elpida_failure",
         "fed_history"
       ],
       "kind": "",
-      "method": "",
-      "tables": [],
+      "method": "02 카드의 막대는 WSTS 연간 청구액으로 직접 계산한 세계 반도체 매출의 전년 대비 증감률(1987–2025, 39개 연도): 가장 큰 증가는 1995년 +41.7%, 가장 큰 감소는 2001년 −32.0%이고 감소한 해는 9번. 채찍효과는 공급망 일반에 대한 설명(Lee 외 1997)으로, 최종 수요보다 위쪽 단계의 주문 변동이 더 커지는 현상을 말함. 반도체에서는 새 팹이 생산능력을 한꺼번에 늘려 한동안 공급 과잉이 되기 쉽다는 점(Wong & Plummer 2023)이 더해짐. 사슬의 길이와 변동 폭의 관계를 이 덱에서 따로 계량한 것은 아님. 조사 기준 2026-11-08 (02 카드는 2026-11-11).",
+      "tables": [
+        {
+          "title": "세계 반도체 매출과 전년 대비 증감률 (WSTS 연간)",
+          "head": [
+            "연도",
+            "매출 ($bn)",
+            "전년 대비 (%)"
+          ],
+          "rows": [
+            [
+              "1987",
+              "32.5",
+              "+23.4"
+            ],
+            [
+              "1988",
+              "45.0",
+              "+38.3"
+            ],
+            [
+              "1989",
+              "48.8",
+              "+8.4"
+            ],
+            [
+              "1990",
+              "50.5",
+              "+3.6"
+            ],
+            [
+              "1991",
+              "54.6",
+              "+8.1"
+            ],
+            [
+              "1992",
+              "59.9",
+              "+9.6"
+            ],
+            [
+              "1993",
+              "77.3",
+              "+29.1"
+            ],
+            [
+              "1994",
+              "101.9",
+              "+31.8"
+            ],
+            [
+              "1995",
+              "144.4",
+              "+41.7"
+            ],
+            [
+              "1996",
+              "132.0",
+              "−8.6"
+            ],
+            [
+              "1997",
+              "137.2",
+              "+4.0"
+            ],
+            [
+              "1998",
+              "125.6",
+              "−8.4"
+            ],
+            [
+              "1999",
+              "149.4",
+              "+18.9"
+            ],
+            [
+              "2000",
+              "204.4",
+              "+36.8"
+            ],
+            [
+              "2001",
+              "139.0",
+              "−32.0"
+            ],
+            [
+              "2002",
+              "140.7",
+              "+1.3"
+            ],
+            [
+              "2003",
+              "166.4",
+              "+18.3"
+            ],
+            [
+              "2004",
+              "213.0",
+              "+28.0"
+            ],
+            [
+              "2005",
+              "227.5",
+              "+6.8"
+            ],
+            [
+              "2006",
+              "247.7",
+              "+8.9"
+            ],
+            [
+              "2007",
+              "255.6",
+              "+3.2"
+            ],
+            [
+              "2008",
+              "248.6",
+              "−2.8"
+            ],
+            [
+              "2009",
+              "226.3",
+              "−9.0"
+            ],
+            [
+              "2010",
+              "298.3",
+              "+31.8"
+            ],
+            [
+              "2011",
+              "299.5",
+              "+0.4"
+            ],
+            [
+              "2012",
+              "291.6",
+              "−2.7"
+            ],
+            [
+              "2013",
+              "305.6",
+              "+4.8"
+            ],
+            [
+              "2014",
+              "335.8",
+              "+9.9"
+            ],
+            [
+              "2015",
+              "335.2",
+              "−0.2"
+            ],
+            [
+              "2016",
+              "338.9",
+              "+1.1"
+            ],
+            [
+              "2017",
+              "412.2",
+              "+21.6"
+            ],
+            [
+              "2018",
+              "468.8",
+              "+13.7"
+            ],
+            [
+              "2019",
+              "412.3",
+              "−12.0"
+            ],
+            [
+              "2020",
+              "440.4",
+              "+6.8"
+            ],
+            [
+              "2021",
+              "555.9",
+              "+26.2"
+            ],
+            [
+              "2022",
+              "574.1",
+              "+3.3"
+            ],
+            [
+              "2023",
+              "526.9",
+              "−8.2"
+            ],
+            [
+              "2024",
+              "630.5",
+              "+19.7"
+            ],
+            [
+              "2025",
+              "795.6",
+              "+26.2"
+            ]
+          ]
+        }
+      ],
       "ref": false
     },
     {
@@ -1859,8 +2481,8 @@
       "id": "us-china",
       "part": 3,
       "title": "② 미·중 패권 경쟁과 거시 환경: 1980년대 미·일 구도의 재현",
-      "sub": "고금리 · 민간 주도의 미국 vs 저금리 · 정부 주도의 중국 — 미·일의 역사로 미·중의 현재를 본다",
-      "html": "<div class=\"replay\"><div class=\"rrow past\"><div class=\"rrow-h\"><span class=\"yr\">1980s</span><b>미국 ↔ 일본</b></div><div class=\"rside\" style=\"border-left-color:#3987e5\"><div class=\"rside-h\"><em>미국</em><b>고금리 · 강달러</b></div><div class=\"rside-n\"><div><b class=\"tn\">19.1%</b><span>FF 금리 · 1981.06</span></div></div></div><div class=\"rgap\"><span>정책금리 격차</span><b class=\"tn\">12.9%p</b></div><div class=\"rside\" style=\"border-left-color:#d95926\"><div class=\"rside-h\"><em>일본</em><b>저금리 · 은행 금융</b></div><div class=\"rside-n\"><div><b class=\"tn\">6.25%</b><span>공정할인율 · 1981.06</span></div></div></div><div class=\"rout\"><em>결과 · 1990 반도체 매출</em><b>Top 10 중 6곳이 일본</b><span>메모리(DRAM) 주도권 이동</span></div></div><div class=\"rlink\"><i>↓</i>같은 구도 · 40여 년 뒤</div><div class=\"rrow now\"><div class=\"rrow-h\"><span class=\"yr\">2020s</span><b>미국 ↔ 중국</b></div><div class=\"rside\" style=\"border-left-color:#3987e5\"><div class=\"rside-h\"><em>미국</em><b>고금리 · 민간 주도</b></div><div class=\"rside-n\"><div><b class=\"tn\">3.88%</b><span>FF 금리 · 2026.10</span></div><div><b class=\"tn\">4.86%</b><span>10년물 국채 · 2026.11.06</span></div></div><p><b>민간 자금</b> · 빅테크 CAPEX 가이던스 $720–740bn</p></div><div class=\"rgap\"><span>정책금리 격차</span><b class=\"tn\">2.5%p</b></div><div class=\"rside\" style=\"border-left-color:#d95926\"><div class=\"rside-h\"><em>중국</em><b>저금리 · 정부 주도</b></div><div class=\"rside-n\"><div><b class=\"tn\">1.40%</b><span>7일물 역레포 · 2026.10</span></div><div><b class=\"tn\">1.57%</b><span>10년물 국채 · 2026.11.09</span></div></div><p><b>정부 자금</b> · 국가 반도체 기금 3기 3,440억 위안</p></div><div class=\"rout\"><em>2020s · 진행 중</em><b>이번에도 주도권이<br>넘어갈까?</b></div></div><p class=\"note\">FF = 연방기금 실효금리 월평균(목표범위 3.75–4.00%) · 중국 정책금리 = 인민은행 7일물 역레포 · 1년 LPR(대출 기준금리) 3.0%, 17개월째 동결 · 명목금리이며 실제 자본비용 격차와 같지 않다.</p><div class=\"grid g2 gap14 grow auto\"><article class=\"panel sm\"><div class=\"kicker\">1980년대와 다른 점 · 당장은 뒤집히기 어렵다</div><h3>자금만으로 풀리지 않는 병목</h3><div class=\"plist\"><div>첨단 장비 · HBM 접근(미국의 수출통제) · 수율 · 고객 생태계</div><div>달러 자본시장과 빅테크의 내부 현금흐름</div><div>금리 격차도 그때보다 작다 — <b>12.9%p → 2.5%p</b></div></div><div class=\"pfoot\">낮은 자본비용은 추격의 충분조건이 아니다</div></article><article class=\"panel sm\"><div class=\"kicker\">1980년대와 같은 점 · 길어지면 격차는 좁혀진다</div><h3>긴 회수기간을 견디는 자본</h3><div class=\"plist\"><div>저금리 · 정책금융이 설비 · 전력망의 투자 부담을 완화</div><div>미국의 지연은 상대적 기회 — 데이터센터 제한 주민투표 <b>31/35건</b> 찬성</div><div>최고 AI 모델의 격차는 이미 <b>39점</b> — Arena 1,503 vs 1,464</div></div><div class=\"pfoot\">저금리 · 정부 지원이 길어질수록 추격의 발판이 된다</div></article></div></div>",
+      "sub": "AI 경쟁은 미국 기업끼리의 싸움에서 끝나지 않는다 — 금리도 정치도 다른 두 나라의 패권 다툼",
+      "html": "<div class=\"uc\"><div class=\"uc-now\"><span class=\"kicker\">지금 · 두 나라의 거시 환경은 다르다</span><div class=\"uc-grid\"><span></span><div class=\"uc-c us\">미국</div><div class=\"uc-c cn\">중국</div><div class=\"uc-k\">금리</div><div class=\"uc-v us\"><div><b>고금리</b><strong class=\"tn\">3.88%</strong></div><span>FF 금리 · 2026.10</span></div><div class=\"uc-v cn\"><div><b>저금리</b><strong class=\"tn\">1.40%</strong></div><span>7일물 역레포 · 2026.10</span></div><div class=\"uc-k\">정치</div><div class=\"uc-v us\"><div><b>정치 노이즈 심화</b></div><span>2026.11 중간선거 — 민주당이 상·하원 장악<br>데이터센터 제한 주민투표 31/35건 찬성</span></div><div class=\"uc-v cn\"><div><b>정치 일원화</b></div><span>정책의 방향이 한곳에서 정해진다<br>반도체 기금 1 → 2 → 3기 (2014 · 2019 · 2024)</span></div><div class=\"uc-k\">자금</div><div class=\"uc-v us\"><div><b>민간 주도</b></div><span>빅테크 4사 CAPEX 가이던스 $720–740bn</span></div><div class=\"uc-v cn\"><div><b>정부 주도</b></div><span>국가 반도체 기금 3기 3,440억 위안</span></div></div></div><div class=\"uc-then\"><span class=\"kicker\">1980년대 미·일과 견주면</span><article class=\"panel sm\"><div class=\"uc-tag\">닮은 점</div><h3>고금리의 미국 ↔ 저금리 · 국가가 미는 추격자</h3><p>그때 일본은 메모리 주도권을 가져갔다 — 1981 금리 격차 12.9%p → 1990 Top 10 중 <b>6곳이 일본</b></p></article><article class=\"panel sm grow\"><div class=\"uc-tag diff\">다른 점</div><h3>이번에는 그때처럼 넘어가기 어렵다</h3><div class=\"uc-diff\"><div><b class=\"tn\">12.9%p → 2.5%p</b><span>정책금리 격차가 훨씬 작다</span></div><div><b class=\"tn\">$954bn vs $336bn</b><span>군사비(2025) — 일본은 동맹이었고 중국은 경쟁국.<br>미국은 수출통제로 첨단 장비 · HBM 접근을 막는다</span></div></div></article></div><div class=\"uc-end\"><div><em>당장은</em><b>AI 패권이 넘어가기 어렵다</b></div><i>→</i><div class=\"warn\"><em>이 환경이 길어지면</em><b>격차는 좁혀질 수 있다</b><span>최고 AI 모델의 격차는 이미 39점 · Arena 1,503 vs 1,464</span></div></div></div>",
       "take": "당장 패권이 뒤집히기는 어렵다. 그러나 저금리 · 정부 지원이 길어지면 격차는 좁혀질 수 있다.",
       "sources": [
         "fred_ff",
@@ -1868,10 +2490,11 @@
         "audit_3_0",
         "audit_3_1",
         "audit_3_2",
-        "fred_dgs10d",
         "cn_adb",
-        "cn_lpr",
         "cn_policy_shift",
+        "midterms",
+        "dc_ballot",
+        "audit_4_0",
         "bigfund3",
         "audit_1_0",
         "audit_1_1",
@@ -1880,17 +2503,15 @@
         "boj",
         "japan",
         "ranking_history",
+        "sipri_2025",
         "bis_2022",
-        "dc_ballot",
-        "midterms",
-        "audit_4_0",
         "ai_index"
       ],
       "kind": "",
-      "method": "정책금리 격차는 같은 달의 미국 연방기금 실효금리 월평균에서 상대국 정책금리를 뺀 값: 1981.06 19.10% − 일본 공정할인율 6.25% = 12.9%p, 2026.10 3.88% − 인민은행 7일물 역레포 1.40% = 2.5%p. 일본 공정할인율과 중국 7일물 역레포는 정의가 다른 정책금리이며 기업의 실제 조달금리가 아님. 연준 목표범위는 2026.09.16에 25bp 올린 3.75–4.00%(10.28 동결). 10년물 국채 수익률은 미국 2026.11.06 4.86%(FRED DGS10 · 2026.10 월평균은 5.13%), 중국 2026.11.09 종가 1.573%(ADB AsianBondsOnline)로 격차 약 3.3%p — 기준일이 1영업일 다름. 중국 1년 LPR 3.0% · 5년 LPR 3.5%는 2026.10.20 고시치로 17개월 연속 동결(2차 자료). 인민은행이 2026.11 초 익일물 금리(1.25%)를 정책금리로 삼는 체계로 바꿨다는 보도가 있어, 이 장표의 중국 정책금리는 2026.10 기준으로 적음. 모두 명목금리이므로 환율 · 물가 · 신용 위험 · 자본 이동 제약을 반영한 실제 자본비용의 격차와 같지 않음. 빅테크 CAPEX는 Microsoft · Alphabet · Amazon · Meta의 2026년 회사 가이던스 합계(전망), 국가집적회로산업투자기금(반도체 기금) 3기 3,440억 위안은 2024.05 설립 당시 등록자본(1기 1,387억 · 2기 2,042억 위안)으로, 규모와 성격이 다른 자금이어서 두 금액을 직접 비교하지 않음. 주민투표는 구속력 있는 안건 35건의 2026.11.06 집계(인증 전 결과 포함)이며 전국 일괄 금지로 해석할 수 없음. Arena 점수는 단일 벤치마크 · 단일 시점(2026.03)의 값으로, 점수 차를 성능의 비율로 해석하지 않으며 칩 제조능력이나 국가 경쟁력 순위가 아님. 조사 기준: 금리 2026-11-10, 그 밖은 2026-11-08.",
+      "method": "정책금리 격차는 같은 달의 미국 연방기금 실효금리 월평균에서 상대국 정책금리를 뺀 값: 1981.06 19.10% − 일본 공정할인율 6.25% = 12.9%p, 2026.10 3.88% − 인민은행 7일물 역레포 1.40% = 2.5%p. 일본 공정할인율과 중국 7일물 역레포는 정의가 다른 정책금리이며 기업의 실제 조달금리가 아님. 연준 목표범위는 2026.09.16에 25bp 올린 3.75–4.00%(10.28 동결). 인민은행이 2026.11 초 익일물 금리(1.25%)를 정책금리로 삼는 체계로 바꿨다는 보도가 있어, 중국 정책금리는 2026.10 기준으로 적음. 모두 명목금리이므로 환율 · 물가 · 신용 위험 · 자본 이동 제약을 반영한 실제 자본비용의 격차와 같지 않음. ‘정치 노이즈 심화’ · ‘정치 일원화’는 발표자의 해석을 줄인 말이며, 근거는 2026.11.04 중간선거에서 민주당이 상·하원 다수를 확보했다는 보도(새 의회는 2027년 출범)와 구속력 있는 데이터센터 제한 주민투표 35건 중 31건 찬성(2026.11.06 집계 · 인증 전 결과 포함), 국가집적회로산업투자기금(반도체 기금)이 2014 · 2019 · 2024년에 세 차례 조성된 사실임. 빅테크 CAPEX는 Microsoft · Alphabet · Amazon · Meta의 2026년 회사 가이던스 합계(전망), 반도체 기금 3기 3,440억 위안은 2024.05 설립 당시 등록자본으로, 규모와 성격이 다른 자금이어서 두 금액을 직접 비교하지 않음. 군사비는 SIPRI의 2025년 값(당해연도 달러, 중국은 추정치)으로 미국이 약 2.8배이며, 군사비가 곧 반도체 경쟁력을 뜻하지는 않음 — 1980년대의 일본은 미국의 동맹이었고 지금의 중국은 수출통제(2022.10~)의 대상이라는 구도의 차이를 보이기 위한 값임. Arena 점수는 단일 벤치마크 · 단일 시점(2026.03)의 값으로, 점수 차를 성능의 비율로 해석하지 않으며 칩 제조능력이나 국가 경쟁력 순위가 아님. 결론은 전망이 아니라 조건부 판단임. 조사 기준: 금리 2026-11-10, 군사비 2026-11-11, 그 밖은 2026-11-08.",
       "tables": [
         {
-          "title": "미국과 상대국의 금리 (%)",
+          "title": "미국과 상대국의 정책금리 (%)",
           "head": [
             "시점",
             "지표",
@@ -1901,31 +2522,37 @@
           "rows": [
             [
               "1981.06",
-              "정책금리: 미국 FF 월평균 · 일본 공정할인율",
+              "미국 FF 월평균 · 일본 공정할인율",
               "19.10",
               "6.25",
               "12.9"
             ],
             [
               "2026.10",
-              "정책금리: 미국 FF 월평균 · 중국 7일물 역레포",
+              "미국 FF 월평균 · 중국 7일물 역레포",
               "3.88",
               "1.40",
               "2.5"
+            ]
+          ]
+        },
+        {
+          "title": "군사비 (2025 · SIPRI · $bn)",
+          "head": [
+            "구분",
+            "군사비",
+            "세계 비중"
+          ],
+          "rows": [
+            [
+              "미국",
+              "954",
+              "33%"
             ],
             [
-              "2026.11 초",
-              "10년물 국채: 미국 2026.11.06 · 중국 2026.11.09 종가",
-              "4.86",
-              "1.573",
-              "3.3"
-            ],
-            [
-              "2026.10.20",
-              "중국 LPR(대출 기준금리): 1년 · 5년",
-              "—",
-              "3.0 · 3.5",
-              "—"
+              "중국 (추정)",
+              "336",
+              "12%"
             ]
           ]
         },
@@ -1978,8 +2605,8 @@
       "id": "cash-allocation",
       "part": 3,
       "title": "③ 막대한 현금, 어디에 배분할 것인가?",
-      "sub": "리니어의 질문이 2026년의 삼성·SK hynix로 돌아왔다",
-      "html": "<div class=\"split\"><div class=\"col\"><div data-chart=\"supplierOP\" class=\"grow\"></div><p class=\"note\">연결 분기 영업이익, 조원. 회사 규모와 사업 구성이 다르며, 영업이익은 현금흐름과 다르다.</p></div><div class=\"alloc\"><div class=\"recall\"><em>PART 1 · 반면교사 Linear</em><span>주당배당 <b>$0.21 → $1.24</b> <small>FY03–16</small> · 매출 연 <b>−0.8%</b> <small>FY11–16</small><br>→ 2017년 ADI에 편입 · 독립 상장 종료</span></div><article class=\"panel\"><h3><i style=\"background:#3987e5\"></i>삼성전자</h3><div class=\"kv\"><span>2026 CAPEX<span class=\"tag\">전망</span></span><b>84.4<small>조원</small></b><span>2026 주주환원<span class=\"tag\">예상</span></span><b>90–110<small>조원</small></b><span class=\"full\">DS 부문 CAPEX 76.8조 · 환원 중 확정·집행 35조, 최종 금액은 2027.01 이사회 결정</span></div></article><article class=\"panel\"><h3><i style=\"background:#d95926\"></i>SK hynix</h3><div class=\"kv\"><span>3분기 말 순현금<span class=\"tag act\">실제</span></span><b>98.7<small>조원</small></b><span>2026 주주환원<span class=\"tag\">계획</span></span><b>약 100<small>조원</small></b><span class=\"full\">현금 114.5조 − 차입 15.8조 · 용인 1기 가동으로 2027년 투자 크게 증가 예상</span></div></article></div></div>",
+      "sub": "리니어의 질문이 2026년의 삼성·SK hynix로 돌아왔다 — 결정에 앞서 장기계약의 질을 본다",
+      "html": "<div class=\"cash3\"><div class=\"col\"><div class=\"colh\">① 쌓이는 현금 <b>분기 영업이익</b></div><div data-chart=\"supplierOP\" class=\"grow\"></div><p class=\"note\">연결 분기 영업이익, 조원. 회사 규모와 사업 구성이 다르며, 영업이익은 현금흐름과 다르다.</p></div><div class=\"col\"><div class=\"colh\">② 배분의 선택 <b>투자인가, 환원인가</b></div><div class=\"alloc\"><div class=\"recall\"><em>PART 1 · 반면교사 Linear</em><span>주당배당 <b>$0.21 → $1.24</b> · 매출 연 <b>−0.8%</b><br>→ 2017년 ADI에 편입</span></div><article class=\"panel\"><h3><i style=\"background:#3987e5\"></i>삼성전자</h3><div class=\"kv\"><span>2026 CAPEX<span class=\"tag\">전망</span></span><b>84.4<small>조원</small></b><span>2026 주주환원<span class=\"tag\">예상</span></span><b>90–110<small>조원</small></b><span class=\"full\">환원 중 확정 · 집행 35조 · 최종 금액은 2027.01 이사회 결정</span></div></article><article class=\"panel\"><h3><i style=\"background:#d95926\"></i>SK hynix</h3><div class=\"kv\"><span>3분기 말 순현금<span class=\"tag act\">실제</span></span><b>98.7<small>조원</small></b><span>2026 주주환원<span class=\"tag\">계획</span></span><b>약 100<small>조원</small></b><span class=\"full\">용인 1기 가동으로 2027년 투자 크게 증가 예상</span></div></article></div></div><div class=\"col\"><div class=\"colh rest\">③ 먼저 확인할 것 <b>계약의 질</b></div><article class=\"panel grow lta\"><div class=\"kicker\">SK hynix의 장기공급계약(LTA)</div><h3>물량은 보인다</h3><div class=\"lta-body\"><div class=\"lrow\"><div class=\"hero tn\">14<small>개 고객</small></div><div><div class=\"custs\"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><p>LTA를 체결한 고객 수</p></div></div><div class=\"lrow\"><div class=\"hero tn\">50<small>% 이상</small></div><div><div class=\"meter lgm\"><i style=\"width:50%\"></i><u style=\"width:50%\"></u></div><p>2027–28 생산능력 중 LTA 비중</p></div></div></div><div class=\"lrest\"><em>그러나 남는 위험</em><div><b>가격</b>시장 상황에 따라 다시 정해질 수 있다</div><div><b>신용</b>고객이 끝까지 지불할 수 있는가</div></div><div class=\"pfoot\">장기계약은 보이는 물량을 늘릴 뿐,<br>위험을 없애지는 않는다</div></article></div></div>",
       "take": "환원에 묶여 성장을 놓칠 것인가, R&amp;D · M&amp;A로 다음 판을 준비할 것인가 — 리니어가 남긴 질문이다.",
       "sources": [
         "sam_q",
@@ -1989,29 +2616,13 @@
         "audit_5_0",
         "audit_5_1",
         "audit_6_0",
+        "audit_7_0",
         "linear_10k_2016",
         "linear_10k_2007",
         "linear_close"
       ],
       "kind": "",
-      "method": "",
-      "tables": [],
-      "ref": false
-    },
-    {
-      "id": "contracts",
-      "part": 3,
-      "title": "장기계약은 보이는 물량을 늘린다. 위험을 없애지는 않는다",
-      "sub": "LTA · 투자·환원을 결정하기 전에 계약의 질을 확인",
-      "html": "<div class=\"split s55\"><div class=\"col\"><div class=\"colh\">늘어나는 것 <b>보이는 물량</b></div><article class=\"panel grow lta\"><div class=\"kicker\">물량 · SK hynix의 장기공급계약(LTA)</div><h3>얼마나 보장되는가</h3><div class=\"lta-body\"><div class=\"lrow\"><div class=\"hero tn\">14<small>개 고객</small></div><div><div class=\"custs\"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><p>LTA를 체결한 고객 수</p></div></div><div class=\"lrow\"><div class=\"hero tn\">50<small>% 이상</small></div><div><div class=\"meter lgm\"><i style=\"width:50%\"></i><u style=\"width:50%\"></u></div><div class=\"meter-l\"><span>0</span><span>100%</span></div><p>2027–28 생산능력 중 LTA 비중</p></div></div></div><div class=\"pfoot lg\">공급 계획의 가시성은 개선</div></article></div><div class=\"col\"><div class=\"colh rest\">남는 것 <b>가격 · 신용의 위험</b></div><div class=\"rows grow\"><article class=\"panel grow\"><div class=\"kicker\">가격</div><h3>얼마나 지켜지는가</h3><p>합의한 가격 범위 안에서<br>시장 상황을 반영하는 메커니즘</p><div class=\"pfoot\">가격 재협상의 가능성은 남는다</div></article><article class=\"panel key grow2\"><div class=\"kicker\">신용 · 자본배분</div><h3>누가 끝까지 지불하는가</h3><p>고객의 지급능력 · 보증 · 선급금<br>투자 집행의 단계화<br>환원 후에도 불황 완충력 유지</p><div class=\"pfoot\">계약의 질을 먼저 확인한다</div></article></div></div></div>",
-      "take": "장기계약은 과거에도 존재했다. 현재는 규모·기간·고객 집중과 위험 배분이 핵심이다.",
-      "sources": [
-        "audit_7_0",
-        "audit_6_0",
-        "C02"
-      ],
-      "kind": "",
-      "method": "",
+      "method": "영업이익은 삼성전자 · SK hynix의 분기 실적 발표(연결, 조원). 삼성전자의 2026년 CAPEX 84.4조원(DS 부문 76.8조원)은 회사 전망, 주주환원 90–110조원은 예상치로 이 가운데 확정 · 집행분이 35조원이며 최종 금액은 2027.01 이사회에서 정해짐. SK hynix의 순현금 98.7조원은 3분기 말 현금 114.5조원 − 차입 15.8조원, 주주환원 약 100조원은 회사 계획. 장기공급계약(LTA)은 SK hynix가 밝힌 14개 고객 · 2027–28년 생산능력의 50% 이상이며, 가격은 합의한 범위 안에서 시장 상황을 반영하는 방식이어서 재협상 가능성이 남음. 장기계약은 과거에도 있었고, 지금은 규모 · 기간 · 고객 집중과 위험 배분이 달라진 점임. 조사 기준 2026-11-08.",
       "tables": [],
       "ref": false
     },
@@ -3737,131 +4348,6 @@
         }
       ]
     },
-    "dotcom": {
-      "title": "세계 반도체 매출 1996–2004",
-      "type": "bar",
-      "labels": [
-        "1996",
-        "1997",
-        "1998",
-        "1999",
-        "2000",
-        "2001",
-        "2002",
-        "2003",
-        "2004"
-      ],
-      "pre": "$",
-      "suf": "bn",
-      "dec": 0,
-      "fs": 13,
-      "y": {
-        "step": 50,
-        "max": 250,
-        "pre": "$"
-      },
-      "series": [
-        {
-          "name": "세계 반도체 매출",
-          "values": [
-            132.0,
-            137.2,
-            125.6,
-            149.4,
-            204.4,
-            139.0,
-            140.7,
-            166.4,
-            213.0
-          ],
-          "hi": [
-            4,
-            5
-          ],
-          "pts": [
-            4,
-            5
-          ]
-        }
-      ]
-    },
-    "wsts0619": {
-      "title": "세계 반도체 매출 2006–2019",
-      "type": "bar",
-      "labels": [
-        "2006",
-        "2007",
-        "2008",
-        "2009",
-        "2010",
-        "2011",
-        "2012",
-        "2013",
-        "2014",
-        "2015",
-        "2016",
-        "2017",
-        "2018",
-        "2019"
-      ],
-      "pre": "$",
-      "suf": "bn",
-      "dec": 0,
-      "fs": 13,
-      "y": {
-        "step": 100,
-        "max": 520,
-        "pre": "$"
-      },
-      "series": [
-        {
-          "name": "세계 반도체 매출",
-          "values": [
-            247.7,
-            255.6,
-            248.6,
-            226.3,
-            298.3,
-            299.5,
-            291.6,
-            305.6,
-            335.8,
-            335.2,
-            338.9,
-            412.2,
-            468.8,
-            412.3
-          ],
-          "pts": [
-            3,
-            12,
-            13
-          ]
-        }
-      ],
-      "bands": [
-        {
-          "a": 2,
-          "b": 3,
-          "label": "금융위기"
-        },
-        {
-          "a": 11,
-          "b": 12,
-          "label": "메모리 슈퍼사이클"
-        }
-      ],
-      "notes": [
-        {
-          "i": 6,
-          "v": 291.562116,
-          "text": "2012 Elpida 회생절차",
-          "dy": -16,
-          "anchor": "middle",
-          "strong": true
-        }
-      ]
-    },
     "aiBuyers": {
       "title": "빅테크 4사 합계 · 영업현금흐름과 CAPEX",
       "labels": [
@@ -4318,7 +4804,7 @@
       },
       "events": {
         "short": "1987 TSMC → 분업 정착",
-        "detail": "TSMC 설립은 제2기보다 이른 1987년. 1990년대 이후 팹리스·파운드리 생태계 확대. 2001 산업 매출은 약32% 감소.",
+        "detail": "TSMC 설립은 제2기보다 이른 1987년. 1990년대 이후 팹리스·파운드리 생태계 확대. 2001 산업 매출은 약32% 감소. M&A: 2000 TI의 Burr-Brown 인수, 2006 AMD의 ATI 인수, 2009 AMD의 제조 분리(GlobalFoundries 출범).",
         "source": "https://www.tsmc.com/english/aboutTSMC/dc_infographics_foundry"
       },
       "leaders": {
@@ -4341,8 +4827,8 @@
         "source": "https://fred.stlouisfed.org/series/FEDFUNDS"
       },
       "events": {
-        "short": "2012 Elpida / SK 인수",
-        "detail": "엘피다 회생절차 2012, Micron 인수완료 2013. SK의 하이닉스 인수 2012. 메모리 Big3 형성. 2017 Linear의 ADI 편입.",
+        "short": "2012 Elpida / 대형 M&A",
+        "detail": "엘피다 회생절차 2012, Micron 인수완료 2013. SK의 하이닉스 인수 2012. 메모리 Big3 형성. 대형 M&A: 2011 TI–National, 2015 IBM 반도체 제조사업의 GlobalFoundries 이관, 2016 Avago–Broadcom 결합, 2017 Linear의 ADI 편입.",
         "source": "https://investors.micron.com/static-files/93dad3a1-e4b0-4cd3-aa29-5724f2f7029e"
       },
       "leaders": {
@@ -4366,7 +4852,7 @@
       },
       "events": {
         "short": "생성형 AI / 수출통제",
-        "detail": "2022 생성형 AI 확산, 2024 이후 GPU·HBM 투자 확대. 2026 구매자 현금흐름·장기계약·전력 제약이 재무 이슈로 부상.",
+        "detail": "2022 생성형 AI 확산, 2024 이후 GPU·HBM 투자 확대. 2026 구매자 현금흐름·장기계약·전력 제약이 재무 이슈로 부상. M&A: 2020 NVIDIA–Mellanox, 2021 ADI–Maxim, 2022 AMD–Xilinx — 연산 · 네트워크 · 전력을 한 회사로 묶는 결합.",
         "source": "https://www.wsts.org/76/Global-Semiconductor-Market-records-exceptional-growth-in-Q2-2026"
       },
       "leaders": {

@@ -1,6 +1,7 @@
 'use strict';
 /* 기업재무 12조 발표 덱 런타임.
-   build_v3.py가 SLIDES / CHARTS / SOURCES / PARTS / ERAS / FIN / SECTOR / TL 상수를 이 스크립트 앞에 주입한다. */
+   build_v3.py가 SLIDES / CHARTS / SOURCES / PARTS / ERAS / FIN / SECTOR / TL 상수를 이 스크립트 앞에 주입한다.
+   v4: 시간축에 대형 M&A 마름모(TL.mna)를 더했다. 장표 렌더 · 이동 · 목차는 v3 와 같다. */
 
 /* ───────── 공통 도구 ───────── */
 const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>Array.from(r.querySelectorAll(s));
@@ -11,7 +12,7 @@ const plain=s=>String(s??'').replace(/<[^>]+>/g,' ').replace(/\s+/g,' ').trim();
 /* d = 최대 소수 자릿수, m = 최소 소수 자릿수(같은 값을 주면 자릿수가 고정된다) */
 function num(n,d=1,m=0){return n==null||!Number.isFinite(+n)?'N/A':mn(Number(n).toLocaleString('en-US',{minimumFractionDigits:Math.min(m,d),maximumFractionDigits:d}))}
 /* 차트 색: dataviz 검증 팔레트(어두운 바탕 #081421 기준 통과). 글자는 항상 잉크 토큰, 색은 마크에만 쓴다. */
-const K={s:['#3987e5','#d95926','#199e70','#c98500','#d55181','#008300','#9085e9','#e66767'],pos:'#3987e5',neg:'#e66767',mute:'#566b7e',grid:'#142536',axis:'#33495d',zero:'#9db4c6',ink:'#edf7ff',ink2:'#a8bbcb',ink3:'#7f97aa',surf:'#07121f'};
+const K={s:['#3987e5','#d95926','#199e70','#c98500','#d55181','#008300','#9085e9','#e66767'],pos:'#3987e5',neg:'#e66767',mute:'#566b7e',grid:'#142536',axis:'#33495d',zero:'#9db4c6',ink:'#edf7ff',ink2:'#a8bbcb',ink3:'#7f97aa',surf:'#07121f',amb:'#ffb15e'};
 let index=0,company='Microsoft',sector=null,playTimer=null,clockTimer=null,elapsed=0,lastFocus=null,linearView='linear';
 let PSEQ=0,PLOTS={},slidePlots=[];
 const tw=(t,fs)=>[...String(t)].reduce((a,c)=>a+(c.charCodeAt(0)>0x2e7f?1:c===' '?.3:/[.,:;·'|il1()]/.test(c)?.32:/[A-Z%$MW−+]/.test(c)?.7:.57),0)*fs;
@@ -188,6 +189,10 @@ function timeline(){
     s+=`<line x1="${xx}" x2="${xx}" y1="${aB}" y2="${aB+(dec?9:five?6:3)}" stroke="${dec?K.ink2:five?K.ink3:K.axis}"${dec?' stroke-width="1.5"':''}/>`;
     if(dec)s+=`<text x="${xx}" y="${yYear}" text-anchor="middle" fill="${K.ink}" font-size="13" font-weight="700" class="tn">${yv}</text>`}
   s+='</g>';
+  /* 대형 M&A: 시대 축 위쪽 모서리의 마름모. 사건 핀과 겹치지 않게 이름표는 달지 않고, 포인터를 올리면 거래 내용을 보인다 */
+  if(TL.mna){const r=5.5;
+    s+=`<g ${ln('leaders')}><text x="0" y="${aTop+4}" fill="${K.amb}" font-size="11" font-weight="700" letter-spacing=".5">◆ M&amp;A</text>`
+      +TL.mna.map(m=>{const cx=X(m.y+.5);return `<g class="deal" data-tip="${esc(m.y+' · '+m.t+'|'+m.tip)}"><circle cx="${cx}" cy="${aTop}" r="8" fill="transparent"/><path d="M${cx},${aTop-r}l${r},${r}l${-r},${r}l${-r},${-r}Z" fill="${K.amb}" stroke="${K.surf}" stroke-width="1.5"/></g>`}).join('')+'</g>'}
   /* 사건 핀: 겹치면 아래 단으로 내린다 */
   s+=`<g ${ln('events')}>${gut('주요 사건',eY[0])}`;
   const used=eY.map(()=>-1e9);let pins='',labs='';
@@ -224,12 +229,14 @@ function drawSector(){
   const s=SECTOR.sectors[sector],Y=SECTOR.years,el=$('#bump'),W=el.clientWidth||1154,H=+el.dataset.h||464;
   $$('[data-sector]').forEach(b=>b.classList.toggle('active',+b.dataset.sector===sector));
   const cols=Y.map(y=>s.snapshots[String(y)].rows),nc=Y.length,nr=cols[0].length,G=26,gap=34,cw=(W-G-(nc-1)*gap)/nc,top=30,rh=(H-top)/nr,ch=rh-6,pad=8,inner=cw-2*pad;
-  const cx=k=>G+k*(cw+gap),cy=r=>top+r*rh+3,k0=cols[0][0].key,k1=cols[nc-1][0].key,tone=key=>key===k1?K.s[0]:key===k0?K.s[1]:null;
+  /* 색: 첫 시점의 1위(주황) · 마지막 시점의 1위(파랑). 함께 볼 기업(s.focus)은 그와 다른 세 가지 색으로 칸과 선을 칠한다 */
+  const FC=[K.s[2],K.s[3],K.s[6]],fo=s.focus||[];
+  const cx=k=>G+k*(cw+gap),cy=r=>top+r*rh+3,k0=cols[0][0].key,k1=cols[nc-1][0].key,lead=key=>key===k1||key===k0,tone=key=>key===k1?K.s[0]:key===k0?K.s[1]:fo.includes(key)?FC[fo.indexOf(key)%FC.length]:null;
   /* 1위 줄은 옅은 띠로 받치고, 왼쪽에 순위를 적는다 */
   let guide=`<rect x="0" y="${cy(0)-3}" width="${W}" height="${ch+6}" rx="8" fill="#fff" opacity=".045"/>`,links='',hot='',cells='';
   for(let r=0;r<nr;r++)guide+=`<text x="${G-9}" y="${cy(r)+ch/2+5}" text-anchor="end" fill="${r?K.ink3:K.ink}" font-size="${r?12.5:15}" font-weight="${r?500:800}" class="tn">${r+1}</text>`;
   for(let k=0;k<nc-1;k++)cols[k].forEach((r,a)=>{const b=cols[k+1].findIndex(q=>q.key===r.key);if(b<0)return;const xa=cx(k)+cw,xb=cx(k+1),ya=cy(a)+ch/2,yb=cy(b)+ch/2,t=tone(r.key);
-    const p=`<path class="lk${t?' tone':''}" data-k="${esc(r.key)}" d="M${xa.toFixed(1)},${ya.toFixed(1)}C${(xa+gap*.5).toFixed(1)},${ya.toFixed(1)} ${(xb-gap*.5).toFixed(1)},${yb.toFixed(1)} ${xb.toFixed(1)},${yb.toFixed(1)}" fill="none" stroke="${t||K.mute}" stroke-width="${t?3:1.5}" opacity="${t?1:.75}"/>`;if(t)hot+=p;else links+=p});
+    const p=`<path class="lk${t?' tone':''}" data-k="${esc(r.key)}" d="M${xa.toFixed(1)},${ya.toFixed(1)}C${(xa+gap*.5).toFixed(1)},${ya.toFixed(1)} ${(xb-gap*.5).toFixed(1)},${yb.toFixed(1)} ${xb.toFixed(1)},${yb.toFixed(1)}" fill="none" stroke="${t||K.mute}" stroke-width="${t?(lead(r.key)?3:2.5):1.5}" opacity="${t?1:.75}"/>`;if(t)hot+=p;else links+=p});
   cols.forEach((c,k)=>{cells+=`<text x="${(cx(k)+cw/2).toFixed(1)}" y="20" text-anchor="middle" fill="${K.ink}" font-size="19" font-weight="800" class="tn">${Y[k]}</text>`;
     c.forEach((r,a)=>{const x=cx(k),yy=cy(a),t=tone(r.key),strong=t||a===0,f=Math.max(11,Math.min(13.5,13.5*inner/tw(r.name,13.5)));
       const tip=Y[k]+'년 · '+(a+1)+'위 '+r.name+'|매출 $'+num(r.revenue,1,1)+'bn'+(r.rankOverall?'|Fortune 500 전체 '+r.rankOverall+'위':'')+(r.gap?'|아카이브에 빠져 있던 순위 — 보완 자료의 값':'');
@@ -240,10 +247,14 @@ function drawSector(){
     t.setAttribute('font-size',Math.max(10.5,Math.floor(+t.getAttribute('font-size')*inner/L*10)/10));L=t.getComputedTextLength();
     if(L>inner){t.setAttribute('textLength',inner.toFixed(1));t.setAttribute('lengthAdjust','spacingAndGlyphs')}});
   const lg=(c,t,ln)=>`<span><i class="${ln?'ln':'sq'}" style="background:${c}"></i>${t}</span>`;
+  /* 함께 볼 기업의 순위 이동: Top 10에 처음 든 시점의 순위 → 마지막 시점의 순위(빠졌으면 권외). 이름은 가장 최근 사명 */
+  const move=key=>{const rk=cols.map(c=>c.findIndex(r=>r.key===key)),a=rk.findIndex(v=>v>=0);let b=nc-1;while(b>0&&rk[b]<0)b--;
+    return {name:cols[b][rk[b]].name,text:(a?'’'+String(Y[a]).slice(2)+' ':'')+(rk[a]+1)+'위 → '+(b===nc-1?(rk[b]+1)+'위':'권외')}};
+  const keep=$('#sectorKeep');if(keep)keep.innerHTML=`<span class="k">${Y[0]}년 Top ${nr} 중<br>${Y[nc-1]}년에도 Top ${nr}</span><b class="tn">${s.stay} <small>/ ${nr}곳</small></b>`;
   $('#sectorStat').innerHTML=`<div class="sstat wide"><span class="k">매출 1위 · ${nc}개 시점에서 ${s.changes?'교체 '+s.changes+'회':'교체 없음'}</span><b id="sectorChain">${s.leaders.map(esc).join(' <i>→</i> ')}</b></div>`
-    +`<div class="sstat"><span class="k">${Y[0]}년 Top ${nr} 중 ${Y[nc-1]}년에도 Top ${nr}</span><b>${s.stay} <small>/ ${nr}곳</small></b></div>`
+    +(fo.length?`<div class="sstat fo"><span class="k">함께 볼 기업 · Top ${nr}에 처음 든 순위 → ${Y[nc-1]}년</span><div class="legend bump-legend focus">${fo.map((key,i)=>{const q=move(key);return `<span><i class="sq" style="background:${FC[i%FC.length]}"></i>${esc(q.name)}<em class="tn">${q.text}</em></span>`}).join('')}</div></div>`:'')
     +`<div class="legend bump-legend">${k0===k1?lg(K.s[0],Y[0]+' · '+Y[nc-1]+'년 모두 1위'):lg(K.s[1],Y[0]+'년 1위 기업')+lg(K.s[0],Y[nc-1]+'년 1위 기업')}${lg(K.mute,'같은 기업의 순위 이동',1)}</div>`;
-  const chain=$('#sectorChain');for(let f=20;f>13&&chain.scrollWidth>chain.clientWidth;)chain.style.fontSize=(--f)+'px';
+  const chain=$('#sectorChain');for(let f=20;f>11.5&&chain.scrollWidth>chain.clientWidth;)chain.style.fontSize=(f-=.5)+'px';
   $('#sectorScope').textContent=SECTOR.scope+(s.note?' · '+s.note:'')+(cols.some(c=>c.some(r=>r.gap))?' · †는 보완 자료의 값':'')}
 
 /* 재무 타일: 역년 분기 추이. 지표마다 축을 하나씩만 쓴다.

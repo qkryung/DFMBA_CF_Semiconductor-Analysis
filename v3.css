@@ -96,10 +96,12 @@ body.drawing .stage{box-shadow:0 0 0 2px rgba(255,216,77,.55)}
 .qrow .qy{font-size:30px;font-weight:800;color:var(--ink);font-variant-numeric:tabular-nums}
 .qrow .q{font-size:33px;font-weight:800;color:var(--ink);letter-spacing:-.5px}
 .qrow.now .q{color:var(--green)}
-/* PART 2 간지: 읽는 틀 두 축 */
-.axrow{display:grid;grid-template-columns:58px 310px 1fr;align-items:baseline;margin:14px 0;font-size:23px;color:var(--ink2)}
+/* PART 2 간지: 읽는 틀 두 축. 축 이름 아래에 그 축에서 볼 내용을 한 줄로 적는다 */
+.dv-desc+.axrow{margin-top:22px}
+.axrow{display:grid;grid-template-columns:58px 1fr;align-items:baseline;row-gap:2px;margin:16px 0;font-size:21px;color:var(--ink2)}
 .axrow em{font-style:normal;font-size:14px;letter-spacing:2px;color:var(--acc);font-weight:700}
 .axrow b{font-size:33px;color:var(--ink);letter-spacing:-.5px}
+.axrow span{grid-column:2}
 .roadmap{grid-column:1/-1;display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:8px}
 .roadmap div{padding:12px 4px 0;border-top:3px solid var(--line);font-size:16px;color:var(--ink3)}
 .roadmap div b{display:block;font-size:12px;letter-spacing:2px;margin-bottom:4px}
@@ -125,7 +127,6 @@ body.drawing .stage{box-shadow:0 0 0 2px rgba(255,216,77,.55)}
 .panel h3{font-size:24px;margin:10px 0 12px;line-height:1.35;letter-spacing:-.4px}
 .panel p{font-size:18.5px;line-height:1.6;color:var(--ink2)}
 .panel p b,.text p b{color:var(--ink)}
-.panel.key{border-color:color-mix(in srgb,var(--acc) 70%,transparent);background:linear-gradient(140deg,color-mix(in srgb,var(--acc) 12%,#0f2337),#0a1725)}
 .panel .num{font-size:38px;font-weight:900;line-height:1;letter-spacing:-1.5px;color:color-mix(in srgb,var(--acc) 38%,transparent)}
 .big{font-size:64px;font-weight:900;letter-spacing:-2.5px;line-height:1.05}
 .medium{font-size:40px;font-weight:800;letter-spacing:-1px;line-height:1.15}
@@ -215,6 +216,25 @@ svg .halo{paint-order:stroke;stroke:#07121f;stroke-width:4px;stroke-linejoin:rou
 .choice-row .out{font-size:15px;line-height:1.4;color:var(--ink2);text-align:right}
 .choice-row .out b{display:block;font-size:17px;color:var(--ink)}
 .choice-row.gone .out b{color:var(--amber)}
+/* 주력 제품군 한 줄 (linear-peers) */
+.choice-row .prod{display:flex;align-items:baseline;gap:9px;margin-top:5px;font-size:16.5px;font-weight:700;color:var(--ink);letter-spacing:-.2px}
+.choice-row .prod em{font-style:normal;font-size:11.5px;font-weight:800;letter-spacing:1px;color:#06131f;background:var(--acc);border-radius:4px;padding:1px 6px;flex:none}
+.choice-row .prod small{font-size:12.5px;font-weight:400;color:var(--ink3);letter-spacing:0}
+.choice-row .prod+p{margin-top:3px;font-size:14.5px;color:var(--ink3)}
+.choice.p3{gap:8px}
+.choice.p3 .choice-row{padding:9px 18px}
+.choice.p3 .choice-row .nm{font-size:21px}
+/* 제3기: 탈락과 생존 — 다섯 줄을 촘촘히 */
+.choice.tight{gap:7px}
+.choice.tight .choice-h,.choice.tight .choice-row{grid-template-columns:1fr 136px}
+.choice.tight .choice-row{padding:8px 16px}
+.choice.tight .choice-row .nm{font-size:20px}
+.choice.tight .choice-row p{font-size:15px;margin-top:2px}
+.choice.tight .choice-row .out{font-size:13.5px}
+.choice.tight .choice-row .out b{font-size:16px}
+/* 남는 높이에 맞춰 줄어드는 그림 칸 (제3기의 개념도) */
+.fitsvg{flex:1;min-height:0;display:flex;align-items:center;justify-content:center;margin-top:6px}
+.fitsvg svg{display:block;height:100%;width:auto;max-width:100%}
 /* linear-deal */
 .deal-right{display:flex;flex-direction:column;gap:10px;height:100%}
 .vs{display:grid;grid-template-columns:1fr 1fr;gap:12px}
@@ -243,7 +263,11 @@ svg .halo{paint-order:stroke;stroke:#07121f;stroke-width:4px;stroke-linejoin:rou
 #sectorPills button:hover{background:#10263a}
 #sectorPills button.active{background:#10283f;border-color:var(--cyan);color:var(--ink);font-weight:700}
 #sectorPlay{margin-top:8px;font-size:13px}
-.sector-hint{font-size:11.5px;line-height:1.5;color:var(--ink3);margin-top:8px;padding:0 2px}
+/* 왼쪽 아래: 첫 시점의 Top 10 가운데 마지막 시점에도 남은 곳 */
+.sector-keep{margin-top:12px;padding:10px 4px 0;border-top:1px solid var(--line)}
+.sector-keep .k{display:block;font-size:11.5px;line-height:1.5;color:var(--ink3)}
+.sector-keep b{display:block;font-size:26px;letter-spacing:-.5px;margin-top:3px}
+.sector-keep b small{font-size:14px;color:var(--ink2);font-weight:500}
 #bump svg{display:block}
 #bump .lk,#bump .cell{transition:opacity .15s}
 #bump svg.trace .cell,#bump svg.trace .lk{opacity:.22}
@@ -258,8 +282,11 @@ svg .halo{paint-order:stroke;stroke:#07121f;stroke-width:4px;stroke-linejoin:rou
 .sstat .k{display:block;font-size:12.5px;color:var(--ink3);letter-spacing:.5px}
 .sstat b{display:block;font-size:20px;letter-spacing:-.3px;white-space:nowrap;overflow:hidden}
 .sstat b i{font-style:normal;color:var(--ink3);font-weight:400;margin:0 2px}
-.sstat b small{font-size:14px;color:var(--ink2);font-weight:500}
 .bump-legend{flex-direction:column;align-items:flex-start;gap:2px;height:auto;margin:0;font-size:12px;flex-wrap:nowrap}
+/* 함께 볼 기업: 색 · 이름 · 순위 이동을 한 줄에 나란히 */
+.sstat.fo{flex:none;max-width:480px}
+.bump-legend.focus{flex-direction:row;flex-wrap:wrap;gap:1px 16px;font-size:13.5px;color:var(--ink);font-weight:700;margin-top:4px}
+.bump-legend.focus em{font-style:normal;font-weight:400;color:var(--ink2);margin-left:-1px}
 #sectorScope{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:6px}
 /* timeline */
 #timeline svg{display:block}
@@ -319,33 +346,42 @@ svg .halo{paint-order:stroke;stroke:#07121f;stroke-width:4px;stroke-linejoin:rou
 .closing .c.rule{color:var(--ink);font-weight:800;font-size:21px;border-bottom:0}
 .closing .rl.r3{color:var(--acc)}
 .closing+.quote{font-size:42px}
-/* 분업: 위험의 위치가 바뀐다 */
-.idm{border:1px dashed var(--line2);border-radius:14px;padding:18px 22px 20px;text-align:center}
-.idm-h{display:flex;align-items:baseline;justify-content:center;gap:16px;margin-bottom:14px}
-.idm-h em{font-style:normal;font-size:13px;color:var(--acc);letter-spacing:2px;font-weight:700}
-.idm-h b{font-size:24px;letter-spacing:-.4px}
-.risk2{display:grid;grid-template-columns:1fr auto 1fr;gap:10px;align-items:center;justify-items:center}
-.risk2 span{font-size:17px;font-weight:700;padding:7px 18px;border-radius:999px;border:1px solid var(--line2);background:#0c2033;white-space:nowrap}
-.risk2 i{font-style:normal;color:var(--ink3);font-size:18px}
+/* 제2기: 이유 세 장과 결과 사이의 ‘그래서’ 표시 */
 .splitmark.arrows{display:grid;grid-template-columns:1fr auto 1fr;align-items:center}
 .splitmark.arrows i{font-style:normal;color:var(--acc);font-size:22px;line-height:1;font-weight:700}
 .linked{position:relative}
 .linked::after{content:"↔";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:var(--surf);border:1.5px solid var(--acc);color:var(--acc);font-size:20px;font-weight:700;line-height:1}
-.linked .panel h3{font-size:25px}
-/* 장기계약 */
-.colh{font-size:14px;letter-spacing:2px;color:var(--ink3);font-weight:700;padding-bottom:9px;margin-bottom:12px;border-bottom:3px solid var(--acc)}
-.colh b{font-size:21px;letter-spacing:-.3px;color:var(--ink);margin-left:10px}
+/* ③ 현금 배분 (v5): 쌓이는 현금 → 배분의 선택 → 먼저 확인할 것(장기계약의 질). 세 칸을 왼쪽에서 오른쪽으로 읽는다 */
+.cash3{display:grid;grid-template-columns:1.2fr 1fr .94fr;gap:24px;height:100%}
+.colh{font-size:13.5px;letter-spacing:1.5px;color:var(--ink3);font-weight:700;padding-bottom:8px;margin-bottom:10px;border-bottom:3px solid var(--acc);white-space:nowrap}
+.colh b{font-size:19px;letter-spacing:-.3px;color:var(--ink);margin-left:8px}
 .colh.rest{border-bottom-color:var(--line2)}
-.lta-body{flex:1;display:grid;align-content:center;gap:32px;min-height:0}
-.lrow{display:grid;grid-template-columns:286px 1fr;gap:28px;align-items:center}
-.panel.lta .hero{font-size:116px;letter-spacing:-4px;margin:0;line-height:1;white-space:nowrap}
-.panel.lta .hero small{font-size:28px;margin-left:8px;letter-spacing:-.5px}
-.lrow p{font-size:16.5px;line-height:1.5;margin-top:9px}
-.custs{display:grid;grid-template-columns:repeat(7,30px);gap:8px}
-.custs i{height:30px;border-radius:7px;background:var(--acc);display:block}
-.meter.lgm{height:26px;border-radius:0 6px 6px 0;margin:0 0 5px;display:flex}
+.cash3 .alloc{flex:1;height:auto;display:flex;flex-direction:column;gap:10px;min-height:0}
+.cash3 .alloc .panel{flex:1;justify-content:center;padding:13px 18px 12px}
+.cash3 .alloc h3{font-size:20px;margin:0 0 8px}
+.cash3 .kv{gap:6px 12px;font-size:15.5px}
+.cash3 .kv b{font-size:23px}
+.cash3 .kv .full{font-size:13px;color:var(--ink3)}
+.cash3 .recall{padding:9px 16px 10px}
+.cash3 .recall span{font-size:15px}
+/* 셋째 칸: 장기공급계약 — 보이는 물량(큰 숫자 둘)과 남는 위험 */
+.panel.lta{padding:15px 18px 14px}
+.panel.lta h3{font-size:21px;margin:5px 0 10px}
+.lta-body{flex:1;min-height:0;display:flex;flex-direction:column;justify-content:space-evenly}
+.lrow{display:grid;grid-template-columns:158px 1fr;gap:14px;align-items:center}
+.panel.lta .hero{font-size:70px;letter-spacing:-3px;margin:0;line-height:1;white-space:nowrap}
+.panel.lta .hero small{font-size:17px;margin-left:5px;letter-spacing:-.3px}
+.lrow p{font-size:12.5px;line-height:1.4;margin-top:6px;color:var(--ink3)}
+.custs{display:grid;grid-template-columns:repeat(7,18px);gap:6px}
+.custs i{height:18px;border-radius:4px;background:var(--acc);display:block}
+.meter.lgm{height:18px;border-radius:0 5px 5px 0;margin:0;display:flex}
 .meter.lgm i{border-radius:0;flex:none}
 .meter.lgm u{display:block;height:100%;background:linear-gradient(90deg,color-mix(in srgb,var(--acc) 50%,transparent),transparent 85%)}
+.lrest{display:grid;gap:6px;padding-top:11px;border-top:1px dashed var(--line2)}
+.lrest em{font-style:normal;font-size:12.5px;letter-spacing:1.5px;font-weight:700;color:var(--ink3)}
+.lrest div{font-size:14.5px;line-height:1.45;color:var(--ink2)}
+.lrest b{display:inline-block;min-width:36px;color:var(--amber);font-size:15px;margin-right:6px}
+.panel.lta .pfoot{margin-top:11px;font-size:14.5px}
 
 /* ── 보강 부품 ── */
 .auto{height:auto}
@@ -353,9 +389,11 @@ svg .halo{paint-order:stroke;stroke:#07121f;stroke-width:4px;stroke-linejoin:rou
 .mt8{margin-top:8px}.mt14{margin-top:14px}.mt20{margin-top:20px}
 .legend.inline{height:auto;margin:0}
 .legend.inline.mt8{margin-top:8px}.legend.inline.mt14{margin-top:14px}
-.grow2{flex:1.15;min-height:0}
 .legend i.dot{width:10px;height:10px;border-radius:50%}
 .legend i.ring{width:10px;height:10px;border-radius:50%;background:transparent!important;border:2px solid var(--ink2)}
+.legend i.dia{width:9px;height:9px;transform:rotate(45deg);background:transparent!important;border:2px solid var(--ink2)}
+.legend i.x{background:transparent!important;font-style:normal;font-weight:800;font-size:13px;line-height:1;color:var(--red)}
+.legend i.x::before{content:"✕"}
 .khead{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:6px}
 .text .kicker{display:block;margin-bottom:6px}
 .text .big+p,.text .medium+p{margin-top:4px}
@@ -375,15 +413,11 @@ svg .halo{paint-order:stroke;stroke:#07121f;stroke-width:4px;stroke-linejoin:rou
 .strip.sm .frame p{font-size:12px;line-height:1.4}
 .text .tags{margin:10px 0 6px}
 .panel .pfoot{margin-top:auto;padding-top:12px;border-top:1px solid var(--line);font-size:15.5px;line-height:1.5;color:var(--ink);font-weight:700}
-.panel .pfoot.lg{font-size:18px}
 .panel .lead{font-size:15px;color:var(--ink3);margin:-4px 0 6px}
 /* 알약 꼬리표 */
 .tags{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:2px 0 12px}
 .tags span{font-size:14px;padding:3px 10px;border-radius:999px;border:1px solid var(--line2);color:var(--ink);background:#0c2033;white-space:nowrap}
 .tags i{font-style:normal;color:var(--ink3);font-size:13px}
-.tags.lg{gap:8px}
-.tags.lg span{font-size:16.5px;padding:5px 13px}
-.tags.lg i{font-size:15px}
 .panel .tags:last-child{margin-bottom:0}
 .tags.g2x{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:0}
 .tags.g2x span{text-align:center;font-size:16.5px;padding:7px 6px}
@@ -444,52 +478,36 @@ svg .halo{paint-order:stroke;stroke:#07121f;stroke-width:4px;stroke-linejoin:rou
 .gr .hb-track.rng{display:flex}
 .gr .hb-track.rng i{border-radius:0}
 .gr .hb-track.rng i+i{opacity:.45;border-radius:0 4px 4px 0}
-/* 근거 목록 */
-.plist{display:grid;gap:8px;margin-top:2px}
-.plist>div{border:1px solid var(--line);border-radius:9px;padding:10px 16px;background:#0c2033;font-size:18.5px;line-height:1.45;color:var(--ink)}
-/* ② 미·중: 1980년대 미·일과 같은 틀(미국 ↔ 추격자 → 결과)을 두 줄로 겹쳐 본다 */
-.replay{display:flex;flex-direction:column;height:100%}
-.rrow{display:grid;grid-template-columns:116px 1fr 94px 1fr 22px 218px;gap:0 12px;align-items:stretch;border:1px solid var(--line);border-radius:14px;padding:7px 16px;background:#0b1a2b}
-.rrow.now{border-color:color-mix(in srgb,var(--acc) 60%,transparent);padding:10px 16px}
-.rrow-h{display:flex;flex-direction:column;justify-content:center}
-.rrow-h .yr{font-size:30px;font-weight:900;color:var(--acc);letter-spacing:-1px;line-height:1.15}
-.rrow-h b{font-size:16px;white-space:nowrap}
-.rrow.past .rrow-h .yr{font-size:24px;color:var(--ink2)}
-.rrow.past .rrow-h b{font-size:14.5px;color:var(--ink2)}
-.rside{border:1px solid var(--line);border-left:5px solid;border-radius:9px;padding:9px 16px 10px;background:#0c2033;min-width:0}
-.rside-h{display:flex;align-items:baseline;gap:10px}
-.rside-h em{font-style:normal;font-size:13px;color:var(--ink3);letter-spacing:1.5px;font-weight:700}
-.rside-h b{font-size:20px;letter-spacing:-.3px;white-space:nowrap}
-.rside-n{display:flex;gap:30px;margin-top:5px}
-.rside-n b{display:block;font-size:40px;font-weight:900;letter-spacing:-1.5px;line-height:1.1}
-.rside-n span{display:block;font-size:12.5px;color:var(--ink3);white-space:nowrap}
-.rside p{font-size:15px;line-height:1.45;color:var(--ink2);margin-top:7px}
-.rside p b{color:var(--ink)}
-.rrow.past .rside{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:5px 16px}
-.rrow.past .rside-h b{font-size:18px}
-.rrow.past .rside-n{margin:0;text-align:right}
-.rrow.past .rside-n b{font-size:28px;letter-spacing:-.8px;line-height:1.05}
-.rrow.past .rside-n span{font-size:12px}
-.rgap{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;font-size:12px;color:var(--ink3);line-height:1.35}
-.rgap b{font-size:21px;color:var(--amber);letter-spacing:-.3px}
-.rrow.past .rgap b{font-size:18px}
-.rout{grid-column:6;display:flex;flex-direction:column;justify-content:center;position:relative;min-width:0}
-.rout::before{content:"→";position:absolute;left:-31px;top:50%;transform:translateY(-50%);font-size:22px;line-height:1;color:var(--acc);font-weight:700}
-.rout em{font-style:normal;font-size:12.5px;letter-spacing:1.5px;color:var(--acc);font-weight:700}
-.rout b{font-size:21px;line-height:1.3;letter-spacing:-.4px}
-.rout span{font-size:13.5px;color:var(--ink2)}
-.rrow.past .rout em{color:var(--ink3)}
-.rrow.past .rout b{font-size:17.5px}
-.rrow.now .rout b{color:var(--acc)}
-.rlink{display:flex;align-items:center;justify-content:center;gap:8px;height:20px;font-size:12.5px;color:var(--ink3);letter-spacing:1px}
-.rlink i{font-style:normal;font-size:15px;line-height:1}
-.replay>.note{margin:6px 0 9px}
-.replay .panel.sm{padding:12px 18px 11px}
-.replay .panel.sm h3{font-size:20px;margin:4px 0 8px}
-.replay .plist{gap:6px}
-.replay .plist>div{font-size:16px;padding:6px 14px}
-.replay .plist b{color:var(--amber)}
-.replay .panel .pfoot{font-size:15.5px;padding-top:8px}
+/* ② 미·중 (v5): 왼쪽 = 지금의 두 나라(금리 · 정치 · 자금), 오른쪽 = 1980년대 미·일과 닮은 점 · 다른 점, 아래 = 결론 */
+.uc{display:grid;grid-template-columns:1.34fr 1fr;grid-template-rows:1fr auto;gap:14px 28px;height:100%}
+.uc-now,.uc-then{display:flex;flex-direction:column;min-height:0;gap:9px}
+.uc-grid{flex:1;min-height:0;display:grid;grid-template-columns:54px 1fr 1fr;grid-template-rows:auto 1.1fr 1.25fr 1fr;gap:9px 10px}
+.uc-c{font-size:21px;font-weight:800;letter-spacing:-.3px;padding:0 0 6px 17px;border-bottom:3px solid var(--cc)}
+.uc-c.us,.uc-v.us{--cc:var(--c1)}
+.uc-c.cn,.uc-v.cn{--cc:var(--c2)}
+.uc-k{display:flex;align-items:center;font-size:14px;letter-spacing:2px;font-weight:700;color:var(--ink3)}
+.uc-v{display:flex;flex-direction:column;justify-content:center;gap:5px;border:1px solid var(--line);border-left:5px solid var(--cc);border-radius:10px;padding:8px 16px;background:#0b1a2b;min-width:0}
+.uc-v>div{display:flex;align-items:baseline;justify-content:space-between;gap:12px}
+.uc-v b{font-size:24px;letter-spacing:-.5px;white-space:nowrap}
+.uc-v strong{font-size:42px;font-weight:900;letter-spacing:-1.5px;line-height:1.05}
+.uc-v span{font-size:14px;line-height:1.5;color:var(--ink2)}
+.uc-then .panel.sm{padding:13px 18px 12px}
+.uc-then .panel.sm h3{font-size:20px;margin:7px 0 7px}
+.uc-then .panel.sm p{font-size:15px;line-height:1.5}
+.uc-tag{align-self:flex-start;font-size:12px;font-weight:800;letter-spacing:1.5px;color:#06131f;background:var(--ink2);border-radius:4px;padding:1px 8px}
+.uc-tag.diff{background:var(--acc)}
+.uc-diff{flex:1;display:grid;align-content:center;gap:9px}
+.uc-diff>div{border:1px solid var(--line);border-radius:9px;padding:8px 14px 9px;background:#0c2033}
+.uc-diff b{display:block;font-size:25px;font-weight:900;letter-spacing:-.8px;color:var(--amber);line-height:1.2}
+.uc-diff span{display:block;font-size:14px;line-height:1.5;color:var(--ink2);margin-top:2px}
+.uc-end{grid-column:1/-1;display:grid;grid-template-columns:1fr auto 1.25fr;align-items:stretch;gap:16px}
+.uc-end>div{display:flex;align-items:baseline;align-content:center;gap:4px 14px;flex-wrap:wrap;border:1px solid var(--line);border-radius:12px;padding:11px 20px;background:#0b1a2b}
+.uc-end em{font-style:normal;font-size:13px;letter-spacing:2px;font-weight:700;color:var(--ink3);white-space:nowrap}
+.uc-end b{font-size:24px;letter-spacing:-.5px;white-space:nowrap}
+.uc-end span{font-size:13.5px;color:var(--ink2);white-space:nowrap}
+.uc-end>i{align-self:center;font-style:normal;font-size:24px;font-weight:700;color:var(--acc)}
+.uc-end .warn{border-color:color-mix(in srgb,var(--acc) 65%,transparent)}
+.uc-end .warn em,.uc-end .warn b{color:var(--acc)}
 /* 현금 배분 */
 .alloc{display:grid;gap:14px;align-content:center;height:100%}
 /* PART 1 의 리니어를 다시 불러오는 띠 */
@@ -497,7 +515,6 @@ svg .halo{paint-order:stroke;stroke:#07121f;stroke-width:4px;stroke-linejoin:rou
 .recall em{display:block;font-style:normal;font-size:12.5px;letter-spacing:2px;color:var(--acc);font-weight:700;margin-bottom:4px}
 .recall span{font-size:16px;line-height:1.5;color:var(--ink2)}
 .recall b{color:var(--ink);font-size:17.5px}
-.recall small{font-size:12.5px;color:var(--ink3)}
 .alloc .panel{padding:18px 22px}
 .alloc h3{display:flex;align-items:center;gap:10px;font-size:22px;margin:0 0 12px}
 .alloc h3 i{width:11px;height:11px;border-radius:3px;display:inline-block}
@@ -510,27 +527,27 @@ svg .halo{paint-order:stroke;stroke:#07121f;stroke-width:4px;stroke-linejoin:rou
 /* 계약 물량 눈금 */
 .meter{height:14px;background:#0f2233;border-radius:7px;overflow:hidden;margin:12px 0 5px}
 .meter i{display:block;height:100%;background:var(--acc);border-radius:7px 0 0 7px}
-.meter-l{display:flex;justify-content:space-between;font-size:12.5px;color:var(--ink3)}
 .panel .hero{font-size:52px;font-weight:900;letter-spacing:-2px;line-height:1.05;margin:2px 0 6px;font-variant-numeric:tabular-nums}
 .panel .hero small{font-size:19px;font-weight:600;color:var(--ink2);letter-spacing:0;margin-left:6px}
 /* PART 2 정리: 두 축 머리글 아래에 질문 카드 두 장씩 */
 .axes{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-.axis{display:flex;align-items:baseline;gap:14px;padding:0 2px 8px;border-bottom:3px solid var(--acc)}
+.axis{display:flex;align-items:baseline;gap:14px;padding:0 2px 8px;border-bottom:3px solid var(--acc);white-space:nowrap}
 .axis em{font-style:normal;font-size:13px;letter-spacing:2px;color:var(--acc);font-weight:700}
-.axis b{font-size:25px;letter-spacing:-.4px}
-.axis span{font-size:16.5px;color:var(--ink2)}
+.axis b{font-size:24px;letter-spacing:-.5px}
+.axis span{font-size:16px;color:var(--ink2)}
 .lessons .lhead{display:flex;align-items:baseline;gap:10px}
 /* 교훈 카드: 가운데 그림 칸이 남는 높이를 쓴다 */
 .lessons .panel h3{font-size:23px;margin:8px 0 10px}
 .lessons .panel p{font-size:17px}
 .lessons .lviz{flex:1;display:flex;flex-direction:column;justify-content:center;min-height:0;padding:6px 0}
 .lessons .panel .pfoot{margin-top:12px}
+.lessons .lviz svg{display:block}
+.lessons .lcap{display:block;font-size:11.5px;color:var(--ink3);margin-top:3px}
+.lessons .lviz [data-tip]{cursor:default}
 .stair{display:grid;gap:7px;justify-items:start}
 .stair span{font-size:16.5px;padding:5px 13px;border-radius:999px;border:1px solid var(--line2);background:#0c2033;white-space:nowrap}
 .stair span:nth-child(2){margin-left:44px}
 .stair span:nth-child(3){margin-left:88px;border-color:var(--acc);font-weight:700}
-.formula{font-size:28px;font-weight:800;letter-spacing:-.3px;white-space:nowrap}
-.formula i{font-style:normal;color:var(--ink3);margin:0 9px;font-weight:400}
 .runway{display:grid;gap:12px}
 .runway div{font-size:14px;color:var(--ink3)}
 .runway i{display:block;height:14px;border-radius:0 4px 4px 0;background:var(--c1);margin-top:4px}
@@ -550,21 +567,103 @@ svg .halo{paint-order:stroke;stroke:#07121f;stroke-width:4px;stroke-linejoin:rou
 .vsplit .base b{display:block;font-size:16.5px;color:var(--ink)}
 .splitmark{text-align:center;font-size:14.5px;color:var(--ink3);letter-spacing:.5px}
 .splitmark b{color:var(--acc)}
-.vsplit.grow{grid-template-rows:auto 1fr 1.5fr auto}
-.vsplit.grow .one{align-items:center}
-.vsplit.grow .one b{font-size:26px}
-.vsplit.grow .one span{font-size:18px}
-.vsplit.grow .chain .lk{display:flex;flex-direction:column;justify-content:center}
-.vsplit.grow .chain .lk em{font-size:15px}
-.vsplit.grow .chain .lk b{font-size:27px}
-.vsplit.grow .chain .lk span{font-size:17.5px}
-/* 작은 패널 · 카드 안 요약 수치 */
+/* 밸류체인 × 제품군 지도: .vsplit 을 여섯 칸(이름 · IP/EDA · 세 단계 · 제품 특성)으로 넓힌 판.
+   분업은 사슬 세 조각, IDM 은 긴 띠 하나 — 구조의 차이를 모양으로 보인다 */
+.vsplit.vmap{grid-template-columns:168px 134px repeat(3,1fr) 228px;grid-template-rows:auto 1.5fr 1fr 1fr auto;gap:10px;flex:1;min-height:0}
+.vmap{--vk:#8fd8ff}
+/* 두 축의 이름표와 가로축: 밸류체인 단계는 하늘색 화살표 띠 */
+.vmap .axk{grid-column:1;grid-row:1;display:flex;flex-direction:column;justify-content:center;font-size:12px;letter-spacing:.5px;line-height:1.4}
+.vmap .axk b:first-child{color:var(--vk)}
+.vmap .axk b:last-child{color:var(--ink)}
+.vmap .hband{grid-column:2/6;grid-row:1;display:grid;grid-template-columns:134px repeat(3,1fr);gap:10px}
+.vmap .hband .h{padding:6px 0 7px;font-size:14.5px;letter-spacing:1.5px;font-weight:800;color:#eaf8ff;background:#17425c;clip-path:polygon(0 0,calc(100% - 13px) 0,100% 50%,calc(100% - 13px) 100%,0 100%,13px 50%)}
+.vmap .hband .h:first-child{clip-path:polygon(0 0,calc(100% - 13px) 0,100% 50%,calc(100% - 13px) 100%,0 100%)}
+.vmap .hw{grid-column:6;grid-row:1;align-self:center;text-align:center;font-size:13.5px;letter-spacing:2px;font-weight:700;color:var(--ink3)}
+/* 세로축: 제품군마다 한 가지 색(--rc) — 이름표의 띠 · 칸의 바탕과 테두리 · 오른쪽 설명의 띠가 같은 색을 쓴다 */
+.vmap .rl{grid-column:1;letter-spacing:0;border-left:5px solid var(--rc);padding-left:12px}
+.vmap .rl em{font-style:normal;font-size:12px;font-weight:800;letter-spacing:1px;color:var(--rc)}
+.vmap .rl b{font-size:21px;margin-top:3px}
+.vmap .rl small{font-size:12.5px;letter-spacing:0;font-weight:400;color:var(--ink3);line-height:1.45;margin-top:5px}
+.vmap .lg .lk,.vmap .one{background:color-mix(in srgb,var(--rc) 16%,#0b1a2b);border-color:color-mix(in srgb,var(--rc) 75%,#23506c)}
+.vmap .eq .base{border-color:color-mix(in srgb,var(--rc) 60%,var(--line))}
+.shead .sub b{font-weight:700;color:var(--ink)}
+.shead .sub b.vk{color:#8fd8ff}
+.vmap .ip{grid-column:2;grid-row:2/5;display:flex;flex-direction:column;justify-content:center;gap:14px;padding:16px 16px;border:1px solid var(--line2);border-radius:12px;background:#0b1a2b}
+.vmap .ip div{padding-bottom:14px;border-bottom:1px solid var(--line)}
+.vmap .ip em{display:block;font-style:normal;font-size:12.5px;color:var(--acc);letter-spacing:.5px;margin-bottom:5px}
+.vmap .ip b{display:block;font-size:20px;line-height:1.45}
+.vmap .ip p{font-size:13.5px;line-height:1.5;color:var(--ink3)}
+.vmap .lg{grid-column:3/6;display:grid;grid-template-rows:1fr auto;gap:8px;min-height:0}
+.vmap .lg .chain,.vmap .lg .one{grid-column:1}
+.vmap .chain .lk{display:flex;flex-direction:column;justify-content:center;padding:8px 22px 8px 34px}
+.vmap .chain .lk:first-child{padding-left:22px}
+.vmap .chain .lk em{font-size:13.5px;margin-bottom:1px}
+.vmap .chain .lk span{font-size:16px;line-height:1.4;margin-top:3px}
+.vmap .chain .lk small{display:block;font-size:13px;color:var(--ink3);margin-top:3px}
+.vmap .chain .lk .choke{margin-top:5px}
+.vmap .one{grid-column:3/6;align-items:center;justify-content:space-between;gap:24px;padding:8px 46px 8px 26px}
+.vmap .one .who{display:flex;flex-direction:column;align-items:flex-start;gap:3px;min-width:0}
+.vmap .one b{font-size:24px}
+.vmap .one span{font-size:16px}
+.vmap .one .choke{margin-top:3px}
+/* IDM 띠의 오른쪽: 위 사슬의 세 단계를 한 회사가 모두 맡는다 */
+.vmap .inh{flex:none;display:flex;flex-direction:column;align-items:flex-end;gap:6px}
+.vmap .inh em{font-style:normal;font-size:12.5px;letter-spacing:1px;color:var(--ink3);font-weight:700}
+.vmap .inh .tags{margin:0;flex-wrap:nowrap}
+.vmap .inh .tags span{font-size:14px;color:var(--ink);padding:3px 11px}
+.vmap .one.sm{flex-direction:row;align-items:baseline;justify-content:flex-start;gap:14px;padding:9px 40px 9px 26px}
+.vmap .one.sm b{font-size:19px}
+.vmap .one.sm span{font-size:14.5px}
+.vmap .eq{grid-column:2/6;display:grid;grid-template-columns:1.3fr 1.25fr .8fr;gap:10px}
+.vmap .base{padding:8px 16px}
+.vmap .why{grid-column:6;display:flex;flex-direction:column;justify-content:center;border-left:3px solid var(--rc);padding:2px 0 2px 16px;font-size:15.5px;line-height:1.5;color:var(--ink2)}
+.vmap .why b{font-size:17.5px;color:var(--ink);letter-spacing:-.3px}
+.vmap .why small{font-size:12.5px;color:var(--ink3);margin-top:3px}
+.vmap [data-tip]{cursor:default}
+/* 병목: 대체 공급자가 거의 없는 단계 */
+.choke{display:inline-flex;align-items:center;gap:7px;font-style:normal;font-size:13px;font-weight:700;color:var(--amber);white-space:nowrap;line-height:1.3}
+.choke em{font-style:normal;font-size:11.5px;font-weight:800;letter-spacing:1px;color:#1b1204;background:var(--amber);border-radius:4px;padding:1px 6px}
+/* M&A 재편: 네 갈래의 계보를 같은 시간축에 놓는다. 한 줄 = 갈래 이름 · 계보 그림 · 결과 */
+.mna{display:flex;flex-direction:column;gap:8px;height:100%}
+.mna-ax,.mrow{display:grid;grid-template-columns:188px auto 1fr;column-gap:14px;padding:0 16px}
+.mna-ax{align-items:end;height:30px}
+.mna-ax .legend{justify-content:flex-end;gap:12px;font-size:12.5px;padding-bottom:3px}
+.mrow{flex:1;min-height:0;align-items:center;border:1px solid var(--line);border-radius:14px;padding:0 15px;background:#0b1a2b}
+.mrow svg,.mna-ax svg{display:block}
+.mrow-h{display:flex;flex-direction:column}
+.mrow-h em{font-style:normal;font-size:12.5px;letter-spacing:1.5px;color:var(--acc);font-weight:700}
+.mrow-h b{font-size:21px;letter-spacing:-.5px;line-height:1.3;margin:3px 0 5px;white-space:nowrap}
+.mrow-h span{font-size:13.5px;line-height:1.45;color:var(--ink3)}
+.mrow-out{display:flex;flex-direction:column;position:relative;padding-left:32px;min-width:0}
+.mrow-out::before{content:"→";position:absolute;left:2px;top:50%;transform:translateY(-50%);font-size:22px;line-height:1;color:var(--acc);font-weight:700}
+.mrow-out b{font-size:19px;line-height:1.32;letter-spacing:-.4px}
+.mrow-out span{font-size:13.5px;line-height:1.45;color:var(--ink2);margin-top:4px}
+.mrow [data-tip]{cursor:default}
+/* 제2기: 분업이 깊어진 이유 세 장 → 그 결과(이전과 이후의 구조 · 팹리스의 몫) */
+.panel.why{padding:15px 20px 14px}
+.panel.why h3{font-size:22px;margin:5px 0 8px}
+.whyn{display:flex;align-items:center;gap:14px;margin-bottom:8px}
+.whyn b{font-size:46px;font-weight:900;letter-spacing:-2px;line-height:1.05;color:var(--amber);white-space:nowrap}
+.whyn span{font-size:13.5px;line-height:1.45;color:var(--ink3)}
+.panel.why p{font-size:15.5px;line-height:1.5}
+.vsplit.duo{grid-template-rows:1fr 1.5fr;height:100%}
+.vsplit.duo .one{align-items:center}
+.vsplit.duo .chain .lk{display:flex;flex-direction:column;justify-content:center}
+.fshare{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:14px;background:#0a1727;padding:14px 20px 12px;min-width:0}
+.fshare .fx{font-size:34px;font-weight:900;letter-spacing:-1px;line-height:1.15;color:var(--acc);margin-top:2px}
+.fbars{flex:1;display:flex;align-items:flex-end;justify-content:center;gap:36px;min-height:0}
+.fbars div{display:flex;flex-direction:column;align-items:center;width:98px}
+.fbars b{font-size:23px;font-weight:800;letter-spacing:-.5px;color:var(--ink2)}
+.fbars i{display:block;width:100%;border-radius:6px 6px 0 0;background:var(--mute);margin-top:4px}
+.fbars span{font-size:13px;color:var(--ink3);margin-top:5px}
+.fbars .now b{color:var(--ink)}
+.fbars .now i{background:var(--acc)}
+.fshare .note{margin-top:6px;font-size:11.5px}
+.gap12{gap:12px}
+/* 작은 패널 · 차트 위 요약 수치 */
 .panel.sm{padding:18px 20px}
 .panel.sm h3{font-size:22px;margin:8px 0}
 .panel.sm p{font-size:16.5px;line-height:1.55}
-.cardstat{display:flex;align-items:center;gap:22px;margin-top:auto;padding:10px 0 4px;border-top:1px solid var(--line)}
-.cardstat p{font-size:16px;line-height:1.5;color:var(--ink2)}
-.cardstat p b{color:var(--ink)}
 .kpi{display:flex;align-items:baseline;gap:12px;margin:2px 0 4px}
 .kpi b{font-size:32px;font-weight:900;letter-spacing:-1px;line-height:1.2}
 .kpi span{font-size:14.5px;color:var(--ink2);font-variant-numeric:tabular-nums}
